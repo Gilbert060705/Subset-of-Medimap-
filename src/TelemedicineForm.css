@@ -1,0 +1,85 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #dcb7a6;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 24px;
+  color: #e74c3c;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-family: 'Lexend Deca';
+  padding: 10px;
+}
+
+.nav a:hover {
+  background-color: aqua;
+  border-radius: 10px;
+}
+
+.container {
+  height: 800px;
+  margin: 20px 200px;
+  border-radius: 10px;
+  background-color: #d2918c;
+}
+
+.main {
+  background-color: #e74c3c;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+}
+
+h2 {
+  font-family: "Lexend Deca";
+  margin-top: 0;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: "Lexend Deca";
+}
+
+textarea, input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f9d5cb;
+}
+
+.button {
+  background-color: #f9d5cb;
+  color: #e74c3c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}

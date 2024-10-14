@@ -1,0 +1,90 @@
+/* Container and general styling */
+.history-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0d5cc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .logo {
+    width: 150px;
+  }
+  
+  .nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .nav a:hover {
+    color: #d28a7d;
+  }
+  
+  /* History content */
+  .history-content h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .appointments-section,
+  .past-visits-section {
+    background-color: #d2918c;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 30px;
+  }
+  
+  .appointments-section h2,
+  .past-visits-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  /* Appointment and Visit Items */
+  .appointment-item,
+  .visit-item {
+    background-color: #c97c74;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  .appointment-item h3,
+  .visit-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .details-row p {
+    margin: 5px 0;
+  }
+  
+  .favorite-button,
+  .review-button {
+    background-color: #e8baa1;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .favorite-button:hover,
+  .review-button:hover {
+    background-color: #d28a7d;
+  }
+  

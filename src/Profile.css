@@ -1,0 +1,142 @@
+    /* Container and general styling */
+.profile-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0d5cc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .logo {
+    width: 150px;
+  }
+  
+  .nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Lexend Deca';
+    padding: 10px;
+  }
+  
+  .nav a:hover {
+    background-color: aqua;
+    border-radius: 10px;
+  }
+  
+  /* User Info Section */
+  .user-info {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #e8e8e8;
+  }
+  
+  .user-info h1 {
+    font-size: 32px;
+    margin-top: 10px;
+  }
+  
+  .user-info p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  /* About Section */
+  .about-section {
+    background-color: #d2918c;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    color: white;
+  }
+  
+  .about-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .about-header h2 {
+    font-size: 24px;
+  }
+  
+  .edit-button {
+    background-color: #e8baa1;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .about-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  .detail-row {
+    width: 48%;
+    margin-bottom: 15px;
+  }
+  
+  .detail-row label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .detail-row input {
+    width: 85%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c97c74;
+    color: white;
+  }
+  
+  /* Visits Section */
+  .visits-section {
+    background-color: #d2918c;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .visits-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .details-button {
+    background-color: #e8baa1;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .visit-item {
+    background-color: #c97c74;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: white;
+  }
+  

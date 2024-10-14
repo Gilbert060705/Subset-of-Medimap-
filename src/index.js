@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppointmentBooked from './AppointmentBooked';
+import TelemedicineForm from './TelemedicineBooking';
+import BookingConfirmed from './BookingConfirmed';
+import Profile from './Profile';
+import History from './History';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <History/>
   </React.StrictMode>
 );
 
