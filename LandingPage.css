@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: #f3e3d6;
+  }
+  
+  /* Header */
+  .landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+  }
+  
+  .logo {
+    width: 200px;
+  }
+  
+  nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+  }
+  
+  .icons img {
+    width: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  /* Main Section */
+  .landing-main {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    position: relative;
+  }
+  
+  .main-left .doctor-image {
+    width: 600px; /* Increased doctor image size */
+    position: relative;
+    z-index: 1;
+  }
+  
+  .main-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .main-right h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .main-right p {
+    font-size: 1.2rem;
+    color: #777;
+    margin: 20px 0;
+  }
+  
+  .cta-button {
+    background-color: #3282ff;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button:hover {
+    background-color: #255bb5;
+  }
+  
+  .catchy-text {
+    width: 300px;
+  }
+  
+  /* Decorations */
+  .decorations .blue-heart {
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    width: 100px;
+    z-index: 0;
+  }
+  
+  .decorations .heart-second {
+    top: 200px;
+    left: 250px;
+    width: 100px;
+  }
+  
+  .decorations .heart-third {
+    top: 320px;
+    left: 100px;
+    width: 100px;
+  }
+  
+  .decorations .heart-bottom-right {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 100px;
+  }
+  
+  .decorations .shield-icon {
+    position: absolute;
+    top: 45px;
+    right: 780px; /* Position near the doctor's head */
+    width: 250px;
+    z-index: 1;
+  }
+  

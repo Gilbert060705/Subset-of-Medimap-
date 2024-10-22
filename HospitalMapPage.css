@@ -1,0 +1,93 @@
+
+
+.hospital-map-page {
+    display: flex;
+    height: 100vh;
+    background-color: #f3e3d6;  /* Consistent background color */
+    overflow-y: hidden;
+  }
+  
+  .sidebar {
+    align-self: center;
+    width: 20%;
+    background-color: #d9825f;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    height: 75vh;
+  }
+  
+  .search-bar {
+    width: calc(100% - 20px);  /* Ensure full width minus padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filters h3 {
+    margin-top: 20px;
+  }
+  
+  .filters label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .hospital-list {
+    align-self: center;
+    width: 40%;
+    padding: 20px;
+    overflow-y: auto;  /* Enable scrolling */
+    max-height: 75vh;  /* Limit the height of the hospital list */
+    background-color: #f3e3d6;  /* Ensure consistent background color */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hospital-item {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .hospital-item:hover {
+    background-color: #d9825f;  /* Change color on hover */
+    transform: translateY(-5px);  /* Slight lift effect on hover */
+    color: white;
+  }
+  
+  .hospital-status {
+    color: red;
+  }
+  
+  .see-more {
+    padding: 10px;
+    background-color: #d9825f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .map-container {
+    align-self: center;
+    width: 40%;
+    padding: 20px;
+    height: 100vh;  /* Full height for the map */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .leaflet-map {
+    height: 80%;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
