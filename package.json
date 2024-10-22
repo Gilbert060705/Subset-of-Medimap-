@@ -1,14 +1,23 @@
 {
-  "name": "softeng2006",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-leaflet/core": "^2.1.0",
+    "@supabase/auth-ui-react": "^0.4.7",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "core-js": "^3.38.1",
+    "firebase": "^10.14.1",
+    "leaflet": "^1.9.4",
+    "papaparse": "^5.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.27.0",
+    "react-scripts": "^5.0.1",
+    "rimraf": "^6.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,5 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "webpack": "^5.95.0"
   }
 }
