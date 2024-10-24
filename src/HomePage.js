@@ -106,29 +106,185 @@ const hospitals = [
  * @return {JSX.Element} A JSX element containing the hospital map page.
  */
 const HospitalMapPage = () => {
-    const [currentLocation, setCurrentLocation] = useState([1.3521, 103.8198]); // Default to Singapore
-    const [locationAccess, setLocationAccess] = useState(false); // Track location permission
+    const [currentLocation, setCurrentLocation] = useState([1.3521, 103.8198]);
+    const [locationAccess, setLocationAccess] = useState(false);
+    const [locationError, setLocationError] = useState(null);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResultLocation, setSearchResultLocation] = useState(null);
+    const [isSearching, setIsSearching] = useState(false);
+    const [searchError, setSearchError] = useState(null);
+    const [isLoadingLocation, setIsLoadingLocation] = useState(true);
 
-    // Prompt the user for location access and set the current location if granted
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const { latitude, longitude } = position.coords;
-                setCurrentLocation([latitude, longitude]);
-                setLocationAccess(true);
-            },
-            () => {
-                alert('Location access denied. Defaulting to Singapore.');
-            }
-        );
+        // Check if geolocation is supported
+        if (!navigator.geolocation) {
+            setLocationError('Geolocation is not supported by your browser');
+            setIsLoadingLocation(false);
+            return;
+        }
+
+        // Options for getCurrentPosition
+        const options = {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        };
+
+        // Success handler
+        const success = (position) => {
+            console.log('Location obtained successfully:', position);
+            const { latitude, longitude } = position.coords;
+            setCurrentLocation([latitude, longitude]);
+            setLocationAccess(true);
+            setLocationError(null);
+            setIsLoadingLocation(false);
+        };
+
+        // Error handler
+        const error = (err) => {
+            console.error('Location error:', err);
+            setLocationError(
+                err.code === 1 ? 'Permission denied. Please enable location access in your browser settings.' :
+                err.code === 2 ? 'Location unavailable. Please try again.' :
+                err.code === 3 ? 'Location request timed out. Please try again.' :
+                'An unknown error occurred while getting your location.'
+            );
+            setLocationAccess(false);
+            setIsLoadingLocation(false);
+        };
+
+        // Request location
+        console.log('Requesting location...');
+        const watchId = navigator.geolocation.watchPosition(success, error, options);
+
+        // Cleanup
+        return () => {
+            navigator.geolocation.clearWatch(watchId);
+        };
     }, []);
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+        setSearchError(null); // Clear any previous search errors
+    };
+
+    const handleSearchSubmit = async (e) => {
+        e.preventDefault();
+        
+        // Clear previous search state
+        setSearchError(null);
+        setIsSearching(true);
+
+        // Validate search query
+        const formattedSearchQuery = searchQuery.trim();
+        if (!formattedSearchQuery) {
+            setSearchError('Please enter a location to search');
+            setIsSearching(false);
+            return;
+        }
+
+        try {
+            // Add region bias for Singapore to improve search accuracy
+            const searchUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(formattedSearchQuery)}+Singapore&format=json&limit=1`;
+            
+            console.log('Searching for location:', searchUrl);
+            
+            const response = await fetch(searchUrl, {
+                headers: {
+                    'User-Agent': 'MediMap/1.0 (medimap@example.com)'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log('Search results:', data);
+
+            if (data && data.length > 0) {
+                const lat = parseFloat(data[0].lat);
+                const lon = parseFloat(data[0].lon);
+                
+                // Validate coordinates
+                if (isNaN(lat) || isNaN(lon)) {
+                    throw new Error('Invalid coordinates received');
+                }
+
+                // Validate coordinates are within Singapore region (rough bounds)
+                if (lat < 1.22 || lat > 1.47 || lon < 103.6 || lon > 104.1) {
+                    setSearchError('Location must be within Singapore');
+                    setIsSearching(false);
+                    return;
+                }
+
+                setSearchResultLocation([lat, lon]);
+                setSearchError(null);
+            } else {
+                setSearchError('Location not found in Singapore. Please try a different search term.');
+            }
+        } catch (error) {
+            console.error('Search error:', error);
+            setSearchError('An error occurred while searching. Please try again.');
+        } finally {
+            setIsSearching(false);
+        }
+    };
+    
 
     return (
         <div className="hospital-map-page">
             <div className="sidebar">
-                {/* Search bar */}
-                <input type="text" placeholder="Direct Search" className="search-bar" />
+                {/* Search section with error handling */}
+                <div className="search-section">
+                    <form onSubmit={handleSearchSubmit} className="search-form">
+                        <input
+                            type="text"
+                            placeholder="Search location in Singapore"
+                            className="search-bar"
+                            value={searchQuery}
+                            onChange={handleSearchChange}
+                            disabled={isSearching}
+                        />
+                        <button 
+                            type="submit" 
+                            className="search-button"
+                            disabled={isSearching}
+                        >
+                            {isSearching ? 'Searching...' : 'Search'}
+                        </button>
+                    </form>
+                    
+                    {searchError && (
+                        <div className="search-error">
+                            <p>{searchError}</p>
+                        </div>
+                    )}
 
+                    {searchResultLocation && !searchError && (
+                        <div className="search-success">
+                            <p>Location found! Map centered on search result.</p>
+                        </div>
+                    )}
+                </div>
+
+                {/* Location Status Indicator */}
+                <div className="location-status">
+                    {isLoadingLocation ? (
+                        <p>Getting your location...</p>
+                    ) : locationError ? (
+                        <div className="error-message">
+                            <p>{locationError}</p>
+                            <button onClick={() => window.location.reload()}>
+                                Try Again
+                            </button>
+                        </div>
+                    ) : locationAccess ? (
+                        <p>📍 Using your current location</p>
+                    ) : (
+                        <p>Using default location (Singapore)</p>
+                    )}
+                </div>
                 {/* Filters for hospitals */}
                 <div className="filters">
                     <h3>Type</h3>
@@ -169,17 +325,43 @@ const HospitalMapPage = () => {
             </div>
 
             <div className="map-container">
-                <MapContainer center={currentLocation} zoom={13} className="leaflet-map">
+                <MapContainer 
+                    center={searchResultLocation || currentLocation} 
+                    zoom={13} 
+                    className="leaflet-map"
+                >
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     />
-                    <SetMapCenter position={currentLocation} /> {/* Update map center */}
+                    <SetMapCenter position={searchResultLocation || currentLocation} />
+                    
                     {locationAccess && (
                         <Marker position={currentLocation} icon={customIcon}>
-                            <Popup>Your current location</Popup>
+                            <Popup>
+                                <strong>Your current location</strong>
+                                <br />
+                                Lat: {currentLocation[0].toFixed(4)}
+                                <br />
+                                Lng: {currentLocation[1].toFixed(4)}
+                            </Popup>
                         </Marker>
                     )}
+
+                    {searchResultLocation && (
+                        <Marker position={searchResultLocation} icon={customIcon}>
+                            <Popup>
+                                <strong>Search Result</strong>
+                                <br />
+                                {searchQuery}
+                                <br />
+                                Lat: {searchResultLocation[0].toFixed(4)}
+                                <br />
+                                Lng: {searchResultLocation[1].toFixed(4)}
+                            </Popup>
+                        </Marker>
+                    )}
+
                     {hospitals.map((hospital, index) => (
                         <Marker key={index} position={[hospital.lat, hospital.lng]} icon={customIcon}>
                             <Popup>{hospital.name}</Popup>
