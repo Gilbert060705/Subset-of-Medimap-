@@ -30,6 +30,7 @@ import './HospitalMapPage.css';
 import logo from './images/logo.png';
 import profileIcon from './images/personProfile.png';
 import menuIcon from './images/threeLinesMenu.png';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Custom marker icon for map markers using Leaflet.
@@ -97,7 +98,8 @@ const HospitalMapPage = () => {
   const [hospitals, setHospitals] = useState([]); // Store hospital data
   const [locationAccess, setLocationAccess] = useState(false); // Track location access
   const [selectedHospital, setSelectedHospital] = useState(null); // Track selected hospital
-
+  const navigate = useNavigate(); // Router navigation
+  
   // Fetch the user's current location using the geolocation API
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -136,7 +138,7 @@ const HospitalMapPage = () => {
    * @param hospital The hospital object containing latitude and longitude.
    */
   const handleHospitalClick = (hospital) => {
-    setSelectedHospital([parseFloat(hospital.latitude), parseFloat(hospital.longitude)]);
+    navigate('/appointmentform', { state: { hospitalName: hospital.name } });
   };
 
   return (
