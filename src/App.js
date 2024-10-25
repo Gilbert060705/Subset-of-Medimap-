@@ -69,7 +69,7 @@ function App() {
                 <Route path="/telemedicineform" element={<TelemedicineForm/>} />
 
                 {/* Add this route for AppointmentForm */}
-                <Route path="/appointment" element={<AppointmentForm />} />
+                <Route path="/appointmentform" element={<AppointmentForm />} />
             </Routes>
 
             {/* Fallback message to verify React app is running */}

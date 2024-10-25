@@ -6,14 +6,13 @@
   }
   
   .sidebar {
-    align-self: center;
-    width: 20%;
-    background-color: #d9825f;
-    padding: 20px;
+    width: 25%; /* Adjust as necessary */
+    height: 85vh; /* Keep it consistent */
+    padding: 20px; /* Maintain padding */
+    overflow-y: auto; /* Enable scrolling for overflow content */
     border-radius: 10px;
-    margin: 20px;
-    height: 85vh;
-  }
+    background-color: #d9825f; /* Background color */
+}
   
   .search-bar {
     width: calc(100% - 20px);  /* Ensure full width minus padding */

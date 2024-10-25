@@ -31,6 +31,7 @@ import SignUpPage from './SignUpPage';
 import LandingPage from './LandingPage';
 import HomePage from './HomePage';
 import HospitalMapPage from './HospitalMapPage';
+import AppointmentForm from './AppointmentForm';  // Use the correct case   
 
 /**
  * The App function component defines the structure of the application by setting up
@@ -77,6 +78,9 @@ function App() {
 
                     {/* Route mapping for HospitalMapPage */}
                     <Route path="/hospitals" element={<HospitalMapPage />} />
+
+                    {/* Add this route for AppointmentForm */}
+                     <Route path="/appointment" element={<AppointmentForm />} />
                 </Routes>
 
                 {/* Fallback message to verify React app is running */}
