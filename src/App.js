@@ -27,6 +27,7 @@ import SignUpPage from './SignUpPage';
 import LandingPage from './LandingPage';  // Import the LandingPage
 import HomePage from './HomePage';
 import HospitalMapPage from './HospitalMapPage';
+import TelemedicineForm from './TelemedicineForm';
 
 /**
  * The App function component defines the structure of the application by setting up
@@ -59,6 +60,8 @@ function App() {
 
                 {/* Route mapping for HospitalMapPage */}
                 <Route path="/hospitals" element={<HospitalMapPage />} />
+
+                <Route path="/telemedicineform" element={<TelemedicineForm/>} />
             </Routes>
 
             {/* Fallback message to verify React app is running */}
