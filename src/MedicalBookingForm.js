@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './MedicalBookingForm.css';
 import logo from './images/logo.png';
+import "./MedicalBookingForm.css";
 
 const MedicalBookingForm = () => {
   const [formData, setFormData] = useState({
@@ -36,18 +36,16 @@ const MedicalBookingForm = () => {
 
   return (
     <div className="container">
-      <nav className="navbar">
-        <div className="navbar-brand">
-          <div className="logo">
-            <img src={logo} alt="MediMap Logo"/>
-          </div>
-        </div>
-        <div className="nav-links">
-          <a href="./HomePage.js" className="nav-link">Home</a>
-          <a href="#" className="nav-link">About Us</a>
-          <a href="#" className="nav-link">My Bookings</a>
-        </div>
-      </nav>
+            <header className="header">
+                <div className="logo">
+                    <img src={logo} alt="MediMap Logo" />
+                </div>
+                <nav className="nav">
+                    <a href="/HomePage.js">Home</a>
+                    <a href="/about">About Us</a>
+                    <a href="/bookings">My Bookings</a>
+                </nav>
+            </header>
 
       <div className="form-container">
         <h2 className="form-title">Singapore General Hospital</h2>
