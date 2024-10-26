@@ -37,3 +37,8 @@ function deletereportFile(inputFileName){
       alert("Please enter a file name.");
     }
 }
+
+export{
+    storeReportFile,
+    deletereportFile
+}

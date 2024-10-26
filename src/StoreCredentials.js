@@ -13,3 +13,7 @@ async function storeUserDetails(email, fullName, phoneNumber) {
       console.error("Error saving user details:", error.message);
     }
   }
+
+export {
+    storeUserDetails
+}
