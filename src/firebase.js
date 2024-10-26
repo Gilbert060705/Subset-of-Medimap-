@@ -36,7 +36,7 @@ import {
   EmailAuthProvider, // Import for creating email-password credentials
   linkWithCredential // Import for linking accounts
 } from 'firebase/auth';
-import { storage } from 'firebase/storage'
+import { getStorage } from 'firebase/storage'
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 /**
@@ -61,6 +61,16 @@ const app = initializeApp(firebaseConfig);
  * Firebase Authentication service initialized using the Firebase app instance.
  */
 const auth = getAuth(app);
+
+/**
+ * Firebase storage service initialized using the Firebase app instance.
+ */
+const storage = getStorage(app);
+
+/**
+ * Firestore database service initialized using the Firebase app instance.
+ */
+const db = getFirestore(app);
 
 /**
  * Google authentication provider instance used for OAuth-based sign-in.
@@ -88,7 +98,7 @@ export {
     signInWithEmailAndPassword, 
     signOut,
     storage, 
-    getFirestore, 
+    db, 
     doc, 
     setDoc,
     signInWithPopup, // Exported for Google sign-in
