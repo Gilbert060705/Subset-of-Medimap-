@@ -1,11 +1,10 @@
 import { db, setDoc, doc } from "./firebase";
 
-async function storeUserDetails(email, fullName, phoneNumber) {
+async function storeUserDetails(email, fullName) {
     try {
       await setDoc(doc(db, "users", user.uid), {
         email: email,
         fullName: fullName,
-        phoneNumber: phoneNumber
       });
   
       console.log("User Details saved to Firestore:", user);
