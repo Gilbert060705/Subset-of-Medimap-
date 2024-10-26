@@ -36,6 +36,8 @@ import {
   EmailAuthProvider, // Import for creating email-password credentials
   linkWithCredential // Import for linking accounts
 } from 'firebase/auth';
+import { storage } from 'firebase/storage'
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 /**
  * Firebase configuration object containing project-specific credentials.
@@ -88,14 +90,9 @@ export {
     storage, 
     getFirestore, 
     doc, 
-    setDoc
-  auth, 
-  googleProvider, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signOut, 
-  signInWithPopup, // Exported for Google sign-in
-  fetchSignInMethodsForEmail, // Exported to check existing sign-in methods
-  EmailAuthProvider, // Exported to create email-password credentials
-  linkWithCredential // Exported to link accounts
+    setDoc,
+    signInWithPopup, // Exported for Google sign-in
+    fetchSignInMethodsForEmail, // Exported to check existing sign-in methods
+    EmailAuthProvider, // Exported to create email-password credentials
+    linkWithCredential // Exported to link accounts
 };
