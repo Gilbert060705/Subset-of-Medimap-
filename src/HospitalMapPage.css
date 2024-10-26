@@ -216,3 +216,35 @@
     margin-bottom: 10px;
   }
 }
+
+.hospital-item {
+  background-color: #f0f0f0;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  position: relative;  /* Ensures positioning for button */
+}
+
+.hospital-item:hover {
+  background-color: #d9825f;
+  transform: translateY(-5px);
+  color: white;
+}
+
+.book-appointment-button {
+  padding: 10px;
+  background-color: #007bff;  /* Adjust as per color theme */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;  /* Full width for a neat look */
+}
+
+.book-appointment-button:hover {
+  background-color: #0056b3;  /* Slightly darker for hover effect */
+}
+
