@@ -302,7 +302,7 @@ const HospitalMapPage = () => {
 
                     {/* Conditionally render the Book an Appointment button */}
                     {showBookingButton && (
-                    <Link to="/telemedicineForm">
+                    <Link to="/bookform">
                         <button className="book-appointment-button" >
                             Book an Appointment Now
                         </button>
