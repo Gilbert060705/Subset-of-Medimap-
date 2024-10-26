@@ -2,8 +2,6 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
-  "main": "yourScript.js",
   "dependencies": {
     "@react-leaflet/core": "^2.1.0",
     "@supabase/auth-ui-react": "^0.4.7",
