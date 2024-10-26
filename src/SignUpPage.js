@@ -121,14 +121,17 @@ const SignUpPage = () => {
           />
 
           <label htmlFor="fullName">Full Name</label>
-          <input
-            type="text"
-            id="fullName"
-            placeholder="Full Name"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            required
-          />
+          <input type="text" id="fullName" placeholder="Full Name" />
+
+          <label>Role</label>
+          <div className="role-options">
+            <label>
+              <input type="checkbox" /> Doctor
+            </label>
+            <label>
+              <input type="checkbox" /> Patient
+            </label>
+          </div>
 
           <label htmlFor="password">Password</label>
           <input
