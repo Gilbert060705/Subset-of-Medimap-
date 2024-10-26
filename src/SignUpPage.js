@@ -1,44 +1,47 @@
-/**
- * SignUpPage component renders the registration interface for users 
- * of the MediMap+ application. It provides a simple form for users 
- * to enter their details and select their role.
- * 
- * Dependencies:
- * - React for UI rendering
- * - react-router-dom for navigation
- * - CSS for component styling
- * 
- * Features:
- * - Collects user information such as email, full name, role, and password.
- * - Redirects to the landing page upon successful sign-up.
- * 
- * Note: In a real-world scenario, the form would handle and validate 
- * user input data before registration.
- * 
- * @version 1.0
- * @since [15/09/2024]
- */
+// SignUpPage.js
 
-import React from 'react';
-import './SignUpPage.css'; // Import CSS for Sign-Up page styling
-import doctorImage from './images/Doctor.png'; // Background image for the left panel
-import { useNavigate } from 'react-router-dom'; // Navigation hook for redirection
+import React, { useState } from 'react';
+import './SignUpPage.css';
+import doctorImage from './images/Doctor.png';
+import { useNavigate } from 'react-router-dom';
+import { 
+  auth, 
+  createUserWithEmailAndPassword 
+} from './firebase'; // Import Firebase utilities
 
-/**
- * SignUpPage component renders the sign-up form for new users.
- *
- * @return {JSX.Element} JSX layout for the sign-up page.
- */
 const SignUpPage = () => {
   const navigate = useNavigate(); // Hook to navigate between pages
 
+  // State to manage form inputs
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [error, setError] = useState(''); // Track errors (if any)
+
   /**
-   * Handles the sign-up process. 
-   * Simulates successful registration by redirecting to the landing page.
+   * Handles the sign-up process using Firebase Authentication.
    */
-  const handleSignUp = () => {
-    // In a real application, handle form data and validation here
-    navigate('/landing');  // Redirect to the landing page after signup
+  const handleSignUp = async (e) => {
+    e.preventDefault(); // Prevent form submission from reloading the page
+
+    try {
+      // Create a new user with Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(
+        auth, 
+        email, 
+        password
+      );
+
+      // Successfully created the user
+      const user = userCredential.user;
+      console.log('User registered:', user);
+
+      // Redirect to the landing page after sign-up
+      navigate('/landing');
+    } catch (error) {
+      console.error('Sign-up error:', error.message);
+      setError(error.message); // Display the error message to the user
+    }
   };
 
   return (
@@ -48,33 +51,43 @@ const SignUpPage = () => {
 
       <div className="right-panel">
         <h2>Medimap+ is here to help you!</h2>
-        <form className="signup-form">
+        <form className="signup-form" onSubmit={handleSignUp}>
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="Email" />
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
           <label htmlFor="fullName">Full Name</label>
-          <input type="text" id="fullName" placeholder="Full Name" />
-
-          <label>Role</label>
-          <div className="role-options">
-            <label>
-              <input type="checkbox" /> Admin
-            </label>
-            <label>
-              <input type="checkbox" /> Patient
-            </label>
-          </div>
+          <input
+            type="text"
+            id="fullName"
+            placeholder="Full Name"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            required
+          />
 
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" placeholder="Password" />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-          <button
-            type="button"
-            onClick={handleSignUp}
-            className="signup-button"
-          >
+          <button type="submit" className="signup-button">
             Register Account
           </button>
+
+          {/* Display error message if any */}
+          {error && <p className="error-message">{error}</p>}
         </form>
       </div>
     </div>
