@@ -3,8 +3,8 @@
  * using Firebase Authentication. It provides methods for email-password-based 
  * authentication and Google sign-in.
  * 
- * <p>Firebase is configured with a specific project setup, and this module exports
- * Firebase authentication utilities for use across the application.</p>
+ * Firebase is configured with a specific project setup, and this module exports
+ * Firebase authentication utilities for use across the application.
  * 
  * Dependencies:
  * - firebase/app
@@ -14,38 +14,42 @@
  * - Firebase initialization
  * - Google authentication provider
  * - Email-password-based authentication methods
+ * - Account linking utilities
  * - Session persistence setup
  * 
  * Note: Sensitive information like API keys and configuration values should be secured.
  * 
- * @author [Group1]
- * @version 1.0
+ * @version 1.1
  */
 
 import { initializeApp } from 'firebase/app'; // Import Firebase core
 import { 
-    getAuth, 
-    GoogleAuthProvider, 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword, 
-    signOut, 
-    setPersistence, 
-    browserSessionPersistence 
-} from 'firebase/auth'; // Import Firebase authentication utilities
+  getAuth, 
+  GoogleAuthProvider, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signOut, 
+  setPersistence, 
+  browserSessionPersistence, 
+  signInWithPopup, // Import for Google sign-in
+  fetchSignInMethodsForEmail, // Import for checking existing sign-in methods
+  EmailAuthProvider, // Import for creating email-password credentials
+  linkWithCredential // Import for linking accounts
+} from 'firebase/auth';
+import { getStorage } from 'firebase/storage'
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 /**
  * Firebase configuration object containing project-specific credentials.
- * This includes API key, authentication domain, project ID, storage bucket, 
- * messaging sender ID, app ID, and measurement ID.
  */
 const firebaseConfig = {
-    apiKey: "AIzaSyCkFI-TfVZFatRkgSKGbqKnJEGeFgjDAyE",
-    authDomain: "sc2006-89c81.firebaseapp.com",
-    projectId: "sc2006-89c81",
-    storageBucket: "sc2006-89c81.appspot.com",
-    messagingSenderId: "815636358065",
-    appId: "1:815636358065:web:6cd00783cf097c2d589390",
-    measurementId: "G-BG1GYX3CSQ"
+  apiKey: "AIzaSyCkFI-TfVZFatRkgSKGbqKnJEGeFgjDAyE",
+  authDomain: "sc2006-89c81.firebaseapp.com",
+  projectId: "sc2006-89c81",
+  storageBucket: "sc2006-89c81.appspot.com",
+  messagingSenderId: "815636358065",
+  appId: "1:815636358065:web:6cd00783cf097c2d589390",
+  measurementId: "G-BG1GYX3CSQ"
 };
 
 /**
@@ -59,6 +63,16 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 /**
+ * Firebase storage service initialized using the Firebase app instance.
+ */
+const storage = getStorage(app);
+
+/**
+ * Firestore database service initialized using the Firebase app instance.
+ */
+const db = getFirestore(app);
+
+/**
  * Google authentication provider instance used for OAuth-based sign-in.
  */
 const googleProvider = new GoogleAuthProvider();
@@ -67,27 +81,28 @@ const googleProvider = new GoogleAuthProvider();
  * Configures session persistence to maintain authentication state across 
  * browser sessions (i.e., prevents auto-login across page reloads).
  *
- * <p>If there is an error during the session persistence setup, the error
- * is logged to the console for debugging.</p>
+ * If there is an error during the session persistence setup, the error
+ * is logged to the console for debugging.
  */
 setPersistence(auth, browserSessionPersistence).catch((error) => {
-    console.error('Error setting persistence:', error);
+  console.error('Error setting persistence:', error);
 });
 
 /**
  * Exports Firebase authentication utilities for use throughout the application.
- * 
- * Exported Items:
- * - `auth`: Firebase authentication instance
- * - `googleProvider`: Google authentication provider
- * - `createUserWithEmailAndPassword`: Method for registering a user with email and password
- * - `signInWithEmailAndPassword`: Method for signing in a user with email and password
- * - `signOut`: Method for signing out the authenticated user
  */
 export { 
     auth, 
     googleProvider, 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword, 
-    signOut 
+    signOut,
+    storage, 
+    db, 
+    doc, 
+    setDoc,
+    signInWithPopup, // Exported for Google sign-in
+    fetchSignInMethodsForEmail, // Exported to check existing sign-in methods
+    EmailAuthProvider, // Exported to create email-password credentials
+    linkWithCredential // Exported to link accounts
 };

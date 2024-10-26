@@ -70,8 +70,6 @@ function App() {
                 <Route path="/confirmbook" element={<AppointmentBooked/>}/>
             </Routes>
 
-            {/* Fallback message to verify React app is running */}
-            <p>If you see this, the React app is working.</p> 
         </Router>
     );
 }

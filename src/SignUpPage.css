@@ -72,3 +72,10 @@ h2 {
 .signup-button:hover {
   background-color: #5555ff;
 }
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
