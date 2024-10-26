@@ -32,6 +32,8 @@ import {
     setPersistence, 
     browserSessionPersistence 
 } from 'firebase/auth'; // Import Firebase authentication utilities
+import { storage } from 'firebase/storage'
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 /**
  * Firebase configuration object containing project-specific credentials.
@@ -89,5 +91,9 @@ export {
     googleProvider, 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword, 
-    signOut 
+    signOut,
+    storage, 
+    getFirestore, 
+    doc, 
+    setDoc
 };
