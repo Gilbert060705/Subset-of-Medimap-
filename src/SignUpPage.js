@@ -12,6 +12,7 @@ import {
   googleProvider, 
   signInWithPopup 
 } from './firebase'; // Import Firebase utilities
+import { storeUserDetails } from './StoreCredentials';
 
 const SignUpPage = () => {
   const navigate = useNavigate(); // React Router hook for navigation
@@ -44,6 +45,8 @@ const SignUpPage = () => {
       // Create a new user with email and password
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log('User registered:', userCredential.user);
+      await storeUserDetails(email, fullName);
+      console.log('User Details stored')
 
       // Redirect to the landing page
       navigate('/landing');
