@@ -58,7 +58,7 @@ const SignUpPage = () => {
           <label>Role</label>
           <div className="role-options">
             <label>
-              <input type="checkbox" /> Doctor
+              <input type="checkbox" /> Admin
             </label>
             <label>
               <input type="checkbox" /> Patient

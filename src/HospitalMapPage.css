@@ -1,152 +1,214 @@
+/* Base Styles for HospitalMapPage */
 .hospital-map-page {
-    display: flex;
-    height: 100vh;
-    background-color: #f3e3d6;  /* Consistent background color */
-    overflow-y: hidden;
+  display: flex;
+  flex-direction: row; /* Align sidebar, hospital list, and map in a row */
+  height: 100vh; /* Full height for the page */
+  overflow: hidden;
+  background-color: #f3e3d6; /* Consistent background */
+}
+
+/* Sidebar Section */
+.sidebar {
+  width: 20%; /* 20% of the screen width on desktops */
+  min-width: 250px; /* Prevent sidebar from shrinking too much */
+  background-color: #d9825f; /* Sidebar color */
+  padding: 20px;
+  border-radius: 10px;
+  margin-right: 10px; /* Space between sidebar and main content */
+  height: 85vh; /* Sidebar height */
+  overflow-y: auto; /* Scroll if content overflows */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Hospital List Section */
+.hospital-list {
+  width: 40%; /* Take 40% width on desktop */
+  max-height: 75vh; /* Ensure the list doesn't overflow */
+  overflow-y: auto; /* Enable vertical scrolling */
+  background-color: #f3e3d6; /* Consistent background */
+  margin-right: 10px; /* Space between list and map */
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 10px;
+}
+
+/* Hospital Item Styles */
+.hospital-item {
+  background-color: #f0f0f0; /* Light background */
+  padding: 15px;
+  margin-bottom: 10px; /* Space between items */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hospital-item:hover {
+  background-color: #d9825f; /* Change color on hover */
+  color: white;
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Map Container */
+.map-container {
+  width: 40%; /* Take 40% width on desktop */
+  height: 100vh; /* Full height for map section */
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Center the map horizontally */
+  align-items: center; /* Center the map vertically */
+}
+
+.leaflet-map {
+  width: 100%; /* Full width inside container */
+  height: 80%; /* Adjust map height to fit nicely */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Header Section */
+.landing-header {
+  display: flex;
+  justify-content: space-between; /* Space out elements */
+  align-items: center;
+  padding: 20px;
+  background-color: #f3e3d6; /* Header background */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Icons in Header */
+.icons img {
+  width: 30px; /* Icon size */
+  margin-left: 10px; /* Space between icons */
+}
+
+/* Responsive Media Queries */
+
+/* Tablet View (Width: 768px - 1024px) */
+@media (max-width: 1024px) {
+  .hospital-map-page {
+    flex-direction: column; /* Stack elements vertically */
   }
-  
+
   .sidebar {
-    align-self: center;
-    width: 20%;
-    background-color: #d9825f;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px;
-    height: 85vh;
-  }
-  
-  .search-bar {
-    width: calc(100% - 20px);  /* Ensure full width minus padding */
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: none;
-    font-size: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .filters h3 {
-    margin-top: 20px;
-  }
-  
-  .filters label {
-    display: block;
+    width: 100%; /* Full width on tablets */
     margin-bottom: 10px;
+    height: auto; /* Adjust height dynamically */
   }
-  
+
   .hospital-list {
-    align-self: center;
-    width: 40%;
-    padding: 20px;
-    overflow-y: auto;  /* Enable scrolling */
-    max-height: 75vh;  /* Limit the height of the hospital list */
-    background-color: #f3e3d6;  /* Ensure consistent background color */
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width for list */
+    margin-bottom: 10px; /* Add spacing between sections */
+    max-height: none; /* Remove height restriction */
   }
-  
-  .hospital-item {
-    background-color: #f0f0f0;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-  }
-  
-  .hospital-item:hover {
-    background-color: #d9825f;  /* Change color on hover */
-    transform: translateY(-5px);  /* Slight lift effect on hover */
-    color: white;
-  }
-  
-  .hospital-status {
-    color: red;
-  }
-  
-  .see-more {
-    padding: 10px;
-    background-color: #d9825f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+
   .map-container {
-    align-self: center;
-    width: 40%;
-    padding: 20px;
-    height: 100vh;  /* Full height for the map */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%; /* Full width map */
+    height: 400px; /* Adjust height for tablets */
   }
-  
+
   .leaflet-map {
-    height: 80%;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Full height inside map container */
+  }
+}
+
+/* Mobile View (Width < 768px) */
+@media (max-width: 768px) {
+  .hospital-map-page {
+    flex-direction: column; /* Stack sections vertically */
   }
 
-  .search-section {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
+  .sidebar,
+  .hospital-list,
+  .map-container {
+    width: 100%; /* Full width for all sections */
+    margin: 10px 0; /* Add space between sections */
+  }
+
+  .map-container {
+    height: 300px; /* Reduce height for mobile */
+  }
+
+  .landing-header {
+    flex-wrap: wrap; /* Stack header elements */
+    justify-content: center;
+  }
+
+  .icons img {
+    width: 25px; /* Adjust icon size */
+  }
+
+  nav a {
+    display: block; /* Stack navigation links */
+    margin: 5px 0; /* Add space between links */
+  }
 }
 
-.search-form {
-    display: flex;
-    gap: 10px;
+/* Large Desktop View (Width > 1200px) */
+@media (min-width: 1200px) {
+  .sidebar {
+    width: 18%; /* Slightly smaller sidebar */
+  }
+
+  .hospital-list {
+    width: 35%; /* Adjust list width */
+  }
+
+  .map-container {
+    width: 47%; /* Map takes more space */
+  }
 }
 
+/* Search Bar Styles */
 .search-bar {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+  width: calc(100% - 20px); /* Full width minus padding */
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
 }
 
-.search-button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* Filter Section */
+.filters h3 {
+  margin-top: 20px;
 }
 
-.search-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+.filters label {
+  display: block;
+  margin-bottom: 10px;
 }
 
-.search-error {
-    margin-top: 10px;
-    padding: 8px;
-    background-color: #fff3f3;
-    border: 1px solid #ffcdd2;
-    border-radius: 4px;
-    color: #d32f2f;
-}
-
-.search-success {
-    margin-top: 10px;
-    padding: 8px;
-    background-color: #f1f8e9;
-    border: 1px solid #c5e1a5;
-    border-radius: 4px;
-    color: #33691e;
-}
-
-.book-appointment-button{
+/* Book Appointment Button */
+.book-appointment-button {
   padding: 10px;
   background-color: white;
   color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* Status Indicators */
+.hospital-status {
+  color: red;
+}
+
+.search-error {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #fff3f3;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  color: #d32f2f;
+}
+
+.search-success {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #f1f8e9;
+  border: 1px solid #c5e1a5;
+  border-radius: 4px;
+  color: #33691e;
 }
