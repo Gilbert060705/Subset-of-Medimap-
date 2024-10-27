@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import logo from './images/logo.png';
 import './BookingConfirmed.css';
+import profilePic from './images/personProfile.png'; // Add this import
 
 const BookingConfirmed = () =>{
     return(
@@ -8,7 +9,12 @@ const BookingConfirmed = () =>{
         <header className="header">
             <div className="logo">
                 <img src={logo} alt="MediMap Logo" />
-            </div>
+        </div>
+            <div className="profile-pic">
+                 <a href="/profile">
+                 <img src={profilePic} alt="Profile" className="profile-icon" />
+             </a>
+        </div>
             <nav className="nav">
                 <a href="/">Home</a>
                 <a href="/about">About Us</a>

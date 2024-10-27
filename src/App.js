@@ -30,7 +30,7 @@ import HospitalMapPage from './HospitalMapPage';
 import MedicalBookingForm from './MedicalBookingForm';
 import AppointmentBooked from './AppointmentBooked';
 import AboutUs from './AboutUs';
-
+import Profile from './Profile'; // Add this import
 
 /**
  * The App function component defines the structure of the application by setting up
@@ -72,6 +72,8 @@ function App() {
 
                 { /* Route Mapping for AboutUs */ }
                 <Route path="/about" element= {<AboutUs/>}/>
+
+                <Route path="/profile" element={<Profile />} /> {/*JustAdd this route */}
             </Routes>
 
         </Router>
