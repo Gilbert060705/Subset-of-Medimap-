@@ -1,22 +1,13 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';  // Import hooks for navigation and location
 import './LandingPage.css';  // Import CSS for styling
-<<<<<<< HEAD
 import logo from './images/logo.png';  // Import logo image
 import profilePic from './images/personProfile.png';  // Import profile icon
 import menuIcon from './images/threeLinesMenu.png';  // Import menu icon
 import femaleDoctor from './images/femaleDoctor.webp';  // Import doctor image
 import blueHeart from './images/hazyHeart.png';  // Import heart decoration
 import shieldIcon from './images/shield.png';  // Import shield icon
-import catchyText from './images/catchy.png';  // Import catchy hospitals image
-import { useNavigate } from 'react-router-dom';  // Import useNavigate for navigation
-=======
-import logo from './images/logo.png';  
-import femaleDoctor from './images/femaleDoctor.webp';  
-import catchyText from './images/catchy.png';  
-import blueHeart from './images/hazyHeart.png';  
-import shieldIcon from './images/shield.png';  
->>>>>>> 07119ea635de2945e557b7da601081104b8d8ddf
+import catchyText from './images/catchy.png';  // Import catchy hospitals image 
 
 const LandingPage = () => {
   const location = useLocation();  // Hook to get location state
