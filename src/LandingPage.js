@@ -1,32 +1,34 @@
-import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';  // Import hooks for navigation and location
-import './LandingPage.css';  // Import CSS for styling
-import logo from './images/logo.png';  // Import logo image
-import profilePic from './images/personProfile.png';  // Import profile icon
-import menuIcon from './images/threeLinesMenu.png';  // Import menu icon
-import femaleDoctor from './images/femaleDoctor.webp';  // Import doctor image
-import blueHeart from './images/hazyHeart.png';  // Import heart decoration
-import shieldIcon from './images/shield.png';  // Import shield icon
-import catchyText from './images/catchy.png';  // Import catchy hospitals image 
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';  
+import './LandingPage.css';  
+import logo from './images/logo.png';  
+import profilePic from './images/personProfile.png';  
+import menuIcon from './images/threeLinesMenu.png';  
+import femaleDoctor from './images/femaleDoctor.webp';  
+import blueHeart from './images/hazyHeart.png';  
+import shieldIcon from './images/shield.png';  
+import catchyText from './images/catchy.png';  
 
 const LandingPage = () => {
-  const location = useLocation();  // Hook to get location state
-  const navigate = useNavigate();  // Hook to manage navigation
+  const location = useLocation();  
+  const navigate = useNavigate();  
+  const [welcomeAlertShown, setWelcomeAlertShown] = useState(false);  
 
-  // Extract welcomeMessage from location state, fallback to an empty string
+  // Extract welcomeMessage from location state
   const { welcomeMessage = '' } = location.state || {};
 
   /**
-   * Displays welcome message if available.
+   * Displays welcome message only once, on initial load.
    */
   useEffect(() => {
-    if (welcomeMessage) {
-      alert(welcomeMessage);  // Show the welcome message in an alert
+    if (welcomeMessage && !welcomeAlertShown) {
+      alert(welcomeMessage);  
+      setWelcomeAlertShown(true);  // Mark the alert as shown
     }
-  }, [welcomeMessage]);
+  }, [welcomeMessage, welcomeAlertShown]);
 
   const handleStartNow = () => {
-    navigate('/home');  // Redirect to homepage
+    navigate('/home');  
   };
 
   return (
@@ -37,13 +39,13 @@ const LandingPage = () => {
         </div>
         <div className="profile-pic">
           <a href="/profile">
-             <img src={profilePic} alt="Profile" className="profile-icon" />
+            <img src={profilePic} alt="Profile" className="profile-icon" />
           </a>
-      </div>
+        </div>
         <nav className="landing-nav">
           <a href="/landing">Home</a>
-          <a href="/about"> About Us </a>
-          <a href="#"> My Booking </a>
+          <a href="/about">About Us</a>
+          <a href="#">My Booking</a>
         </nav>
       </header>
 

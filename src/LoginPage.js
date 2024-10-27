@@ -21,9 +21,6 @@ const LoginPage = () => {
   const [resetEmailSent, setResetEmailSent] = useState(false); 
   const navigate = useNavigate();
 
-  /**
-   * Redirect to LandingPage with user's name (if available) passed via state.
-   */
   const redirectToLanding = useCallback((user) => {
     const displayName = user.displayName || user.email || "User"; 
     console.log('Navigating to landing page with user:', user);
