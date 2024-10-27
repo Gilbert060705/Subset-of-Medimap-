@@ -10,7 +10,7 @@ const AppointmentBooked = () => {
                     <img src={logo} alt="MediMap Logo" />
                 </div>
                 <nav className="nav">
-                    <a href="/">Home</a>
+                    <a href="/landing">Home</a>
                     <a href="/about">About Us</a>
                     <a href="/bookings">My Bookings</a>
                 </nav>
@@ -19,7 +19,7 @@ const AppointmentBooked = () => {
                 <main className="content">
                     <h2>Appointment Booked</h2>
                     <p>Check your email to obtain appointment confirmation.</p>
-                    <button onClick={() => window.location.href = '/'}>Back to Home</button>
+                    <button onClick={() => window.location.href = '/landing'}>Back to Home</button>
                 </main>
             </div>
         </div>
