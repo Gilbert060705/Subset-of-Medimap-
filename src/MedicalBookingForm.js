@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import logo from './images/logo.png';
 import "./MedicalBookingForm.css";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
 
 const MedicalBookingForm = () => {
   const [formData, setFormData] = useState({
@@ -13,58 +11,64 @@ const MedicalBookingForm = () => {
     serviceType: 'on-site',
     date: '',
     time: '',
-    patientName: ''
+    patientName: '',
+    document: null
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: value
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
-  };
-
-    const handleFileChange = (e) => {
+  const handleFileChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       document: e.target.files[0],
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Add form submission logic here
+  };
+
   return (
     <div className="bookingPage-container">
-            <header className="bookingPage-header">
-                <div className="bookingPage-logo">
-                    <img src={logo} alt="MediMap Logo" />
-                </div>
-                <nav className="bookingPage-nav">
-                    <a href="/landing">Home</a>
-                    <a href="/about">About Us</a>
-                    <a href="/bookings">My Bookings</a>
-                </nav>
-            </header>
+      <header className="bookingPage-header">
+        <div className="bookingPage-logo">
+          <img src={logo} alt="MediMap Logo" />
+        </div>
+        <nav className="bookingPage-nav">
+          <Link to="/landing">Home</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/bookings">My Bookings</Link>
+        </nav>
+      </header>
 
       <div className="bookingPage-form-container">
         <h2 className="bookingPage-form-title">Singapore General Hospital</h2>
-        
+
         <div className="bookingPage-form-grid">
           {/* Left Column - Details */}
           <div className="bookingPage-details-section">
             <h3 className="bookingPage-section-title">Details</h3>
-            
+
             <div className="bookingPage-input-grid">
               <div>
                 <label className="bookingPage-input-label">Gender:</label>
-                <select>
-                  <option value="male"> Male </option>
-                  <option value="female"> Female </option>
-                  <option value="rather-not-say"> Rather not say </option>
+                <select
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleInputChange}
+                  className="input-field"
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="rather-not-say">Rather not say</option>
                 </select>
               </div>
               <div>
@@ -103,7 +107,7 @@ const MedicalBookingForm = () => {
           {/* Right Column - Booking */}
           <div className="bookingPage-booking-section">
             <h3 className="bookingPage-section-title white-text">Book an appointment now.</h3>
-            
+
             <div className="bookingPage-mb-4">
               <label className="bookingPage-input-label white-text">Type of Service</label>
               <div className="bookingPage-service-type-options">
@@ -162,9 +166,11 @@ const MedicalBookingForm = () => {
                 className="bookingPage-input-field"
               />
             </div>
+
             <Link to="/confirmbook">
               <button
                 className="bookingPage-submit-button"
+                onClick={handleSubmit}
               >
                 Book now
               </button>
