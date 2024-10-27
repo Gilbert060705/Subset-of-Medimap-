@@ -4,6 +4,7 @@ import logo from './images/logo.png';
 import profilePic from './images/personProfile.png';
 import { auth, db, doc, setDoc } from './firebase'; 
 import { getDoc } from 'firebase/firestore'; 
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false); 
@@ -16,6 +17,7 @@ const Profile = () => {
     address: '',
   });
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
@@ -60,6 +62,16 @@ const Profile = () => {
   const toggleEdit = () => {
     if (isEditing) saveUserProfile(); 
     setIsEditing(!isEditing);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      console.log('User logged out successfully!');
+      navigate('/');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
   };
 
   return (
@@ -118,6 +130,12 @@ const Profile = () => {
             <p>23/08/2024, 11:00 a.m.</p>
             <p>Singapore General Hospital, Outram Rd, Singapore</p>
           </div>
+        </section>
+
+        <section className="logout-section">
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
         </section>
       </div>
     </div>
