@@ -140,3 +140,23 @@ body {
     z-index: 1;
   }
   
+  /* Profile styles */
+.profile-pic {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+  background-color: #E6E6FA;
+  padding: 5px;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+  background-color: #F0F0FF;
+}

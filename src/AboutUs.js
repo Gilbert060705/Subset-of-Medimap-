@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './AboutUs.css';
 import logo from './images/logo.png';
 import about from './images/imgAbout.jpg';
+import profilePic from './images/personProfile.png'; // Add this import
 
 const AboutUs = () =>{
 
@@ -10,6 +11,11 @@ const AboutUs = () =>{
             <header className = "about-us-header">
                 <div className = "about-us-logo">
                     <img src={logo} alt="MediMap Logo"/>
+                </div>
+                <div className="profile-pic">
+                    <a href="/profile">
+                        <img src={profilePic} alt="Profile" className="profile-icon" />
+                    </a>
                 </div>
                 <nav className = "about-us-nav">
                     <a href="/landing"> Home </a>

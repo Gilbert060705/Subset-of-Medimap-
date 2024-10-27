@@ -1,18 +1,24 @@
 import React from 'react';
 import './History.css';
 import logo from './images/logo.png';
+import profilePic from './images/personProfile.png'; // Add this import
 
 const History = () => {
   return (
     <div className="history-container">
       <header className="history-header">
-        <img src={logo} alt="MediMap Logo" className="logo" />
-        <nav className="nav">
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
-          <a href="/bookings">My Bookings</a>
-        </nav>
-      </header>
+    <img src={logo} alt="MediMap Logo" className="logo" />
+    <div className="profile-pic">
+        <a href="/profile">
+            <img src={profilePic} alt="Profile" className="profile-icon" />
+        </a>
+    </div>
+    <nav className="nav">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/bookings">My Bookings</a>
+    </nav>
+    </header>
 
       <div className="history-content">
         <h1>My History</h1>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from './images/logo.png';
 import "./MedicalBookingForm.css";
 import { Link } from 'react-router-dom';
+import profilePic from './images/personProfile.png';
 
 const MedicalBookingForm = () => {
   const [formData, setFormData] = useState({
@@ -41,6 +42,11 @@ const MedicalBookingForm = () => {
       <header className="bookingPage-header">
         <div className="bookingPage-logo">
           <img src={logo} alt="MediMap Logo" />
+        </div>
+        <div className="profile-pic">
+        <a href="/profile">
+              <img src={profilePic} alt="Profile" className="profile-icon" />
+            </a>
         </div>
         <nav className="bookingPage-nav">
           <Link to="/landing">Home</Link>

@@ -23,7 +23,7 @@
 import React from 'react';
 import './LandingPage.css';  // Import CSS for styling
 import logo from './images/logo.png';  // Import logo image
-import profileIcon from './images/personProfile.png';  // Import profile icon
+import profilePic from './images/personProfile.png';  // Import profile icon
 import menuIcon from './images/threeLinesMenu.png';  // Import menu icon
 import femaleDoctor from './images/femaleDoctor.webp';  // Import doctor image
 import blueHeart from './images/hazyHeart.png';  // Import heart decoration
@@ -53,6 +53,11 @@ const LandingPage = () => {
         <div className="landing-logo">
           <img src={logo} alt="MediMap Logo" className="logo" />
         </div>
+        <div className="profile-pic">
+          <a href="/profile">
+             <img src={profilePic} alt="Profile" className="profile-icon" />
+          </a>
+      </div>
         <nav className="landing-nav">
           <a href="/landing">Home</a>
           <a href="/about"> About Us </a>

@@ -56,7 +56,29 @@ body {
       border-radius:10px;
   }   
 
-  
+
+  /* Profile Section */
+  .profile-pic {
+    margin-left: auto;
+    margin-right: 2rem;
+}
+
+ .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    background-color: #E6E6FA; /* 浅色背景，匹配设计图 */
+    padding: 5px;
+}
+
+ .profile-icon:hover {
+    transform: scale(1.1);
+    background-color: #F0F0FF; /* 悬停时略微变亮 */
+}
+
+
   /* Welcome Section */
   .welcome-section {
     margin-top: 20px;

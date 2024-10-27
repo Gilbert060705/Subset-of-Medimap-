@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TelemedicineForm.css';
 import logo from './images/logo.png';
+import profilePic from './images/personProfile.png';
 
 const TelemedicineForm = () => {
   const [symptoms, setSymptoms] = useState('');
@@ -18,6 +19,11 @@ const TelemedicineForm = () => {
         <div className="logo">
           <img src={ logo } alt="MediMAP Logo" />
         </div>
+        <div className="profile-pic">
+         <a href="/profile">
+              <img src={profilePic} alt="Profile" className="profile-icon" />
+          </a>
+          </div>
         <nav className="nav">
           <a href="#">Home</a>
           <a href="#">About Us</a>
