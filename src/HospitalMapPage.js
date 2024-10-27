@@ -1,39 +1,14 @@
-/**
- * HospitalMapPage component provides an interactive map and hospital list. 
- * It fetches user location, calculates distances using the Haversine formula, 
- * and displays hospital information from a CSV file.
- * 
- * Dependencies:
- * - React for UI rendering
- * - React Leaflet for map rendering
- * - Leaflet for map markers and icons
- * - Papa Parse for CSV parsing
- * 
- * Features:
- * - User location tracking using browser's geolocation API
- * - Distance calculation between hospitals and the user's current location
- * - Interactive map with markers and hospital popups
- * - Panning functionality to move the map to selected hospital locations
- * 
- * Note: If location access is denied, the default location is set to Singapore.
- * 
- * @author [Group1]
- * @version 1.0
- */
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import Papa from 'papaparse'; // CSV parsing library
+import Papa from 'papaparse';
 import './HospitalMapPage.css';
 import logo from './images/logo.png';
 import profileIcon from './images/personProfile.png';
 import menuIcon from './images/threeLinesMenu.png';
 
-/**
- * Custom marker icon for map markers using Leaflet.
- */
+// Custom Leaflet Icon
 const customIcon = new L.Icon({
   iconUrl: require('./images/marker-icon.png'),
   iconSize: [25, 41],
@@ -41,64 +16,51 @@ const customIcon = new L.Icon({
   popupAnchor: [1, -34],
 });
 
-/**
- * Calculates the distance between two geographical coordinates using the Haversine formula.
- *
- * @param coords1 Array containing the latitude and longitude of the first location.
- * @param coords2 Array containing the latitude and longitude of the second location.
- * @return {Number} Distance in kilometers.
- */
+// Haversine Distance Formula
 const haversineDistance = (coords1, coords2) => {
   const toRad = (x) => (x * Math.PI) / 180;
+  const [lat1, lon1] = coords1;
+  const [lat2, lon2] = coords2;
 
-  const lat1 = coords1[0];
-  const lon1 = coords1[1];
-  const lat2 = coords2[0];
-  const lon2 = coords2[1];
-
-  const R = 6371; // Radius of the Earth in km
+  const R = 6371;
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
 
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c; // Distance in km
+  return R * c;
 };
 
-/**
- * Component to pan the map to the selected hospital's location.
- * 
- * @param position Array containing the latitude and longitude of the hospital.
- * @return {null} This component does not render anything.
- */
+// Component to Pan to Selected Hospital with Error Handling
 const PanToHospital = ({ position }) => {
-  const map = useMap(); // Access the map instance
+  const map = useMap();
 
   useEffect(() => {
-    if (position) {
-      map.setView(position, 13); // Pan to the selected hospital with zoom level 13
+    try {
+      if (position && map) {
+        console.log('Panning to:', position);
+        map.flyTo(position, 13, { animate: true });
+      }
+    } catch (error) {
+      console.error('Error while panning the map:', error);
     }
   }, [position, map]);
 
   return null;
 };
 
-/**
- * Main HospitalMapPage component that renders the hospital map and list.
- *
- * @return {JSX.Element} JSX representation of the hospital map page.
- */
 const HospitalMapPage = () => {
   const [currentLocation, setCurrentLocation] = useState([1.3521, 103.8198]); // Default to Singapore
-  const [hospitals, setHospitals] = useState([]); // Store hospital data
-  const [locationAccess, setLocationAccess] = useState(false); // Track location access
-  const [selectedHospital, setSelectedHospital] = useState(null); // Track selected hospital
+  const [hospitals, setHospitals] = useState([]);
+  const [locationAccess, setLocationAccess] = useState(false);
+  const [selectedHospital, setSelectedHospital] = useState(null);
 
-  // Fetch the user's current location using the geolocation API
+  const mapRef = useRef(null);
+
+  // Get User's Location with Error Handling
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -106,58 +68,72 @@ const HospitalMapPage = () => {
         setCurrentLocation([latitude, longitude]);
         setLocationAccess(true);
       },
-      () => {
+      (error) => {
+        console.error('Location access denied:', error);
         alert('Location access denied. Defaulting to Singapore.');
       }
     );
   }, []);
 
-  // Fetch hospital data from a CSV file and calculate distances
+  // Load Hospitals from CSV with Error Handling
   useEffect(() => {
     Papa.parse('/HospitalBioData.csv', {
       download: true,
       header: true,
       complete: (result) => {
-        const hospitalData = result.data.map((hospital) => ({
-          ...hospital,
-          distance: haversineDistance(
-            currentLocation,
-            [parseFloat(hospital.latitude), parseFloat(hospital.longitude)]
-          ).toFixed(2), // Distance in km
-        }));
-        setHospitals(hospitalData);
+        try {
+          const hospitalData = result.data.map((hospital) => ({
+            ...hospital,
+            distance: haversineDistance(
+              currentLocation,
+              [parseFloat(hospital.latitude), parseFloat(hospital.longitude)]
+            ).toFixed(2),
+          }));
+          setHospitals(hospitalData);
+        } catch (error) {
+          console.error('Error parsing hospital data:', error);
+        }
       },
     });
   }, [currentLocation]);
 
-  /**
-   * Handle click event on a hospital to set it as the selected hospital.
-   *
-   * @param hospital The hospital object containing latitude and longitude.
-   */
   const handleHospitalClick = (hospital) => {
     setSelectedHospital([parseFloat(hospital.latitude), parseFloat(hospital.longitude)]);
   };
 
+  // Safe Map Access with Exception Handling
+  const getMapInstance = useCallback(() => {
+    try {
+      if (mapRef.current) {
+        console.log('Map instance found:', mapRef.current);
+        return mapRef.current;
+      } else {
+        console.warn('Map instance is not ready yet.');
+        return null;
+      }
+    } catch (error) {
+      console.error('Error accessing the map instance:', error);
+      return null;
+    }
+  }, []);
+
   return (
     <div className="hospital-map-page">
-      <div className="landing-container">
-        <header className="landing-header">
-          <img src={logo} alt="MediMap Logo" className="logo" />
-          <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-          </nav>
-          <div className="icons">
-            <a href="/profile">
-              <img src={profileIcon} alt="User Profile" className="profile-icon" />
-            </a>
-            <a href="/menu">
-              <img src={menuIcon} alt="Menu" className="menu-icon" />
-            </a>
-          </div>
-        </header>
-      </div>
+      <header className="landing-header">
+        <img src={logo} alt="MediMap Logo" className="logo" />
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+        </nav>
+        <div className="icons">
+          <a href="/profile">
+            <img src={profileIcon} alt="User Profile" className="profile-icon" />
+          </a>
+          <a href="/menu">
+            <img src={menuIcon} alt="Menu" className="menu-icon" />
+          </a>
+        </div>
+      </header>
 
       <div className="sidebar">
         <input type="text" placeholder="Direct Search" className="search-bar" />
@@ -186,7 +162,12 @@ const HospitalMapPage = () => {
       </div>
 
       <div className="map-container">
-        <MapContainer center={currentLocation} zoom={13} className="leaflet-map">
+        <MapContainer
+          center={currentLocation}
+          zoom={13}
+          className="leaflet-map"
+          whenCreated={(mapInstance) => (mapRef.current = mapInstance)}
+        >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; OpenStreetMap contributors'

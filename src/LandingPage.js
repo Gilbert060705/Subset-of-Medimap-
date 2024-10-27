@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';  
 import './LandingPage.css';  
 import logo from './images/logo.png';  
@@ -12,20 +12,8 @@ import catchyText from './images/catchy.png';
 const LandingPage = () => {
   const location = useLocation();  
   const navigate = useNavigate();  
-  const [welcomeAlertShown, setWelcomeAlertShown] = useState(false);  
 
-  // Extract welcomeMessage from location state
-  const { welcomeMessage = '' } = location.state || {};
-
-  /**
-   * Displays welcome message only once, on initial load.
-   */
-  useEffect(() => {
-    if (welcomeMessage && !welcomeAlertShown) {
-      alert(welcomeMessage);  
-      setWelcomeAlertShown(true);  // Mark the alert as shown
-    }
-  }, [welcomeMessage, welcomeAlertShown]);
+  const { welcomeMessage = '' } = location.state || {}; // Extract message
 
   const handleStartNow = () => {
     navigate('/home');  
