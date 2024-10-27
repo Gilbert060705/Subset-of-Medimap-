@@ -6,19 +6,6 @@
  * Firebase is configured with a specific project setup, and this module exports
  * Firebase authentication utilities for use across the application.
  * 
- * Dependencies:
- * - firebase/app
- * - firebase/auth
- * 
- * Features:
- * - Firebase initialization
- * - Google authentication provider
- * - Email-password-based authentication methods
- * - Account linking utilities
- * - Session persistence setup
- * 
- * Note: Sensitive information like API keys and configuration values should be secured.
- * 
  * @version 1.1
  */
 
@@ -31,12 +18,13 @@ import {
   signOut, 
   setPersistence, 
   browserSessionPersistence, 
-  signInWithPopup, // Import for Google sign-in
-  fetchSignInMethodsForEmail, // Import for checking existing sign-in methods
-  EmailAuthProvider, // Import for creating email-password credentials
-  linkWithCredential // Import for linking accounts
+  signInWithPopup, 
+  fetchSignInMethodsForEmail, 
+  EmailAuthProvider, 
+  linkWithCredential,
+  sendPasswordResetEmail // Import for password reset functionality
 } from 'firebase/auth';
-import { getStorage } from 'firebase/storage'
+import { getStorage } from 'firebase/storage';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 /**
@@ -80,9 +68,6 @@ const googleProvider = new GoogleAuthProvider();
 /**
  * Configures session persistence to maintain authentication state across 
  * browser sessions (i.e., prevents auto-login across page reloads).
- *
- * If there is an error during the session persistence setup, the error
- * is logged to the console for debugging.
  */
 setPersistence(auth, browserSessionPersistence).catch((error) => {
   console.error('Error setting persistence:', error);
@@ -96,13 +81,14 @@ export {
     googleProvider, 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword, 
-    signOut,
+    signOut, 
     storage, 
     db, 
     doc, 
-    setDoc,
-    signInWithPopup, // Exported for Google sign-in
-    fetchSignInMethodsForEmail, // Exported to check existing sign-in methods
-    EmailAuthProvider, // Exported to create email-password credentials
-    linkWithCredential // Exported to link accounts
+    setDoc, 
+    signInWithPopup, 
+    fetchSignInMethodsForEmail, 
+    EmailAuthProvider, 
+    linkWithCredential, 
+    sendPasswordResetEmail // Exported for password reset
 };

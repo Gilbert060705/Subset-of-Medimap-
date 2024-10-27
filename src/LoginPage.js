@@ -1,32 +1,6 @@
-/**
- * LoginPage component handles user authentication through email/password 
- * and Google login using Firebase. It also manages the authentication state 
- * and provides options for logging in via social platforms or logging out.
- *
- * Dependencies:
- * - React for UI rendering
- * - react-router-dom for navigation between pages
- * - Firebase authentication for login and logout functionality
- * - CSS for component styling
- * 
- * Features:
- * - Email/password login with Firebase
- * - Google login via popup using Firebase
- * - Logout functionality
- * - Authentication state tracking using Firebase's onAuthStateChanged
- * - Conditional rendering of login or logout UI
- * 
- * Note: If the user is logged in, the application redirects them to the landing page.
- * 
- * @author [Group1]
- * @version 1.0
- */
-
 import React, { useEffect, useState, useCallback } from 'react';
 import './LoginPage.css'; // Import CSS for styling
 import doctorImage from './images/Doctor.png'; // Background doctor image
-import facebookIcon from './images/facebook.png'; // Facebook login icon
-import linkedinIcon from './images/linkedin.png'; // LinkedIn login icon
 import googleIcon from './images/google.png'; // Google login icon
 import { Link, useNavigate } from 'react-router-dom'; // Navigation utilities
 import { auth, googleProvider } from './firebase'; // Firebase authentication setup
@@ -34,37 +8,25 @@ import {
   onAuthStateChanged, 
   signInWithPopup, 
   signOut, 
-  signInWithEmailAndPassword 
+  signInWithEmailAndPassword, 
+  sendPasswordResetEmail  // Import password reset method
 } from 'firebase/auth'; // Firebase authentication methods
 
-/**
- * LoginPage component provides the login interface and manages the authentication flow.
- *
- * @return {JSX.Element} JSX layout for the login page.
- */
 const LoginPage = () => {
-  const [loading, setLoading] = useState(false); // Track loading state
-  const [user, setUser] = useState(null); // Store the authenticated user
-  const [errorMessage, setErrorMessage] = useState(null); // Store error messages
-  const [email, setEmail] = useState(''); // Store user email input
-  const [password, setPassword] = useState(''); // Store user password input
-  const navigate = useNavigate(); // Hook for navigation
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [resetEmailSent, setResetEmailSent] = useState(false); // Track reset email status
+  const navigate = useNavigate();
 
-  /**
-   * Callback function to navigate to the landing page upon successful login.
-   *
-   * @param user The authenticated user object.
-   */
   const redirectToLanding = useCallback((user) => {
     console.log('Navigating to landing page with user:', user);
     alert(`Welcome ${user.displayName || email}!`);
-    navigate('/landing'); // Navigate to landing page
+    navigate('/landing');
   }, [navigate, email]);
 
-  /**
-   * Track authentication state changes using Firebase's onAuthStateChanged.
-   * If a user is authenticated, it updates the user state.
-   */
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -75,12 +37,9 @@ const LoginPage = () => {
       }
     });
 
-    return () => unsubscribe(); // Clean up the subscription
+    return () => unsubscribe();
   }, []);
 
-  /**
-   * Handle login using email and password with Firebase authentication.
-   */
   const handleEmailLogin = async () => {
     setLoading(true);
     setErrorMessage(null);
@@ -96,9 +55,6 @@ const LoginPage = () => {
     }
   };
 
-  /**
-   * Handle Google login using a popup with Firebase authentication.
-   */
   const handleGoogleLogin = async () => {
     setLoading(true);
     setErrorMessage(null);
@@ -114,18 +70,34 @@ const LoginPage = () => {
     }
   };
 
-  /**
-   * Handle user logout with Firebase authentication.
-   */
   const handleLogout = async () => {
     try {
       await signOut(auth);
       console.log('User logged out');
       setUser(null);
-      navigate('/'); // Redirect to login page
+      navigate('/');
     } catch (error) {
       console.error('Logout failed:', error);
       setErrorMessage('Logout failed. Please try again.');
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (!email) {
+      setErrorMessage('Please enter your email to reset the password.');
+      return;
+    }
+    setLoading(true);
+    setErrorMessage(null);
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setResetEmailSent(true); // Set status to true if email is sent successfully
+      console.log('Password reset email sent to:', email);
+    } catch (error) {
+      console.error('Failed to send password reset email:', error);
+      setErrorMessage('Failed to send password reset email. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -167,7 +139,13 @@ const LoginPage = () => {
                   <label>
                     <input type="checkbox" /> Remember me
                   </label>
-                  <a href="/">Forgot Password?</a>
+                  <button 
+                    type="button" 
+                    onClick={handlePasswordReset} 
+                    className="forgot-password-link"
+                  >
+                    Forgot Password?
+                  </button>
                 </div>
 
                 <button
@@ -186,22 +164,24 @@ const LoginPage = () => {
 
             <div className="login-options">
               <p>Or Login with</p>
-              <div className="social-login">
-                <button className="social-btn" onClick={handleGoogleLogin}>
-                  <img src={googleIcon} alt="Google" className="social-icon" />
-                </button>
-                <button className="social-btn">
-                  <img src={facebookIcon} alt="Facebook" className="social-icon" />
-                </button>
-                <button className="social-btn">
-                  <img src={linkedinIcon} alt="LinkedIn" className="social-icon" />
-                </button>
-              </div>
+              <button 
+                className="google-login-button" 
+                onClick={handleGoogleLogin}
+              >
+                <img src={googleIcon} alt="Google" className="google-icon" />
+                
+              </button>
               <p>
                 Don't have an account? <Link to="/signup">Sign Up</Link>
               </p>
             </div>
           </>
+        )}
+
+        {resetEmailSent && (
+          <div className="success-message">
+            Password reset email sent successfully! Check your inbox.
+          </div>
         )}
 
         {errorMessage && <div className="error-message">{errorMessage}</div>}
