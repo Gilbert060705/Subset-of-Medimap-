@@ -1,16 +1,16 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import './LoginPage.css'; // Import CSS for styling
-import doctorImage from './images/Doctor.png'; // Background doctor image
-import googleIcon from './images/google.png'; // Google login icon
-import { Link, useNavigate } from 'react-router-dom'; // Navigation utilities
-import { auth, googleProvider } from './firebase'; // Firebase authentication setup
+import './LoginPage.css'; 
+import doctorImage from './images/Doctor.png'; 
+import googleIcon from './images/google.png'; 
+import { Link, useNavigate } from 'react-router-dom'; 
+import { auth, googleProvider } from './firebase'; 
 import { 
   onAuthStateChanged, 
   signInWithPopup, 
   signOut, 
   signInWithEmailAndPassword, 
-  sendPasswordResetEmail  // Import password reset method
-} from 'firebase/auth'; // Firebase authentication methods
+  sendPasswordResetEmail 
+} from 'firebase/auth'; 
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
@@ -18,20 +18,23 @@ const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [resetEmailSent, setResetEmailSent] = useState(false); // Track reset email status
+  const [resetEmailSent, setResetEmailSent] = useState(false); 
   const navigate = useNavigate();
 
+  /**
+   * Redirect to LandingPage with user's name (if available) passed via state.
+   */
   const redirectToLanding = useCallback((user) => {
+    const displayName = user.displayName || user.email || "User"; 
     console.log('Navigating to landing page with user:', user);
-    alert(`Welcome ${user.displayName || email}!`);
-    navigate('/landing');
-  }, [navigate, email]);
+    navigate('/landing', { state: { welcomeMessage: `Welcome, ${displayName}!` } });
+  }, [navigate]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         console.log('User detected:', currentUser);
-        setUser(currentUser);
+        setUser(currentUser); 
       } else {
         setUser(null);
       }
@@ -61,10 +64,16 @@ const LoginPage = () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       console.log('Google login successful:', result.user);
-      redirectToLanding(result.user);
+      redirectToLanding(result.user); 
     } catch (error) {
       console.error('Google Login failed:', error);
-      setErrorMessage('Google Login failed. Please try again.');
+      if (error.code === 'auth/popup-blocked') {
+        setErrorMessage('Popup blocked. Please allow popups for this site.');
+      } else if (error.code === 'auth/network-request-failed') {
+        setErrorMessage('Network error. Please check your connection.');
+      } else {
+        setErrorMessage('Google Login failed. Please try again.');
+      }
     } finally {
       setLoading(false);
     }
@@ -91,7 +100,7 @@ const LoginPage = () => {
     setErrorMessage(null);
     try {
       await sendPasswordResetEmail(auth, email);
-      setResetEmailSent(true); // Set status to true if email is sent successfully
+      setResetEmailSent(true);
       console.log('Password reset email sent to:', email);
     } catch (error) {
       console.error('Failed to send password reset email:', error);
@@ -169,7 +178,6 @@ const LoginPage = () => {
                 onClick={handleGoogleLogin}
               >
                 <img src={googleIcon} alt="Google" className="google-icon" />
-                
               </button>
               <p>
                 Don't have an account? <Link to="/signup">Sign Up</Link>
