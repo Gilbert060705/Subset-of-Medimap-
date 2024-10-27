@@ -1,27 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Profile.css';
 import logo from './images/logo.png';
 import profilePic from './images/personProfile.png';
+import { auth, db, doc, setDoc } from './firebase'; 
+import { getDoc } from 'firebase/firestore'; 
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false); // Track edit mode
+  const [isEditing, setIsEditing] = useState(false); 
   const [userData, setUserData] = useState({
-    fullName: 'User123FullName',
-    gender: 'Male',
-    age: '28',
-    email: 'user@gmail.com',
-    phone: '+6590144554',
-    address: '115 Alalalo Street',
+    fullName: '',
+    gender: '',
+    age: '',
+    email: '',
+    phone: '',
+    address: '',
   });
+  const [user, setUser] = useState(null);
 
-  // Handle input change for form fields
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+        await fetchUserProfile(currentUser.uid);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const fetchUserProfile = async (userId) => {
+    try {
+      const userDoc = await getDoc(doc(db, 'users', userId));
+      if (userDoc.exists()) {
+        setUserData(userDoc.data());
+      } else {
+        console.log('No user data found, using default values.');
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
 
-  // Toggle edit mode
-  const toggleEdit = () => setIsEditing(!isEditing);
+  const saveUserProfile = async () => {
+    try {
+      if (user) {
+        await setDoc(doc(db, 'users', user.uid), userData);
+        console.log('Profile updated successfully!');
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
+    }
+  };
+
+  const toggleEdit = () => {
+    if (isEditing) saveUserProfile(); 
+    setIsEditing(!isEditing);
+  };
 
   return (
     <div className="profile-container">
@@ -39,7 +78,7 @@ const Profile = () => {
       <div className="profile-content">
         <section className="user-info">
           <img src={profilePic} alt="Avatar" className="avatar" />
-          <h1>{userData.fullName}</h1>
+          <h1>{userData.fullName || 'User Name'}</h1>
           <p>@{userData.email.split('@')[0]}</p>
         </section>
 
@@ -51,66 +90,18 @@ const Profile = () => {
             </button>
           </div>
           <div className="about-details">
-            <div className="detail-row">
-              <label>Full Name</label>
-              <input
-                type="text"
-                name="fullName"
-                value={userData.fullName}
-                readOnly={!isEditing}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="detail-row">
-              <label>Gender</label>
-              <input
-                type="text"
-                name="gender"
-                value={userData.gender}
-                readOnly={!isEditing}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="detail-row">
-              <label>Age</label>
-              <input
-                type="text"
-                name="age"
-                value={userData.age}
-                readOnly={!isEditing}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="detail-row">
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                value={userData.email}
-                readOnly={!isEditing}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="detail-row">
-              <label>Phone</label>
-              <input
-                type="tel"
-                name="phone"
-                value={userData.phone}
-                readOnly={!isEditing}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="detail-row">
-              <label>Address</label>
-              <input
-                type="text"
-                name="address"
-                value={userData.address}
-                readOnly={!isEditing}
-                onChange={handleInputChange}
-              />
-            </div>
+            {['fullName', 'gender', 'age', 'email', 'phone', 'address'].map((field) => (
+              <div className="detail-row" key={field}>
+                <label>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+                <input
+                  type="text"
+                  name={field}
+                  value={userData[field]}
+                  readOnly={!isEditing}
+                  onChange={handleInputChange}
+                />
+              </div>
+            ))}
           </div>
         </section>
 
