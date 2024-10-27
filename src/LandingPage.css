@@ -17,25 +17,42 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px;
+    background-color: #d2918c;
   }
   
-  .logo {
-    width: 200px;
+  .landing-logo {
+      display: flex;
+      align-items: center;
   }
   
-  nav a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #000;
-    font-size: 1rem;
+  .landing-logo img {
+      width: 200px;
+      height: 50px;
+      margin-right: 10px;
   }
   
-  .icons img {
-    width: 30px;
-    margin-left: 20px;
-    cursor: pointer;
+  .landing-logo h1 {
+      color: #e34234;
+      font-size: 24px;
   }
+  
+  .landing-nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      font-family:'Lexend Deca';
+      padding-top : 10px;
+      padding-bottom : 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+  
+  .landing-nav a:hover {
+      background-color: aqua;
+      border-radius:10px;
+  }   
   
   /* Main Section */
   .landing-main {

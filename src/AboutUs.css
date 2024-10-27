@@ -1,0 +1,68 @@
+.about-us-container{
+    display:block;
+    align-items:center;
+}
+.about-us-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #d2918c;
+  }
+  
+  .about-us-logo {
+      display: flex;
+      align-items: center;
+  }
+  
+  .about-us-logo img {
+      width: 200px;
+      height: 50px;
+      margin-right: 10px;
+  }
+  
+  .about-us-logo h1 {
+      color: #e34234;
+      font-size: 24px;
+  }
+  
+  .about-us-nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      font-family:'Lexend Deca';
+      padding-top : 10px;
+      padding-bottom : 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+  
+  .about-us-nav a:hover {
+      background-color: aqua;
+      border-radius:10px;
+  }   
+
+  .about-us-desc{
+    background-color: #d2918c;
+    border-radius:10px;
+    margin:auto;
+    margin-top:100px;
+    width:75%;
+    padding : 10px 10px 10px 10px;
+  }
+
+  .about-us-desc h1{
+    text-align:center;
+    font-family:'Lexend Deca';
+  }
+
+  .about-us-desc img{
+    margin-left:300px;
+  }
+
+  .about-us-desc p{
+    color:black;
+    font-family:'Lexend Deca';
+    text-align:justify;
+  }

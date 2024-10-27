@@ -50,19 +50,14 @@ const LandingPage = () => {
     <div className="landing-container">
       {/* Header Section */}
       <header className="landing-header">
-        <img src={logo} alt="MediMap Logo" className="logo" />
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
-        </nav>
-        <div className="icons">
-          <a href="/profile">
-            <img src={profileIcon} alt="User Profile" className="profile-icon" />
-          </a>
-          <a href="/menu">
-            <img src={menuIcon} alt="Menu" className="menu-icon" />
-          </a>
+        <div className="landing-logo">
+          <img src={logo} alt="MediMap Logo" className="logo" />
         </div>
+        <nav className="landing-nav">
+          <a href="/landing">Home</a>
+          <a href="/about"> About Us </a>
+          <a href="#"> My Booking </a>
+        </nav>
       </header>
 
       {/* Main Section */}

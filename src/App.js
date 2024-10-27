@@ -29,6 +29,7 @@ import HomePage from './HomePage';
 import HospitalMapPage from './HospitalMapPage';
 import MedicalBookingForm from './MedicalBookingForm';
 import AppointmentBooked from './AppointmentBooked';
+import AboutUs from './AboutUs';
 
 
 /**
@@ -68,6 +69,9 @@ function App() {
 
                 { /* Route Mapping for AppointmentBooked */}
                 <Route path="/confirmbook" element={<AppointmentBooked/>}/>
+
+                { /* Route Mapping for AboutUs */ }
+                <Route path="/about" element= {<AboutUs/>}/>
             </Routes>
 
         </Router>
