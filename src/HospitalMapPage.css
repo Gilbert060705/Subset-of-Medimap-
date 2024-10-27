@@ -1,10 +1,57 @@
 /* Main container styling */
 .hospital-map-page {
-  display: flex;
+  display:flex;
   height: 100vh;
   background-color: #f3e3d6;  /* Consistent background color */
+  padding-top:70px;
   overflow-y: hidden;
 }
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #d2918c;
+  position:fixed;
+  width:100%;
+  top:0;
+}
+
+.map-logo {
+    display: flex;
+    align-items: center;
+}
+
+.map-logo img {
+    width: 200px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.map-logo h1 {
+    color: #e34234;
+    font-size: 24px;
+}
+
+.map-navbar a {
+    margin-left: 20px;
+    margin-right:20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-family:'Lexend Deca';
+    padding-top : 10px;
+    padding-bottom : 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.map-navbar a:hover {
+    background-color: aqua;
+    border-radius:10px;
+}   
+
 
 /* Sidebar styling */
 .sidebar {

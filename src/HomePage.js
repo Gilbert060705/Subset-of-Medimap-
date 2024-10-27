@@ -7,6 +7,7 @@ import 'leaflet-routing-machine';
 import './HospitalMapPage.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import logo from './images/logo.png';
 
 // Custom marker icon configuration
 const customIcon = new L.Icon({
@@ -229,6 +230,16 @@ const HospitalMapPage = () => {
 
     return (
         <div className="hospital-map-page">
+            <header className = "map-header">
+                <div className = "map-logo">
+                    <img src={logo} alt="Medimap Logo"/>
+                </div>
+                <nav className = "map-navbar">
+                    <a href="/landing"> Home </a>
+                    <a href="/about"> About Us </a>
+                    <a href="#"> My Booking </a>
+                </nav>
+            </header>
             {/* Sidebar section remains the same */}
             <div className="sidebar">
                 <div className="search-section">
