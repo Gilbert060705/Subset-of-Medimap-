@@ -195,6 +195,16 @@ const HospitalMapPage = () => {
               </Marker>
             )}
           </MapContainer>
+
+          {selectedLocation && (
+          <div className="book-appointment">
+            <Link to="/bookform">
+              <button className="animated-button">
+                Book an Appointment
+              </button>
+            </Link>
+          </div>
+        )}
         </div>
       </div>
     </div>

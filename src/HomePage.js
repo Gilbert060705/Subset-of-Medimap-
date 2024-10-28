@@ -5,7 +5,8 @@ import './App.css';
 import './HomePage.css';
 import logo from './images/logo.png';
 import hospital from './images/hospital.png';
-import personProfile from './images/personProfile.png';
+import personProfile from "./images/personProfile.png"
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [userName, setUserName] = useState(''); // Store user's name or default value
@@ -117,9 +118,9 @@ const HomePage = () => {
           <div className="hospital-image">
             <img src={hospital} alt="Hospital" />
           </div>
-          <button className="locate-button" onClick={handleLocateHospital}>
-            Locate nearest hospital now!
-          </button>
+          <Link to="/hospitals">
+            <button className="locate-button">Locate nearest hospital now!</button>
+          </Link>
         </section>
       </div>
     </div>
