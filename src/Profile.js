@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Profile.css';
 import logo from './images/logo.png';
 import profilePic from './images/personProfile.png';
-import { auth, db, doc, setDoc } from './firebase'; 
-import { getDoc } from 'firebase/firestore'; 
+import { auth, db, doc } from './firebase'; 
+import { updateDoc, getDoc } from 'firebase/firestore'; 
 import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
@@ -51,7 +51,7 @@ const Profile = () => {
   const saveUserProfile = async () => {
     try {
       if (user) {
-        await setDoc(doc(db, 'users', user.uid), userData);
+        await updateDoc(doc(db, 'users', user.uid), userData);
         console.log('Profile updated successfully!');
       }
     } catch (error) {

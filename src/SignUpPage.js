@@ -45,8 +45,9 @@ const SignUpPage = () => {
       // Create a new user with email and password
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log('User registered:', userCredential.user);
-      await storeUserDetails(email, fullName);
-      console.log('User Details stored')
+      await storeUserDetails(email, fullName, userCredential.user.uid);
+      console.log('User details updated:')
+    
 
       // Redirect to the landing page
       navigate('/landing');
@@ -124,7 +125,14 @@ const SignUpPage = () => {
           />
 
           <label htmlFor="fullName">Full Name</label>
-          <input type="text" id="fullName" placeholder="Full Name" />
+          <input 
+            type="text" 
+            id="fullName" 
+            placeholder="Full Name" 
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            required
+          />
 
           <label>Role</label>
           <div className="role-options">

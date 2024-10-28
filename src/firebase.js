@@ -25,7 +25,7 @@ import {
   sendPasswordResetEmail // Import for password reset functionality
 } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, updateDoc } from 'firebase/firestore';
 
 /**
  * Firebase configuration object containing project-specific credentials.
@@ -86,6 +86,7 @@ export {
     db, 
     doc, 
     setDoc, 
+    updateDoc,
     signInWithPopup, 
     fetchSignInMethodsForEmail, 
     EmailAuthProvider, 
