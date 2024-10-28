@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import React, { useState, useEffect, useRef } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Papa from 'papaparse';
+import { Link } from 'react-router-dom';
 import './HospitalMapPage.css';
 import logo from './images/logo.png';
 import profileIcon from './images/personProfile.png';
@@ -34,160 +35,167 @@ const haversineDistance = (coords1, coords2) => {
   return R * c;
 };
 
-// Component to Pan to Selected Hospital with Error Handling
-const PanToHospital = ({ position }) => {
-  const map = useMap();
-
-  useEffect(() => {
-    try {
-      if (position && map) {
-        console.log('Panning to:', position);
-        map.flyTo(position, 13, { animate: true });
-      }
-    } catch (error) {
-      console.error('Error while panning the map:', error);
-    }
-  }, [position, map]);
-
-  return null;
-};
-
 const HospitalMapPage = () => {
-  const [currentLocation, setCurrentLocation] = useState([1.3521, 103.8198]); // Default to Singapore
+  const [currentLocation, setCurrentLocation] = useState([1.3521, 103.8198]);
   const [hospitals, setHospitals] = useState([]);
-  const [locationAccess, setLocationAccess] = useState(false);
-  const [selectedHospital, setSelectedHospital] = useState(null);
+  const [visibleHospitals, setVisibleHospitals] = useState(5);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [mapCenter, setMapCenter] = useState([1.3521, 103.8198]);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const mapRef = useRef(null);
+  const mapRef = useRef();
 
-  // Get User's Location with Error Handling
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-        setCurrentLocation([latitude, longitude]);
-        setLocationAccess(true);
+        const userCoords = [latitude, longitude];
+        setCurrentLocation(userCoords);
+        setMapCenter(userCoords);
+        if (mapRef.current) {
+          mapRef.current.setView(userCoords, 13);
+        }
       },
-      (error) => {
-        console.error('Location access denied:', error);
-        alert('Location access denied. Defaulting to Singapore.');
-      }
+      () => alert('Location access denied. Defaulting to Singapore.')
     );
   }, []);
 
-  // Load Hospitals from CSV with Error Handling
   useEffect(() => {
     Papa.parse('/HospitalBioData.csv', {
       download: true,
       header: true,
       complete: (result) => {
-        try {
-          const hospitalData = result.data.map((hospital) => ({
+        const sortedHospitals = result.data
+          .map((hospital) => ({
             ...hospital,
             distance: haversineDistance(
               currentLocation,
               [parseFloat(hospital.latitude), parseFloat(hospital.longitude)]
             ).toFixed(2),
-          }));
-          setHospitals(hospitalData);
-        } catch (error) {
-          console.error('Error parsing hospital data:', error);
-        }
+          }))
+          .sort((a, b) => a.distance - b.distance);
+
+        setHospitals(sortedHospitals);
       },
     });
   }, [currentLocation]);
 
   const handleHospitalClick = (hospital) => {
-    setSelectedHospital([parseFloat(hospital.latitude), parseFloat(hospital.longitude)]);
+    const hospitalCoords = [
+      parseFloat(hospital.latitude),
+      parseFloat(hospital.longitude),
+    ];
+    setSelectedLocation(hospitalCoords);
+    setMapCenter(hospitalCoords);
+    if (mapRef.current) {
+      mapRef.current.setView(hospitalCoords, 13);
+    }
   };
 
-  // Safe Map Access with Exception Handling
-  const getMapInstance = useCallback(() => {
+  const handleViewMore = () => {
+    setVisibleHospitals((prevCount) => prevCount + 5);
+  };
+
+  const handleSearchSubmit = async (e) => {
+    e.preventDefault();
+
     try {
-      if (mapRef.current) {
-        console.log('Map instance found:', mapRef.current);
-        return mapRef.current;
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+          searchQuery
+        )}, Singapore`
+      );
+      const data = await response.json();
+
+      if (data.length > 0) {
+        const { lat, lon } = data[0];
+        const locationCoords = [parseFloat(lat), parseFloat(lon)];
+        setSelectedLocation(locationCoords);
+        setMapCenter(locationCoords);
+        if (mapRef.current) {
+          mapRef.current.setView(locationCoords, 13);
+        }
       } else {
-        console.warn('Map instance is not ready yet.');
-        return null;
+        alert('Location not found');
       }
     } catch (error) {
-      console.error('Error accessing the map instance:', error);
-      return null;
+      console.error('Error fetching location:', error);
+      alert('An error occurred while searching for the location.');
     }
-  }, []);
+  };
 
   return (
     <div className="hospital-map-page">
-      <header className="landing-header">
-        <img src={logo} alt="MediMap Logo" className="logo" />
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
+      <header className="navbar">
+        <div className="logo-container">
+          <img src={logo} alt="MediMap Logo" />
+        </div>
+        <nav className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/about">About Us</Link>
         </nav>
-        <div className="icons">
-          <a href="/profile">
-            <img src={profileIcon} alt="User Profile" className="profile-icon" />
-          </a>
-          <a href="/menu">
-            <img src={menuIcon} alt="Menu" className="menu-icon" />
-          </a>
+        <div className="profile-icons">
+          <Link to="/profile">
+            <img src={profileIcon} alt="User Profile" />
+          </Link>
+          <img src={menuIcon} alt="Menu Icon" />
         </div>
       </header>
 
-      <div className="sidebar">
-        <input type="text" placeholder="Direct Search" className="search-bar" />
-        <div className="filters">
-          <h3>Type</h3>
-          <label><input type="checkbox" /> Private</label>
-          <label><input type="checkbox" /> Public</label>
-          <label><input type="checkbox" /> Non-profit</label>
-          <label><input type="checkbox" /> Profit</label>
+      <div className="content-container">
+        <div className="filters-container">
+          <form onSubmit={handleSearchSubmit}>
+            <input
+              type="text"
+              placeholder="Search Hospitals or Locations"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button type="submit" className="animated-button">Search</button>
+          </form>
         </div>
-      </div>
 
-      <div className="hospital-list">
-        <h2>List of Hospitals, Clinics, and Pharmacy</h2>
-        {hospitals.map((hospital, index) => (
-          <div
-            className="hospital-item"
-            key={index}
-            onClick={() => handleHospitalClick(hospital)}
-          >
-            <h3>{hospital.name}</h3>
-            <p>Distance: {hospital.distance} km away</p>
-            <p>Telemedicine: Available</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="map-container">
-        <MapContainer
-          center={currentLocation}
-          zoom={13}
-          className="leaflet-map"
-          whenCreated={(mapInstance) => (mapRef.current = mapInstance)}
-        >
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; OpenStreetMap contributors'
-          />
-          {locationAccess && (
-            <Marker position={currentLocation} icon={customIcon}>
-              <Popup>Your current location</Popup>
-            </Marker>
-          )}
-          {hospitals.map((hospital, index) => (
-            <Marker
+        <div className="hospital-list">
+          <h2>List of Nearest Hospitals</h2>
+          {hospitals.slice(0, visibleHospitals).map((hospital, index) => (
+            <div
               key={index}
-              position={[parseFloat(hospital.latitude), parseFloat(hospital.longitude)]}
-              icon={customIcon}
+              className="hospital-item"
+              onClick={() => handleHospitalClick(hospital)}
             >
-              <Popup>{hospital.name}</Popup>
-            </Marker>
+              <h3>{hospital.name}</h3>
+              <p>Distance: {hospital.distance} km away</p>
+              <p>Telemedicine: {hospital.telemedicine}</p>
+            </div>
           ))}
-          {selectedHospital && <PanToHospital position={selectedHospital} />}
-        </MapContainer>
+          {visibleHospitals < hospitals.length && (
+            <button onClick={handleViewMore} className="animated-button">
+              View More Hospitals
+            </button>
+          )}
+        </div>
+
+        <div className="map-container">
+          <MapContainer
+            center={mapCenter}
+            zoom={12}
+            className="leaflet-map"
+            whenCreated={(map) => (mapRef.current = map)}
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; OpenStreetMap contributors'
+            />
+            <Marker position={currentLocation} icon={customIcon}>
+              <Popup>Your Location</Popup>
+            </Marker>
+            {selectedLocation && (
+              <Marker position={selectedLocation} icon={customIcon}>
+                <Popup>Selected Location</Popup>
+              </Marker>
+            )}
+          </MapContainer>
+        </div>
       </div>
     </div>
   );

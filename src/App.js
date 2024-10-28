@@ -16,6 +16,10 @@
  * - LandingPage
  * - HomePage
  * - HospitalMapPage
+ * - MedicalBookingForm
+ * - AppointmentBooked
+ * - AboutUs
+ * - Profile
  * 
  * @author [Group1]
  * @version 1.0
@@ -40,13 +44,6 @@ import Profile from './Profile'; // Add this import
  */
 function App() {
     return (
-        /**
-         * Router is used to wrap the application and enable routing functionality.
-         * Routes contains individual Route elements, each mapped to a specific component.
-         * 
-         * <p>If no matching route is found, the default route ("/") will render the
-         * LoginPage component.</p>
-         */
         <Router>
             <Routes>
                 {/* Route mapping for LoginPage */}
@@ -64,18 +61,21 @@ function App() {
                 {/* Route mapping for HospitalMapPage */}
                 <Route path="/hospitals" element={<HospitalMapPage />} />
 
-                { /* Route Mapping for MedicalBookingFormPage */}
-                <Route path="/bookform" element={<MedicalBookingForm/>}/>
+                {/* Route mapping for MedicalBookingFormPage */}
+                <Route path="/bookform" element={<MedicalBookingForm />} />
 
-                { /* Route Mapping for AppointmentBooked */}
-                <Route path="/confirmbook" element={<AppointmentBooked/>}/>
+                {/* Route mapping for AppointmentBooked */}
+                <Route path="/confirmbook" element={<AppointmentBooked />} />
 
-                { /* Route Mapping for AboutUs */ }
-                <Route path="/about" element= {<AboutUs/>}/>
+                {/* Route mapping for AboutUs */}
+                <Route path="/about" element={<AboutUs />} />
 
-                <Route path="/profile" element={<Profile />} /> {/*JustAdd this route */}
+                {/* Route mapping for Profile */}
+                <Route path="/profile" element={<Profile />} /> 
+
+                {/* Fallback Route - 404 Page */}
+                <Route path="*" element={<h1>404 - Page Not Found</h1>} />
             </Routes>
-
         </Router>
     );
 }

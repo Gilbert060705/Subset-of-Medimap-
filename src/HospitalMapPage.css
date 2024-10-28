@@ -1,297 +1,138 @@
-/* Main container styling */
-.hospital-map-page {
-  display:flex;
-  height: 100vh;
-  background-color: #f3e3d6;  /* Consistent background color */
-  padding-top:70px;
-  overflow-y: hidden;
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4e7e1;
 }
 
-.map-header {
+/* Main Page Layout */
+.hospital-map-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Navbar */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #d2918c;
-  position:fixed;
-  width:100%;
-  top:0;
+  background-color: #d8a5a5;
+  border-radius: 12px;
 }
 
-.map-logo {
-    display: flex;
-    align-items: center;
+.logo-container img {
+  height: 50px;
 }
 
-.map-logo img {
-    width: 200px;
-    height: 50px;
-    margin-right: 10px;
+.nav-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
 }
 
-.map-logo h1 {
-    color: #e34234;
-    font-size: 24px;
+.profile-icons img {
+  height: 35px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
-.map-navbar a {
-    margin-left: 20px;
-    margin-right:20px;
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    font-family:'Lexend Deca';
-    padding-top : 10px;
-    padding-bottom : 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.map-navbar a:hover {
-    background-color: aqua;
-    border-radius:10px;
-}   
-
-
-/* Sidebar styling */
-.sidebar {
-  align-self: center;
-  width: 20%;
-  background-color: #d9825f;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px;
-  height: 85vh;
-}
-
-/* Search bar in the sidebar */
-.search-bar {
-  width: calc(100% - 20px);  /* Ensure full width minus padding */
+/* Main Content Layout */
+.content-container {
+  display: flex;
+  flex: 1;
+  gap: 10px;
   padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: none;
-  font-size: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Filter section */
-.filters h3 {
-  margin-top: 20px;
+/* Filters Container */
+.filters-container {
+  width: 25%;
+  padding: 10px;
+  background-color: #cc8d6b;
+  border-radius: 12px;
+  overflow-y: auto;
 }
 
-.filters label {
-  display: block;
+.filters-container input[type="text"] {
+  width: 95%;
+  padding: 8px;
   margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-/* Hospital list styling */
+/* Hospital List */
 .hospital-list {
-  align-self: center;
-  width: 40%;
-  padding: 20px;
-  overflow-y: auto;  /* Enable scrolling */
-  max-height: 75vh;  /* Limit the height of the hospital list */
-  background-color: #f3e3d6;  /* Ensure consistent background color */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 35%;
+  padding: 10px;
+  background-color: #d8b3a5;
+  border-radius: 12px;
+  overflow-y: scroll;
+  height: 400px;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
 .hospital-item {
-  background-color: #f0f0f0;
+  background-color: #d07554;
   padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
+  margin-bottom: 1px;
+  color: white;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .hospital-item:hover {
-  background-color: #d9825f;  /* Change color on hover */
-  transform: translateY(-5px);  /* Slight lift effect on hover */
-  color: white;
+  transform: scale(1.02);
+  background-color: #cc8d6b;
 }
 
-.hospital-status {
-  color: red;
-}
-
-/* Button styling for "See More" */
-.see-more {
-  padding: 10px;
-  background-color: #d9825f;
+/* Animated Buttons */
+.animated-button {
+  background-color: #d07554;
   color: white;
   border: none;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  margin-top: 10px;
 }
 
-/* Map container */
+.animated-button:hover {
+  transform: scale(1.1);
+  background-color: #cc8d6b;
+}
+
+/* Map Container */
 .map-container {
-  align-self: center;
-  width: 40%;
-  padding: 20px;
-  height: 100vh;  /* Full height for the map */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
+  height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .leaflet-map {
-  height: 80%;
+  height: 100%;
   width: 100%;
+}
+
+/* Scrollbar Styles */
+.hospital-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.hospital-list::-webkit-scrollbar-thumb {
+  background-color: #d07554;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Search section */
-.search-section {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+.hospital-list::-webkit-scrollbar-track {
+  background-color: #f4e7e1;
 }
-
-.search-form {
-  display: flex;
-  gap: 10px;
-}
-
-/* Search bar and button in the search form */
-.search-bar {
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.search-button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.search-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-.search-error {
-  margin-top: 10px;
-  padding: 8px;
-  background-color: #fff3f3;
-  border: 1px solid #ffcdd2;
-  border-radius: 4px;
-  color: #d32f2f;
-}
-
-.search-success {
-  margin-top: 10px;
-  padding: 8px;
-  background-color: #f1f8e9;
-  border: 1px solid #c5e1a5;
-  border-radius: 4px;
-  color: #33691e;
-}
-
-/* Button for booking appointments */
-.book-appointment-button {
-  padding: 10px;
-  background-color: white;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Responsive styling */
-
-/* Medium screens (tablet) */
-@media (min-width: 768px) {
-  .hospital-map-page {
-    flex-direction: row;
-  }
-
-  .sidebar, .hospital-list {
-    width: 200px;
-  }
-
-  .map-container {
-    width: calc(100% - 400px);
-    height: 500px;
-  }
-}
-
-/* Large screens (desktop) */
-@media (min-width: 1024px) {
-  .hospital-map-page {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .sidebar, .hospital-list {
-    width: 250px;
-  }
-
-  .map-container {
-    width: calc(100% - 500px);
-    height: 600px;
-  }
-}
-
-/* Small screens (mobile) */
-@media (max-width: 767px) {
-  .hospital-map-page {
-    flex-direction: column;
-  }
-
-  .sidebar, .hospital-list, .map-container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 10px;
-  }
-
-  .leaflet-map {
-    height: 300px;
-  }
-
-  .hospital-item {
-    margin-bottom: 10px;
-  }
-}
-
-.hospital-item {
-  background-color: #f0f0f0;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  position: relative;  /* Ensures positioning for button */
-}
-
-.hospital-item:hover {
-  background-color: #d9825f;
-  transform: translateY(-5px);
-  color: white;
-}
-
-.book-appointment-button {
-  padding: 10px;
-  background-color: #007bff;  /* Adjust as per color theme */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  width: 100%;  /* Full width for a neat look */
-}
-
-.book-appointment-button:hover {
-  background-color: #0056b3;  /* Slightly darker for hover effect */
-}
-
