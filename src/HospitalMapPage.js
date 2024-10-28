@@ -17,6 +17,7 @@ const customIcon = new L.Icon({
   popupAnchor: [1, -34],
 });
 
+
 // Haversine Distance Formula
 const haversineDistance = (coords1, coords2) => {
   const toRad = (x) => (x * Math.PI) / 180;
@@ -42,6 +43,30 @@ const HospitalMapPage = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [mapCenter, setMapCenter] = useState([1.3521, 103.8198]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [filters, setFilters] = useState({
+    type: {
+      private: false,
+      public: false,
+      nonprofit: false,
+      profit: false
+    },
+    services: {
+      generalServices: false,
+      cardiology: false,
+      neurology: false,
+      gastroenterology: false,
+      radiology: false,
+      urology: false,
+      pathology: false,
+      obstetrics: false,
+      sleep: false
+    },
+    preference: {
+      favorite: false,
+      nearby: false,
+      visited: false
+    }
+  });
 
   const mapRef = useRef();
 
@@ -80,6 +105,16 @@ const HospitalMapPage = () => {
     });
   }, [currentLocation]);
 
+  const handleFilterChange = (category, item) => {
+    setFilters(prev => ({
+      ...prev,
+      [category]: {
+        ...prev[category],
+        [item]: !prev[category][item]
+      }
+    }));
+  };
+  
   const handleHospitalClick = (hospital) => {
     const hospitalCoords = [
       parseFloat(hospital.latitude),
@@ -153,6 +188,54 @@ const HospitalMapPage = () => {
             />
             <button type="submit" className="animated-button">Search</button>
           </form>
+
+          <div className="filter-section">
+            <h3>Type</h3>
+            <div className="filter-grid">
+              {Object.entries(filters.type).map(([key, value]) => (
+                <label key={key} className="filter-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={value}
+                    onChange={() => handleFilterChange('type', key)}
+                  />
+                  <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="filter-section">
+            <h3>Services</h3>
+            {Object.entries(filters.services).map(([key, value]) => (
+              <label key={key} className="filter-checkbox">
+                <input
+                  type="checkbox"
+                  checked={value}
+                  onChange={() => handleFilterChange('services', key)}
+                />
+                <span>
+                  {key.replace(/([A-Z])/g, ' $1').trim().split(' ').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                  ).join(' ')}
+                </span>
+              </label>
+            ))}
+          </div>
+
+          <div className="filter-section">
+            <h3>Preference</h3>
+            {Object.entries(filters.preference).map(([key, value]) => (
+              <label key={key} className="filter-checkbox">
+                <input
+                  type="checkbox"
+                  checked={value}
+                  onChange={() => handleFilterChange('preference', key)}
+                />
+                <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+              </label>
+            ))}
+          </div>
         </div>
 
         <div className="hospital-list">
