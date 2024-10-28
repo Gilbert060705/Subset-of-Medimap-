@@ -16,7 +16,6 @@
   min-height: 100vh;
 }
 
-
 /* Header Styles */
 .header {
   display: flex;
@@ -35,27 +34,52 @@
   font-weight: bold;
   color: #e74c3c;
 }
-.card img{
-  width:100%;
-  height:150px;
+
+.card img {
+  width: 100%;
+  height: 150px;
   object-fit: cover;
 }
+
 .logo img {
-  height: 60px; /* Decreased height for better rendering */
-  width: auto; /* Maintains aspect ratio */
+  height: 60px;
+  width: auto;
   margin-right: 10px;
 }
 
-nav a, .icon, .menu-icon {
+/* Navigation Link Styles */
+nav a {
   font-family: Itim, sans-serif;
   margin: 0 15px;
-  color: ivory;
-  text-decoration: none;
+  color: #e74c3c;
+  text-decoration: none; /* Remove underline */
   font-size: 1.2em;
+  transition: transform 0.3s ease, color 0.3s ease; /* Add smooth transition */
+  position: relative; /* For the animation effect */
 }
 
-.icon, .menu-icon {
-  cursor: pointer;
+nav a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #e74c3c;
+  transition: width 0.3s ease-in-out; /* Line animation effect */
+}
+
+nav a:hover::before {
+  width: 100%; /* Expand underline on hover */
+}
+
+nav a:hover {
+  color: #c0392b;
+  transform: scale(1.1); /* Scale up slightly on hover */
+}
+
+nav a:active {
+  color: #8e44ad; /* Change color when clicked */
 }
 
 /* Welcome Section Styles */
@@ -81,7 +105,7 @@ nav a, .icon, .menu-icon {
   margin-top: 10px;
 }
 
-/* Content Container for Tutorials and Hospital Section */
+/* Content Container */
 .content-container {
   display: flex;
   justify-content: space-between;
@@ -92,7 +116,7 @@ nav a, .icon, .menu-icon {
 }
 
 .tutorial-container {
-  flex: 2; /* Adjust width for tutorials */
+  flex: 2;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -143,9 +167,9 @@ nav a, .icon, .menu-icon {
   color: inherit;
 }
 
-/* Locate Hospital Section Styles */
+/* Locate Hospital Section */
 .locate-hospital {
-  flex: 1; /* Adjust width for the hospital section */
+  flex: 1;
   text-align: center;
   padding: 20px;
   background-color: #e6f3ff;
@@ -166,12 +190,10 @@ nav a, .icon, .menu-icon {
   background-color: #3498db;
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.logo {
-        display: flex;
-        align-items: center;
-    }
+
 .locate-button:hover {
   background-color: #2980b9;
+  transform: scale(1.05); /* Slightly scale on hover */
 }
