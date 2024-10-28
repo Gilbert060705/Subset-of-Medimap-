@@ -1,15 +1,13 @@
 /**
  * This module initializes Firebase and configures authentication-related utilities
- * using Firebase Authentication. It provides methods for email-password-based 
- * authentication and Google sign-in.
+ * using Firebase Authentication, Firestore, and Storage. It provides methods for 
+ * email-password-based authentication and Google sign-in, along with utility functions
+ * to monitor user state and manage user sessions.
  *
- * Firebase is configured with a specific project setup, and this module exports
- * Firebase authentication utilities for use across the application.
- *
- * @version 1.2
+ * @version 1.3
  */
 
-import { initializeApp } from 'firebase/app'; // Import Firebase core
+import { initializeApp } from 'firebase/app'; // Firebase core
 import { 
   getAuth, 
   onAuthStateChanged, 
@@ -23,10 +21,10 @@ import {
   fetchSignInMethodsForEmail, 
   EmailAuthProvider, 
   linkWithCredential, 
-  sendPasswordResetEmail // Import for password reset functionality
-} from 'firebase/auth';
-import { getStorage } from 'firebase/storage';
-import { getFirestore, doc, setDoc, updateDoc } from 'firebase/firestore';
+  sendPasswordResetEmail 
+} from 'firebase/auth'; // Firebase Authentication
+import { getStorage } from 'firebase/storage'; // Firebase Storage
+import { getFirestore, doc, setDoc, updateDoc, getDoc } from 'firebase/firestore'; // Firestore
 
 /**
  * Firebase configuration object containing project-specific credentials.
@@ -44,37 +42,38 @@ const firebaseConfig = {
 /** Initialize Firebase app with the provided configuration. */
 const app = initializeApp(firebaseConfig);
 
-/** Initialize Firebase Authentication. */
-const auth = getAuth(app);
+/** Firebase services */
+const auth = getAuth(app); // Firebase Authentication
+const storage = getStorage(app); // Firebase Storage
+const db = getFirestore(app); // Firestore Database
+const googleProvider = new GoogleAuthProvider(); // Google Authentication Provider
 
-/** Initialize Firebase Storage. */
-const storage = getStorage(app);
-
-/** Initialize Firestore Database. */
-const db = getFirestore(app);
-
-/** Google authentication provider instance. */
-const googleProvider = new GoogleAuthProvider();
-
-/** Set session persistence to browser session. */
+/**
+ * Set session persistence to browser session.
+ * This ensures that the user's session is persisted until they close the browser tab.
+ */
 (async () => {
   try {
     await setPersistence(auth, browserSessionPersistence);
     console.log('Session persistence set successfully.');
   } catch (error) {
-    console.error('Error setting persistence:', error);
+    console.error('Error setting session persistence:', error);
   }
 })();
 
 /**
  * Monitor authentication state changes.
+ * This function registers a callback to be invoked whenever the authentication state changes.
  * @param {function} callback - Callback function to handle user state.
+ * @returns {function} Unsubscribe function to stop monitoring.
  */
 const monitorAuthState = (callback) => {
   return onAuthStateChanged(auth, callback);
 };
 
-/** Export Firebase utilities. */
+/**
+ * Export Firebase utilities for use throughout the application.
+ */
 export { 
   auth, 
   googleProvider, 
@@ -86,10 +85,11 @@ export {
   doc, 
   setDoc, 
   updateDoc, 
+  getDoc, // Exported for fetching user data
   signInWithPopup, 
   fetchSignInMethodsForEmail, 
   EmailAuthProvider, 
   linkWithCredential, 
   sendPasswordResetEmail, 
-  monitorAuthState // Export monitorAuthState for auth changes
+  monitorAuthState // Exported to monitor authentication state changes
 };

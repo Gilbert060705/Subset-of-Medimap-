@@ -1,7 +1,6 @@
-// src/HomePage.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, monitorAuthState } from './firebase'; // Import Firebase utilities
+import { auth, monitorAuthState, db, doc, getDoc } from './firebase'; // Import Firebase utilities
 import './App.css';
 import './HomePage.css';
 import logo from './images/logo.png';
@@ -9,31 +8,53 @@ import hospital from './images/hospital.png';
 import personProfile from './images/personProfile.png';
 
 const HomePage = () => {
-  const [userName, setUserName] = useState(''); // State to store user's name or email
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [userName, setUserName] = useState(''); // Store user's name or default value
+  const [loading, setLoading] = useState(true); // Track loading state
+  const navigate = useNavigate(); // Initialize React Router navigation
+
+  /**
+   * Fetch the user's full name from Firestore using their UID.
+   * @param {string} uid - The user’s unique ID.
+   */
+  const fetchUserName = async (uid) => {
+    try {
+      const userDoc = await getDoc(doc(db, 'users', uid)); // Retrieve user data
+      if (userDoc.exists()) {
+        const { fullName } = userDoc.data(); // Extract full name from Firestore
+        setUserName(fullName); // Set full name in state
+      } else {
+        console.warn('No user data found in Firestore.');
+        setUserName('Guest'); // Default to 'Guest' if no data found
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      setUserName('Guest'); // Default to 'Guest' on error
+    } finally {
+      setLoading(false); // Set loading to false after fetching completes
+    }
+  };
 
   useEffect(() => {
-    // Monitor authentication state and set user's name or email
     const unsubscribe = monitorAuthState((user) => {
       if (user) {
-        const name = user.displayName || user.email.split('@')[0]; // Display name or email prefix
-        setUserName(name); // Update state with user's name or email
+        fetchUserName(user.uid); // Fetch user's name if logged in
       } else {
-        setUserName('Guest'); // Default to 'Guest' if no user is logged in
+        setUserName('Guest'); // Default to 'Guest' if no user logged in
+        setLoading(false); // Stop loading
       }
     });
 
     return () => unsubscribe(); // Cleanup on component unmount
   }, []);
 
-  // Function to navigate to HospitalMapPage
+  // Navigate to HospitalMapPage
   const handleLocateHospital = () => {
-    navigate('/hospitals'); // Navigate to the HospitalMapPage
+    navigate('/hospitals');
   };
 
   return (
     <div className="App">
-      {/* Header */}
+      {/* Header Section */}
       <header className="header">
         <div className="logo">
           <img src={logo} alt="MediMAP Logo" />
@@ -51,7 +72,11 @@ const HomePage = () => {
 
       {/* Welcome Section */}
       <section className="welcome-section">
-        <h1>Welcome, {userName}!</h1>
+        {loading ? (
+          <h1>Loading...</h1> // Display loading message while fetching data
+        ) : (
+          <h1>Welcome, {userName}!</h1>
+        )}
         <p>Check out these first aid tutorials for emergency situations.</p>
       </section>
 
