@@ -2,16 +2,17 @@
  * This module initializes Firebase and configures authentication-related utilities
  * using Firebase Authentication. It provides methods for email-password-based 
  * authentication and Google sign-in.
- * 
+ *
  * Firebase is configured with a specific project setup, and this module exports
  * Firebase authentication utilities for use across the application.
- * 
- * @version 1.1
+ *
+ * @version 1.2
  */
 
 import { initializeApp } from 'firebase/app'; // Import Firebase core
 import { 
   getAuth, 
+  onAuthStateChanged, 
   GoogleAuthProvider, 
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, 
@@ -21,7 +22,7 @@ import {
   signInWithPopup, 
   fetchSignInMethodsForEmail, 
   EmailAuthProvider, 
-  linkWithCredential,
+  linkWithCredential, 
   sendPasswordResetEmail // Import for password reset functionality
 } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
@@ -40,56 +41,55 @@ const firebaseConfig = {
   measurementId: "G-BG1GYX3CSQ"
 };
 
-/**
- * Initializes the Firebase application with the provided configuration.
- */
+/** Initialize Firebase app with the provided configuration. */
 const app = initializeApp(firebaseConfig);
 
-/**
- * Firebase Authentication service initialized using the Firebase app instance.
- */
+/** Initialize Firebase Authentication. */
 const auth = getAuth(app);
 
-/**
- * Firebase storage service initialized using the Firebase app instance.
- */
+/** Initialize Firebase Storage. */
 const storage = getStorage(app);
 
-/**
- * Firestore database service initialized using the Firebase app instance.
- */
+/** Initialize Firestore Database. */
 const db = getFirestore(app);
 
-/**
- * Google authentication provider instance used for OAuth-based sign-in.
- */
+/** Google authentication provider instance. */
 const googleProvider = new GoogleAuthProvider();
 
-/**
- * Configures session persistence to maintain authentication state across 
- * browser sessions (i.e., prevents auto-login across page reloads).
- */
-setPersistence(auth, browserSessionPersistence).catch((error) => {
-  console.error('Error setting persistence:', error);
-});
+/** Set session persistence to browser session. */
+(async () => {
+  try {
+    await setPersistence(auth, browserSessionPersistence);
+    console.log('Session persistence set successfully.');
+  } catch (error) {
+    console.error('Error setting persistence:', error);
+  }
+})();
 
 /**
- * Exports Firebase authentication utilities for use throughout the application.
+ * Monitor authentication state changes.
+ * @param {function} callback - Callback function to handle user state.
  */
+const monitorAuthState = (callback) => {
+  return onAuthStateChanged(auth, callback);
+};
+
+/** Export Firebase utilities. */
 export { 
-    auth, 
-    googleProvider, 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword, 
-    signOut, 
-    storage, 
-    db, 
-    doc, 
-    setDoc, 
-    updateDoc,
-    signInWithPopup, 
-    fetchSignInMethodsForEmail, 
-    EmailAuthProvider, 
-    linkWithCredential, 
-    sendPasswordResetEmail // Exported for password reset
+  auth, 
+  googleProvider, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signOut, 
+  storage, 
+  db, 
+  doc, 
+  setDoc, 
+  updateDoc, 
+  signInWithPopup, 
+  fetchSignInMethodsForEmail, 
+  EmailAuthProvider, 
+  linkWithCredential, 
+  sendPasswordResetEmail, 
+  monitorAuthState // Export monitorAuthState for auth changes
 };
