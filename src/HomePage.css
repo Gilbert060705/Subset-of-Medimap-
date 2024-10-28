@@ -1,166 +1,177 @@
 /* General Styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;  /* Prevents scrolling */
-  }
-  
-  .homepage-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-    background-color: #f3e3d6;
-    padding: 0 50px;
-  }
-  
-  /* Header Section */
-  .map-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #d2918c;
-  }
-  
-  .map-logo {
-      display: flex;
-      align-items: center;
-  }
-  
-  .map-logo img {
-      width: 200px;
-      height: 50px;
-      margin-right: 10px;
-  }
-  
-  .map-logo h1 {
-      color: #e34234;
-      font-size: 24px;
-  }
-  
-  .map-navbar a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      font-family:'Lexend Deca';
-      padding-top : 10px;
-      padding-bottom : 10px;
-      padding-left: 10px;
-      padding-right: 10px;
-  }
-  
-  .map-navbar a:hover {
-      background-color: aqua;
-      border-radius:10px;
-  }   
-
-
-  /* Profile Section */
-  .profile-pic {
-    margin-left: auto;
-    margin-right: 2rem;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
- .profile-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s;
-    background-color: #E6E6FA; /* 浅色背景，匹配设计图 */
-    padding: 5px;
-}
-
- .profile-icon:hover {
-    transform: scale(1.1);
-    background-color: #F0F0FF; /* 悬停时略微变亮 */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #D9B7A5;
+  width: 100%;
+  min-height: 100vh;
 }
 
 
-  /* Welcome Section */
-  .welcome-section {
-    margin-top: 20px;
-  }
-  
-  .welcome-section h1 {
-    font-size: 3rem;
-    color: #333;
-  }
-  
-  .welcome-section p {
-    font-size: 1.2rem;
-    color: #777;
-    margin-top: 10px;
-  }
-  
-  /* Main Section */
-  .main-section {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px 0;  /* Added top/bottom padding */
-    height: 70vh;
-  }
-  
-  /* Left Section (Videos) */
-  .left-section {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .tutorial-video {
-    text-align: center;
-  }
-  
-  .tutorial-video iframe {
-    width: 100%;
-    border-radius: 10px;
-  }
-  
-  .tutorial-video p {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  /* Right Section (Hospital Image and Button) */
-  .right-section {
-    flex: 0.5;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;  /* Aligns content upwards */
-    padding-left: 40px;
-    margin-top: -180px;  /* Moves the white box upwards */
-  }
-  
-  .hospital-box {
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    height: 600px;
-  }
-  
-  .hospital-image {
-    width: 350px;
-    margin-bottom: 20px;
-  }
-  
-  .cta-button {
-    background-color: #3282ff;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2rem;
-  }
-  
-  .cta-button:hover {
-    background-color: #255bb5;
-  }
-  
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: #D9B7A5;
+  border-bottom: 2px solid #e74c3c;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 5em;
+  font-weight: bold;
+  color: #e74c3c;
+}
+.card img{
+  width:100%;
+  height:150px;
+  object-fit: cover;
+}
+.logo img {
+  height: 60px; /* Decreased height for better rendering */
+  width: auto; /* Maintains aspect ratio */
+  margin-right: 10px;
+}
+
+nav a, .icon, .menu-icon {
+  font-family: Itim, sans-serif;
+  margin: 0 15px;
+  color: ivory;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.icon, .menu-icon {
+  cursor: pointer;
+}
+
+/* Welcome Section Styles */
+.welcome-section {
+  width: 100%;
+  font-family: Lexend Deca, serif;
+  text-align: center;
+  padding: 40px 0;
+  background-color: #D9B7A5;
+  margin-top: 20px;
+}
+
+.welcome-section h1 {
+  font-family: Lexend Deca, serif;
+  font-weight: bolder;
+  font-size: 2.5em;
+  color: black;
+}
+
+.welcome-section p {
+  color: #666;
+  font-size: 1.4em;
+  margin-top: 10px;
+}
+
+/* Content Container for Tutorials and Hospital Section */
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 40px;
+  gap: 20px;
+  background-color: #D9B7A5;
+}
+
+.tutorial-container {
+  flex: 2; /* Adjust width for tutorials */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  image-rendering: high-quality;
+}
+
+.tutorial-row {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Card Styles */
+.card {
+  flex: 1;
+  max-width: 300px;
+  text-align: center;
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card p {
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Locate Hospital Section Styles */
+.locate-hospital {
+  flex: 1; /* Adjust width for the hospital section */
+  text-align: center;
+  padding: 20px;
+  background-color: #e6f3ff;
+  border-radius: 10px;
+}
+
+.hospital-image img {
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.locate-button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 25px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.logo {
+        display: flex;
+        align-items: center;
+    }
+.locate-button:hover {
+  background-color: #2980b9;
+}
