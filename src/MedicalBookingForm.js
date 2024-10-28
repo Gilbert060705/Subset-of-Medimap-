@@ -176,7 +176,6 @@ const MedicalBookingForm = () => {
             <Link to="/confirmbook">
               <button
                 className="bookingPage-submit-button"
-                onClick={handleSubmit}
               >
                 Book now
               </button>

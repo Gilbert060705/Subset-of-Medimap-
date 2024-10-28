@@ -71,12 +71,11 @@ body {
 /* Hospital List */
 .hospital-list {
   width: 35%;
-  height:100%;
   padding: 10px;
   flex:1;
   background-color: #d8b3a5;
   border-radius: 12px;
-  overflow-y: auto;
+  overflow-y: scroll;
   height: 400px;
   transition: all 0.3s ease-in-out;
   text-align: center;
