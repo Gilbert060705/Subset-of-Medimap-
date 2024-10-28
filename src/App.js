@@ -35,6 +35,7 @@ import MedicalBookingForm from './MedicalBookingForm';
 import AppointmentBooked from './AppointmentBooked';
 import AboutUs from './AboutUs';
 import Profile from './Profile'; // Add this import
+import EmailMe from './email';
 
 /**
  * The App function component defines the structure of the application by setting up
@@ -72,6 +73,8 @@ function App() {
 
                 {/* Route mapping for Profile */}
                 <Route path="/profile" element={<Profile />} /> 
+
+                <Route path="/email" element={<EmailMe />} /> 
 
                 {/* Fallback Route - 404 Page */}
                 <Route path="*" element={<h1>404 - Page Not Found</h1>} />
