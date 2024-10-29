@@ -32,6 +32,7 @@ const haversineDistance = (coords1, coords2) => {
   const [lat1, lon1] = coords1;
   const [lat2, lon2] = coords2;
   const R = 6371; // Earth's radius in kilometers
+
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
 
@@ -40,6 +41,41 @@ const haversineDistance = (coords1, coords2) => {
     Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+};
+
+// Hospital Service for managing favorites and visited
+const HospitalService = {
+  getFavorites: () => {
+    const favorites = localStorage.getItem('favoriteHospitals');
+    return favorites ? JSON.parse(favorites) : [];
+  },
+
+  getVisited: () => {
+    const visited = localStorage.getItem('visitedHospitals');
+    return visited ? JSON.parse(visited) : [];
+  },
+
+  toggleFavorite: (hospitalId) => {
+    const favorites = HospitalService.getFavorites();
+    const index = favorites.indexOf(hospitalId);
+    if (index === -1) {
+      favorites.push(hospitalId);
+    } else {
+      favorites.splice(index, 1);
+    }
+    localStorage.setItem('favoriteHospitals', JSON.stringify(favorites));
+  },
+
+  toggleVisited: (hospitalId) => {
+    const visited = HospitalService.getVisited();
+    const index = visited.indexOf(hospitalId);
+    if (index === -1) {
+      visited.push(hospitalId);
+    } else {
+      visited.splice(index, 1);
+    }
+    localStorage.setItem('visitedHospitals', JSON.stringify(visited));
+  }
 };
 
 const HospitalMapPage = () => {
@@ -54,7 +90,12 @@ const HospitalMapPage = () => {
     nearby: true,
     favorites: false,
     visited: false,
-    type: { private: false, public: false, nonprofit: false, profit: false },
+    type: {
+      private: false,
+      public: false,
+      nonprofit: false,
+      profit: false
+    },
     services: {
       GeneralServices: false,
       Cardiology: false,
@@ -65,11 +106,10 @@ const HospitalMapPage = () => {
       Pathology: false,
       Obstetrics: false,
       NumberOfBeds: false,
-    },
+    }
   });
 
-  const mapRef = useRef();
-
+  // Get current location
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
@@ -81,6 +121,7 @@ const HospitalMapPage = () => {
     );
   }, []);
 
+  // Load hospital data
   useEffect(() => {
     Papa.parse('/HospitalBioData.csv', {
       download: true,
@@ -102,6 +143,54 @@ const HospitalMapPage = () => {
     });
   }, [currentLocation]);
 
+  // Apply filters
+  useEffect(() => {
+    let filtered = [...hospitals];
+
+    // Apply favorites filter
+    if (filters.favorites) {
+      const favorites = HospitalService.getFavorites();
+      filtered = filtered.filter(hospital => favorites.includes(hospital.id));
+    }
+
+    // Apply visited filter
+    if (filters.visited) {
+      const visited = HospitalService.getVisited();
+      filtered = filtered.filter(hospital => visited.includes(hospital.id));
+    }
+
+    // Apply nearby filter (sort by distance)
+    if (filters.nearby) {
+      filtered.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+    }
+
+    // Apply type filters
+    const activeTypes = Object.entries(filters.type)
+      .filter(([_, isActive]) => isActive)
+      .map(([type]) => type);
+    
+    if (activeTypes.length > 0) {
+      filtered = filtered.filter(hospital => 
+        activeTypes.includes(hospital.type?.toLowerCase())
+      );
+    }
+
+    // Apply service filters
+    const activeServices = Object.entries(filters.services)
+      .filter(([_, isActive]) => isActive)
+      .map(([service]) => service);
+    
+    if (activeServices.length > 0) {
+      filtered = filtered.filter(hospital =>
+        activeServices.some(service => 
+          hospital.services?.includes(service)
+        )
+      );
+    }
+
+    setFilteredHospitals(filtered.slice(0, visibleHospitals));
+  }, [filters, hospitals, visibleHospitals]);
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     const result = hospitals.find((hospital) =>
@@ -110,7 +199,7 @@ const HospitalMapPage = () => {
 
     if (result) {
       setFilteredHospitals([result]);
-      setFilters({ ...filters, nearby: false });
+      setFilters(prev => ({ ...prev, nearby: false }));
       const coords = [parseFloat(result.latitude), parseFloat(result.longitude)];
       setMapCenter(coords);
     } else {
@@ -118,14 +207,26 @@ const HospitalMapPage = () => {
     }
   };
 
-  const handleFilterChange = (category, key) => {
-    setFilters((prev) => ({
-      ...prev,
-      [category]: {
-        ...prev[category],
-        [key]: !prev[category][key],
-      },
-    }));
+  const handleFilterChange = (category, key = null) => {
+    setFilters(prevFilters => {
+      if (key === null) {
+        // For top-level filters (nearby, favorites, visited)
+        const newFilters = {
+          ...prevFilters,
+          [category]: !prevFilters[category]
+        };
+        return newFilters;
+      } else {
+        // For nested filters (type, services)
+        return {
+          ...prevFilters,
+          [category]: {
+            ...prevFilters[category],
+            [key]: !prevFilters[category][key],
+          },
+        };
+      }
+    });
   };
 
   const handleHospitalClick = (hospital) => {
@@ -135,16 +236,7 @@ const HospitalMapPage = () => {
   };
 
   const handleViewMore = () => {
-    setVisibleHospitals((prev) => prev + 5);
-    setFilteredHospitals(hospitals.slice(0, visibleHospitals + 5));
-  };
-
-  const handleNearbyToggle = () => {
-    const newNearby = !filters.nearby;
-    setFilters((prev) => ({ ...prev, nearby: newNearby }));
-    if (newNearby) {
-      setFilteredHospitals(hospitals.slice(0, visibleHospitals));
-    }
+    setVisibleHospitals(prev => prev + 5);
   };
 
   return (
@@ -184,7 +276,7 @@ const HospitalMapPage = () => {
                 <input
                   type="checkbox"
                   checked={filters.nearby}
-                  onChange={handleNearbyToggle}
+                  onChange={() => handleFilterChange('nearby')}
                 />
                 <span>Show Nearby Hospitals</span>
               </label>
@@ -192,7 +284,7 @@ const HospitalMapPage = () => {
                 <input
                   type="checkbox"
                   checked={filters.favorites}
-                  onChange={() => handleFilterChange('favorites', 'favorites')}
+                  onChange={() => handleFilterChange('favorites')}
                 />
                 <span>Favorites</span>
               </label>
@@ -200,7 +292,7 @@ const HospitalMapPage = () => {
                 <input
                   type="checkbox"
                   checked={filters.visited}
-                  onChange={() => handleFilterChange('visited', 'visited')}
+                  onChange={() => handleFilterChange('visited')}
                 />
                 <span>Visited</span>
               </label>
@@ -245,7 +337,7 @@ const HospitalMapPage = () => {
           {filteredHospitals.length > 0 ? (
             filteredHospitals.map((hospital, index) => (
               <div
-                key={index}
+                key={hospital.id || index}
                 className="hospital-item"
                 onClick={() => handleHospitalClick(hospital)}
               >
@@ -256,7 +348,7 @@ const HospitalMapPage = () => {
           ) : (
             <p>No hospitals found.</p>
           )}
-          {visibleHospitals < hospitals.length && filters.nearby && (
+          {visibleHospitals < hospitals.length && filteredHospitals.length === visibleHospitals && (
             <button onClick={handleViewMore} className="animated-button">
               View More Hospitals
             </button>

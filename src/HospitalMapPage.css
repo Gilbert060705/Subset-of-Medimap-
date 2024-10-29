@@ -209,3 +209,49 @@ body {
 .hospital-list::-webkit-scrollbar-track {
   background-color: #f4e7e1;
 }
+
+/* Add these styles to HospitalMapPage.css */
+.hospital-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.favorite-btn,
+.visited-btn {
+  background: none;
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.favorite-btn:hover,
+.visited-btn:hover {
+  transform: scale(1.1);
+}
+
+.favorite-btn.active {
+  background-color: #ffd700;
+  border-color: #ffd700;
+}
+
+.visited-btn.active {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.hospital-item {
+  position: relative;
+}
+
+.hospital-item:hover .hospital-actions {
+  opacity: 1;
+}
