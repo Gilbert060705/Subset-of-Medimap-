@@ -110,7 +110,7 @@ const HospitalMapPage = () => {
 
     if (result) {
       setFilteredHospitals([result]);
-      setFilters({ nearby: false });
+      setFilters({ ...filters, nearby: false });
       const coords = [parseFloat(result.latitude), parseFloat(result.longitude)];
       setMapCenter(coords);
     } else {
