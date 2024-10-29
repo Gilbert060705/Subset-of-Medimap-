@@ -2,7 +2,6 @@ import React from 'react';
 import './LoginPage1.css';
 import Doctor from './images/doctorDressed.png';
 import './App.css';
-import Home from "./images/Home.png";
 import patient from "./images/patient.png";
 import { useNavigate } from 'react-router-dom';
 
@@ -17,13 +16,6 @@ function LoginPage1() {
     <div className="login-container">
       <div className="left-panel"></div>
       <div className="right-panel">
-        <header className="header">
-          <nav>
-            <a href="/HomePage">
-              <img src={Home} alt="Home" />
-            </a>
-          </nav>
-        </header>
         <h1>Welcome Back !</h1>
         <div className="login-buttons">
           <div className="icon1">
