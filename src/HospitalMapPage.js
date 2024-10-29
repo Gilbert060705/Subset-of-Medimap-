@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Papa from 'papaparse';
@@ -17,6 +17,14 @@ const customIcon = new L.Icon({
   popupAnchor: [1, -34],
 });
 
+// Helper Component to Update Map View
+const ChangeMapView = ({ center }) => {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, 13); // Set the zoom to 13
+  }, [center, map]);
+  return null;
+};
 
 // Haversine Distance Formula
 const haversineDistance = (coords1, coords2) => {
@@ -24,7 +32,7 @@ const haversineDistance = (coords1, coords2) => {
   const [lat1, lon1] = coords1;
   const [lat2, lon2] = coords2;
 
-  const R = 6371;
+  const R = 6371; // Radius of Earth in kilometers
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
 
@@ -37,19 +45,14 @@ const haversineDistance = (coords1, coords2) => {
 };
 
 const HospitalMapPage = () => {
-  const [currentLocation, setCurrentLocation] = useState([1.3521, 103.8198]);
+  const [currentLocation, setCurrentLocation] = useState([1.3521, 103.8198]); // Default to Singapore
   const [hospitals, setHospitals] = useState([]);
   const [visibleHospitals, setVisibleHospitals] = useState(5);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [mapCenter, setMapCenter] = useState([1.3521, 103.8198]);
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState({
-    type: {
-      private: false,
-      public: false,
-      nonprofit: false,
-      profit: false
-    },
+    type: { private: false, public: false, nonprofit: false, profit: false },
     services: {
       generalServices: false,
       cardiology: false,
@@ -59,13 +62,9 @@ const HospitalMapPage = () => {
       urology: false,
       pathology: false,
       obstetrics: false,
-      sleep: false
+      sleep: false,
     },
-    preference: {
-      favorite: false,
-      nearby: false,
-      visited: false
-    }
+    preference: { favorite: false, nearby: false, visited: false },
   });
 
   const mapRef = useRef();
@@ -76,10 +75,7 @@ const HospitalMapPage = () => {
         const { latitude, longitude } = position.coords;
         const userCoords = [latitude, longitude];
         setCurrentLocation(userCoords);
-        setMapCenter(userCoords);
-        if (mapRef.current) {
-          mapRef.current.setView(userCoords, 13);
-        }
+        setMapCenter(userCoords); // Center map on user location
       },
       () => alert('Location access denied. Defaulting to Singapore.')
     );
@@ -106,25 +102,19 @@ const HospitalMapPage = () => {
   }, [currentLocation]);
 
   const handleFilterChange = (category, item) => {
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
       [category]: {
         ...prev[category],
-        [item]: !prev[category][item]
-      }
+        [item]: !prev[category][item],
+      },
     }));
   };
-  
+
   const handleHospitalClick = (hospital) => {
-    const hospitalCoords = [
-      parseFloat(hospital.latitude),
-      parseFloat(hospital.longitude),
-    ];
+    const hospitalCoords = [parseFloat(hospital.latitude), parseFloat(hospital.longitude)];
     setSelectedLocation(hospitalCoords);
-    setMapCenter(hospitalCoords);
-    if (mapRef.current) {
-      mapRef.current.setView(hospitalCoords, 13);
-    }
+    setMapCenter(hospitalCoords); // Re-center map on selected hospital
   };
 
   const handleViewMore = () => {
@@ -133,7 +123,6 @@ const HospitalMapPage = () => {
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch(
         `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
@@ -147,9 +136,6 @@ const HospitalMapPage = () => {
         const locationCoords = [parseFloat(lat), parseFloat(lon)];
         setSelectedLocation(locationCoords);
         setMapCenter(locationCoords);
-        if (mapRef.current) {
-          mapRef.current.setView(locationCoords, 13);
-        }
       } else {
         alert('Location not found');
       }
@@ -207,68 +193,54 @@ const HospitalMapPage = () => {
 
           <div className="filter-section">
             <h3>Services</h3>
-            {Object.entries(filters.services).map(([key, value]) => (
-              <label key={key} className="filter-checkbox">
-                <input
-                  type="checkbox"
-                  checked={value}
-                  onChange={() => handleFilterChange('services', key)}
-                />
-                <span>
-                  {key.replace(/([A-Z])/g, ' $1').trim().split(' ').map(word => 
-                    word.charAt(0).toUpperCase() + word.slice(1)
-                  ).join(' ')}
-                </span>
-              </label>
-            ))}
+            <div className="filter-grid">
+              {Object.entries(filters.services).map(([key, value]) => (
+                <label key={key} className="filter-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={value}
+                    onChange={() => handleFilterChange('services', key)}
+                  />
+                  <span>{key.replace(/([A-Z])/g, ' $1').replace(/^\w/, (c) => c.toUpperCase())}</span>
+                </label>
+              ))}
+            </div>
           </div>
 
           <div className="filter-section">
             <h3>Preference</h3>
-            {Object.entries(filters.preference).map(([key, value]) => (
-              <label key={key} className="filter-checkbox">
-                <input
-                  type="checkbox"
-                  checked={value}
-                  onChange={() => handleFilterChange('preference', key)}
-                />
-                <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-              </label>
-            ))}
+            <div className="filter-grid">
+              {Object.entries(filters.preference).map(([key, value]) => (
+                <label key={key} className="filter-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={value}
+                    onChange={() => handleFilterChange('preference', key)}
+                  />
+                  <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                </label>
+              ))}
+            </div>
           </div>
         </div>
 
         <div className="hospital-list">
           <h2>List of Nearest Hospitals</h2>
           {hospitals.slice(0, visibleHospitals).map((hospital, index) => (
-            <div
-              key={index}
-              className="hospital-item"
-              onClick={() => handleHospitalClick(hospital)}
-            >
+            <div key={index} className="hospital-item" onClick={() => handleHospitalClick(hospital)}>
               <h3>{hospital.name}</h3>
               <p>Distance: {hospital.distance} km away</p>
-              <p>Telemedicine: {hospital.telemedicine}</p>
             </div>
           ))}
           {visibleHospitals < hospitals.length && (
-            <button onClick={handleViewMore} className="animated-button">
-              View More Hospitals
-            </button>
+            <button onClick={handleViewMore} className="animated-button">View More Hospitals</button>
           )}
         </div>
 
         <div className="map-container">
-          <MapContainer
-            center={mapCenter}
-            zoom={12}
-            className="leaflet-map"
-            whenCreated={(map) => (mapRef.current = map)}
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; OpenStreetMap contributors'
-            />
+          <MapContainer center={mapCenter} zoom={12} className="leaflet-map">
+            <ChangeMapView center={mapCenter} />
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors" />
             <Marker position={currentLocation} icon={customIcon}>
               <Popup>Your Location</Popup>
             </Marker>
@@ -278,16 +250,6 @@ const HospitalMapPage = () => {
               </Marker>
             )}
           </MapContainer>
-
-          {selectedLocation && (
-          <div className="book-appointment">
-            <Link to="/bookform">
-              <button className="animated-button">
-                Book an Appointment
-              </button>
-            </Link>
-          </div>
-        )}
         </div>
       </div>
     </div>
