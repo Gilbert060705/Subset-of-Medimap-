@@ -1,3 +1,11 @@
+/* Ensure the body can scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
 /* Container and general styling */
 .profile-container {
   max-width: 900px;
@@ -7,6 +15,10 @@
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
+  min-height: 100vh; /* Ensure the container fills the viewport */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 /* Header */
@@ -74,10 +86,11 @@
   color: white;
 }
 
+/* Logout Section */
 .logout-section {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: auto; /* Push to the bottom if content is short */
 }
 
 .logout-button {
@@ -102,7 +115,7 @@
   transform: scale(0.95);
 }
 
-
+/* About Header */
 .about-header {
   display: flex;
   justify-content: space-between;
@@ -169,6 +182,7 @@
   padding: 20px;
   border-radius: 12px;
   color: white;
+  margin-bottom: 20px;
 }
 
 .visits-header {
@@ -211,39 +225,39 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-details {
-      flex-direction: column;
-      gap: 10px;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .detail-row {
-      width: 100%;
+    width: 100%;
   }
 
   .visits-header {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 @media (max-width: 480px) {
   .avatar {
-      width: 100px;
-      height: 100px;
+    width: 100px;
+    height: 100px;
   }
 
   .user-info h1 {
-      font-size: 28px;
+    font-size: 28px;
   }
 
   .user-info p {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   .about-header h2 {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   .edit-button, .details-button {
-      padding: 6px 12px;
+    padding: 6px 12px;
   }
 }
