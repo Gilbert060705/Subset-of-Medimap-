@@ -206,6 +206,7 @@ const HospitalMapPage = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button type="submit" className="animated-button">Search</button>
+            <Link to="/bookform" className="book-appointment-button">Book Appointment</Link>
           </form>
 
           <div className="filter-section">
