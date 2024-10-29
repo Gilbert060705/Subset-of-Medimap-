@@ -1,0 +1,119 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+}
+
+.nav a {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 20px;
+    background-color: #D9B7A5;
+
+}
+.left-panel {
+  flex: 1;
+  background-image: url('./images/Doctor.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.right-panel {
+  flex: 0.7;
+  width:40%;
+  padding: 50px;
+  background-color: #D9B7A5;
+  justify-content: center;
+  display :flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  background-color: #D9B7A5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 500px;
+}
+
+.header nav {
+  margin-right: 20px;
+}
+
+.header nav a img {
+  height: 40px; /* Adjust the height as needed */
+  width: auto; /* Maintain aspect ratio */
+}
+h1 {
+  margin-bottom: 80px;
+  font-family: 'Itim', sans-serif;
+}
+.icon1{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  margin-right: 20px;
+}
+
+.icon2{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.login-buttons {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 1000px;
+  transition: transform 0.2s ease;
+
+}
+
+.login-button {
+  padding: 20px 20px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-radius: 10px;
+  color: ivory;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.doctor {
+  background-color: #BB6868;
+  color: white;
+}
+
+.patient {
+  background-color: #BB6868;
+  color: white;
+}
+
+.login-button:hover {
+  opacity: 0.9;
+}
+
+.signup-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.signup-link a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

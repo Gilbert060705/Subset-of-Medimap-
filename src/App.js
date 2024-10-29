@@ -26,6 +26,7 @@
  */
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage1 from './LoginPage1';
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage';
 import LandingPage from './LandingPage';  // Import the LandingPage
@@ -47,8 +48,9 @@ function App() {
     return (
         <Router>
             <Routes>
+                <Route path="/" element={<LoginPage1 />} />
                 {/* Route mapping for LoginPage */}
-                <Route path="/" element={<LoginPage />} />
+                <Route path="/login" element={<LoginPage />} />
 
                 {/* Route mapping for SignUpPage */}
                 <Route path="/signup" element={<SignUpPage />} />
