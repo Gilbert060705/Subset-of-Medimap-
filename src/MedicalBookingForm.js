@@ -3,18 +3,20 @@ import logo from './images/logo.png';
 import "./MedicalBookingForm.css";
 import { Link } from 'react-router-dom';
 import profilePic from './images/personProfile.png';
+import{ db, setDoc, auth, collection} from './firebase'
 
 const MedicalBookingForm = () => {
   const [formData, setFormData] = useState({
     gender: '',
     age: '',
     symptom: '',
-    serviceType: 'on-site',
+    serviceType: '',
     date: '',
     time: '',
     patientName: '',
     document: null
   });
+  const [user, setUser] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,10 +33,34 @@ const MedicalBookingForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    //submission logic
+
+    auth.onAuthStateChanged(async (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      }
+    });
+
+    //validate inputs
+    if (!formData.serviceType || !formData.date || !formData.time || !formData.fullName || !formData.gender || !formData.age || !formData.symptom || !formData.patientName || !formData.document) {
+      alert("All fields are required");
+      return;
+    }
+
+    //store appointment data
+    try {
+      await setDoc(collection(db, "appointments", user.uid), {
+        ...formData
+      });
+      console.log("Appointment stored succesfully");
+    } catch (error) {
+        console.error("Error storing appointment: ", error);
+        alert("Failed to store appointment.");
+    }
+
     console.log('Form submitted:', formData);
-    // Add form submission logic here
   };
 
   return (
@@ -176,6 +202,7 @@ const MedicalBookingForm = () => {
             <Link to="/confirmbook">
               <button
                 className="bookingPage-submit-button"
+                onClick={handleSubmit}
               >
                 Book now
               </button>
