@@ -23,7 +23,7 @@ import {
   linkWithCredential, 
   sendPasswordResetEmail 
 } from 'firebase/auth'; // Firebase Authentication
-import { getStorage, getDownloadURL } from 'firebase/storage'; // Firebase Storage
+import { getStorage, getDownloadURL, ref, uploadBytes} from 'firebase/storage'; // Firebase Storage
 import { getFirestore, doc, setDoc, updateDoc, getDoc, addDoc, collection } from 'firebase/firestore'; // Firestore
 
 /**
@@ -81,7 +81,9 @@ export {
   signInWithEmailAndPassword, 
   signOut, 
   storage,
-  getDownloadURL, 
+  getDownloadURL,
+  uploadBytes,
+  ref, 
   db, 
   doc, 
   setDoc, 

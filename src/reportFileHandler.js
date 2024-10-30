@@ -1,21 +1,19 @@
-import { storage } from "./firebase";
+import { storage, getDownloadURL, ref, uploadBytes} from "./firebase";
 
-function storeReportFile(inputFile){
-//    const file = inputFile.files[0]; //This is to get selected file from input, given that inputFile is HTML element (idk if later the input will be directly a file or no, ill just put this in case it is not.)
-    if (!inputFile) {
-        alert("Please select a file first.");
-        return;
+async function storeReportFile(inputFile){
+    const storageRef = ref(storage, `fileUploads/${inputFile.name}`);
+    try {
+        // Upload the file to Firebase Storage
+        const snapshot = await uploadBytes(storageRef, inputFile);
+        console.log('File uploaded successfully:', snapshot);
+
+        // Get the download URL
+        const url = await getDownloadURL(storageRef);
+        return url;
+    } catch (error) {
+        console.error('File upload failed:', error);
+        return null; // Or handle error as needed
     }
-
-    // Create a reference to the file in Firebase Storage
-    const storageRef = storage.ref(`fileUploads/${file.name}`);
-
-    // Upload the file to Firebase Storage
-    storageRef.put(file).then((snapshot) => {
-    console.log('File uploaded successfully:', snapshot);
-    }).catch((error) => {
-    console.error('File upload failed:', error);
-    });
 }
 
 function deletereportFile(inputFileName){

@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from './images/logo.png';
 import "./MedicalBookingForm.css";
 import { Link } from 'react-router-dom';
 import profilePic from './images/personProfile.png';
-import{ db, setDoc, auth, collection} from './firebase'
+import{ db, addDoc, auth, collection} from './firebase'
+import { storeReportFile } from './reportFileHandler';
 
 const MedicalBookingForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     gender: '',
     age: '',
@@ -14,9 +17,18 @@ const MedicalBookingForm = () => {
     date: '',
     time: '',
     patientName: '',
-    document: null
+    documentlink: ''
   });
+  const [document, setDocument] = useState (null);
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+    });
+    return unsubscribe;
+  }, []);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,39 +39,51 @@ const MedicalBookingForm = () => {
   };
 
   const handleFileChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      document: e.target.files[0],
-    }));
+    const file = e.target.files[0];
+    setDocument(file); // Directly assign the file
+  };
+
+  const validateForm = () => {
+    for (const key in formData) {
+      if (key === 'documentlink') continue;
+      if (!formData[key] || (typeof formData[key] === 'string' && formData[key].trim() === '')) {
+        return false;
+      }
+    }
+    return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     //submission logic
 
-    auth.onAuthStateChanged(async (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-      }
-    });
-
-    //validate inputs
-    if (!formData.serviceType || !formData.date || !formData.time || !formData.fullName || !formData.gender || !formData.age || !formData.symptom || !formData.patientName || !formData.document) {
-      alert("All fields are required");
+    const isValid = validateForm(); // Assume a function to check all fields
+    if (isValid) {
+      console.log("Form data:", formData);
+    } else {
+      alert("All fields are required.");
       return;
     }
 
-    //store appointment data
+    console.log("Form is valid, submitting...");
+    // Proceed with form submission
     try {
-      await setDoc(collection(db, "appointments", user.uid), {
-        ...formData
+      let documentUrl = null;
+
+      if(document){
+        console.log(document.name);
+        documentUrl = await storeReportFile(document);
+      }
+      await addDoc(collection(db, "appointments", user.uid, "userAppointments"), {
+        ...formData,
+        documentlink: documentUrl
       });
       console.log("Appointment stored succesfully");
-    } catch (error) {
+      navigate('/confirmbook');
+      } catch (error) {
         console.error("Error storing appointment: ", error);
         alert("Failed to store appointment.");
-    }
-
+      }
     console.log('Form submitted:', formData);
   };
 
@@ -84,6 +108,7 @@ const MedicalBookingForm = () => {
       <div className="bookingPage-form-container">
         <h2 className="bookingPage-form-title">Singapore General Hospital</h2>
 
+        <form className="appointment-form" onSubmit={handleSubmit}>
         <div className="bookingPage-form-grid">
           {/* Left Column - Details */}
           <div className="bookingPage-details-section">
@@ -97,7 +122,9 @@ const MedicalBookingForm = () => {
                   value={formData.gender}
                   onChange={handleInputChange}
                   className="input-field"
+                  required
                 >
+                  <option value="" disabled hidden>Select Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="rather-not-say">Rather not say</option>
@@ -111,6 +138,8 @@ const MedicalBookingForm = () => {
                   value={formData.age}
                   onChange={handleInputChange}
                   className="input-field"
+                  min="1"
+                  required
                 />
               </div>
             </div>
@@ -122,6 +151,7 @@ const MedicalBookingForm = () => {
                 value={formData.symptom}
                 onChange={handleInputChange}
                 className="textarea-field"
+                required
               />
             </div>
 
@@ -132,6 +162,7 @@ const MedicalBookingForm = () => {
                 name="document"
                 onChange={handleFileChange}
                 className="file-input"
+                required
               />
             </div>
           </div>
@@ -150,6 +181,7 @@ const MedicalBookingForm = () => {
                     value="on-site"
                     checked={formData.serviceType === 'on-site'}
                     onChange={handleInputChange}
+                    required
                   />
                   <span className="bookingPage-white-text">On-site</span>
                 </label>
@@ -160,6 +192,7 @@ const MedicalBookingForm = () => {
                     value="telemedicine"
                     checked={formData.serviceType === 'telemedicine'}
                     onChange={handleInputChange}
+                    required
                   />
                   <span className="bookingPage-white-text">Telemedicine</span>
                 </label>
@@ -174,6 +207,7 @@ const MedicalBookingForm = () => {
                 value={formData.date}
                 onChange={handleInputChange}
                 className="bookingPage-input-field"
+                required
               />
             </div>
 
@@ -185,6 +219,7 @@ const MedicalBookingForm = () => {
                 value={formData.time}
                 onChange={handleInputChange}
                 className="bookingPage-input-field"
+                required
               />
             </div>
 
@@ -196,19 +231,18 @@ const MedicalBookingForm = () => {
                 value={formData.patientName}
                 onChange={handleInputChange}
                 className="bookingPage-input-field"
+                required
               />
             </div>
-
-            <Link to="/confirmbook">
-              <button
-                className="bookingPage-submit-button"
-                onClick={handleSubmit}
-              >
-                Book now
-              </button>
-            </Link>
+            <button
+              type='submit'
+              className="bookingPage-submit-button"
+              onClick={handleSubmit}>
+              Book now
+            </button>
           </div>
         </div>
+        </form>
       </div>
     </div>
   );
