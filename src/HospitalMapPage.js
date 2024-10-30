@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -45,35 +45,20 @@ const haversineDistance = (coords1, coords2) => {
 
 // Hospital Service for managing favorites and visited
 const HospitalService = {
-  getFavorites: () => {
-    const favorites = localStorage.getItem('favoriteHospitals');
-    return favorites ? JSON.parse(favorites) : [];
-  },
-
-  getVisited: () => {
-    const visited = localStorage.getItem('visitedHospitals');
-    return visited ? JSON.parse(visited) : [];
-  },
+  getFavorites: () => JSON.parse(localStorage.getItem('favoriteHospitals')) || [],
+  getVisited: () => JSON.parse(localStorage.getItem('visitedHospitals')) || [],
 
   toggleFavorite: (hospitalId) => {
     const favorites = HospitalService.getFavorites();
     const index = favorites.indexOf(hospitalId);
-    if (index === -1) {
-      favorites.push(hospitalId);
-    } else {
-      favorites.splice(index, 1);
-    }
+    index === -1 ? favorites.push(hospitalId) : favorites.splice(index, 1);
     localStorage.setItem('favoriteHospitals', JSON.stringify(favorites));
   },
 
   toggleVisited: (hospitalId) => {
     const visited = HospitalService.getVisited();
     const index = visited.indexOf(hospitalId);
-    if (index === -1) {
-      visited.push(hospitalId);
-    } else {
-      visited.splice(index, 1);
-    }
+    index === -1 ? visited.push(hospitalId) : visited.splice(index, 1);
     localStorage.setItem('visitedHospitals', JSON.stringify(visited));
   }
 };
@@ -94,7 +79,7 @@ const HospitalMapPage = () => {
       private: false,
       public: false,
       nonprofit: false,
-      profit: false
+      profit: false,
     },
     services: {
       GeneralServices: false,
@@ -106,7 +91,7 @@ const HospitalMapPage = () => {
       Pathology: false,
       Obstetrics: false,
       NumberOfBeds: false,
-    }
+    },
   });
 
   // Get current location
@@ -127,69 +112,19 @@ const HospitalMapPage = () => {
       download: true,
       header: true,
       complete: ({ data }) => {
-        const sortedHospitals = data
-          .map((hospital) => ({
-            ...hospital,
-            distance: haversineDistance(
-              currentLocation,
-              [parseFloat(hospital.latitude), parseFloat(hospital.longitude)]
-            ).toFixed(2),
-          }))
-          .sort((a, b) => a.distance - b.distance);
+        const sortedHospitals = data.map((hospital) => ({
+          ...hospital,
+          distance: haversineDistance(
+            currentLocation,
+            [parseFloat(hospital.latitude), parseFloat(hospital.longitude)]
+          ).toFixed(2),
+        })).sort((a, b) => a.distance - b.distance);
 
         setHospitals(sortedHospitals);
-        setFilteredHospitals(sortedHospitals.slice(0, visibleHospitals));
+        setFilteredHospitals(sortedHospitals.slice(0, 5));
       },
     });
   }, [currentLocation]);
-
-  // Apply filters
-  useEffect(() => {
-    let filtered = [...hospitals];
-
-    // Apply favorites filter
-    if (filters.favorites) {
-      const favorites = HospitalService.getFavorites();
-      filtered = filtered.filter(hospital => favorites.includes(hospital.id));
-    }
-
-    // Apply visited filter
-    if (filters.visited) {
-      const visited = HospitalService.getVisited();
-      filtered = filtered.filter(hospital => visited.includes(hospital.id));
-    }
-
-    // Apply nearby filter (sort by distance)
-    if (filters.nearby) {
-      filtered.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
-    }
-
-    // Apply type filters
-    const activeTypes = Object.entries(filters.type)
-      .filter(([_, isActive]) => isActive)
-      .map(([type]) => type);
-    
-    if (activeTypes.length > 0) {
-      filtered = filtered.filter(hospital => 
-        activeTypes.includes(hospital.type?.toLowerCase())
-      );
-    }
-
-    // Apply service filters
-    const activeServices = Object.entries(filters.services)
-      .filter(([_, isActive]) => isActive)
-      .map(([service]) => service);
-    
-    if (activeServices.length > 0) {
-      filtered = filtered.filter(hospital =>
-        activeServices.some(service => 
-          hospital.services?.includes(service)
-        )
-      );
-    }
-
-    setFilteredHospitals(filtered.slice(0, visibleHospitals));
-  }, [filters, hospitals, visibleHospitals]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -198,26 +133,29 @@ const HospitalMapPage = () => {
     );
 
     if (result) {
-      setFilteredHospitals([result]);
-      setFilters(prev => ({ ...prev, nearby: false }));
       const coords = [parseFloat(result.latitude), parseFloat(result.longitude)];
+      setFilteredHospitals([{
+        ...result,
+        distance: haversineDistance(currentLocation, coords).toFixed(2),
+      }]);
       setMapCenter(coords);
+      setSelectedHospital(result);
+      setFilters((prev) => ({ ...prev, nearby: false }));
     } else {
       alert('Hospital not found. Try a different search.');
+      setFilteredHospitals([]); // Clear the list if no result found
     }
   };
 
   const handleFilterChange = (category, key = null) => {
-    setFilters(prevFilters => {
+    setFilters((prevFilters) => {
       if (key === null) {
-        // For top-level filters (nearby, favorites, visited)
-        const newFilters = {
-          ...prevFilters,
-          [category]: !prevFilters[category]
-        };
+        const newFilters = { ...prevFilters, [category]: !prevFilters[category] };
+        if (category === 'nearby' && newFilters.nearby) {
+          setFilteredHospitals(hospitals.slice(0, visibleHospitals));
+        }
         return newFilters;
       } else {
-        // For nested filters (type, services)
         return {
           ...prevFilters,
           [category]: {
@@ -229,14 +167,15 @@ const HospitalMapPage = () => {
     });
   };
 
+  const handleViewMore = () => {
+    setVisibleHospitals((prev) => prev + 5);
+    setFilteredHospitals(hospitals.slice(0, visibleHospitals + 5));
+  };
+
   const handleHospitalClick = (hospital) => {
     const coords = [parseFloat(hospital.latitude), parseFloat(hospital.longitude)];
     setSelectedHospital(hospital);
     setMapCenter(coords);
-  };
-
-  const handleViewMore = () => {
-    setVisibleHospitals(prev => prev + 5);
   };
 
   return (
@@ -267,68 +206,63 @@ const HospitalMapPage = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button type="submit" className="animated-button">Search</button>
+            <Link to="/bookform" className="book-appointment-button">Book Appointment</Link>
           </form>
 
           <div className="filter-section">
             <h3>Preferences</h3>
-            <div className="filter-grid">
-              <label className="filter-checkbox">
-                <input
-                  type="checkbox"
-                  checked={filters.nearby}
-                  onChange={() => handleFilterChange('nearby')}
-                />
-                <span>Show Nearby Hospitals</span>
-              </label>
-              <label className="filter-checkbox">
-                <input
-                  type="checkbox"
-                  checked={filters.favorites}
-                  onChange={() => handleFilterChange('favorites')}
-                />
-                <span>Favorites</span>
-              </label>
-              <label className="filter-checkbox">
-                <input
-                  type="checkbox"
-                  checked={filters.visited}
-                  onChange={() => handleFilterChange('visited')}
-                />
-                <span>Visited</span>
-              </label>
-            </div>
+            <label className="filter-checkbox">
+              <input
+                type="checkbox"
+                checked={filters.nearby}
+                onChange={() => handleFilterChange('nearby')}
+              />
+              <span>Show Nearby Hospitals</span>
+            </label>
+            <label className="filter-checkbox">
+              <input
+                type="checkbox"
+                checked={filters.favorites}
+                onChange={() => handleFilterChange('favorites')}
+              />
+              <span>Favorites</span>
+            </label>
+            <label className="filter-checkbox">
+              <input
+                type="checkbox"
+                checked={filters.visited}
+                onChange={() => handleFilterChange('visited')}
+              />
+              <span>Visited</span>
+            </label>
           </div>
 
           <div className="filter-section">
             <h3>Type</h3>
-            <div className="filter-grid">
-              {Object.entries(filters.type).map(([key, value]) => (
-                <label key={key} className="filter-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={value}
-                    onChange={() => handleFilterChange('type', key)}
-                  />
-                  <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-                </label>
-              ))}
-            </div>
+            {Object.entries(filters.type).map(([key, value]) => (
+              <label key={key} className="filter-checkbox">
+                <input
+                  type="checkbox"
+                  checked={value}
+                  onChange={() => handleFilterChange('type', key)}
+                />
+                <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+              </label>
+            ))}
           </div>
 
           <div className="filter-section">
             <h3>Services</h3>
-            <div className="filter-grid">
-              {Object.entries(filters.services).map(([key, value]) => (
-                <label key={key} className="filter-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={value}
-                    onChange={() => handleFilterChange('services', key)}
-                  />
-                  <span>{key.replace(/([A-Z])/g, ' $1').trim()}</span>
-                </label>
-              ))}
-            </div>
+            {Object.entries(filters.services).map(([key, value]) => (
+              <label key={key} className="filter-checkbox">
+                <input
+                  type="checkbox"
+                  checked={value}
+                  onChange={() => handleFilterChange('services', key)}
+                />
+                <span>{key.replace(/([A-Z])/g, ' $1').trim()}</span>
+              </label>
+            ))}
           </div>
         </div>
 
@@ -348,7 +282,7 @@ const HospitalMapPage = () => {
           ) : (
             <p>No hospitals found.</p>
           )}
-          {visibleHospitals < hospitals.length && filteredHospitals.length === visibleHospitals && (
+          {visibleHospitals < hospitals.length && filters.nearby && (
             <button onClick={handleViewMore} className="animated-button">
               View More Hospitals
             </button>

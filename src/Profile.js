@@ -91,7 +91,7 @@ const Profile = () => {
         <section className="user-info">
           <img src={profilePic} alt="Avatar" className="avatar" />
           <h1>{userData.fullName || 'User Name'}</h1>
-          <p>@{userData.email.split('@')[0]}</p>
+          <p>@{userData.email ? userData.email.split('@')[0] : 'username'}</p>
         </section>
 
         <section className="about-section">

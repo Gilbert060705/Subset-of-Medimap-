@@ -78,6 +78,8 @@ function App() {
 
                 <Route path="/email" element={<EmailMe />} /> 
 
+                <Route path="/bookform" element={<MedicalBookingForm />} />
+
                 {/* Fallback Route - 404 Page */}
                 <Route path="*" element={<h1>404 - Page Not Found</h1>} />
             </Routes>
