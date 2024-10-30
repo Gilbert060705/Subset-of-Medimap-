@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -64,6 +65,7 @@ const HospitalService = {
 };
 
 const HospitalMapPage = () => {
+  const navigate = useNavigate();
   const [currentLocation, setCurrentLocation] = useState([1.3521, 103.8198]);
   const [hospitals, setHospitals] = useState([]);
   const [filteredHospitals, setFilteredHospitals] = useState([]);
@@ -93,6 +95,7 @@ const HospitalMapPage = () => {
       NumberOfBeds: false,
     },
   });
+  
 
   // Get current location
   useEffect(() => {
@@ -176,6 +179,7 @@ const HospitalMapPage = () => {
     const coords = [parseFloat(hospital.latitude), parseFloat(hospital.longitude)];
     setSelectedHospital(hospital);
     setMapCenter(coords);
+    navigate('/bookform', { state: { hospitalName: hospital.name } });
   };
 
   return (

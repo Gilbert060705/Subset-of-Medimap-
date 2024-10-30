@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import logo from './images/logo.png';
 import "./MedicalBookingForm.css";
 import { Link } from 'react-router-dom';
@@ -9,6 +9,9 @@ import { storeReportFile } from './reportFileHandler';
 
 const MedicalBookingForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const hospitalName = location.state?.hospitalName || 'Hospital Name';
+
   const [formData, setFormData] = useState({
     gender: '',
     age: '',
@@ -106,7 +109,7 @@ const MedicalBookingForm = () => {
       </header>
 
       <div className="bookingPage-form-container">
-        <h2 className="bookingPage-form-title">Singapore General Hospital</h2>
+        <h2 className="bookingPage-form-title">{hospitalName}</h2>
 
         <form className="appointment-form" onSubmit={handleSubmit}>
         <div className="bookingPage-form-grid">
