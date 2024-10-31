@@ -18,7 +18,7 @@ const customIcon = new L.Icon({
   popupAnchor: [1, -34],
 });
 
-// Helper to update map view
+// Helper component to update map view
 const ChangeMapView = ({ center }) => {
   const map = useMap();
   useEffect(() => {
@@ -27,7 +27,7 @@ const ChangeMapView = ({ center }) => {
   return null;
 };
 
-// Haversine Distance Formula
+// Haversine Distance Calculation
 const haversineDistance = (coords1, coords2) => {
   const toRad = (x) => (x * Math.PI) / 180;
   const [lat1, lon1] = coords1;
@@ -44,7 +44,7 @@ const haversineDistance = (coords1, coords2) => {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 };
 
-// Hospital Service for managing favorites and visited
+// Hospital Service for managing favorites and visited status
 const HospitalService = {
   getFavorites: () => JSON.parse(localStorage.getItem('favoriteHospitals')) || [],
   getVisited: () => JSON.parse(localStorage.getItem('visitedHospitals')) || [],
@@ -61,7 +61,7 @@ const HospitalService = {
     const index = visited.indexOf(hospitalId);
     index === -1 ? visited.push(hospitalId) : visited.splice(index, 1);
     localStorage.setItem('visitedHospitals', JSON.stringify(visited));
-  }
+  },
 };
 
 const HospitalMapPage = () => {
@@ -95,7 +95,6 @@ const HospitalMapPage = () => {
       NumberOfBeds: false,
     },
   });
-  
 
   // Get current location
   useEffect(() => {
@@ -152,21 +151,19 @@ const HospitalMapPage = () => {
 
   const handleFilterChange = (category, key = null) => {
     setFilters((prevFilters) => {
-      if (key === null) {
-        const newFilters = { ...prevFilters, [category]: !prevFilters[category] };
-        if (category === 'nearby' && newFilters.nearby) {
-          setFilteredHospitals(hospitals.slice(0, visibleHospitals));
-        }
-        return newFilters;
-      } else {
-        return {
-          ...prevFilters,
-          [category]: {
-            ...prevFilters[category],
-            [key]: !prevFilters[category][key],
-          },
-        };
+      const newFilters = key === null
+        ? { ...prevFilters, [category]: !prevFilters[category] }
+        : {
+            ...prevFilters,
+            [category]: {
+              ...prevFilters[category],
+              [key]: !prevFilters[category][key],
+            },
+          };
+      if (category === 'nearby' && newFilters.nearby) {
+        setFilteredHospitals(hospitals.slice(0, visibleHospitals));
       }
+      return newFilters;
     });
   };
 
@@ -177,9 +174,16 @@ const HospitalMapPage = () => {
 
   const handleHospitalClick = (hospital) => {
     const coords = [parseFloat(hospital.latitude), parseFloat(hospital.longitude)];
-    setSelectedHospital(hospital);
-    setMapCenter(coords);
-    navigate('/bookform', { state: { hospitalName: hospital.name } });
+    setSelectedHospital(hospital); // Set the selected hospital
+    setMapCenter(coords); // Center the map on the selected hospital
+  };
+
+  const handleBookAppointment = () => {
+    if (selectedHospital) {
+      navigate('/bookform', { state: { hospitalName: selectedHospital.name } });
+    } else {
+      alert('Please select a hospital from the list first.');
+    }
   };
 
   return (
@@ -210,7 +214,13 @@ const HospitalMapPage = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button type="submit" className="animated-button">Search</button>
-            <Link to="/bookform" className="book-appointment-button">Book Appointment</Link>
+            <button
+              type="button"
+              onClick={handleBookAppointment}
+              className="book-appointment-button"
+            >
+              Book Appointment
+            </button>
           </form>
 
           <div className="filter-section">

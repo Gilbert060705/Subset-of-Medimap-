@@ -274,3 +274,12 @@ body {
 .hospital-item:hover .hospital-actions {
   opacity: 1;
 }
+.heart-icon {
+  color: grey;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.heart-icon.favorite {
+  color: red;
+}
