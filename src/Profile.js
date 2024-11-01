@@ -78,25 +78,39 @@ const Profile = () => {
     }
   };
 
+  // Modified navigation handlers
+  const handleHomeClick = () => {
+    navigate('/landing'); // Navigate to landing page instead of login
+  };
+
+  const handleAboutClick = () => {
+    navigate('/about');
+  };
+
+  const handleMyBookingClick = () => {
+    navigate('/booking');
+  };
+
   if (loading) {
-    return <p>Loading user data...</p>; // Loader while data is being fetched
+    return <p>Loading user data...</p>;
   }
 
   return (
     <div className="profile-container">
       <header className="header">
         <div className="logo">
-          <img src={logo} alt="MediMap Logo" />
+          <img src={logo} alt="MediMap Logo" onClick={handleHomeClick} style={{ cursor: 'pointer' }}/>
         </div>
         <nav className="nav">
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
-          <button onClick={() => navigate('/booking')} className="nav-button">
+          <a href="#" onClick={handleHomeClick}>Home</a>
+          <a href="#" onClick={handleAboutClick}>About Us</a>
+          <button onClick={handleMyBookingClick} className="nav-button">
             My Bookings
           </button>
         </nav>
       </header>
 
+      {/* Rest of your component code remains the same */}
       <div className="profile-content">
         <section className="user-info">
           <img src={profilePic} alt="Avatar" className="avatar" />
@@ -131,10 +145,6 @@ const Profile = () => {
           <div className="visits-header">
             <h2>Past Visits</h2>
             <button className="details-button">Details</button>
-          </div>
-          <div className="visit-item">
-            <p>23/08/2024, 11:00 a.m.</p>
-            <p>Singapore General Hospital, Outram Rd, Singapore</p>
           </div>
           <div className="visit-item">
             <p>23/08/2024, 11:00 a.m.</p>
