@@ -139,6 +139,7 @@ const MedicalBookingForm = () => {
                   onChange={handleInputChange}
                   className="input-field"
                   min="1"
+                  
                   required
                 />
               </div>
