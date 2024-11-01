@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';  
+import { useLocation, useNavigate, Link } from 'react-router-dom';  // Added Link import
 import './LandingPage.css';  
 import logo from './images/logo.png';  
 import profilePic from './images/personProfile.png';  
@@ -13,7 +13,7 @@ const LandingPage = () => {
   const location = useLocation();  
   const navigate = useNavigate();  
 
-  const { welcomeMessage = '' } = location.state || {}; // Extract message
+  const { welcomeMessage = '' } = location.state || {};
 
   const handleStartNow = () => {
     navigate('/home');  
@@ -26,14 +26,14 @@ const LandingPage = () => {
           <img src={logo} alt="MediMap Logo" className="logo" />
         </div>
         <div className="profile-pic">
-          <a href="/profile">
+          <Link to="/profile">
             <img src={profilePic} alt="Profile" className="profile-icon" />
-          </a>
+          </Link>
         </div>
         <nav className="landing-nav">
-          <a href="/landing">Home</a>
-          <a href="/about">About Us</a>
-          <a href="#">My Booking</a>
+          <Link to="/landing">Home</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/booking">My Booking</Link> {/* Changed from '#' to '/booking' */}
         </nav>
       </header>
 
