@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import './HospitalMapPage.css';
 import logo from './images/logo.png';
 import profileIcon from './images/personProfile.png';
-import menuIcon from './images/threeLinesMenu.png';
 
 // Custom Leaflet Icon
 const customIcon = new L.Icon({
@@ -200,7 +199,6 @@ const HospitalMapPage = () => {
           <Link to="/profile">
             <img src={profileIcon} alt="User Profile" />
           </Link>
-          <img src={menuIcon} alt="Menu Icon" />
         </div>
       </header>
 

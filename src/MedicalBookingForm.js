@@ -11,6 +11,7 @@ const MedicalBookingForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const hospitalName = location.state?.hospitalName || 'Hospital Name';
+  const today = new Date().toISOString().split("T")[0];
 
   const [formData, setFormData] = useState({
     gender: '',
@@ -60,6 +61,16 @@ const MedicalBookingForm = () => {
     e.preventDefault();
     //submission logic
 
+    if(formData.age < 1){
+      alert("Age could not be 0 or negative.");
+      return;
+    }
+
+    if(formData.date < today){
+      alert("The date must be at later or equal to today's date.");
+      return;
+    }
+
     const isValid = validateForm(); // Assume a function to check all fields
     if (isValid) {
       console.log("Form data:", formData);
@@ -67,6 +78,7 @@ const MedicalBookingForm = () => {
       alert("All fields are required.");
       return;
     }
+
 
     console.log("Form is valid, submitting...");
     // Proceed with form submission
