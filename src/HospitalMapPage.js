@@ -9,6 +9,7 @@ import './HospitalMapPage.css';
 import logo from './images/logo.png';
 import profileIcon from './images/personProfile.png';
 import { auth } from './firebase';
+import { HospitalService } from './HospitalService';
 
 // Custom Leaflet Icon
 const customIcon = new L.Icon({
@@ -44,28 +45,9 @@ const haversineDistance = (coords1, coords2) => {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 };
 
-// Hospital Service for managing favorites and visited status
-const HospitalService = {
-  getFavorites: () => JSON.parse(localStorage.getItem('favoriteHospitals')) || [],
-  getVisited: () => JSON.parse(localStorage.getItem('visitedHospitals')) || [],
-
-  toggleFavorite: (hospitalId) => {
-    const favorites = HospitalService.getFavorites();
-    const index = favorites.indexOf(hospitalId);
-    index === -1 ? favorites.push(hospitalId) : favorites.splice(index, 1);
-    localStorage.setItem('favoriteHospitals', JSON.stringify(favorites));
-  },
-
-  toggleVisited: (hospitalId) => {
-    const visited = HospitalService.getVisited();
-    const index = visited.indexOf(hospitalId);
-    index === -1 ? visited.push(hospitalId) : visited.splice(index, 1);
-    localStorage.setItem('visitedHospitals', JSON.stringify(visited));
-  },
-};
-
 const HospitalMapPage = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
   const [currentLocation, setCurrentLocation] = useState([1.3521, 103.8198]);
   const [hospitals, setHospitals] = useState([]);
   const [filteredHospitals, setFilteredHospitals] = useState([]);
@@ -73,7 +55,7 @@ const HospitalMapPage = () => {
   const [mapCenter, setMapCenter] = useState([1.3521, 103.8198]);
   const [selectedHospital, setSelectedHospital] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [favorites, setFavorites] = useState(HospitalService.getFavorites());
+  const [favorites, setFavorites] = useState([]);
   const [filters, setFilters] = useState({
     nearby: true,
     favorites: false,
@@ -97,6 +79,21 @@ const HospitalMapPage = () => {
     },
   });
 
+  // Authentication Effect
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+        const userFavorites = await HospitalService.getFavorites(currentUser.uid);
+        setFavorites(userFavorites);
+      } else {
+        setUser(null);
+        setFavorites([]);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
   // Navigation handler
   const handleNavigation = (path) => {
     const user = auth.currentUser;
@@ -110,30 +107,26 @@ const HospitalMapPage = () => {
   const applyFilters = useCallback((hospitalList = hospitals) => {
     let filtered = [...hospitalList];
   
-    // Apply search query filter
     if (searchQuery) {
       filtered = filtered.filter(hospital =>
         hospital.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
   
-    // Apply favorites filter
     if (filters.favorites) {
       filtered = filtered.filter(hospital => favorites.includes(hospital.name));
     }
   
-    // Apply visited filter
     if (filters.visited) {
-      const visitedHospitals = HospitalService.getVisited();
-      filtered = filtered.filter(hospital => visitedHospitals.includes(hospital.name));
+      filtered = filtered.filter(hospital => 
+        JSON.parse(localStorage.getItem(`visited_${user?.uid}_${hospital.name}`))
+      );
     }
   
-    // Apply nearby filter
     if (filters.nearby) {
       filtered = filtered.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
     }
   
-    // Apply type filters (e.g., profit, nonprofit)
     const activeTypeFilters = Object.entries(filters.type)
       .filter(([_, value]) => value)
       .map(([key]) => key.toLowerCase());
@@ -141,38 +134,25 @@ const HospitalMapPage = () => {
     if (activeTypeFilters.length > 0) {
       filtered = filtered.filter(hospital =>
         activeTypeFilters.some(type =>
-          hospital['Type of Hospital']?.toLowerCase().includes(type)
+          hospital.type?.toLowerCase().includes(type)
         )
       );
     }
   
-    // Apply service filters (e.g., General Services, Cardiology)
     const activeServiceFilters = Object.entries(filters.services)
       .filter(([_, value]) => value)
-      .map(([key]) => key.toLowerCase().replace(/ /g, ''));
-  
-    console.log("Active Service Filters:", activeServiceFilters);  // Debugging output
+      .map(([key]) => key.toLowerCase());
   
     if (activeServiceFilters.length > 0) {
       filtered = filtered.filter(hospital => {
-        const hospitalServices = hospital.Services ? hospital.Services.toLowerCase().replace(/ /g, '') : '';
-        console.log("Checking hospital:", hospital.name, "with services:", hospitalServices); // Debugging output
+        const hospitalServices = hospital.services ? hospital.services.toLowerCase() : '';
         return activeServiceFilters.some(service => hospitalServices.includes(service));
       });
     }
   
-    // Log filtered results to verify filtering behavior
-    console.log("Filtered Hospitals:", filtered.map(h => h.name));
-  
-    // Update the filtered hospitals list to show only a subset based on visibleHospitals
     setFilteredHospitals(filtered.slice(0, visibleHospitals));
-  }, [hospitals, filters, favorites, visibleHospitals, searchQuery]);
-  
-  
-  
-  
+  }, [hospitals, filters, favorites, visibleHospitals, searchQuery, user]);
 
-  // Get current location
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
@@ -184,19 +164,21 @@ const HospitalMapPage = () => {
     );
   }, []);
 
-  // Load hospital data
   useEffect(() => {
     Papa.parse('/HospitalBioData.csv', {
       download: true,
       header: true,
       complete: ({ data }) => {
-        const sortedHospitals = data.map((hospital) => ({
-          ...hospital,
-          distance: haversineDistance(
-            currentLocation,
-            [parseFloat(hospital.latitude), parseFloat(hospital.longitude)]
-          ).toFixed(2),
-        })).sort((a, b) => a.distance - b.distance);
+        const sortedHospitals = data
+          .filter(hospital => hospital.latitude && hospital.longitude)
+          .map((hospital) => ({
+            ...hospital,
+            distance: haversineDistance(
+              currentLocation,
+              [parseFloat(hospital.latitude), parseFloat(hospital.longitude)]
+            ).toFixed(2),
+          }))
+          .sort((a, b) => a.distance - b.distance);
 
         setHospitals(sortedHospitals);
         applyFilters(sortedHospitals);
@@ -204,14 +186,21 @@ const HospitalMapPage = () => {
     });
   }, [currentLocation, applyFilters]);
 
-  const handleToggleFavorite = (e, hospital) => {
+  const handleToggleFavorite = async (e, hospital) => {
     e.stopPropagation();
-    HospitalService.toggleFavorite(hospital.name);
-    const newFavorites = HospitalService.getFavorites();
-    setFavorites(newFavorites);
-    
-    if (filters.favorites) {
-      applyFilters();
+    if (!user) {
+      alert('Please login to add favorites');
+      return;
+    }
+    try {
+      const newFavorites = await HospitalService.toggleFavorite(hospital.name, user.uid);
+      setFavorites(newFavorites);
+      if (filters.favorites) {
+        applyFilters();
+      }
+    } catch (error) {
+      console.error('Error toggling favorite:', error);
+      alert('Failed to update favorites');
     }
   };
 
@@ -239,9 +228,8 @@ const HospitalMapPage = () => {
   const handleFilterChange = (category, key = null) => {
     setFilters(prevFilters => {
       const newFilters = { ...prevFilters };
-  
+      
       if (category === 'type') {
-        // Handle mutually exclusive selections within the 'type' category
         if (key === 'public') {
           newFilters.type = { ...newFilters.type, public: !newFilters.type.public, private: false };
         } else if (key === 'private') {
@@ -252,21 +240,16 @@ const HospitalMapPage = () => {
           newFilters.type = { ...newFilters.type, nonprofit: !newFilters.type.nonprofit, profit: false };
         }
       } else if (category === 'services') {
-        // Toggle individual service filter
         newFilters.services[key] = !newFilters.services[key];
       } else {
-        // Toggle for other non-type, non-services categories like "nearby", "favorites", "visited"
         newFilters[category] = !newFilters[category];
       }
-  
+
       return newFilters;
     });
-  
+    
     applyFilters();
   };
-  
-  
-  
 
   const handleViewMore = () => {
     setVisibleHospitals(prev => {
@@ -283,6 +266,11 @@ const HospitalMapPage = () => {
   };
 
   const handleBookAppointment = () => {
+    if (!user) {
+      alert('Please login to book an appointment');
+      navigate('/');
+      return;
+    }
     if (selectedHospital) {
       navigate('/bookform', { state: { hospitalName: selectedHospital.name } });
     } else {

@@ -56,5 +56,10 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "webpack": "^5.95.0"
-  }
+  },
+  "description": "This is a Website being under construction for Software Eng Project. Nothing Else",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "keywords": []
 }
