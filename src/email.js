@@ -1,12 +1,20 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
+import { auth } from './firebase'; // Import your Firebase auth instance
 
 const SendEmailButton = () => {
   const sendEmail = () => {
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert('No user is currently logged in.');
+      return;
+    }
+
     const templateParams = {
-      to_name: 'Raunak Saxena', // Replace with recipient's name
-      to_email: 'raunaksaxena1404@gmail.com', // Replace with recipient's email
-      bookingID: '123456', // Replace with dynamic booking ID
+      to_name: user.displayName || 'User', // Use the user's display name or fallback to 'User'
+      to_email: user.email, // Use the logged-in user's email
+      bookingID: '123456', // Replace with dynamic booking ID if available
       message: 'Your booking has been confirmed!', // Custom message
     };
 

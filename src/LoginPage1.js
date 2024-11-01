@@ -12,6 +12,10 @@ function LoginPage1() {
     navigate('/login');
   };
 
+  const handleAdminLogin = () => {
+    navigate('/admin-login');
+  };
+
   return (
     <div className="login-container">
       <div className="left-panel"></div>
@@ -20,7 +24,9 @@ function LoginPage1() {
         <div className="login-buttons">
           <div className="icon1">
             <img src={Doctor} alt="Doctor" />
-            <button className="login-button doctor">Login as Admin</button>
+            <button className="login-button doctor" onClick={handleAdminLogin}>
+              Login as Admin
+            </button>
           </div>
 
           <div className="icon2">

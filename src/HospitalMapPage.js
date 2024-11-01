@@ -109,45 +109,68 @@ const HospitalMapPage = () => {
 
   const applyFilters = useCallback((hospitalList = hospitals) => {
     let filtered = [...hospitalList];
-
+  
+    // Apply search query filter
+    if (searchQuery) {
+      filtered = filtered.filter(hospital =>
+        hospital.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+  
     // Apply favorites filter
     if (filters.favorites) {
       filtered = filtered.filter(hospital => favorites.includes(hospital.name));
     }
-
+  
+    // Apply visited filter
+    if (filters.visited) {
+      const visitedHospitals = HospitalService.getVisited();
+      filtered = filtered.filter(hospital => visitedHospitals.includes(hospital.name));
+    }
+  
     // Apply nearby filter
     if (filters.nearby) {
       filtered = filtered.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
     }
-
-    // Apply type filters
+  
+    // Apply type filters (e.g., profit, nonprofit)
     const activeTypeFilters = Object.entries(filters.type)
       .filter(([_, value]) => value)
       .map(([key]) => key.toLowerCase());
-
+  
     if (activeTypeFilters.length > 0) {
-      filtered = filtered.filter(hospital => 
-        activeTypeFilters.some(type => 
-          hospital.type?.toLowerCase().includes(type)
+      filtered = filtered.filter(hospital =>
+        activeTypeFilters.some(type =>
+          hospital['Type of Hospital']?.toLowerCase().includes(type)
         )
       );
     }
-
-    // Apply service filters
+  
+    // Apply service filters (e.g., General Services, Cardiology)
     const activeServiceFilters = Object.entries(filters.services)
       .filter(([_, value]) => value)
-      .map(([key]) => key.toLowerCase());
-
+      .map(([key]) => key.toLowerCase().replace(/ /g, ''));
+  
+    console.log("Active Service Filters:", activeServiceFilters);  // Debugging output
+  
     if (activeServiceFilters.length > 0) {
-      filtered = filtered.filter(hospital =>
-        activeServiceFilters.some(service =>
-          hospital.services?.toLowerCase().includes(service)
-        )
-      );
+      filtered = filtered.filter(hospital => {
+        const hospitalServices = hospital.Services ? hospital.Services.toLowerCase().replace(/ /g, '') : '';
+        console.log("Checking hospital:", hospital.name, "with services:", hospitalServices); // Debugging output
+        return activeServiceFilters.some(service => hospitalServices.includes(service));
+      });
     }
-
+  
+    // Log filtered results to verify filtering behavior
+    console.log("Filtered Hospitals:", filtered.map(h => h.name));
+  
+    // Update the filtered hospitals list to show only a subset based on visibleHospitals
     setFilteredHospitals(filtered.slice(0, visibleHospitals));
-  }, [hospitals, filters, favorites, visibleHospitals]);
+  }, [hospitals, filters, favorites, visibleHospitals, searchQuery]);
+  
+  
+  
+  
 
   // Get current location
   useEffect(() => {
@@ -215,20 +238,35 @@ const HospitalMapPage = () => {
 
   const handleFilterChange = (category, key = null) => {
     setFilters(prevFilters => {
-      const newFilters = key === null
-        ? { ...prevFilters, [category]: !prevFilters[category] }
-        : {
-            ...prevFilters,
-            [category]: {
-              ...prevFilters[category],
-              [key]: !prevFilters[category][key],
-            },
-          };
-      
+      const newFilters = { ...prevFilters };
+  
+      if (category === 'type') {
+        // Handle mutually exclusive selections within the 'type' category
+        if (key === 'public') {
+          newFilters.type = { ...newFilters.type, public: !newFilters.type.public, private: false };
+        } else if (key === 'private') {
+          newFilters.type = { ...newFilters.type, private: !newFilters.type.private, public: false };
+        } else if (key === 'profit') {
+          newFilters.type = { ...newFilters.type, profit: !newFilters.type.profit, nonprofit: false };
+        } else if (key === 'nonprofit') {
+          newFilters.type = { ...newFilters.type, nonprofit: !newFilters.type.nonprofit, profit: false };
+        }
+      } else if (category === 'services') {
+        // Toggle individual service filter
+        newFilters.services[key] = !newFilters.services[key];
+      } else {
+        // Toggle for other non-type, non-services categories like "nearby", "favorites", "visited"
+        newFilters[category] = !newFilters[category];
+      }
+  
       return newFilters;
     });
+  
     applyFilters();
   };
+  
+  
+  
 
   const handleViewMore = () => {
     setVisibleHospitals(prev => {

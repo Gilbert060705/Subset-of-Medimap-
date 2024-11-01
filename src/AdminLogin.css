@@ -1,0 +1,173 @@
+/* General Layout */
+.admin-login-container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f4ef;
+    overflow: hidden;
+  }
+  
+  /* Left Panel for Image (optional) */
+  .left-panel-admin {
+    flex: 1;
+    background-size: cover;
+    background-image: url('./images/Doctor.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  
+  /* Right Panel for the Login Form */
+  .right-panel-admin {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #e9baa5;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #4e4e4e;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  /* Login Form */
+  .admin-login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .admin-login-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .admin-login-form input {
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .admin-login-form input:focus {
+    border-color: #333399;
+    box-shadow: 0 0 8px rgba(51, 51, 153, 0.5);
+    outline: none;
+  }
+  
+  /* Login Button Style */
+  .admin-login-button {
+    padding: 14px;
+    background-color: #333399;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .admin-login-button:hover {
+    background-color: #5555ff;
+    transform: translateY(-2px);
+  }
+  
+  /* Links Styling */
+  a {
+    color: #333399;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Loading Indicator */
+  .admin-loading-indicator {
+    font-size: 1.5rem;
+    color: #333399;
+    text-align: center;
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Error Message */
+  .admin-error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .admin-login-container {
+      flex-direction: column;
+    }
+  
+    .left-panel-admin {
+      height: 40vh;
+      border-radius: 0;
+    }
+  
+    .right-panel-admin {
+      height: 60vh;
+      border-radius: 0;
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 2rem;
+    }
+  
+    .admin-login-form input {
+      font-size: 0.9rem;
+      padding: 12px;
+    }
+  
+    .admin-login-button {
+      font-size: 0.9rem;
+    }
+  }
+  

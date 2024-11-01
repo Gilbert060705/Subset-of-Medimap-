@@ -104,9 +104,7 @@ const Profile = () => {
         <nav className="nav">
           <a href="#" onClick={handleHomeClick}>Home</a>
           <a href="#" onClick={handleAboutClick}>About Us</a>
-          <button onClick={handleMyBookingClick} className="nav-button">
-            My Bookings
-          </button>
+          <a href="#" onClick={handleMyBookingClick}>My Bookings</a>
         </nav>
       </header>
 

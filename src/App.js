@@ -19,9 +19,10 @@
  * - AboutUs
  * - Profile
  * - MyBooking
+ * - AdminLogin
+ * - AdminDashboard
  *
- * @author [Group1]
- * @version 1.1
+ * @version 1.2
  */
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -36,7 +37,9 @@ import AppointmentBooked from './AppointmentBooked';
 import AboutUs from './AboutUs';
 import Profile from './Profile';
 import EmailMe from './email';
-import MyBooking from './MyBooking'; // Renamed for clarity
+import MyBooking from './MyBooking';
+import AdminLogin from './AdminLogin'; // New admin login component
+import AdminDashboard from './AdminDashboard'; // New admin dashboard component
 
 /**
  * The App component defines the structure of the application by setting up routes
@@ -69,6 +72,10 @@ function App() {
 
                 {/* MyBooking Page */}
                 <Route path="/booking" element={<MyBooking />} />
+
+                {/* Admin Pages */}
+                <Route path="/admin-login" element={<AdminLogin />} />
+                <Route path="/admin-dashboard" element={<AdminDashboard />} />
 
                 {/* Fallback Route - 404 Page */}
                 <Route path="*" element={<h1>404 - Page Not Found</h1>} />

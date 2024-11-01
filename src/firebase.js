@@ -4,7 +4,7 @@
  * email-password-based authentication and Google sign-in, along with utility functions
  * to monitor user state and manage user sessions.
  *
- * @version 1.3
+ * @version 1.4
  */
 
 import { initializeApp } from 'firebase/app'; // Firebase core
@@ -23,8 +23,8 @@ import {
   linkWithCredential, 
   sendPasswordResetEmail 
 } from 'firebase/auth'; // Firebase Authentication
-import { getStorage, getDownloadURL, ref, uploadBytes} from 'firebase/storage'; // Firebase Storage
-import { getFirestore, doc, setDoc, updateDoc, getDoc, addDoc, collection } from 'firebase/firestore'; // Firestore
+import { getStorage, getDownloadURL, ref, uploadBytes } from 'firebase/storage'; // Firebase Storage
+import { getFirestore, doc, setDoc, updateDoc, getDoc, addDoc, collection, getDocs, deleteDoc } from 'firebase/firestore'; // Firestore
 
 /**
  * Firebase configuration object containing project-specific credentials.
@@ -91,6 +91,8 @@ export {
   getDoc, // Exported for fetching user data
   addDoc,
   collection,
+  getDocs, // Added for fetching all documents in a collection
+  deleteDoc, // Added for deleting a document
   signInWithPopup, 
   fetchSignInMethodsForEmail, 
   EmailAuthProvider, 
