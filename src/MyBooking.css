@@ -1,12 +1,11 @@
 .my-booking-container {
   margin: 40px auto;
   padding: 30px;
-  max-width: 600px;
+  max-width: 800px;
   background-color: #f3f6fa;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
-  transition: all 0.3s ease-in-out;
 }
 
 .booking-list {
@@ -20,14 +19,11 @@
   margin-bottom: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
   transition: transform 0.2s ease;
 }
 
 .booking-item:hover {
   transform: scale(1.02);
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
 .booking-item p {
@@ -44,7 +40,7 @@
   display: block;
   margin: 30px auto;
   padding: 12px 24px;
-  background-color: #007bff;
+  background-color: #d07554;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -55,7 +51,7 @@
 }
 
 .back-button:hover {
-  background-color: #0056b3;
+  background-color: #cc8d6b;
   transform: scale(1.05);
 }
 
@@ -64,4 +60,10 @@
   color: red;
   font-weight: bold;
   margin-top: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
 }

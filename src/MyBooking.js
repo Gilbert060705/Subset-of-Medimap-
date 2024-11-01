@@ -14,12 +14,10 @@ const MyBooking = () => {
     try {
       const q = query(
         collection(db, 'appointments'),
-        where('userId', '==', userId) // Ensure userId matches
+        where('userId', '==', userId)
       );
 
       const querySnapshot = await getDocs(q);
-      console.log('Appointments for user:', querySnapshot.docs.map((doc) => doc.data()));
-
       const appointmentsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -37,9 +35,9 @@ const MyBooking = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
       if (currentUser) {
-        console.log('Current User ID:', currentUser.uid); // Log userId
         await fetchAppointments(currentUser.uid);
       } else {
+        // If no user is logged in, redirect to login page
         navigate('/');
       }
     });
@@ -47,9 +45,15 @@ const MyBooking = () => {
     return () => unsubscribe();
   }, [navigate]);
 
-  useEffect(() => {
-    console.log('Updated Bookings State:', bookings); // Log bookings state
-  }, [bookings]);
+  const handleBackToProfile = () => {
+    // Check if user is authenticated before navigating
+    const user = auth.currentUser;
+    if (user) {
+      navigate('/profile'); // Navigate to profile page
+    } else {
+      navigate('/'); // Navigate to login page if not authenticated
+    }
+  };
 
   return (
     <div className="my-booking-container">
@@ -59,31 +63,37 @@ const MyBooking = () => {
       ) : error ? (
         <p className="error-message">{error}</p>
       ) : bookings.length === 0 ? (
-        <p>No upcoming appointments found.</p>
+        <>
+          <p>No upcoming appointments found.</p>
+          <button onClick={handleBackToProfile} className="back-button">
+            Back to Profile
+          </button>
+        </>
       ) : (
-        <ul className="booking-list">
-          {bookings.map((appointment) => (
-            <li key={appointment.id} className="booking-item">
-              <p><strong>Patient Name:</strong> {appointment.patientName}</p>
-              <p><strong>Age:</strong> {appointment.age}</p>
-              <p><strong>Gender:</strong> {appointment.gender}</p>
-              <p><strong>Date:</strong> {appointment.date}</p>
-              <p><strong>Time:</strong> {appointment.time}</p>
-              <p><strong>Service Type:</strong> {appointment.serviceType}</p>
-              <p><strong>Symptom:</strong> {appointment.symptom}</p>
-              <p>
-                <strong>Document:</strong>{' '}
-                <a href={appointment.documentlink} target="_blank" rel="noopener noreferrer">
-                  View Document
-                </a>
-              </p>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="booking-list">
+            {bookings.map((appointment) => (
+              <li key={appointment.id} className="booking-item">
+                <p><strong>Patient Name:</strong> {appointment.patientName}</p>
+                <p><strong>Date:</strong> {appointment.date}</p>
+                <p><strong>Time:</strong> {appointment.time}</p>
+                <p><strong>Service Type:</strong> {appointment.serviceType}</p>
+                {appointment.documentlink && (
+                  <p>
+                    <strong>Document:</strong>{' '}
+                    <a href={appointment.documentlink} target="_blank" rel="noopener noreferrer">
+                      View Document
+                    </a>
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+          <button onClick={handleBackToProfile} className="back-button">
+            Back to Profile
+          </button>
+        </>
       )}
-      <button onClick={() => navigate('/')} className="back-button">
-        Back to Profile
-      </button>
     </div>
   );
 };
