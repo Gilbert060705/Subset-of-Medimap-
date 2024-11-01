@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import './HospitalMapPage.css';
 import logo from './images/logo.png';
 import profileIcon from './images/personProfile.png';
+import { auth } from './firebase';
 
 // Custom Leaflet Icon
 const customIcon = new L.Icon({
@@ -95,6 +96,16 @@ const HospitalMapPage = () => {
       NumberOfBeds: false,
     },
   });
+
+  // Navigation handler
+  const handleNavigation = (path) => {
+    const user = auth.currentUser;
+    if (user) {
+      navigate(path);
+    } else {
+      navigate('/');
+    }
+  };
 
   const applyFilters = useCallback((hospitalList = hospitals) => {
     let filtered = [...hospitalList];
@@ -245,11 +256,22 @@ const HospitalMapPage = () => {
     <div className="hospital-map-page">
       <header className="navbar">
         <div className="logo-container">
-          <img src={logo} alt="MediMap Logo" />
+          <img 
+            src={logo} 
+            alt="MediMap Logo" 
+            style={{ cursor: 'pointer' }}
+            onClick={() => handleNavigation('/landing')}
+          />
         </div>
         <nav className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/about">About Us</Link>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            handleNavigation('/landing');
+          }}>Home</a>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            handleNavigation('/about');
+          }}>About Us</a>
         </nav>
         <div className="profile-icons">
           <Link to="/profile">
