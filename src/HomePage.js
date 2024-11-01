@@ -1,71 +1,87 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, monitorAuthState, db, doc, getDoc } from './firebase'; // Import Firebase utilities
+import { auth, monitorAuthState, db, doc, getDoc } from './firebase';
 import './App.css';
 import './HomePage.css';
 import logo from './images/logo.png';
 import hospital from './images/hospital.png';
-import personProfile from "./images/personProfile.png"
+import personProfile from "./images/personProfile.png";
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-  const [userName, setUserName] = useState(''); // Store user's name or default value
-  const [loading, setLoading] = useState(true); // Track loading state
-  const navigate = useNavigate(); // Initialize React Router navigation
+  const [userName, setUserName] = useState('');
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
-  /**
-   * Fetch the user's full name from Firestore using their UID.
-   * @param {string} uid - The user’s unique ID.
-   */
   const fetchUserName = async (uid) => {
     try {
-      const userDoc = await getDoc(doc(db, 'users', uid)); // Retrieve user data
+      const userDoc = await getDoc(doc(db, 'users', uid));
       if (userDoc.exists()) {
-        const { fullName } = userDoc.data(); // Extract full name from Firestore
-        setUserName(fullName); // Set full name in state
+        const { fullName } = userDoc.data();
+        setUserName(fullName);
       } else {
         console.warn('No user data found in Firestore.');
-        setUserName('Guest'); // Default to 'Guest' if no data found
+        setUserName('Guest');
       }
     } catch (error) {
       console.error('Error fetching user data:', error);
-      setUserName('Guest'); // Default to 'Guest' on error
+      setUserName('Guest');
     } finally {
-      setLoading(false); // Set loading to false after fetching completes
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     const unsubscribe = monitorAuthState((user) => {
       if (user) {
-        fetchUserName(user.uid); // Fetch user's name if logged in
+        fetchUserName(user.uid);
       } else {
-        setUserName('Guest'); // Default to 'Guest' if no user logged in
-        setLoading(false); // Stop loading
+        setUserName('Guest');
+        setLoading(false);
       }
     });
 
-    return () => unsubscribe(); // Cleanup on component unmount
+    return () => unsubscribe();
   }, []);
 
-  // Navigate to HospitalMapPage
-  const handleLocateHospital = () => {
-    navigate('/hospitals');
+  // Add navigation handler
+  const handleNavigation = (path) => {
+    const user = auth.currentUser;
+    if (user) {
+      navigate(path);
+    } else {
+      navigate('/');
+    }
   };
 
   return (
     <div className="App">
-      {/* Header Section */}
       <header className="header">
         <div className="logo">
           <img src={logo} alt="MediMAP Logo" />
         </div>
         <nav>
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
-          <a href="/history">History</a>
-          <a href="/email">Email</a>
-          <a href="/profile">
+          {/* Update navigation links */}
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            handleNavigation('/landing');
+          }}>Home</a>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            handleNavigation('/about');
+          }}>About Us</a>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            handleNavigation('/history');
+          }}>History</a>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            handleNavigation('/email');
+          }}>Email</a>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            handleNavigation('/profile');
+          }}>
             <img src={personProfile} alt="Profile" />
           </a>
         </nav>
@@ -74,7 +90,7 @@ const HomePage = () => {
       {/* Welcome Section */}
       <section className="welcome-section">
         {loading ? (
-          <h1>Loading...</h1> // Display loading message while fetching data
+          <h1>Loading...</h1>
         ) : (
           <h1>Welcome, {userName}!</h1>
         )}
