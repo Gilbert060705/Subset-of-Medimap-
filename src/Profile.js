@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false); 
+  const [loading, setLoading] = useState(true); 
   const [userData, setUserData] = useState({
     fullName: '',
     gender: '',
@@ -24,11 +25,14 @@ const Profile = () => {
       if (currentUser) {
         setUser(currentUser);
         await fetchUserProfile(currentUser.uid);
+      } else {
+        navigate('/');
       }
+      setLoading(false);
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [navigate]);
 
   const fetchUserProfile = async (userId) => {
     try {
@@ -45,7 +49,7 @@ const Profile = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
+    setUserData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   const saveUserProfile = async () => {
@@ -60,8 +64,8 @@ const Profile = () => {
   };
 
   const toggleEdit = () => {
-    if (isEditing) saveUserProfile(); 
-    setIsEditing(!isEditing);
+    if (isEditing) saveUserProfile();
+    setIsEditing((prev) => !prev);
   };
 
   const handleLogout = async () => {
@@ -74,6 +78,10 @@ const Profile = () => {
     }
   };
 
+  if (loading) {
+    return <p>Loading user data...</p>; // Loader while data is being fetched
+  }
+
   return (
     <div className="profile-container">
       <header className="header">
@@ -83,7 +91,9 @@ const Profile = () => {
         <nav className="nav">
           <a href="/">Home</a>
           <a href="/about">About Us</a>
-          <a href="/bookings">My Bookings</a>
+          <button onClick={() => navigate('/booking')} className="nav-button">
+            My Bookings
+          </button>
         </nav>
       </header>
 
