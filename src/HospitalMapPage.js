@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -31,7 +31,7 @@ const haversineDistance = (coords1, coords2) => {
   const toRad = (x) => (x * Math.PI) / 180;
   const [lat1, lon1] = coords1;
   const [lat2, lon2] = coords2;
-  const R = 6371; // Earth's radius in kilometers
+  const R = 6371;
 
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
@@ -72,6 +72,7 @@ const HospitalMapPage = () => {
   const [mapCenter, setMapCenter] = useState([1.3521, 103.8198]);
   const [selectedHospital, setSelectedHospital] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [favorites, setFavorites] = useState(HospitalService.getFavorites());
   const [filters, setFilters] = useState({
     nearby: true,
     favorites: false,
@@ -94,6 +95,48 @@ const HospitalMapPage = () => {
       NumberOfBeds: false,
     },
   });
+
+  const applyFilters = useCallback((hospitalList = hospitals) => {
+    let filtered = [...hospitalList];
+
+    // Apply favorites filter
+    if (filters.favorites) {
+      filtered = filtered.filter(hospital => favorites.includes(hospital.name));
+    }
+
+    // Apply nearby filter
+    if (filters.nearby) {
+      filtered = filtered.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+    }
+
+    // Apply type filters
+    const activeTypeFilters = Object.entries(filters.type)
+      .filter(([_, value]) => value)
+      .map(([key]) => key.toLowerCase());
+
+    if (activeTypeFilters.length > 0) {
+      filtered = filtered.filter(hospital => 
+        activeTypeFilters.some(type => 
+          hospital.type?.toLowerCase().includes(type)
+        )
+      );
+    }
+
+    // Apply service filters
+    const activeServiceFilters = Object.entries(filters.services)
+      .filter(([_, value]) => value)
+      .map(([key]) => key.toLowerCase());
+
+    if (activeServiceFilters.length > 0) {
+      filtered = filtered.filter(hospital =>
+        activeServiceFilters.some(service =>
+          hospital.services?.toLowerCase().includes(service)
+        )
+      );
+    }
+
+    setFilteredHospitals(filtered.slice(0, visibleHospitals));
+  }, [hospitals, filters, favorites, visibleHospitals]);
 
   // Get current location
   useEffect(() => {
@@ -122,10 +165,21 @@ const HospitalMapPage = () => {
         })).sort((a, b) => a.distance - b.distance);
 
         setHospitals(sortedHospitals);
-        setFilteredHospitals(sortedHospitals.slice(0, 5));
+        applyFilters(sortedHospitals);
       },
     });
-  }, [currentLocation]);
+  }, [currentLocation, applyFilters]);
+
+  const handleToggleFavorite = (e, hospital) => {
+    e.stopPropagation();
+    HospitalService.toggleFavorite(hospital.name);
+    const newFavorites = HospitalService.getFavorites();
+    setFavorites(newFavorites);
+    
+    if (filters.favorites) {
+      applyFilters();
+    }
+  };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -144,12 +198,12 @@ const HospitalMapPage = () => {
       setFilters((prev) => ({ ...prev, nearby: false }));
     } else {
       alert('Hospital not found. Try a different search.');
-      setFilteredHospitals([]); // Clear the list if no result found
+      setFilteredHospitals([]);
     }
   };
 
   const handleFilterChange = (category, key = null) => {
-    setFilters((prevFilters) => {
+    setFilters(prevFilters => {
       const newFilters = key === null
         ? { ...prevFilters, [category]: !prevFilters[category] }
         : {
@@ -159,22 +213,24 @@ const HospitalMapPage = () => {
               [key]: !prevFilters[category][key],
             },
           };
-      if (category === 'nearby' && newFilters.nearby) {
-        setFilteredHospitals(hospitals.slice(0, visibleHospitals));
-      }
+      
       return newFilters;
     });
+    applyFilters();
   };
 
   const handleViewMore = () => {
-    setVisibleHospitals((prev) => prev + 5);
-    setFilteredHospitals(hospitals.slice(0, visibleHospitals + 5));
+    setVisibleHospitals(prev => {
+      const newValue = prev + 5;
+      applyFilters();
+      return newValue;
+    });
   };
 
   const handleHospitalClick = (hospital) => {
     const coords = [parseFloat(hospital.latitude), parseFloat(hospital.longitude)];
-    setSelectedHospital(hospital); // Set the selected hospital
-    setMapCenter(coords); // Center the map on the selected hospital
+    setSelectedHospital(hospital);
+    setMapCenter(coords);
   };
 
   const handleBookAppointment = () => {
@@ -287,12 +343,29 @@ const HospitalMapPage = () => {
                 className="hospital-item"
                 onClick={() => handleHospitalClick(hospital)}
               >
-                <h3>{hospital.name}</h3>
-                <p>Distance: {hospital.distance} km away</p>
+                <div className="hospital-content">
+                  <h3>{hospital.name}</h3>
+                  <p>Distance: {hospital.distance} km away</p>
+                </div>
+                <div className="hospital-actions">
+                  <button 
+                    className={`favorite-btn ${favorites.includes(hospital.name) ? 'active' : ''}`}
+                    onClick={(e) => handleToggleFavorite(e, hospital)}
+                    title={favorites.includes(hospital.name) ? "Remove from favorites" : "Add to favorites"}
+                  >
+                    ♥
+                  </button>
+                </div>
               </div>
             ))
           ) : (
-            <p>No hospitals found.</p>
+            <div className="no-results">
+              {filters.favorites ? (
+                <p>No favorite hospitals yet. Click the heart icon to add hospitals to your favorites.</p>
+              ) : (
+                <p>No hospitals found matching your search criteria.</p>
+              )}
+            </div>
           )}
           {visibleHospitals < hospitals.length && filters.nearby && (
             <button onClick={handleViewMore} className="animated-button">

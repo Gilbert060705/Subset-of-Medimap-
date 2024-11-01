@@ -4,7 +4,7 @@ body {
   padding: 0;
   font-family: 'Arial', sans-serif;
   background-color: #f4e7e1;
-  height:100%;
+  height: 100%;
 }
 
 /* Main Page Layout */
@@ -47,17 +47,18 @@ body {
   flex: 1;
   gap: 10px;
   padding: 10px;
-  height:calc(100vh - 100px);
-  box-sizing:border-box;
+  height: calc(100vh - 100px);
+  box-sizing: border-box;
 }
 
 /* Filters Container */
 .filters-container {
   width: 25%;
-  padding: 10px;
+  padding: 20px;
   background-color: #cc8d6b;
   border-radius: 12px;
   overflow-y: auto;
+  max-height: calc(100vh - 120px);
 }
 
 .filters-container input[type="text"] {
@@ -66,6 +67,10 @@ body {
   margin-bottom: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+}
+
+.filters-container form {
+  margin-bottom: 20px;
 }
 
 /* Filter Sections */
@@ -80,13 +85,6 @@ body {
   margin: 0 0 15px 0;
   font-size: 18px;
   color: #333;
-}
-
-/* Filter Grid for Type section */
-.filter-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
 }
 
 /* Checkbox Styles */
@@ -110,38 +108,11 @@ body {
   cursor: pointer;
 }
 
-/* Filters Container Updates */
-.filters-container {
-  width: 25%;
-  padding: 20px;
-  background-color: #cc8d6b;
-  border-radius: 12px;
-  overflow-y: auto;
-  max-height: calc(100vh - 120px);
-}
-
-.filters-container form {
-  margin-bottom: 20px;
-}
-
-/* Scrollbar for Filters */
-.filters-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.filters-container::-webkit-scrollbar-thumb {
-  background-color: #d07554;
-  border-radius: 10px;
-}
-
-.filters-container::-webkit-scrollbar-track {
-  background-color: #f4e7e1;
-}
 /* Hospital List */
 .hospital-list {
   width: 35%;
   padding: 10px;
-  flex:1;
+  flex: 1;
   background-color: #d8b3a5;
   border-radius: 12px;
   overflow-y: scroll;
@@ -150,11 +121,15 @@ body {
   text-align: center;
 }
 
+/* Hospital Item Styles */
 .hospital-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #d07554;
   padding: 15px;
   border-radius: 8px;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
   color: white;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.3s ease;
@@ -165,7 +140,63 @@ body {
   background-color: #cc8d6b;
 }
 
-/* Animated Buttons */
+.hospital-content {
+  flex: 1;
+  text-align: left;
+}
+
+.hospital-content h3 {
+  margin: 0 0 5px 0;
+}
+
+.hospital-content p {
+  margin: 0;
+}
+
+/* Hospital Actions */
+.hospital-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Favorite Button Styles */
+.favorite-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.2s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+  color: #ff6b6b;
+}
+
+.favorite-btn.active {
+  color: #ff6b6b;
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+/* No Results Message */
+.no-results {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.no-results p {
+  color: white;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+/* Buttons */
 .animated-button {
   background-color: #d07554;
   color: white;
@@ -192,10 +223,10 @@ body {
   border-radius: 5px;
   text-align: center;
   font-size: 16px;
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
   display: inline-block;
   cursor: pointer;
-  margin-top: 10px;;
+  margin-top: 10px;
 }
 
 .book-appointment-button:hover {
@@ -215,71 +246,19 @@ body {
   width: 100%;
 }
 
-/* Scrollbar Styles */
+/* Scrollbars */
+.filters-container::-webkit-scrollbar,
 .hospital-list::-webkit-scrollbar {
   width: 8px;
 }
 
+.filters-container::-webkit-scrollbar-thumb,
 .hospital-list::-webkit-scrollbar-thumb {
   background-color: #d07554;
   border-radius: 10px;
 }
 
+.filters-container::-webkit-scrollbar-track,
 .hospital-list::-webkit-scrollbar-track {
   background-color: #f4e7e1;
-}
-
-/* Add these styles to HospitalMapPage.css */
-.hospital-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-top: 8px;
-}
-
-.favorite-btn,
-.visited-btn {
-  background: none;
-  border: 1px solid white;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  color: white;
-}
-
-.favorite-btn:hover,
-.visited-btn:hover {
-  transform: scale(1.1);
-}
-
-.favorite-btn.active {
-  background-color: #ffd700;
-  border-color: #ffd700;
-}
-
-.visited-btn.active {
-  background-color: #4CAF50;
-  border-color: #4CAF50;
-}
-
-.hospital-item {
-  position: relative;
-}
-
-.hospital-item:hover .hospital-actions {
-  opacity: 1;
-}
-.heart-icon {
-  color: grey;
-  cursor: pointer;
-  margin-left: 8px;
-}
-
-.heart-icon.favorite {
-  color: red;
 }
