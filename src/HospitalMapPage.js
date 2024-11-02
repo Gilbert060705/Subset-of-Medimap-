@@ -286,13 +286,13 @@ const HospitalMapPage = () => {
             src={logo} 
             alt="MediMap Logo" 
             style={{ cursor: 'pointer' }}
-            onClick={() => handleNavigation('/landing')}
+            onClick={() => handleNavigation('/home')}
           />
         </div>
         <nav className="nav-links">
           <a href="#" onClick={(e) => {
             e.preventDefault();
-            handleNavigation('/landing');
+            handleNavigation('/home');
           }}>Home</a>
           <a href="#" onClick={(e) => {
             e.preventDefault();

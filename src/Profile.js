@@ -78,9 +78,9 @@ const Profile = () => {
     }
   };
 
-  // Modified navigation handlers
+  // Modified navigation handlers - Changed from /landing to /home
   const handleHomeClick = () => {
-    navigate('/landing'); // Navigate to landing page instead of login
+    navigate('/home');  // Changed from '/landing' to '/home'
   };
 
   const handleAboutClick = () => {
@@ -108,7 +108,6 @@ const Profile = () => {
         </nav>
       </header>
 
-      {/* Rest of your component code remains the same */}
       <div className="profile-content">
         <section className="user-info">
           <img src={profilePic} alt="Avatar" className="avatar" />

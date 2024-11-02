@@ -38,7 +38,7 @@ const AboutUs = () => {
                 <nav className="about-us-nav">
                     <a href="#" onClick={(e) => {
                         e.preventDefault();
-                        handleNavigation('/landing');
+                        handleNavigation('/home');
                     }}>Home</a>
                     <a href="#" onClick={(e) => {
                         e.preventDefault();

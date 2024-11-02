@@ -16,7 +16,7 @@ const AppointmentBooked = () => {
                     </a>
             </div>
                 <nav className="nav">
-                    <a href="/landing">Home</a>
+                    <a href="/home">Home</a>
                     <a href="/about">About Us</a>
                     <a href="/booking">My Bookings</a>
                 </nav>
@@ -25,7 +25,7 @@ const AppointmentBooked = () => {
                 <main className="content">
                     <h2>Appointment Booked</h2>
                     <p>Check your email to obtain appointment confirmation.</p>
-                    <button onClick={() => window.location.href = '/landing'}>Back to Home</button>
+                    <button onClick={() => window.location.href = '/home'}>Back to Home</button>
                 </main>
             </div>
         </div>

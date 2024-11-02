@@ -64,7 +64,7 @@ const HomePage = () => {
           {/* Update navigation links */}
           <a href="#" onClick={(e) => {
             e.preventDefault();
-            handleNavigation('/landing');
+            handleNavigation('/home');
           }}>Home</a>
           <a href="#" onClick={(e) => {
             e.preventDefault();

@@ -16,7 +16,7 @@ const BookingConfirmed = () =>{
              </a>
         </div>
             <nav className="nav">
-                <a href="/">Home</a>
+                <a href="/home">Home</a>
                 <a href="/about">About Us</a>
                 <a href="/bookings">My Bookings</a>
             </nav>
@@ -25,7 +25,7 @@ const BookingConfirmed = () =>{
             <main className="content">
                 <h2>Details have been sent to the doctors</h2>
                 <p>Wait for 2-3 working days and a reply from the doctors will be sent to your email.</p>
-                <button onClick={() => window.location.href = '/'}>Back to Home</button>
+                <button onClick={() => window.location.href = '/home'}>Back to Home</button>
             </main>
         </div>
     </div>

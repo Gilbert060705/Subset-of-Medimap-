@@ -123,7 +123,7 @@ const MedicalBookingForm = () => {
             </a>
         </div>
         <nav className="bookingPage-nav">
-          <Link to="/landing">Home</Link>
+          <Link to="/home">Home</Link>
           <Link to="/about">About Us</Link>
           <Link to="/bookings">My Bookings</Link>
         </nav>

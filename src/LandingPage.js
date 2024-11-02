@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';  // Added Link import
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import './LandingPage.css';  
 import logo from './images/logo.png';  
 import profilePic from './images/personProfile.png';  
@@ -31,9 +31,9 @@ const LandingPage = () => {
           </Link>
         </div>
         <nav className="landing-nav">
-          <Link to="/landing">Home</Link>
+          <Link to="/home">Home</Link> {/* Changed from /landing to /home */}
           <Link to="/about">About Us</Link>
-          <Link to="/booking">My Booking</Link> {/* Changed from '#' to '/booking' */}
+          <Link to="/booking">My Booking</Link>
         </nav>
       </header>
 
