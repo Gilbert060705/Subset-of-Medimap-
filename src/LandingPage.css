@@ -85,7 +85,7 @@ body {
 .main-right h1 {
     font-size: 2.5rem;
     color: #333;
-    animation: fadeIn 0.8s ease-in-out;
+    animation: fadeIn 5s ease-in-out infinite;
 }
 
 .main-right p {
