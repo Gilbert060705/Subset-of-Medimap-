@@ -138,17 +138,6 @@ const Profile = () => {
           </div>
         </section>
 
-        <section className="visits-section">
-          <div className="visits-header">
-            <h2>Past Visits</h2>
-            <button className="details-button">Details</button>
-          </div>
-          <div className="visit-item">
-            <p>23/08/2024, 11:00 a.m.</p>
-            <p>Singapore General Hospital, Outram Rd, Singapore</p>
-          </div>
-        </section>
-
         <section className="logout-section">
           <button className="logout-button" onClick={handleLogout}>
             Logout

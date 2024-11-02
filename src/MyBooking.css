@@ -1,69 +1,143 @@
-.my-booking-container {
-  margin: 40px auto;
-  padding: 30px;
-  max-width: 800px;
-  background-color: #f3f6fa;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
+/* General Page Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lexend Deca', sans-serif;
 }
 
+html, body {
+  height: 100%;
+  overflow: auto; /* Allow the entire page to scroll */
+  background-color: #f3e3d6;
+  color: #333;
+}
+
+/* My Booking Container */
+.my-booking-container {
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 800px;
+  min-height: 100vh; /* Minimum height for full viewport */
+  background: linear-gradient(135deg, #e8d5d0, #f3e3d6, #e6b8b7);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeInSlideUp 1.5s ease-out;
+  overflow-y: auto; /* Enables vertical scrolling within the container */
+}
+
+/* Ensure the container scrolls when content exceeds */
+.my-booking-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styling */
+h1 {
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: bold;
+  opacity: 0;
+  animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Booking List Styling */
 .booking-list {
   list-style: none;
   padding: 0;
+  margin-top: 20px;
 }
 
 .booking-item {
-  background-color: #ffffff;
+  background: #ffffff;
   padding: 20px;
   margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .booking-item:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .booking-item p {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #333;
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
 }
 
 .booking-item strong {
   color: #007bff;
 }
 
+/* Refined Back Button Styling */
 .back-button {
-  display: block;
-  margin: 30px auto;
+  display: inline-block;
+  margin: 20px 10px;
   padding: 12px 24px;
-  background-color: #d07554;
-  color: white;
   font-size: 16px;
   font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #d07554, #e59d82);
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .back-button:hover {
-  background-color: #cc8d6b;
-  transform: scale(1.05);
+  transform: translateY(-3px); /* Smooth lift on hover */
+  background-color: #cc8d6b; /* Subtle color change */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+.back-button:active {
+  transform: translateY(1px); /* Slight press effect */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Error Message Styling */
 .error-message {
-  text-align: center;
-  color: red;
+  color: #d9534f;
   font-weight: bold;
   margin-top: 20px;
+  font-size: 1.1em;
+  text-align: center;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
+/* Animations */
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Link Styling */
+.booking-item a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.booking-item a:hover {
+  color: #0056b3;
 }

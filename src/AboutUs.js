@@ -42,10 +42,6 @@ const AboutUs = () => {
                     }}>Home</a>
                     <a href="#" onClick={(e) => {
                         e.preventDefault();
-                        handleNavigation('/about');
-                    }}>About Us</a>
-                    <a href="#" onClick={(e) => {
-                        e.preventDefault();
                         handleNavigation('/booking');
                     }}>My Booking</a>
                 </nav>

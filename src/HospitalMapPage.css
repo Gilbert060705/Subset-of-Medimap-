@@ -1,10 +1,20 @@
-/* General Styles */
-body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap');
+
+/* General Page Styles */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f4e7e1;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
   height: 100%;
+  background-color: #f3e3d6; /* Soft background to match the app */
+  color: #333;
+  overflow-x: hidden;
 }
 
 /* Main Page Layout */
@@ -14,40 +24,77 @@ body {
   height: 100vh;
 }
 
-/* Navbar */
+/* Navbar with Animated Gradient Background */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #d8a5a5;
-  border-radius: 12px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #d2918c, #f3e3d6, #e6b8b7);
+  background-size: 300% 300%;
+  animation: gradientBackground 8s ease infinite;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #d2918c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Gradient Background Animation */
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Logo */
 .logo-container img {
   height: 50px;
-}
-
-.nav-links a {
-  margin-right: 15px;
-  text-decoration: none;
-  color: #333;
-  font-size: 18px;
-}
-
-.profile-icons img {
-  height: 35px;
-  margin-left: 10px;
   cursor: pointer;
 }
 
-/* Main Content Layout */
+/* Navigation Link Styles */
+.nav-links a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333; /* Default text color */
+  font-size: 18px;
+  padding: 10px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  border-radius: 5px;
+}
+
+.nav-links a:hover {
+  background-color: #d2918c; /* Background color on hover */
+  color: #fff; /* Text color on hover to ensure visibility */
+  transform: scale(1.1); /* Slight scale effect */
+}
+
+/* Profile Icon with Floating Animation */
+.profile-icons img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #E6E6FA; /* Light lavender background */
+  padding: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  animation: float 3s ease-in-out infinite; /* Floating animation */
+}
+
+/* Floating Animation Keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Content Container */
 .content-container {
   display: flex;
   flex: 1;
-  gap: 10px;
-  padding: 10px;
-  height: calc(100vh - 100px);
+  gap: 20px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -55,16 +102,17 @@ body {
 .filters-container {
   width: 25%;
   padding: 20px;
-  background-color: #cc8d6b;
+  background-color: #f0e7dd; /* Softer, subtle background color */
   border-radius: 12px;
   overflow-y: auto;
   max-height: calc(100vh - 120px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .filters-container input[type="text"] {
   width: 95%;
-  padding: 8px;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
   border-radius: 8px;
   border: 1px solid #ccc;
 }
@@ -77,12 +125,13 @@ body {
 .filter-section {
   margin: 20px 0;
   padding: 15px;
-  background-color: #d8a5a5;
+  background-color: #f8f1eb; /* Softer color for readability */
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
 }
 
 .filter-section h3 {
-  margin: 0 0 15px 0;
+  margin-bottom: 15px;
   font-size: 18px;
   color: #333;
 }
@@ -95,7 +144,7 @@ body {
   margin-bottom: 10px;
   cursor: pointer;
   color: #333;
-  transition: all 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .filter-checkbox:hover {
@@ -111,13 +160,12 @@ body {
 /* Hospital List */
 .hospital-list {
   width: 35%;
-  padding: 10px;
-  flex: 1;
-  background-color: #d8b3a5;
+  padding: 20px;
+  background-color: #f8f1eb; /* Softer, subtle color for hospital list */
   border-radius: 12px;
-  overflow-y: scroll;
-  height: 400px;
-  transition: all 0.3s ease-in-out;
+  overflow-y: auto;
+  max-height: 600px; /* Sets a maximum height for scrolling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -126,18 +174,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #d07554;
+  background-color: #e9dfd7; /* Light grayish beige for hospital cards */
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 10px;
-  color: white;
+  color: #333;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .hospital-item:hover {
   transform: scale(1.02);
-  background-color: #cc8d6b;
+  background-color: #dcd1c8; /* Slightly darker shade on hover */
 }
 
 .hospital-content {
@@ -147,10 +195,14 @@ body {
 
 .hospital-content h3 {
   margin: 0 0 5px 0;
+  font-size: 18px;
+  color: #333;
 }
 
 .hospital-content p {
   margin: 0;
+  font-size: 15px;
+  color: #666;
 }
 
 /* Hospital Actions */
@@ -164,20 +216,19 @@ body {
 .favorite-btn {
   background: none;
   border: none;
-  color: white;
+  color: #bbb; /* Neutral gray color for non-favorited state */
   font-size: 1.5em;
   cursor: pointer;
-  padding: 5px 10px;
-  transition: all 0.2s ease;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .favorite-btn:hover {
   transform: scale(1.2);
-  color: #ff6b6b;
+  color: #ff6b6b; /* Light red color on hover for clarity */
 }
 
 .favorite-btn.active {
-  color: #ff6b6b;
+  color: #ff6b6b; /* Red color for favorited state */
   text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
 }
 
@@ -185,20 +236,16 @@ body {
 .no-results {
   text-align: center;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   margin: 20px 0;
+  color: #333;
 }
 
-.no-results p {
-  color: white;
-  font-size: 1.1em;
-  margin: 0;
-}
-
-/* Buttons */
-.animated-button {
-  background-color: #d07554;
+/* Buttons with Pulse Animation */
+.animated-button,
+.book-appointment-button {
+  background-color: #c18d77; /* Theme-matching color for search and other buttons */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -209,28 +256,15 @@ body {
   margin-top: 10px;
 }
 
-.animated-button:hover {
-  transform: scale(1.1);
-  background-color: #cc8d6b;
-}
-
-.book-appointment-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #d07554;
-  color: #FFF;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 16px;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
+.animated-button:hover,
 .book-appointment-button:hover {
-  background-color: #b06858;
+  animation: pulse 0.6s ease-in-out infinite alternate; /* Pulse effect on hover */
+  background-color: #b07b67;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
 
 /* Map Container */
@@ -239,11 +273,23 @@ body {
   height: 100%;
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeInMap 1s ease;
 }
 
 .leaflet-map {
   height: 100%;
   width: 100%;
+}
+
+/* Map Fade-In Animation */
+@keyframes fadeInMap {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Scrollbars */
@@ -254,11 +300,11 @@ body {
 
 .filters-container::-webkit-scrollbar-thumb,
 .hospital-list::-webkit-scrollbar-thumb {
-  background-color: #d07554;
+  background-color: #c18d77; /* Matches theme color */
   border-radius: 10px;
 }
 
 .filters-container::-webkit-scrollbar-track,
 .hospital-list::-webkit-scrollbar-track {
-  background-color: #f4e7e1;
+  background-color: #f3e3d6;
 }

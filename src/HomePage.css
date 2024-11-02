@@ -1,44 +1,60 @@
-/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
+html, body {
+  height: 100%;
+  background-color: #f3e3d6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Main App Container */
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background-color: #D9B7A5;
+  padding: 0,20px;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
+  margin-top: 75px;
 }
 
-/* Header Styles */
+/* Header Styles - Sticky with Gradient Animation */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px 40px;
-  background-color: #D9B7A5;
-  border-bottom: 2px solid #e74c3c;
+  padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #d2918c, #f3e3d6, #e6b8b7);
+  background-size: 300% 300%;
+  animation: gradientBackground 8s ease infinite;
+  border-bottom: 2px solid #d2918c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .logo {
   display: flex;
   align-items: center;
-  font-size: 5em;
-  font-weight: bold;
-  color: #e74c3c;
-}
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
 }
 
 .logo img {
@@ -49,54 +65,72 @@
 
 /* Navigation Link Styles */
 nav a {
-  font-family: Itim, sans-serif;
+  font-family: 'Itim', sans-serif;
   margin: 0 15px;
-  color: #e74c3c;
-  text-decoration: none; /* Remove underline */
+  color: #333;
+  text-decoration: none;
   font-size: 1.2em;
-  transition: transform 0.3s ease, color 0.3s ease; /* Add smooth transition */
-  position: relative; /* For the animation effect */
-}
-
-nav a::before {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: #e74c3c;
-  transition: width 0.3s ease-in-out; /* Line animation effect */
-}
-
-nav a:hover::before {
-  width: 100%; /* Expand underline on hover */
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 nav a:hover {
-  color: #c0392b;
-  transform: scale(1.1); /* Scale up slightly on hover */
+  background-color: #d2918c;
+  color: #fff;
 }
 
 nav a:active {
-  color: #8e44ad; /* Change color when clicked */
+  color: #8e44ad;
 }
 
-/* Welcome Section Styles */
+/* Profile Icon with Floating Animation */
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.profile-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #E6E6FA;
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  animation: float 3s ease-in-out infinite;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Welcome Section */
 .welcome-section {
   width: 100%;
-  font-family: Lexend Deca, serif;
   text-align: center;
   padding: 40px 0;
-  background-color: #D9B7A5;
-  margin-top: 20px;
+  background-color: #f3e3d6;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .welcome-section h1 {
-  font-family: Lexend Deca, serif;
-  font-weight: bolder;
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 700;
   font-size: 2.5em;
-  color: black;
+  color: #333;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlideIn 1s ease-out forwards;
 }
 
 .welcome-section p {
@@ -112,7 +146,7 @@ nav a:active {
   width: 100%;
   padding: 40px;
   gap: 20px;
-  background-color: #D9B7A5;
+  background-color: #f3e3d6;
 }
 
 .tutorial-container {
@@ -122,9 +156,9 @@ nav a:active {
   gap: 20px;
   align-items: center;
   justify-content: center;
-  image-rendering: high-quality;
 }
 
+/* Tutorial Row and Card Styles */
 .tutorial-row {
   display: flex;
   gap: 40px;
@@ -133,20 +167,20 @@ nav a:active {
   max-width: 800px;
 }
 
-/* Card Styles */
 .card {
   flex: 1;
   max-width: 300px;
   text-align: center;
-  background: #f0f0f0;
+  background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
@@ -162,38 +196,138 @@ nav a:active {
   color: #333;
 }
 
-.card a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Locate Hospital Section */
+/* Locate Hospital Section with Continuous Animation */
 .locate-hospital {
   flex: 1;
   text-align: center;
   padding: 20px;
-  background-color: #e6f3ff;
+  background: linear-gradient(135deg, #e6f3ff, #ffffff);
   border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: gradientShift 6s ease-in-out infinite; /* Continuous color shift */
+}
+
+@keyframes gradientShift {
+  0% {
+    background: linear-gradient(135deg, #e6f3ff, #ffffff);
+  }
+  50% {
+    background: linear-gradient(135deg, #ffffff, #e6f3ff);
+  }
+  100% {
+    background: linear-gradient(135deg, #e6f3ff, #ffffff);
+  }
 }
 
 .hospital-image img {
   width: 250px;
   height: auto;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
+/* Locate Button with Pulse Animation on Hover */
 .locate-button {
   padding: 15px 30px;
   font-size: 1.2em;
   border: none;
   border-radius: 25px;
-  background-color: #3498db;
+  background: linear-gradient(135deg, #4f90d9, #3282ff);
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
 }
 
 .locate-button:hover {
-  background-color: #2980b9;
-  transform: scale(1.05); /* Slightly scale on hover */
+  animation: colorChange 2s infinite alternate ease-in-out, pulseGlowHover 1.5s infinite ease-in-out;
+}
+
+@keyframes colorChange {
+  0% { background: linear-gradient(135deg, #4f90d9, #3282ff); }
+  100% { background: linear-gradient(135deg, #3282ff, #4f90d9); }
+}
+
+@keyframes pulseGlowHover {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(79, 144, 217, 0.6), 0 0 30px rgba(50, 130, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(79, 144, 217, 0.8), 0 0 40px rgba(50, 130, 255, 0.6);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tutorial-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .welcome-section h1 {
+    font-size: 2em;
+  }
+
+  .locate-button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .profile-icon {
+    height: 35px;
+    width: 35px;
+  }
+
+  .content-container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .locate-hospital {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-section h1 {
+    font-size: 1.8em;
+  }
+
+  nav a {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  .profile-icon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .locate-button {
+    padding: 10px;
+    font-size: 1em;
+  }
 }

@@ -3,7 +3,7 @@
   display: flex;
   height: 100vh;
   font-family: 'Arial', sans-serif;
-  background-color: #f9f4ef;
+  background-color: #f4f0ec;
   overflow: hidden;
 }
 
@@ -25,7 +25,7 @@
   justify-content: center;
   align-items: center;
   padding: 40px;
-  background-color: #e9baa5;
+  background-color: #f1e1dc;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -44,13 +44,13 @@
 h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: #4e4e4e;
+  color: #333;
 }
 
 p {
   font-size: 1.1rem;
   margin-bottom: 20px;
-  color: #555;
+  color: #666;
 }
 
 /* Login Form */
@@ -64,7 +64,7 @@ p {
 .login-form label {
   margin-bottom: 5px;
   font-weight: bold;
-  color: #333;
+  color: #444;
 }
 
 .login-form input {
@@ -77,8 +77,8 @@ p {
 }
 
 .login-form input:focus {
-  border-color: #333399;
-  box-shadow: 0 0 8px rgba(51, 51, 153, 0.5);
+  border-color: #5b8095;
+  box-shadow: 0 0 8px rgba(91, 128, 149, 0.3);
   outline: none;
 }
 
@@ -95,33 +95,23 @@ p {
 .forgot-password-link {
   background: none;
   border: none;
-  color: #333399;
+  color: #5b8095;
   font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
-  transition: color 0.3s, text-shadow 0.3s, transform 0.2s;
+  transition: color 0.3s ease-in-out;
   text-decoration: underline;
   outline: none;
-  margin-left: auto;
 }
 
 .forgot-password-link:hover {
-  color: #5555ff;
-  text-shadow: 0px 0px 8px rgba(85, 85, 255, 0.5);
-  transform: translateY(-2px);
-}
-
-.forgot-password-link:focus {
-  color: #333399;
-  text-decoration: none;
-  outline: 2px solid #333399;
-  border-radius: 3px;
+  color: #3b6070;
 }
 
 /* Login Button Style */
 .login-button {
   padding: 14px;
-  background-color: #333399;
+  background-color: #5b8095;
   color: white;
   border: none;
   border-radius: 12px;
@@ -133,7 +123,7 @@ p {
 }
 
 .login-button:hover {
-  background-color: #5555ff;
+  background-color: #3b6070;
   transform: translateY(-2px);
 }
 
@@ -141,45 +131,39 @@ p {
 .google-login-button {
   background-color: white;
   border: 1px solid #ddd;
-  border-radius: 12px; /* Increased rounding */
+  border-radius: 12px;
   cursor: pointer;
   width: 100%;
-  height: 48px; /* Same height as login button */
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease-in-out, transform 0.2s;
+  transition: background-color 0.3s ease-in-out;
   margin-bottom: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .google-login-button:hover {
   background-color: #f1f1f1;
-  transform: translateY(-2px);
 }
 
 /* Google Icon Styling */
 .google-icon {
-  width: 80px;
-  height: 30px;
-}
-
-/* Social Login Section */
-.social-login {
-  width: 100%;
-  max-width: 400px;
+  width: 70px;
+  height: 24px;
+  margin-right: 8px;
 }
 
 /* Login Options Text */
 .login-options p {
   font-size: 0.9rem;
   text-align: center;
-  color: #333;
+  color: #555;
 }
 
 /* Links Styling */
 a {
-  color: #333399;
+  color: #5b8095;
   text-decoration: none;
   font-weight: bold;
 }
@@ -191,7 +175,7 @@ a:hover {
 /* Loading Indicator */
 .loading-indicator {
   font-size: 1.5rem;
-  color: #333399;
+  color: #5b8095;
   text-align: center;
   animation: pulse 1s infinite;
 }
@@ -207,7 +191,7 @@ a:hover {
 
 /* Error Message */
 .error-message {
-  color: red;
+  color: #d9534f;
   margin-top: 10px;
   text-align: center;
   font-weight: bold;
@@ -246,9 +230,7 @@ a:hover {
   }
 
   .google-icon {
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
   }
 }
-
-

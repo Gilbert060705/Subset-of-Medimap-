@@ -1,162 +1,218 @@
-/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .landing-container {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom right, #f0f4f8, #e6e3e6);
+    color: #333;
+}
+
+/* General Styles */
+.landing-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
     background-color: #f3e3d6;
-  }
-  
-  /* Header */
-  .landing-header {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Header */
+.landing-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #d2918c;
-  }
-  
-  .landing-logo {
-      display: flex;
-      align-items: center;
-  }
-  
-  .landing-logo img {
-      width: 200px;
-      height: 50px;
-      margin-right: 10px;
-  }
-  
-  .landing-logo h1 {
-      color: #e34234;
-      font-size: 24px;
-  }
-  
-  .landing-nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      font-family:'Lexend Deca';
-      padding-top : 10px;
-      padding-bottom : 10px;
-      padding-left: 10px;
-      padding-right: 10px;
-  }
-  
-  .landing-nav a:hover {
-      background-color: aqua;
-      border-radius:10px;
-  }   
-  
-  /* Main Section */
-  .landing-main {
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.landing-logo {
+    display: flex;
+    align-items: center;
+}
+
+.landing-logo img {
+    width: 200px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.landing-logo h1 {
+    color: #e34234;
+    font-size: 24px;
+}
+
+.landing-nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 15px;
+    transition: all 0.3s;
+}
+
+.landing-nav a:hover {
+    background: linear-gradient(90deg, #0099f7, #f11712);
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Main Section */
+.landing-main {
     display: flex;
     justify-content: space-between;
     padding: 50px;
     position: relative;
-  }
-  
-  .main-left .doctor-image {
-    width: 600px; /* Increased doctor image size */
+}
+
+.main-left .doctor-image {
+    width: 600px;
     position: relative;
     z-index: 1;
-  }
-  
-  .main-right {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.main-right {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-  
-  .main-right h1 {
+}
+
+.main-right h1 {
     font-size: 2.5rem;
     color: #333;
-  }
-  
-  .main-right p {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.main-right p {
     font-size: 1.2rem;
     color: #777;
     margin: 20px 0;
-  }
-  
-  .cta-button {
-    background-color: #3282ff;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #4f90d9, #3282ff);
     color: #fff;
     padding: 15px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 1rem;
-    margin-bottom: 30px;
-  }
-  
-  .cta-button:hover {
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.3s;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.cta-button:hover {
     background-color: #255bb5;
-  }
-  
-  .catchy-text {
-    width: 300px;
-  }
-  
-  /* Decorations */
-  .decorations .blue-heart {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.catchy-text {
+  width: 300px;
+  margin-top: 20px; /* Adds space below the button */
+}
+
+/* Decorations */
+.decorations .blue-heart {
     position: absolute;
     top: 80px;
     left: 50px;
     width: 100px;
     z-index: 0;
-  }
-  
-  .decorations .heart-second {
+    animation: float 5s ease-in-out infinite;
+}
+
+.decorations .heart-second {
     top: 200px;
     left: 250px;
     width: 100px;
-  }
-  
-  .decorations .heart-third {
+    animation-delay: 1s;
+}
+
+.decorations .heart-third {
     top: 320px;
     left: 100px;
     width: 100px;
-  }
-  
-  .decorations .heart-bottom-right {
+    animation-delay: 2s;
+}
+
+.decorations .heart-bottom-right {
     position: absolute;
     bottom: 50px;
     right: 50px;
     width: 100px;
-  }
-  
-  .decorations .shield-icon {
+    animation-delay: 3s;
+}
+
+.decorations .shield-icon {
     position: absolute;
     top: 45px;
-    right: 780px; /* Position near the doctor's head */
+    right: 780px;
     width: 250px;
     z-index: 1;
-  }
-  
-  /* Profile styles */
+    animation: float 5s ease-in-out infinite;
+}
+
+/* Profile styles */
 .profile-pic {
-  margin-left: auto;
-  margin-right: 2rem;
+    margin-left: auto;
+    margin-right: 2rem;
 }
 
 .profile-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.2s;
-  background-color: #E6E6FA;
-  padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    background-color: #E6E6FA;
+    padding: 5px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15), -4px -4px 10px rgba(255, 255, 255, 0.7);
 }
 
 .profile-icon:hover {
-  transform: scale(1.1);
-  background-color: #F0F0FF;
+    transform: scale(1.1);
+    background-color: #F0F0FF;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2), -4px -4px 12px rgba(255, 255, 255, 0.7);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .landing-main {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .main-left .doctor-image {
+        width: 80%;
+    }
+
+    .main-right h1 {
+        font-size: 1.8rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 10px 0;
+    }
 }

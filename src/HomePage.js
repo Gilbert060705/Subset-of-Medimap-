@@ -5,8 +5,8 @@ import './App.css';
 import './HomePage.css';
 import logo from './images/logo.png';
 import hospital from './images/hospital.png';
-import personProfile from "./images/personProfile.png";
 import { Link } from 'react-router-dom';
+import profileIcon from './images/personProfile.png';
 
 const HomePage = () => {
   const [userName, setUserName] = useState('');
@@ -64,22 +64,15 @@ const HomePage = () => {
           {/* Update navigation links */}
           <a href="#" onClick={(e) => {
             e.preventDefault();
-            handleNavigation('/home');
-          }}>Home</a>
-          <a href="#" onClick={(e) => {
-            e.preventDefault();
             handleNavigation('/about');
           }}>About Us</a>
           <a href="#" onClick={(e) => {
             e.preventDefault();
             handleNavigation('/booking');
-          }}>History</a>
-          <a href="#" onClick={(e) => {
-            e.preventDefault();
-            handleNavigation('/profile');
-          }}>
-            Profile
-          </a>
+          }}>My Bookings</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); handleNavigation('/profile'); }}>
+      <img src={profileIcon} alt="Profile Icon" className="profile-icon" />
+    </a>
         </nav>
       </header>
 
