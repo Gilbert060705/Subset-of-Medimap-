@@ -72,7 +72,7 @@ const HomePage = () => {
           }}>About Us</a>
           <a href="#" onClick={(e) => {
             e.preventDefault();
-            handleNavigation('/history');
+            handleNavigation('/booking');
           }}>History</a>
           <a href="#" onClick={(e) => {
             e.preventDefault();

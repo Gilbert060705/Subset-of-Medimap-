@@ -18,7 +18,7 @@ const AppointmentBooked = () => {
                 <nav className="nav">
                     <a href="/landing">Home</a>
                     <a href="/about">About Us</a>
-                    <a href="/bookings">My Bookings</a>
+                    <a href="/booking">My Bookings</a>
                 </nav>
             </header>
             <div className="container">

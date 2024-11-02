@@ -72,6 +72,11 @@ const MedicalBookingForm = () => {
       return;
     }
 
+    if(!user){
+      alert("You must be logged in to book an appointment");
+      return;
+    }
+
     const isValid = validateForm(); // Assume a function to check all fields
     if (isValid) {
       console.log("Form data:", formData);
@@ -90,15 +95,18 @@ const MedicalBookingForm = () => {
         console.log(document.name);
         documentUrl = await storeReportFile(document);
       }
+
       await addDoc(collection(db, "appointments", user.uid, "userAppointments"), {
+        userId: user.uid,
+        hospital : hospitalName,
         ...formData,
         documentlink: documentUrl
-      });
+      });      
       console.log("Appointment stored succesfully");
       navigate('/confirmbook');
       } catch (error) {
         console.error("Error storing appointment: ", error);
-        alert("Failed to store appointment.");
+        alert("Failed to store appointment. Please check the console for more details.");
       }
     console.log('Form submitted:', formData);
   };

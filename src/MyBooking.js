@@ -12,17 +12,12 @@ const MyBooking = () => {
 
   const fetchAppointments = async (userId) => {
     try {
-      const q = query(
-        collection(db, 'appointments'),
-        where('userId', '==', userId)
-      );
-
-      const querySnapshot = await getDocs(q);
+      const appointmentsRef = collection(db, 'appointments', userId, 'userAppointments');
+      const querySnapshot = await getDocs(appointmentsRef);
       const appointmentsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-
       setBookings(appointmentsList);
     } catch (error) {
       console.error('Error fetching appointments:', error);
@@ -31,6 +26,7 @@ const MyBooking = () => {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
@@ -55,6 +51,15 @@ const MyBooking = () => {
     }
   };
 
+  const handleBacktoHome = () =>{
+    const user = auth.currentUser;
+    if(user){
+      navigate('/home');
+    }else{
+      navigate('/');
+    }
+  }
+
   return (
     <div className="my-booking-container">
       <h1>My Upcoming Appointments</h1>
@@ -74,6 +79,7 @@ const MyBooking = () => {
           <ul className="booking-list">
             {bookings.map((appointment) => (
               <li key={appointment.id} className="booking-item">
+                <p><strong>Hospital Name:</strong> {appointment.hospital}</p>
                 <p><strong>Patient Name:</strong> {appointment.patientName}</p>
                 <p><strong>Date:</strong> {appointment.date}</p>
                 <p><strong>Time:</strong> {appointment.time}</p>
@@ -91,6 +97,10 @@ const MyBooking = () => {
           </ul>
           <button onClick={handleBackToProfile} className="back-button">
             Back to Profile
+          </button>
+
+          <button onClick={handleBacktoHome} className="back-button">
+            Back to Home
           </button>
         </>
       )}
