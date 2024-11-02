@@ -1,44 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import { db, collection, getDocs, deleteDoc, doc } from './firebase';
+import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { db } from './firebase';
+import { FaTrash } from 'react-icons/fa'; // Import Trash icon from react-icons
+import './AdminDashboard.css'; // Import the CSS file for styling
 
 const AdminDashboard = () => {
   const [appointments, setAppointments] = useState([]);
   const [error, setError] = useState("");
+  const userId = "LLQyTir9BKT2vvkWLokklvR1yd02"; // Specify the user ID here
 
-  // Fetch appointments from Firestore
+  // Fetch appointments for the specified user
   useEffect(() => {
-    const fetchAppointments = async () => {
+    const fetchUserAppointments = async () => {
       try {
-        const appointmentsRef = collection(db, "appointments"); // Ensure this matches your collection name
+        const appointmentsRef = collection(db, "appointments", userId, "userAppointments");
         const appointmentsSnapshot = await getDocs(appointmentsRef);
-        
+
         if (!appointmentsSnapshot.empty) {
-          const appointmentList = appointmentsSnapshot.docs.map(doc => ({
+          const appointmentList = appointmentsSnapshot.docs.map((doc) => ({
             id: doc.id,
-            ...doc.data()
+            ...doc.data(),
           }));
           setAppointments(appointmentList);
-          console.log("Fetched appointments:", appointmentList); // Debugging log
+          console.log("Fetched user appointments:", appointmentList); // Debugging log
         } else {
-          console.log("No appointments found."); // Debugging log
+          console.log("No appointments found for user.");
         }
       } catch (error) {
         setError("Error fetching appointments");
-        console.error("Error fetching appointments:", error);
+        console.error("Error fetching user appointments:", error);
       }
     };
 
-    fetchAppointments();
-  }, []);
+    fetchUserAppointments();
+  }, [userId]);
 
   // Delete an appointment
-  const handleDelete = async (id) => {
+  const handleDelete = async (appointmentId) => {
     try {
-      await deleteDoc(doc(db, "appointments", id));
-      setAppointments(prev => prev.filter(app => app.id !== id));
+      const appointmentDocRef = doc(db, "appointments", userId, "userAppointments", appointmentId);
+      await deleteDoc(appointmentDocRef);
+      setAppointments((prev) => prev.filter((appointment) => appointment.id !== appointmentId));
       alert("Appointment deleted successfully");
     } catch (error) {
       console.error("Error deleting appointment:", error);
+      setError("Error deleting appointment");
     }
   };
 
@@ -51,9 +57,11 @@ const AdminDashboard = () => {
           <thead>
             <tr>
               <th>Patient Name</th>
-              <th>Doctor</th>
+              <th>Hospital</th>
+              <th>Symptoms</th>
               <th>Date</th>
               <th>Time</th>
+              <th>Service Type</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -61,11 +69,15 @@ const AdminDashboard = () => {
             {appointments.map((appointment) => (
               <tr key={appointment.id}>
                 <td>{appointment.patientName || "N/A"}</td>
-                <td>{appointment.doctor || "N/A"}</td>
+                <td>{appointment.hospital || "N/A"}</td>
+                <td>{appointment.symptom || "N/A"}</td>
                 <td>{appointment.date || "N/A"}</td>
                 <td>{appointment.time || "N/A"}</td>
+                <td>{appointment.serviceType || "N/A"}</td>
                 <td>
-                  <button onClick={() => handleDelete(appointment.id)}>Delete</button>
+                  <button onClick={() => handleDelete(appointment.id)} className="delete-button">
+                    <FaTrash /> {/* Trash icon for delete */}
+                  </button>
                 </td>
               </tr>
             ))}
