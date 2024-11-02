@@ -76,13 +76,9 @@ const HomePage = () => {
           }}>History</a>
           <a href="#" onClick={(e) => {
             e.preventDefault();
-            handleNavigation('/email');
-          }}>Email</a>
-          <a href="#" onClick={(e) => {
-            e.preventDefault();
             handleNavigation('/profile');
           }}>
-            <img src={personProfile} alt="Profile" />
+            Profile
           </a>
         </nav>
       </header>
