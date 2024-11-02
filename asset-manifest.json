@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Subset-of-Medimap-/static/css/main.963cf37d.css",
+    "main.js": "/Subset-of-Medimap-/static/js/main.84b72e8d.js",
+    "static/js/453.d687f2fd.chunk.js": "/Subset-of-Medimap-/static/js/453.d687f2fd.chunk.js",
+    "static/media/femaleDoctor.webp": "/Subset-of-Medimap-/static/media/femaleDoctor.b80dc1e018ded123f443.webp",
+    "static/media/Doctor.png": "/Subset-of-Medimap-/static/media/Doctor.80b6cbd9481de8bb7f2a.png",
+    "static/media/logo.png": "/Subset-of-Medimap-/static/media/logo.d76683bd60acfef15703.png",
+    "static/media/hospital.png": "/Subset-of-Medimap-/static/media/hospital.72654c9fbf24fd5b1d56.png",
+    "static/media/shield.png": "/Subset-of-Medimap-/static/media/shield.98aaaa6900b3588bd353.png",
+    "static/media/imgAbout.jpg": "/Subset-of-Medimap-/static/media/imgAbout.66fb32130bc564aacb1e.jpg",
+    "static/media/hazyHeart.png": "/Subset-of-Medimap-/static/media/hazyHeart.b38d97ad68a620a33ded.png",
+    "static/media/catchy.png": "/Subset-of-Medimap-/static/media/catchy.137c9f114581e6d0df50.png",
+    "static/media/google.png": "/Subset-of-Medimap-/static/media/google.74ef6d31064ca840b258.png",
+    "index.html": "/Subset-of-Medimap-/index.html",
+    "main.963cf37d.css.map": "/Subset-of-Medimap-/static/css/main.963cf37d.css.map",
+    "main.84b72e8d.js.map": "/Subset-of-Medimap-/static/js/main.84b72e8d.js.map",
+    "453.d687f2fd.chunk.js.map": "/Subset-of-Medimap-/static/js/453.d687f2fd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.963cf37d.css",
+    "static/js/main.84b72e8d.js"
+  ]
+}

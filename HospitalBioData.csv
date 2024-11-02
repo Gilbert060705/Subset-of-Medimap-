@@ -1,0 +1,1176 @@
+name,latitude,longitude,Type of Hospital,Services,Number of Beds
+1 ALJUNIED MEDICAL,1.33319,103.87878,public,"general services, urology",4397
+1 BISHAN MEDICAL,1.35909,103.84457,"non-profit, private",general services,3068
+1 MEDICAL TECK GHEE,1.36269,103.85469,private,"general services, urology, obstetrics, neurology, radiology",3757
+1 TOA PAYOH MEDICAL,1.33907,103.85553,"private, non-profit","general services, obstetrics, cardiology, pathology, urology, neurology",8500
+171 STIRLING FAMILY CLINIC,1.29077,103.80388,private,general services,1642
+18 CLINIC,1.3190441,103.860798,public,"general services, radiology",7299
+1DOC MEDICAL CENTRE(BEDOK),1.3190441,103.860798,"public, non-profit","general services, neurology, cardiology, radiology, urology, pathology, obstetrics, gastroenterology",5308
+1DOC REDHILL FAMILY CLINIC,1.28967,103.85007,private,"general services, radiology, obstetrics",1423
+338 FAMILY CLINIC,1.3631403,103.848685,"private, non-profit","general services, radiology, obstetrics",1283
+360 CLINIC,1.3622425,103.8555242,private,"general services, pathology, urology, neurology, radiology",7828
+57 MEDICAL CLINIC(GEYLANG BAHRU),1.3234255,103.8689449,"private, profit","general services, neurology, obstetrics, radiology, gastroenterology",2062
+57 MEDICAL CLINIC(KALLANG AIRPORT),1.3101503,103.8852978,"public, profit","general services, radiology, obstetrics, neurology, urology, cardiology",6203
+57 MEDICAL CLINIC(PARKWAY CENTRE),1.3019,103.906091,"private, non-profit","general services, pathology",8524
+57 MEDICAL CLINIC(PEK KIO),1.3143398,103.8480363,profit,general services,1233
+57 MEDICAL CLINIC(WOODLANDS),1.4340327,103.7754001,"profit, private","general services, urology",102
+57 MEDICAL CLINIC(YISHUN),1.4187636,103.835592,"private, public","general services, pathology, obstetrics, gastroenterology, urology, radiology, neurology, cardiology",2732
+94 DAWSON FAMILY CLINIC,1.2960612,103.811304,"private, public","general services, cardiology, neurology, obstetrics, radiology, pathology, gastroenterology, urology",8761
+A FAMILY CLINIC,1.2813087,103.8448549,non-profit,general services,8666
+A HEALING HEART MEDICAL CLINIC,1.3159054,103.8857566,"profit, public","general services, obstetrics, neurology, cardiology, pathology",6196
+A LIFE CLINIC PTE LTD,1.28967,103.85007,profit,"general services, neurology",8501
+A MEDICAL CLINIC,1.2774007,103.8401402,"public, private","general services, neurology, pathology, gastroenterology, radiology, cardiology, obstetrics",3433
+A1 MEDICAL CLINIC,1.3225,103.96139,"profit, private","general services, obstetrics, urology, neurology, pathology",2353
+ACACIA MEDICAL CLINIC,1.2818153,103.8030293,"public, profit","general services, pathology, obstetrics",5319
+ACEHEALTH MEDICAL,1.3645796,103.8476933,non-profit,"general services, cardiology, neurology, obstetrics, radiology, urology",7993
+ACMS MEDICAL CLINIC,1.28967,103.85007,profit,"general services, cardiology, obstetrics",4983
+ACUMED MEDICAL GROUP,1.28967,103.85007,public,"general services, gastroenterology, neurology, obstetrics, cardiology, radiology, urology",823
+ACUMED MEDICAL GROUP,1.347181,103.9380431,profit,"general services, pathology",2808
+ACUMED MEDICAL GROUP,1.3471811,103.9380431,private,"general services, cardiology, urology, obstetrics, neurology, radiology",2046
+ACUMED MEDICAL GROUP,1.3257123,103.9321346,public,"general services, pathology, radiology, cardiology, obstetrics",2822
+ACUMED MEDICAL GROUP,1.28967,103.85007,"profit, public","general services, gastroenterology, pathology, radiology",3853
+ACUMED MEDICAL GROUP,1.4378404,103.7821937,public,"general services, urology, obstetrics, pathology, cardiology, gastroenterology, radiology",5648
+ACUMED MEDICAL GROUP,1.32114,103.7427649,"non-profit, private","general services, radiology, pathology, neurology, cardiology, urology",2179
+ACUMED MEDICAL GROUP,1.3394964,103.705254,private,"general services, neurology, radiology",4455
+ACUMED MEDICAL GROUP,1.3896623,103.8927994,"non-profit, profit",general services,231
+ACUMED MEDICAL GROUP,1.28967,103.85007,"non-profit, public","general services, urology, gastroenterology",6468
+ACUMED MEDICAL GROUP,1.3323546,103.7224647,"private, non-profit","general services, urology, gastroenterology",7708
+ADIDAH FAMILY CLINIC & SURGERY,1.3485913,103.9347337,"profit, non-profit","general services, gastroenterology, urology, pathology, obstetrics, cardiology, neurology, radiology",3769
+ADMIRALTY FAMILY MEDICAL CLINIC,1.4405121,103.8017118,public,"general services, pathology, neurology, gastroenterology, cardiology, obstetrics",6244
+ADVANCE CLINIC & SURGERY PTE LTD,1.3308274,103.9013973,profit,"general services, cardiology, gastroenterology, radiology, urology, neurology",3324
+ADVANTAGE MEDICAL CLINIC,1.28967,103.85007,"profit, public","general services, gastroenterology",8820
+ADVANTAGE MEDICAL CLINIC(JURONG WEST),1.3498597,103.7252886,non-profit,"general services, cardiology, urology, pathology",3248
+AFFINITY MEDICAL CLINIC,1.3546388,103.871799,public,"general services, urology, gastroenterology, radiology, obstetrics, cardiology, neurology",5612
+AIA ALEXANDRA CLINIC,1.29389,103.81972,"non-profit, private","general services, obstetrics, cardiology, urology",6679
+AIDAN MEDICAL CLINIC,1.3312289,103.9252282,public,"general services, radiology, gastroenterology, cardiology, obstetrics, pathology",7157
+ALEXANDRA FAMILY CLINIC & SURGERY,1.2925348,103.8113068,"profit, non-profit","general services, radiology, cardiology, urology",122
+ALLHEALTH FAMILY CLINIC,1.3553896,103.9317229,"private, public","general services, obstetrics, cardiology, pathology, gastroenterology, radiology, neurology, urology",7233
+ALLIANCE CLINIC AND PARTNERS PTE LTD,1.3325925,103.9075259,"profit, non-profit",general services,1697
+ALLSWELL MEDICAL CLINIC,1.3394398,103.7053332,public,general services,4379
+ALLY HEALTH,1.3152781,103.7668558,public,"general services, obstetrics, cardiology, pathology, neurology, gastroenterology, radiology, urology",3052
+AMDA INTERNATIONAL PEACE CLINIC,1.28967,103.85007,non-profit,"general services, urology, cardiology, gastroenterology, radiology",8006
+AMK FAMILY CLINIC,1.3714876,103.8458658,profit,"general services, urology, neurology",6499
+AMPM FAMILY CLINIC & SURGERY PTE. LTD.,1.28967,103.85007,profit,"general services, gastroenterology, urology, obstetrics, radiology",1523
+AN MEDICAL CLINIC@AMK,1.3724889,103.8474507,"private, profit","general services, obstetrics",4881
+ANCHOR HEALTH FAMILY CLINIC,1.28967,103.85007,"private, public","general services, cardiology, pathology, neurology, urology, obstetrics, radiology, gastroenterology",5684
+ANG MO KIO FAMILY MEDICINE CLINIC,1.3719352,103.8459597,private,"general services, obstetrics, gastroenterology, urology, neurology",1860
+ANG MO KIO MEDICAL CENTRE,1.3700803,103.8495228,"non-profit, profit","general services, radiology, cardiology, gastroenterology, pathology, urology",5144
+ANSARI FAMILY CLINIC & SURGERY,1.315935,103.883308,public,"general services, obstetrics, cardiology, pathology",8658
+APEX CLINIC & SURGERY,1.422888,103.8523081,non-profit,"general services, obstetrics, urology, neurology, pathology, cardiology",100
+APEX CLINIC & SURGERY,1.4298936,103.7746931,"private, profit","general services, pathology",8005
+ANG MO KIO MEDICAL CENTRE,1.31587,103.88325,private,"general services, gastroenterology, neurology, radiology, pathology, obstetrics, cardiology, urology",5681
+ANSARI FAMILY CLINIC & SURGERY,1.31282,103.88245,"profit, non-profit","general services, radiology, gastroenterology, cardiology, pathology, urology, neurology",1779
+ANTEH DISPENSARY PTE LTD,1.422888,103.8523081,public,"general services, gastroenterology, pathology, urology, radiology, cardiology, obstetrics",4978
+APEX CLINIC & SURGERY,1.4298936,103.7746931,public,"general services, gastroenterology, radiology, pathology, cardiology, neurology",3999
+APEX CLINIC & SURGERY,1.3413875,103.6915386,private,"general services, urology",2617
+"APEX MEDICAL CENTRE 
+(JURONG) PTE LTD",1.3700803,103.8495228,profit,general services,2529
+APPLETREE MEDICAL,1.3190089,103.7784888,public,general services,2807
+ARCADIA CLINIC,1.3587508,103.7513848,profit,"general services, urology",4705
+AR-RAUDHAH MEDICAL CLINIC AND SURGERY PTE LTD,1.36389,103.8575,"profit, private","general services, cardiology",7970
+ASHFORD MEDICAL CENTRE,1.28967,103.85007,"public, non-profit","general services, obstetrics, cardiology, pathology, urology, neurology, radiology",3562
+"ASIATIQUE MEDICAL & 
+AESTHETICS CLINIC",1.3456864,103.8560258,"profit, public","general services, obstetrics, gastroenterology, cardiology, pathology",7995
+ASPEN CLINIC,1.3163942,103.8938648,"profit, non-profit","general services, obstetrics, urology, pathology, radiology, cardiology",2184
+ASSURANCE MEDICARE CLINIC AND SURGERY,1.2833675,103.8156713,"non-profit, public","general services, urology, neurology",2615
+ASSURE FAMILY CLINIC BUKIT MERAH,1.28967,103.85007,non-profit,"general services, cardiology, obstetrics, pathology, gastroenterology",4275
+ATA (ORCHARD) MEDICAL,1.28967,103.85007,non-profit,"general services, obstetrics, urology, pathology, cardiology",5917
+ATA MEDICAL,1.4366436,103.8366613,"private, profit","general services, neurology",1865
+ATRIO FAMILY CLINIC,1.3735945,103.8549749,"public, profit","general services, cardiology, neurology",2765
+ATRIO FAMILY CLINIC (AMK) PTE. LTD.,1.3430609,103.7381428,private,"general services, pathology, neurology, obstetrics, urology, radiology, gastroenterology",3250
+B S CHEW CLINIC,1.330951,103.8582302,public,"general services, urology, neurology, obstetrics",3568
+B T GOH FAMILY CLINIC & SURGERY,1.324328,103.8518784,"non-profit, private","general services, urology, pathology, radiology, obstetrics",5314
+BALESTIER MEDICAL CLINIC,1.3335873,103.9149662,profit,"general services, pathology, urology, cardiology",1006
+BALKIS FAMILY CLINIC,1.3504414,103.7181864,"profit, private",general services,1988
+BANYAN CLINIC @ JW,1.28967,103.85007,public,"general services, neurology",7377
+BANYAN CLINIC PTE LTD.,1.3484654,103.8804001,"public, non-profit","general services, radiology, neurology, urology",1737
+BARTLEY CLINIC,1.28967,103.85007,"private, non-profit","general services, radiology, cardiology, neurology, gastroenterology",5843
+BCH CLINIC @ PASIR RIS,1.3246238,103.93181,profit,"general services, neurology, gastroenterology, pathology",6067
+BEDOK CENTRAL CLINIC,1.3201303,103.9355628,non-profit,general services,7573
+"BEDOK CLINIC & 
+SURGERY(FAMILY MEDICAL CENTRE)",1.3291889,103.9373558,private,general services,6255
+BEDOK LIFE CLINIC,1.3205587,103.9347959,"non-profit, profit","general services, obstetrics, cardiology, pathology, gastroenterology, radiology, neurology",6133
+BEDOK MEDICAL CENTRE,1.28967,103.85007,public,"general services, cardiology, radiology, obstetrics, urology, gastroenterology, pathology",1195
+BELIEF MEDICAL,1.28967,103.85007,public,"general services, gastroenterology, pathology",8378
+BEST MED FAMILY CLINIC AND HOME CARE,1.3710938,103.8476629,"private, profit","general services, radiology, pathology, obstetrics, urology, cardiology, neurology",7533
+BETHESDA MEDICAL @ AMK,1.28967,103.85007,"private, non-profit",general services,7501
+BETHESDA MEDICAL @ BEACH RD,1.28967,103.85007,"non-profit, private",general services,4572
+BETHESDA MEDICAL @ CEREZA,1.28967,103.85007,non-profit,general services,3225
+"BETHESDA MEDICAL @ 
+GRANTRAL",1.28967,103.85007,public,"general services, gastroenterology, pathology, obstetrics, urology, cardiology, neurology",4789
+BETHESDA MEDICAL @ SUNTEC,1.3580869,103.9459777,public,"general services, neurology, pathology",5248
+"BETHESDA MEDICAL @ 
+TAMPINES",1.33274,103.84713,public,"general services, gastroenterology, cardiology, pathology, obstetrics, neurology",2044
+BETHESDA MEDICAL @ TPY,1.4365286,103.8375295,public,"general services, gastroenterology",5315
+BETHESDA MEDICAL @ YISHUN,1.3404925,103.787472,profit,"general services, gastroenterology, urology, obstetrics",7470
+BINJAI MEDICAL CLINIC,1.3446893,103.8553838,private,"general services, radiology, pathology",8983
+BISHAN GRACE CLINIC,1.28967,103.85007,private,general services,305
+BL MEDICAL ASSOCIATES,1.3459076,103.7310881,"public, private","general services, pathology, radiology, cardiology, urology, neurology, obstetrics",5609
+BLESS MEDICAL CENTRE PTE LTD,1.3313898,103.9087591,"profit, public","general services, gastroenterology",7473
+BOK FAMILY CLINIC PTE LTD,1.3142903,103.8710448,"profit, non-profit","general services, neurology, pathology, obstetrics",2544
+BOON KENG CLINIC & SURGERY,1.3463888,103.7127002,profit,"general services, urology, radiology, gastroenterology, neurology, cardiology, pathology",1571
+BOON LAY CLINIC & SURGERY,1.3440337,103.7312571,profit,"general services, neurology, urology",6838
+BOON LAY CORPORATION CLINIC,1.3386676,103.8446057,"private, non-profit","general services, cardiology, urology, gastroenterology, pathology, neurology, obstetrics, radiology",2830
+BRADDELL MEDICAL CLINIC,1.33581,103.84804,private,"general services, gastroenterology, radiology, neurology, obstetrics, pathology, urology, cardiology",7343
+BRIGHTON MEDICAL CLINIC,1.3625546,103.7521696,private,"general services, radiology, gastroenterology, cardiology, obstetrics, pathology, neurology, urology",2180
+BUKIT BATOK FAMILY CLINIC,1.3462442,103.7494054,"profit, non-profit","general services, cardiology, obstetrics, pathology, gastroenterology, urology",518
+BUKIT BATOK MEDICAL CLINIC,1.3195248,103.8171678,"profit, public","general services, obstetrics, urology, neurology, cardiology",5962
+BUKIT TIMAH CLINIC,1.3403819,103.7728476,private,"general services, obstetrics, gastroenterology, cardiology, neurology, radiology, urology",2422
+BUKIT TIMAH NAM SANG CLINIC,1.3088567,103.9119026,public,"general services, gastroenterology, cardiology, radiology",5282
+BWELL MEDICAL AND PHYSIO,1.28967,103.85007,"profit, private","general services, pathology",3064
+C H TAN MEDICAL CLINIC & DENTAL SURGERY,1.28967,103.85007,public,"general services, obstetrics, pathology, cardiology, radiology, urology, gastroenterology, neurology",2496
+C K TAN FAMILY CLINIC & SURGERY PTE LTD,1.28967,103.85007,profit,"general services, urology, pathology, gastroenterology",7120
+C3 FAMILY CLINIC @ALJUNIED CRESCENT,1.4021747,103.8919813,non-profit,"general services, radiology",2652
+CALROSE MEDICAL FAMILY CLINIC,1.3388217,103.8489919,"profit, non-profit","general services, urology, radiology, obstetrics, neurology, pathology",2123
+CAMRY MEDICAL CENTRE,1.4351527,103.7760299,non-profit,general services,666
+CANARY MEDICAL CLINIC,1.28967,103.85007,"private, non-profit","general services, obstetrics, cardiology, neurology, gastroenterology, urology, radiology",7584
+CANBERRA CARE MEDICAL CLINIC,1.3056405,103.8507725,public,"general services, radiology, gastroenterology, cardiology, pathology, urology",7834
+CARE FAMILY CLINIC,1.28967,103.85007,"private, non-profit","general services, radiology",1260
+CARE FOR YOU MEDICAL CLINIC,1.3665595,103.8416439,"non-profit, profit","general services, cardiology, neurology, radiology",6388
+CAREDOC MEDICAL CLINIC,1.28967,103.85007,"profit, private","general services, gastroenterology, urology, cardiology, obstetrics, pathology, neurology, radiology",356
+CARELINK FAMILY CLINIC,1.3205587,103.9347959,"non-profit, private","general services, urology, radiology, neurology",2958
+CARELITE MEDICAL CLINIC,1.28967,103.85007,"public, non-profit",general services,2531
+CARELITE MEDICAL CLINIC (DOVER MEDICAL CENTRE),1.3748559,103.8502172,"profit, public","general services, neurology, obstetrics, gastroenterology, urology, radiology, cardiology",7262
+"CARELITE MEDICAL CLINIC (LEE CLINIC, AMK)",1.310382,103.7680124,private,general services,1950
+CAREPLUS CLINIC,1.3499033,103.719221,public,"general services, neurology, gastroenterology, obstetrics, pathology, radiology",3556
+CARING FAMILY CLINIC,1.3296994,103.9015932,"profit, public","general services, radiology, gastroenterology",1443
+CARITAS CLINIC,1.28967,103.85007,"non-profit, private","general services, pathology, cardiology, gastroenterology, urology",2638
+CASHEW MEDICAL & SURGERY,1.28967,103.85007,non-profit,"general services, gastroenterology, radiology, neurology, obstetrics, urology, pathology, cardiology",903
+CAVENAGH MEDICAL CLINIC AND HOME CARE,1.3843361,103.743242,non-profit,"general services, gastroenterology, radiology, cardiology, obstetrics, pathology, neurology",2532
+CCK FAMILY CLINIC,1.3617875,103.9525028,public,"general services, urology, obstetrics, pathology",8877
+CECILIA FAMILY CLINIC & SURGERY,1.28967,103.85007,public,"general services, radiology",5880
+CENTRAL [ CLINIC + SURGERY ] MARINE PARADE,1.3843361,103.743242,"private, profit","general services, obstetrics",5784
+CENTRAL 24-HR CLINIC ( CHOA CHU KANG ),1.3415355,103.6909282,"private, profit","general services, obstetrics, pathology, gastroenterology, radiology, cardiology, neurology",6033
+CENTRAL 24-HR CLINIC (PIONEER NORTH ),1.28967,103.85007,"non-profit, profit",general services,1236
+CENTRAL 24-HR CLINIC (BEDOK ),1.3134323,103.7654887,profit,"general services, obstetrics, gastroenterology, neurology, pathology, urology, cardiology",3693
+"CENTRAL 24-HR CLINIC 
+(CLEMENTI)",1.3679325,103.8970415,"public, private","general services, gastroenterology, radiology",7491
+"CENTRAL 24-HR CLINIC 
+(HOUGANG)",1.3498597,103.7252886,profit,"general services, cardiology, neurology, radiology, gastroenterology, urology, pathology",5381
+"CENTRAL 24HR CLINIC 
+(JURONG WEST)",1.4310918,103.773703,public,"general services, pathology, cardiology",4026
+"CENTRAL 24-HR CLINIC 
+(MARSILING)",1.3705542,103.9573384,"non-profit, private",general services,5637
+CENTRAL 24-HR CLINIC (PASIR RIS),1.3523302,103.9534923,private,general services,2545
+"CENTRAL 24-HR CLINIC 
+(TAMPINES)",1.28967,103.85007,non-profit,"general services, pathology, urology",1649
+"CENTRAL 24-HR CLINIC 
+(WOODLANDS)",1.4298834,103.8279368,non-profit,"general services, radiology, pathology, obstetrics, neurology, urology, cardiology, gastroenterology",2310
+"CENTRAL 24-HR CLINIC 
+(YISHUN)",1.2864578,103.8092877,"non-profit, profit","general services, neurology, radiology, urology, obstetrics, gastroenterology, pathology",3774
+CENTRAL MEDICAL GROUP PTE LTD,1.3232712,103.9242809,non-profit,"general services, obstetrics",4755
+CHAI CHEE CLINIC & SURGERY,1.28967,103.85007,non-profit,general services,6474
+CHANG CLINIC,1.3225,103.96139,"private, profit","general services, obstetrics, radiology, urology",2
+A1 MEDICAL CLINIC,1.276993,103.8390688,"private, public","general services, pathology, cardiology, radiology, neurology, gastroenterology, urology",966
+CHANG CLINIC & SURGERY,1.28967,103.85007,"non-profit, private","general services, pathology, obstetrics, neurology, gastroenterology, cardiology",168
+CHANGI CLINIC,1.3133897,103.8604198,private,"general services, pathology, radiology, obstetrics, neurology, cardiology",6293
+CHARAZOI MEDICAL CLINIC,1.3496085,103.9460065,"private, profit","general services, obstetrics, neurology, radiology, pathology, cardiology, urology",3495
+CHARIS CLINIC & SURGERY,1.3702553,103.8720445,private,general services,2725
+CHEN FAMILY CLINIC,1.3674932,103.8559381,non-profit,general services,7524
+CHENG CLINIC,1.3115987,103.8548275,non-profit,"general services, neurology, urology, obstetrics",1574
+CHEONG FAMILY CLINIC PTE LTD,1.3403819,103.7728476,"non-profit, private","general services, neurology, radiology",8109
+CHEONG MEDICAL CLINIC,1.28967,103.85007,"private, profit","general services, radiology, obstetrics",2596
+CHIEW CLINIC,1.3289583,103.8863144,public,"general services, obstetrics, neurology, urology, radiology, pathology, gastroenterology, cardiology",4188
+CHIN CHOO CLINIC,1.28967,103.85007,private,"general services, cardiology, obstetrics, urology, gastroenterology, radiology, neurology",4807
+CHIN MEDICAL CLINIC,1.28967,103.85007,"profit, public",general services,1474
+CHINATOWN WELLNESS CLINIC,1.28967,103.85007,"private, public","general services, gastroenterology, urology, cardiology, obstetrics, pathology",4740
+CHIRON MEDICAL CLINIC,1.333601,103.849924,"profit, non-profit","general services, gastroenterology, obstetrics, radiology, neurology, cardiology, pathology",1600
+CHNG CLINIC AND SURGERY,1.28967,103.85007,profit,"general services, gastroenterology, pathology, cardiology, obstetrics, urology, neurology",133
+CHONG'S MEDICAL CENTRE,1.2857711,103.8266235,"non-profit, profit","general services, pathology, gastroenterology, obstetrics, neurology, urology, cardiology, radiology",5003
+CHUA & PARTNERS FAMILY CLINIC,1.3679325,103.8970415,private,"general services, cardiology, radiology, obstetrics, gastroenterology, urology, pathology, neurology",783
+CHUA CLINIC,1.422888,103.8523081,"public, non-profit","general services, obstetrics, pathology, radiology, cardiology",1855
+CHUA CLINIC & SURGERY,1.3435653,103.9535721,"public, private",general services,3724
+CHUA MEDICAL CENTRE PTE LTD,1.3489141,103.751814,"public, private","general services, radiology, cardiology, urology, neurology, gastroenterology, obstetrics, pathology",4839
+CHUA MEDICAL CLINIC AND SURGERY PTE. LTD.,1.3728325,103.8556851,public,"general services, gastroenterology, obstetrics, radiology, urology, pathology",2779
+CHUA MEDICO CLINIC LLP,1.3204866,103.8860381,"private, non-profit",general services,5650
+CHUAH CLINIC & SURGERY PTE LTD,1.2776292,103.8197941,"public, non-profit","general services, cardiology, gastroenterology, radiology, pathology",8956
+CHUNG & EE MEDICAL CLINIC,1.34028,103.77583,private,"general services, cardiology, neurology, gastroenterology, obstetrics, pathology",6925
+CHUNGKIAW CLINIC PTE LTD,1.3291285,103.938031,non-profit,"general services, obstetrics, cardiology, neurology, urology, pathology, gastroenterology",263
+CITYGP FAMILY CLINIC,1.36278,103.8975,"public, private","general services, obstetrics, radiology, neurology, cardiology, gastroenterology, urology",6197
+CLAREMONT MEDICAL CLINIC,1.3084683,103.7624862,"private, non-profit","general services, neurology, obstetrics, gastroenterology, radiology, cardiology, urology",5482
+CLAREMONT MEDICAL CLINIC,1.3551116,103.9315802,private,"general services, neurology, radiology, pathology, urology, obstetrics, gastroenterology, cardiology",5211
+ALLHEALTH FAMILY CLINIC,1.3325925,103.9075259,private,"general services, obstetrics, neurology, urology, pathology, cardiology, radiology",2143
+"ALLIANCE CLINIC AND 
+PARTNERS PTE LTD",1.3684773,103.8445304,"public, private","general services, urology, pathology, cardiology, gastroenterology, obstetrics, neurology, radiology",3356
+CLARION MEDICAL,1.3140358,103.7635088,"private, non-profit","general services, cardiology, neurology, radiology, gastroenterology, pathology",1806
+"CLEMENTI FAMILY & 
+AESTHETIC CLINIC",1.28967,103.85007,profit,"general services, gastroenterology, urology, obstetrics, cardiology, pathology, radiology, neurology",8097
+CLIFFORD DISPENSARY PTE LTD,1.28967,103.85007,"profit, non-profit","general services, pathology",8879
+CLIFFORD DISPENSARY PTE LTD,1.29156,103.86395,"private, non-profit","general services, radiology, urology, neurology",5974
+CLINIC @ THE SAIL,1.378071,103.9375403,non-profit,"general services, radiology, obstetrics, neurology, gastroenterology, pathology",7962
+CLINIC 10,1.28967,103.85007,non-profit,"general services, urology, cardiology, pathology, gastroenterology, radiology",2824
+CLINIC@COSTA,1.3799178,103.7527519,private,"general services, neurology, cardiology",2705
+CLINICAL ASSOCIATES MEDICAL CENTRE,1.3968091,103.7467917,"public, private","general services, cardiology",5229
+CLOVER MEDICAL CLINIC PTE LTD,1.358218,103.8710103,"public, profit","general services, urology, obstetrics",3421
+COMFORT CLINIC & SURGERY,1.3950661,103.9004703,public,"general services, cardiology, gastroenterology, radiology, obstetrics, pathology, urology",5884
+COMPASSVALE 297A MEDICAL CLINIC,1.28967,103.85007,non-profit,"general services, neurology, obstetrics, pathology, radiology",8253
+CRAWFURD MEDICAL,1.321298,103.9026209,"non-profit, profit","general services, cardiology, pathology, radiology, neurology",1303
+CRESCENT CLINIC & SURGERY,1.442667,103.7866476,public,"general services, cardiology, urology, obstetrics, radiology",3631
+CREST FAMILY CLINIC PTE. LTD.,1.28967,103.85007,"profit, public","general services, neurology, cardiology, radiology, obstetrics",7601
+CROSS STREET MEDICAL CLINIC,1.3625972,103.9378943,profit,"general services, radiology, neurology, cardiology",5141
+CROSSROADS FAMILY CLINIC,1.393146,103.8870307,"public, non-profit","general services, gastroenterology, neurology, pathology, obstetrics, cardiology, radiology",1040
+DA CLINIC @ ANCHORVALE,1.3725978,103.8540144,non-profit,"general services, obstetrics, urology",2750
+DA CLINIC @ ANG MO KIO,1.348447,103.849103,non-profit,"general services, radiology, cardiology, urology, obstetrics, gastroenterology",6251
+DA CLINIC @ BISHAN,1.3529769,103.7437581,"public, non-profit","general services, neurology, gastroenterology, obstetrics, pathology",4707
+DA CLINIC @ BUKIT BATOK,1.28967,103.85007,private,"general services, urology, gastroenterology, obstetrics, neurology, radiology, cardiology",5042
+DA CLINIC @ POTONG PASIR,1.28967,103.85007,non-profit,"general services, radiology, urology, pathology, neurology, cardiology, obstetrics",2187
+DA CLINIC @ SIMEI,1.28967,103.85007,profit,"general services, obstetrics, pathology, radiology, gastroenterology, urology",4667
+DA CLINIC @ TAMAN JURONG,1.4329149,103.8406947,public,"general services, radiology",455
+DA CLINIC @ YISHUN,1.4366436,103.8366613,"non-profit, private","general services, urology, pathology, obstetrics, gastroenterology, neurology, cardiology, radiology",8923
+ATRIO FAMILY CLINIC,1.3756005,103.8865229,"private, public","general services, neurology, cardiology, gastroenterology",7042
+DAILY MEDICAL CENTRE,1.3523775,103.9438195,"public, private","general services, urology, obstetrics, cardiology, gastroenterology, radiology, neurology, pathology",5232
+DAYSPRING MEDICAL CLINIC (TAMPINES),1.28967,103.85007,"non-profit, private","general services, pathology, neurology, obstetrics, radiology, gastroenterology, cardiology",6036
+DISTINCT CLINIC BUKIT BATOK BRANCH,1.3423585,103.7395536,non-profit,general services,3247
+DISTINCT CLINIC JURONG EAST BRANCH,1.28967,103.85007,private,"general services, radiology, cardiology, gastroenterology, neurology",7242
+"DISTINCT CLINIC TANAH 
+MERAH BRANCH",1.4303367,103.7742618,public,"general services, urology, pathology",8998
+DOCTORS CLINIC & SURGERY,1.28967,103.85007,profit,"general services, urology",3267
+DOCTORS FOR LIFE MEDICAL,1.333601,103.849924,"profit, non-profit","general services, gastroenterology, pathology, urology, obstetrics, radiology",8341
+DOCTORS INC MEDICAL GROUP,1.3270611,103.7206635,non-profit,"general services, urology, gastroenterology, obstetrics, pathology, radiology, neurology",8890
+"DOCTORS KOO, LOH & 
+ASSOCIATES (PTE) LTD",1.3140373,103.7713118,"public, non-profit","general services, obstetrics, gastroenterology, neurology, radiology, cardiology",5125
+DOCTORS MEDICAL CLINIC,1.2857711,103.8266235,profit,"general services, neurology",8811
+DR CARE MEDICAL CLINIC,1.28967,103.85007,public,"general services, urology, obstetrics",812
+DR CHEN AND PARTNERS MEDICAL CLINIC,1.3416979,103.6971606,public,"general services, pathology, obstetrics",6939
+DR CHUA'S FAMILY CLINIC PTE. LTD.,1.28967,103.85007,non-profit,"general services, radiology, obstetrics, gastroenterology, urology, pathology",3439
+DR GARY'S FAMILY CLINIC,1.4020306,103.8929335,"public, private","general services, cardiology, radiology",3865
+DR JOYCE & PARTNERS FAMILY CLINIC,1.333601,103.849924,"non-profit, private","general services, gastroenterology, neurology, pathology, radiology, urology, obstetrics",8047
+DR JOYCE & PARTNERS FAMILY CLINIC (TOA PAYOH BRANCH),1.28967,103.85007,"non-profit, public","general services, urology, radiology, pathology, obstetrics, cardiology, gastroenterology, neurology",571
+DR KEVIN CHUA MEDICAL & AESTHETICS,1.31697,103.8438,private,"general services, neurology, obstetrics, urology",3497
+"DR LIM LEAN HUAT & 
+ASSOCIATES PTE LTD",1.28967,103.85007,non-profit,"general services, pathology, urology",5300
+DR NAH & LEE FAMILY CLINIC,1.3577865,103.8332545,"public, non-profit","general services, gastroenterology, pathology, radiology, neurology, cardiology, obstetrics, urology",1992
+DR PANDA MEDICAL CENTRE,1.349652,103.7518638,"profit, private","general services, gastroenterology, neurology, cardiology, pathology",4287
+DR STANLEY PECK FAMILY CLINIC,1.28967,103.85007,"non-profit, public","general services, neurology, urology, gastroenterology",5832
+DR W.K. KOO & ASSOCIATES P.L.,1.3446074,103.7336914,"public, non-profit","general services, radiology, gastroenterology, pathology, neurology, urology, cardiology",1010
+DR.DEEPAN'S MEDICAL CLINIC,1.4365286,103.8375295,"profit, non-profit","general services, urology, gastroenterology, obstetrics",5209
+BETHESDA MEDICAL @ YISHUN,1.2877108,103.804479,public,general services,5166
+DR+ MEDICAL & PAINCARE ALEXANDRA,1.347227,103.8510798,public,"general services, radiology, cardiology, urology, gastroenterology, obstetrics",8892
+DR+ MEDICAL & PAINCARE BISHAN,1.3088567,103.9119026,profit,"general services, cardiology, urology, neurology",1879
+DR+ MEDICAL & PAINCARE EAST COAST,1.28967,103.85007,"profit, private","general services, cardiology, pathology, radiology, obstetrics, urology, neurology",8473
+DR+ MEDICAL & PAINCARE HOUGANG,1.4434205,103.7778747,"public, profit","general services, obstetrics, pathology, neurology, cardiology, urology, radiology, gastroenterology",911
+DR+ MEDICAL & PAINCARE MARSILING,1.3521194,103.9365383,private,"general services, radiology, gastroenterology",2121
+DR+ MEDICAL & PAINCARE TAMPINES,1.28967,103.85007,profit,"general services, obstetrics, pathology, urology, neurology, radiology, gastroenterology",2014
+DR+ MEDICAL & PAINCARE UPPER THOMSON,1.28967,103.85007,"public, private","general services, cardiology, gastroenterology, pathology, obstetrics, urology, neurology",1898
+DR+ MEDICAL AND PAINCARE FERNVALE,1.3381816,103.8458113,public,general services,7817
+DR+ MEDICAL PAINCARE CLINIC,1.2837429,103.8168426,"profit, public","general services, urology, cardiology, pathology, radiology",8562
+DRS CHAN & TANG FAMILY CLINIC,1.3537138,103.8906559,private,"general services, radiology",5139
+"DRS KOO, KOH & ASSOCIATES P.L.",1.28967,103.85007,private,"general services, cardiology, gastroenterology",4046
+DRS LIM & CHAN CLINIC,1.3415355,103.6909282,non-profit,"general services, gastroenterology, obstetrics",6934
+DRS LIM & CHAN CLINIC,1.28967,103.85007,"public, private","general services, radiology, obstetrics, neurology, pathology, gastroenterology, cardiology, urology",7092
+"DRS OH, LIM, WONG & 
+PARTNERS",1.3323546,103.7224647,public,"general services, urology, obstetrics, cardiology, pathology",6152
+"DRS SINGH & PARTNERS, RAFFLES CITY MEDICAL CENTRE",1.28967,103.85007,public,"general services, neurology, gastroenterology, urology, cardiology",737
+DRS TANG & PARTNERS PTE. LTD.,1.28967,103.85007,non-profit,"general services, cardiology",8473
+DRS. BAIN & PARTNERS,1.2769834,103.8432759,non-profit,"general services, obstetrics, pathology, cardiology, radiology, gastroenterology",4565
+DRS. BAIN AND PARTNERS LLP,1.4462194,103.8143512,private,general services,850
+DUXTON MEDICAL CLINIC,1.3380429,103.8450477,"public, private","general services, urology, neurology, cardiology, radiology, gastroenterology, obstetrics, pathology",3243
+DUXTON MEDICAL CLINIC CANBERRA,1.3140344,103.7625606,non-profit,"general services, urology, neurology, pathology",8057
+E MEDICAL CLINIC & SURGERY,1.28967,103.85007,public,general services,1417
+E. L. CHIN FAMILY CLINIC & SURGERY PTE. LTD.,1.28967,103.85007,public,"general services, gastroenterology, cardiology",3081
+CANBERRA CARE MEDICAL CLINIC,1.28967,103.85007,profit,"general services, obstetrics",7286
+E.J. TAN CLINIC & SURGERY,1.28967,103.85007,"profit, private",general services,2216
+EARLY MEDICAL CENTRE,1.3399442,103.7421996,public,general services,2445
+EAST COAST FAMILY CLINIC,1.3446074,103.7336914,"profit, non-profit","general services, urology",6915
+EASTERN CLINIC & SURGERY PTE LTD,1.3335873,103.9149662,non-profit,general services,8702
+EASTERN CLINIC AND DENTAL SURGERY,1.3210477,103.9047274,profit,"general services, pathology, neurology, urology, radiology, gastroenterology",6783
+EASTERN MEDICAL CENTRE,1.3992677,103.9127981,public,"general services, gastroenterology, pathology",7574
+EC FAMILY CLINIC,1.3564943,103.8480659,"profit, public","general services, radiology",6270
+EDGEDALE MEDICAL CLINIC,1.3159331,103.8482896,profit,general services,7673
+EDGEDALE MEDICAL CLINIC (BISHAN),1.3654865,103.9345566,profit,"general services, obstetrics, radiology",1883
+EDGEDALE MEDICAL CLINIC (CAMBRIDGE),1.3708125,103.8435558,non-profit,"general services, urology",6646
+EDGEDALE MEDICAL CLINIC (TAMPINES),1.4465419,103.805898,public,general services,2956
+EE CLINIC,1.3177318,103.9477691,private,general services,7801
+EH MEDICAL,1.3444059,103.7553403,"profit, private","general services, gastroenterology, cardiology, urology, pathology, obstetrics",7385
+EH MEDICAL FAMILY CLINIC (BEDOK SOUTH),1.3498597,103.7252886,"non-profit, private","general services, cardiology, pathology, obstetrics",5266
+EH MEDICAL FAMILY CLINIC (BUKIT BATOK),1.3096677,103.8842822,"profit, private","general services, cardiology, radiology",6762
+EHA CLINIC @ JURONG,1.28967,103.85007,"private, non-profit","general services, gastroenterology, obstetrics, neurology, urology, pathology",3244
+EIDDWEN FAMILY MEDICINE CLINIC,1.3757226,103.8792349,private,"general services, urology, neurology, pathology, obstetrics, radiology",6913
+EJ FAMILY CLINIC & SURGERY,1.3489258,103.9507634,"profit, private","general services, urology, cardiology, pathology, radiology, obstetrics, neurology, gastroenterology",4408
+ELISSA MEDICAL CLINIC,1.4382792,103.7930718,"non-profit, private","general services, pathology, cardiology, gastroenterology, neurology, obstetrics, urology, radiology",1060
+EMMANUEL MEDICAL CLINIC,1.28967,103.85007,non-profit,"general services, gastroenterology, cardiology, neurology, obstetrics, radiology",4267
+ESSENTIAL FAMILY CLINIC & SURGERY,1.3947743,103.8771028,"non-profit, public","general services, cardiology, radiology, obstetrics, gastroenterology",7335
+ETERN MEDICAL CLINIC,1.36667,103.8,profit,"general services, neurology",4862
+"ETERN MEDICAL CLINIC 
+(FERNVALE PALM)",1.28967,103.85007,private,"general services, neurology, urology, pathology, radiology, obstetrics, cardiology",6566
+"ETERN MEDICAL CLINIC 
+(PUNGGOL SUMANG LRT)",1.28967,103.85007,"public, private","general services, pathology, urology, neurology, cardiology",6163
+"ETERN MEDICAL CLINIC 
+(SENGKANG)",1.3779196,103.7444017,"public, profit","general services, neurology, obstetrics, gastroenterology, urology",5647
+"CENTRAL 24-HR CLINIC 
+(WOODLANDS)",1.377615,103.73932,"public, non-profit",general services,1926
+EVERCARE MEDICAL CLINIC,1.28967,103.85007,non-profit,"general services, pathology, radiology, cardiology, urology",2084
+EVERCARE MEDICAL CLINIC (475) PTE LTD,1.3751009,103.8821732,public,general services,3333
+EVERHEALTH FAMILY CLINIC & SURGERY,1.276993,103.8390688,profit,"general services, cardiology",4580
+EVERHEALTH MEDICAL CENTRE,1.3115987,103.8548275,"profit, public","general services, radiology, gastroenterology, pathology, obstetrics, cardiology",2682
+EVERTON CLINIC,1.28967,103.85007,public,"general services, gastroenterology, urology",7553
+EVERWELL CLINIC & SURGERY,1.28967,103.85007,private,"general services, urology, cardiology",4904
+EXCEL FAMILY CLINIC,1.3508668,103.9488903,non-profit,general services,7476
+EXCELSIOR CLINIC & SURGERY,1.3175955,103.7693303,"private, non-profit","general services, radiology, pathology, obstetrics",1597
+F K LIM FAMILY CLINIC,1.4315956,103.8293707,private,"general services, cardiology, gastroenterology",8055
+FAIRCARE FAMILY CLINIC (CLEMENTI),1.3373225,103.921251,"public, private","general services, neurology, cardiology",2001
+FAIRCARE FAMILY CLINIC (YISHUN),1.3434392,103.7058663,"profit, non-profit","general services, obstetrics, neurology, pathology, gastroenterology, urology",8979
+FAITH CLINIC (BEDOK),1.3468707,103.9564591,"non-profit, private","general services, pathology, obstetrics",5733
+FAITH CLINIC (JURONG WEST),1.28967,103.85007,public,"general services, neurology, urology, cardiology, radiology, gastroenterology, pathology",6569
+FAITH CLINIC (SIMEI),1.28967,103.85007,"profit, public","general services, gastroenterology, pathology, neurology, radiology",6356
+FAITH CLINIC (TOA PAYOH),1.3062798,103.9152737,"profit, non-profit","general services, gastroenterology",5914
+FAITH CLINIC (YISHUN),1.28967,103.85007,"private, non-profit","general services, cardiology, radiology",3256
+FAITH FAMILY CLINIC,1.28967,103.85007,public,"general services, cardiology, radiology, obstetrics, pathology, urology, gastroenterology, neurology",3307
+"FAITH HEALTHCARE 
+(RIVERVALE)",1.3606608,103.9578299,non-profit,"general services, urology, neurology, pathology",7676
+FAITH HEALTHCARE (TAMPINES),1.28967,103.85007,"public, profit",general services,7721
+FAITH MEDICAL CLINIC & SURGERY,1.43333,103.83111,"profit, non-profit","general services, obstetrics, radiology, cardiology",3810
+"FAJAR FAMILY CLINIC & 
+SURGERY",1.3632389,103.7466279,private,general services,8682
+FAMFIRST MEDICAL CLINIC PTE LTD,1.3679325,103.8970415,public,"general services, pathology, radiology, obstetrics, neurology, gastroenterology, cardiology, urology",1677
+FAMILY CARE CLINIC PTE LTD,1.3377341,103.7202944,private,"general services, gastroenterology, radiology",4004
+FAMILY CARE MEDICAL CENTRE PTE LTD,1.28967,103.85007,profit,"general services, neurology, obstetrics, pathology, gastroenterology, radiology, cardiology, urology",2605
+FAMILY DOCTORS AT 365,1.3204866,103.8860381,public,"general services, pathology, radiology, gastroenterology, cardiology, neurology, obstetrics",8670
+FAMILY HEALTH CLINIC & SURGERY,1.3668277,103.8398635,"non-profit, public","general services, urology, obstetrics, cardiology, pathology, neurology, gastroenterology, radiology",5251
+CHUAH CLINIC & SURGERY PTE LTD,1.3696887,103.8736911,profit,"general services, radiology, gastroenterology, neurology, pathology, urology",5441
+FAMILY HEALTH MEDICAL CENTRE,1.3679325,103.8970415,"private, public","general services, gastroenterology, neurology, radiology, pathology, cardiology, urology, obstetrics",8375
+FAMILY HEALTHCARE CLINIC & SURGERY,1.3723624,103.8478916,"private, non-profit",general services,8905
+FAMILY HEALTHCARE CLINIC & SURGERY PTE LTD,1.3059193,103.9136952,"non-profit, profit","general services, radiology",8059
+FAMILY MEDICARE CLINIC & SURGERY,1.28967,103.85007,"non-profit, profit","general services, pathology, cardiology",1030
+FAMILY MEDICINE CLINIC,1.3345284,103.7201308,"profit, private","general services, urology, obstetrics, cardiology, neurology, gastroenterology, radiology",8857
+FAMILY MEDICINE CLINIC CHINATOWN,1.28967,103.85007,private,"general services, radiology, cardiology, pathology, gastroenterology, obstetrics, urology, neurology",1092
+"FAMILY POINT CLINIC & 
+SURGERY",1.28967,103.85007,"non-profit, profit","general services, pathology, gastroenterology, neurology, obstetrics, cardiology, urology",4132
+FAMILYCARE CLINIC & SURGERY,1.28967,103.85007,"non-profit, private","general services, cardiology",6143
+FAMILYGP MEDICAL CLINIC,1.3892665,103.8734098,public,"general services, cardiology",472
+FEMA CLINIC & SURGERY,1.3436214,103.7372137,"public, non-profit","general services, pathology, neurology",3584
+FERNVALE FAMILY CLINIC,1.3486425,103.7577018,"profit, public","general services, cardiology, radiology, obstetrics, pathology",5225
+FINEST HEALTH MEDICAL CENTRE,1.28967,103.85007,private,"general services, obstetrics, gastroenterology, pathology, urology, radiology",1809
+FIRST CARE FAMILY CLINIC & SURGERY,1.4336023,103.775886,non-profit,general services,919
+FIRST LIGHT FAMILY CLINIC & SURGERY,1.2922046,103.8028706,"non-profit, profit","general services, cardiology, obstetrics, neurology, radiology, gastroenterology, urology",3184
+FIRST MEDICAL CENTRE PTE LTD,1.2733166,103.8089804,profit,"general services, neurology, urology, obstetrics, gastroenterology, pathology, cardiology",6975
+"FIRST MEDICAL CLINIC & 
+SURGERY",1.3339554,103.8881781,private,"general services, urology, cardiology",7254
+FONG CLINIC,1.28967,103.85007,"non-profit, profit","general services, pathology, obstetrics, radiology, gastroenterology, cardiology, neurology, urology",3786
+FRASER MEDICAL CENTRE,1.3140774,103.8871011,private,"general services, pathology, radiology",2235
+FRONTIER FAMILY MEDICINE CLINIC,1.3556137,103.7392351,profit,"general services, urology, radiology, gastroenterology",7908
+FRONTIER FAMILY MEDICINE CLINIC,1.4406269,103.8062039,non-profit,"general services, neurology, cardiology, pathology, gastroenterology, urology, obstetrics, radiology",6213
+FRONTIER MEDICAL,1.3625972,103.9378943,public,general services,3178
+"FRONTIER MEDICAL 
+ASSOCIATES",1.4487455,103.8324847,"non-profit, private","general services, obstetrics, pathology, cardiology, gastroenterology, radiology, neurology, urology",3668
+"FRONTIER MEDICAL 
+ASSOCIATES",1.3449138,103.7033769,profit,"general services, radiology, cardiology, obstetrics, gastroenterology, urology, pathology",4857
+CROSSROADS FAMILY CLINIC,1.4248212,103.8350704,"profit, public","general services, radiology, neurology, pathology, gastroenterology, urology, obstetrics",3783
+"FRONTIER MEDICAL 
+ASSOCIATES",1.4397155,103.7859956,profit,"general services, urology, gastroenterology, cardiology, radiology",7423
+"FRONTIER MEDICAL 
+ASSOCIATES",1.3529769,103.7437581,"profit, non-profit","general services, gastroenterology, cardiology, obstetrics, pathology",2636
+"FRONTIER MEDICAL 
+ASSOCIATES",1.3296994,103.9015932,non-profit,"general services, cardiology, neurology, urology",4432
+"FRONTIER MEDICAL 
+ASSOCIATES",1.3737366,103.8376671,non-profit,"general services, pathology, neurology, gastroenterology, cardiology, radiology, urology",3102
+"FRONTIER MEDICAL 
+ASSOCIATES",1.3809089,103.8792312,"public, private","general services, pathology, obstetrics, radiology, gastroenterology, neurology, cardiology, urology",5135
+"FRONTIER MEDICAL 
+ASSOCIATES",1.3291889,103.9373558,non-profit,general services,8082
+"FRONTIER MEDICAL 
+ASSOCIATES",1.273047,103.8448993,profit,"general services, neurology, cardiology, gastroenterology, radiology, urology, obstetrics, pathology",2791
+"FRONTIER MEDICAL 
+ASSOCIATES",1.3781546,103.8726157,private,general services,3094
+FRONTIER PEOPLE'S CLINIC,1.28967,103.85007,"profit, public","general services, pathology, urology",1331
+FULLERTON HEALTH @ 78 SHENTON WAY,1.4539568,103.7925443,"profit, public","general services, pathology, urology",3878
+FULLERTON HEALTH @ AMS,1.431993,103.7673775,private,"general services, neurology, cardiology, urology, obstetrics, radiology, pathology",2458
+FULLERTON HEALTH @ DRS TRYTHALL HOY DAVIES,1.28967,103.85007,"non-profit, private",general services,5741
+"FULLERTON HEALTH @ 
+MICRON FAB10N",1.28967,103.85007,"profit, private","general services, urology, pathology, neurology, obstetrics, radiology, gastroenterology",2598
+"FULLERTON HEALTH @ 
+MICRON FAB10W",1.28967,103.85007,"profit, non-profit","general services, radiology, pathology, urology, cardiology, obstetrics, gastroenterology, neurology",4131
+"FULLERTON HEALTH @ 
+MICRON MSB",1.2747835,103.7908516,private,"general services, urology, cardiology",837
+FULLERTON HEALTH @ NTU,1.422888,103.8523081,"private, non-profit","general services, radiology, obstetrics, urology, pathology",6856
+FULLERTON HEALTH @ OFC,1.3150828,103.6907922,profit,"general services, cardiology, radiology, neurology, urology, pathology, obstetrics, gastroenterology",1164
+FULLERTON HEALTH @ PASIR PANJANG,1.28967,103.85007,"non-profit, public","general services, obstetrics, radiology, neurology",5497
+FULLERTON HEALTH @ STATS CHIPPAC,1.28967,103.85007,non-profit,general services,275
+"FULLERTON HEALTH @ 
+TRACTORS",1.28967,103.85007,"private, non-profit","general services, radiology, pathology",370
+FULLERTON HEALTH @ UBS,1.28967,103.85007,public,"general services, pathology, radiology, obstetrics, neurology",1405
+FULLERTON HEALTH @ USG 1,1.3394964,103.705254,"profit, public","general services, gastroenterology",1491
+DR GARY'S FAMILY CLINIC,1.28967,103.85007,profit,"general services, neurology",2405
+FULLERTON HEALTH HUB @ HOUGANG GREEN,1.28967,103.85007,non-profit,"general services, obstetrics, radiology, gastroenterology, urology, pathology, cardiology",6190
+FULLERTON HEALTHCARE @ DRS TRYTHALL HOY DAVIES,1.28967,103.85007,private,"general services, cardiology, urology, pathology, radiology, gastroenterology",4571
+FULLERTON HEALTHCARE @ MBFC,1.28967,103.85007,public,"general services, neurology",2969
+FULLERTON HEALTHCARE @ OFS,1.28967,103.85007,"public, private","general services, radiology, gastroenterology",4872
+FULLERTON HEALTHCARE SCREENING CENTRE,1.4181729,103.8428787,"non-profit, public","general services, pathology, radiology, obstetrics, neurology",7230
+FULLERTON HEALTHCARE SCREENING CENTRE @ NOVENA,1.3802356,103.8412851,private,"general services, gastroenterology, radiology, urology, cardiology, pathology, obstetrics",4929
+FUSION MEDICAL,1.28967,103.85007,"private, profit",general services,2976
+G & H MEDICAL CLINIC PTE LTD,1.3537124,103.8677983,"public, private","general services, cardiology, obstetrics, pathology, neurology",230
+G S CLINIC & SURGERY,1.3434626,103.8585985,"profit, public",general services,6665
+"GAINHEALTH CLINIC & 
+HOMECARE (CITY GATE)",1.4434205,103.7778747,"non-profit, public","general services, pathology, radiology",80
+GARDEN CLINIC,1.28967,103.85007,profit,"general services, neurology, gastroenterology, urology, obstetrics, cardiology",8461
+GETHIN -JONES MEDICAL PRACTICE PTE LTD,1.4248212,103.8350704,"public, private","general services, cardiology, neurology, urology, obstetrics, radiology",2632
+GOCLINIC MARSILING,1.3587456,103.8849117,profit,"general services, gastroenterology, radiology, obstetrics, pathology, cardiology",8837
+GOCLINIC SERANGOON,1.3590292,103.9551487,"non-profit, profit","general services, neurology, cardiology, radiology, obstetrics, urology",8972
+GOCLINIC YISHUN,1.3475386,103.8495469,public,"general services, obstetrics, neurology",5927
+GOH CLINIC & SURGERY,1.3074198,103.9038875,private,"general services, urology, obstetrics, cardiology, radiology",145
+"GOOD MEDICAL CLINIC 
+(TAMPINES EAST)",1.28967,103.85007,non-profit,"general services, pathology, neurology, cardiology, radiology",5414
+GOODHEALTH MEDICAL & SURGERY,1.28967,103.85007,private,"general services, neurology",3270
+GP@JOO CHIAT CLINIC,1.3454725,103.9455726,private,"general services, gastroenterology, pathology, neurology, radiology, cardiology, urology",1083
+GREAT HEALTH MEDICAL CLINIC,1.28967,103.85007,private,"general services, obstetrics, gastroenterology, radiology, urology",8689
+GREEN CROSS MEDICAL CENTRE,1.3415355,103.6909282,private,"general services, cardiology, neurology, urology",2278
+GREENHEALTH FAMILY CLINIC,1.28967,103.85007,"private, non-profit","general services, obstetrics, neurology",3417
+GREENLIFE CLINIC & SURGERY,1.39444,103.75389,non-profit,general services,4926
+"DRS OH, LIM, WONG & 
+PARTNERS",1.416699,103.8314798,"private, non-profit","general services, cardiology, gastroenterology, neurology, pathology, urology, obstetrics",5231
+"DRS SINGH & PARTNERS, RAFFLES CITY MEDICAL CENTRE",1.28967,103.85007,private,"general services, pathology, gastroenterology, urology",6408
+GREENLIFE CLINIC & SURGERY,1.3634306,103.9617562,profit,general services,3244
+GREENLINK MEDICAL CLINIC,1.3797424,103.7487577,public,"general services, urology, neurology, cardiology, obstetrics",4033
+GSH CLINIC & SURGERY PTE. LTD.,1.2887251,103.8288455,"profit, non-profit",general services,7029
+"HAMID FAMILY CLINIC & 
+SURGERY",1.28967,103.85007,profit,"general services, urology, radiology, obstetrics, cardiology, pathology, gastroenterology",2358
+HARMONY FAMILY CLINIC,1.28967,103.85007,non-profit,"general services, cardiology, urology, gastroenterology",4318
+HAVELOCK FAMILY CLINIC,1.28967,103.85007,"non-profit, profit","general services, pathology, urology, cardiology, obstetrics",1034
+HEAL MEDICAL CENTRE,1.28967,103.85007,profit,"general services, urology, pathology, neurology, obstetrics, cardiology, radiology",1950
+HEALTH FIRST FAMILY CLINIC,1.28967,103.85007,public,"general services, radiology, urology",6561
+HEALTH PARTNERS FAMILY CLINIC,1.2738833,103.8253393,private,"general services, urology, pathology, neurology, obstetrics",7149
+HEALTH PARTNERS MEDICAL CLINIC,1.403964,103.9095319,"private, profit","general services, urology, gastroenterology, neurology, cardiology, obstetrics",142
+HEALTH PARTNERS MEDICAL CLINIC (SIGLAP),1.28967,103.85007,"non-profit, profit","general services, gastroenterology, obstetrics, pathology, neurology",1110
+"HEALTH PARTNERSHIP 
+MEDICAL CENTRE",1.3593589,103.8291844,public,"general services, cardiology, urology, radiology",2321
+HEALTHBRIDGE FAMILY CLINIC,1.3587358,103.8867771,"profit, non-profit","general services, cardiology, obstetrics, pathology, neurology, gastroenterology, urology",8551
+HEALTHCARE AMK MEDICAL CLINIC,1.3596374,103.7676376,public,"general services, obstetrics, pathology, cardiology, gastroenterology, neurology, radiology",5274
+HEALTHCARE FAMILY CLINIC & SURGERY,1.271995,103.824213,profit,"general services, pathology, gastroenterology, cardiology, neurology, urology",7173
+HEALTHCARE MEDICAL @ KOVAN,1.28967,103.85007,public,"general services, gastroenterology, urology, cardiology",4206
+HEALTHCARE MEDICAL @ RAILMALL,1.3441015,103.7463929,"non-profit, profit","general services, cardiology, gastroenterology, radiology",6579
+HEALTHCARE UNITED,1.3985854,103.7452073,"public, profit",general services,842
+HEALTHIER GP CLINIC,1.3337309,103.8799367,private,"general services, radiology, pathology",859
+HEALTHIFY MEDICAL FAMILY CLINIC,1.3498597,103.7252886,"public, profit","general services, cardiology, radiology",2370
+HEALTHLIFE FAMILY CLINIC,1.28967,103.85007,"public, private","general services, obstetrics, pathology, gastroenterology, radiology",3174
+"HEALTHLIGHT FAMILY 
+MEDICINE CLINIC",1.3949757,103.8960696,"profit, non-profit","general services, radiology",6262
+HEALTHLINK MEDICAL CLINIC & SURGERY,1.3416979,103.6971606,non-profit,"general services, gastroenterology, neurology",7395
+EHA CLINIC @ JURONG,1.3995317,103.9160233,"private, non-profit","general services, pathology, cardiology, radiology, neurology",1268
+HEALTHMARK CLINIC (PASIR RIS),1.28967,103.85007,"profit, non-profit","general services, urology, radiology, pathology",8682
+HEALTHMARK FAMILY CLINIC (COMPASSVALE),1.28967,103.85007,public,general services,3188
+HEALTHMARK FAMILY CLINIC (PIONEER MALL),1.3845519,103.765812,profit,general services,5659
+HEALTHMARK FAMILY CLINIC (PUNGGOL),1.3331379,103.9156241,public,"general services, pathology, obstetrics, cardiology, neurology, gastroenterology, urology, radiology",1319
+HEALTHMARK FAMILY CLINIC (SIMS),1.2733166,103.8089804,"private, non-profit","general services, cardiology",6168
+HEALTHMATTERS - THE FAMILY PRACTICE,1.2927397,103.8080356,private,general services,5027
+HEALTHMED FAMILY CLINIC (BUKIT PANJANG),1.3476998,103.9360246,non-profit,"general services, radiology, pathology, obstetrics, neurology, urology, gastroenterology",4206
+HEALTHPLUS CLINIC & SURGERY,1.334204,103.870984,public,general services,8915
+HEALTHPLUS FAMILY CLINIC & SURGERY,1.28967,103.85007,"public, non-profit","general services, cardiology, radiology, urology, pathology, gastroenterology, neurology",3007
+HEALTHPOINT FAMILY CLINIC & SURGERY PTE LTD,1.28967,103.85007,profit,"general services, pathology, neurology, radiology, gastroenterology, cardiology",1430
+"HEALTHPRO CLINIC AND 
+SURGERY",1.3559287,103.9452005,private,general services,8877
+HEALTHSPRINGS MEDICAL & LASER CLINIC,1.3273451,103.9337867,profit,general services,5910
+HEALTHSPRINGS MEDICAL CLINIC,1.28967,103.85007,non-profit,"general services, obstetrics, urology, radiology, gastroenterology",8398
+HEALTHVEER MEDICAL CLINIC (JURONG EAST),1.4324961,103.7923565,"private, public","general services, cardiology",7192
+HEALTHWAY MEDICAL,1.3942793,103.9129336,"non-profit, private","general services, obstetrics, cardiology, radiology, neurology, pathology, gastroenterology, urology",1365
+HEALTHWAY MEDICAL,1.4530155,103.8168459,public,"general services, cardiology, gastroenterology, urology",7575
+HEALTHWAY MEDICAL,1.293222,103.8592872,"profit, public","general services, pathology",5218
+HEALTHWAY MEDICAL,1.28967,103.85007,private,"general services, pathology, urology",87
+HEALTHWAY MEDICAL,1.28967,103.85007,public,"general services, cardiology, urology, neurology, gastroenterology",5556
+HEALTHWAY MEDICAL,1.3468707,103.9564591,non-profit,"general services, radiology, pathology",6962
+HEALTHWAY MEDICAL,1.3725735,103.8937879,private,"general services, urology, obstetrics",3129
+HEALTHWAY MEDICAL,1.28967,103.85007,profit,"general services, radiology, obstetrics, cardiology, pathology, gastroenterology, neurology",5704
+HEALTHWAY MEDICAL,1.4305988,103.8272182,non-profit,"general services, gastroenterology, radiology",2522
+FAITH CLINIC (SIMEI),1.4288283,103.8500035,"private, profit","general services, obstetrics, neurology",1497
+HEALTHWAY MEDICAL,1.353049,103.889691,"non-profit, profit","general services, radiology, obstetrics, cardiology",146
+HEALTHWAY MEDICAL,1.3146366,103.7715939,private,"general services, radiology, neurology, urology",4038
+HEALTHWAY MEDICAL,1.3190441,103.860798,"public, profit","general services, radiology, neurology, cardiology, gastroenterology, obstetrics",8778
+HEALTHWAY MEDICAL,1.3835401,103.8970773,public,"general services, urology, radiology",2202
+HEALTHWAY MEDICAL,1.28967,103.85007,private,"general services, neurology, pathology",3068
+HEALTHWAY MEDICAL,1.28967,103.85007,non-profit,"general services, neurology",1552
+HEALTHWAY MEDICAL,1.377615,103.73932,"public, private","general services, gastroenterology, pathology, neurology, obstetrics, cardiology",7134
+HEALTHWAY MEDICAL,1.302948,103.763777,"private, public","general services, urology, neurology, radiology, obstetrics, pathology, gastroenterology",4536
+HEALTHWAY MEDICAL,1.3236788,103.9108762,"profit, non-profit","general services, pathology, gastroenterology, radiology, obstetrics, cardiology, urology",1756
+HEALTHWAY MEDICAL,1.3337519,103.8478348,profit,"general services, pathology, cardiology, radiology, gastroenterology, urology, obstetrics",8788
+HEALTHWAY MEDICAL,1.28967,103.85007,profit,"general services, obstetrics, gastroenterology, cardiology, radiology, urology, pathology, neurology",4948
+HEALTHWAY MEDICAL,1.3537138,103.8906559,profit,"general services, gastroenterology",4470
+HEALTHWAY MEDICAL,1.422888,103.8523081,private,general services,6568
+HEALTHWAY MEDICAL,1.3212993,103.8864608,private,"general services, neurology, pathology, urology, radiology, gastroenterology",430
+HEALTHWAY MEDICAL,1.3586385,103.9377437,"non-profit, public","general services, neurology, obstetrics",278
+HEALTHWAY MEDICAL,1.28722,103.80833,profit,general services,3664
+HEALTHWAY MEDICAL,1.3700803,103.8495228,"profit, non-profit","general services, obstetrics, cardiology, pathology, neurology, radiology, urology",3026
+HEALTHWAY MEDICAL,1.2770527,103.8484578,non-profit,general services,4983
+HEALTHWAY MEDICAL,1.3501915,103.7390936,"non-profit, profit","general services, pathology, neurology",2974
+HEALTHWAY MEDICAL,1.28967,103.85007,"public, non-profit","general services, pathology, urology, gastroenterology",8905
+HEALTHWAY MEDICAL,1.28967,103.85007,private,"general services, cardiology, radiology, pathology",1130
+HEALTHWAY MEDICAL,1.3296994,103.9015932,profit,"general services, pathology, urology, radiology, neurology, gastroenterology, obstetrics, cardiology",6003
+HEALTHWAY MEDICAL,1.31944,103.85611,"profit, public","general services, radiology, cardiology, obstetrics, gastroenterology, neurology",2485
+HEALTHWAY MEDICAL,1.3461569,103.944584,public,"general services, pathology, radiology, urology",7487
+HEALTHWAY MEDICAL,1.4336023,103.775886,"non-profit, private","general services, radiology, gastroenterology, urology, obstetrics, cardiology",2309
+HEALTHWAY MEDICAL,1.3624419,103.8510462,profit,"general services, obstetrics, urology, radiology, cardiology, neurology",5738
+HEALTHWAY MEDICAL,1.3723624,103.8478916,"private, public","general services, gastroenterology, urology, radiology, neurology, pathology",4890
+HEALTHWAY MEDICAL,1.3237214,103.9409016,"public, profit","general services, cardiology, obstetrics, gastroenterology, pathology",3087
+"FIRST MEDICAL CLINIC & 
+SURGERY",1.2857711,103.8266235,"non-profit, public","general services, obstetrics, urology, gastroenterology, neurology",6428
+HEALTHWAY MEDICAL,1.3477226,103.7444185,"public, profit",general services,1119
+HEALTHWAY MEDICAL,1.3059193,103.9136952,"private, non-profit","general services, urology, pathology, neurology, obstetrics",8242
+HEALTHWAY MEDICAL,1.4248212,103.8350704,non-profit,"general services, obstetrics, gastroenterology",1285
+HEALTHWAY MEDICAL,1.3043771,103.7636162,"private, public","general services, radiology, obstetrics, gastroenterology, neurology, pathology",8638
+HEALTHWAY MEDICAL,1.3090692,103.8611579,public,"general services, pathology, gastroenterology, radiology, obstetrics, urology",8393
+HEALTHWAY MEDICAL,1.3523302,103.9534923,profit,"general services, pathology, obstetrics, gastroenterology, urology",8976
+HEALTHWAY MEDICAL,1.3413212,103.7067853,non-profit,"general services, urology, radiology, pathology, cardiology, gastroenterology",1855
+HEALTHWAY MEDICAL,1.3413875,103.6915386,private,"general services, cardiology, pathology",8045
+HEALTHWAY MEDICAL,1.4495438,103.8186834,private,"general services, pathology, urology",4907
+HEALTHWAY MEDICAL,1.381109,103.7448832,"non-profit, profit","general services, urology",4546
+HEALTHWAY MEDICAL,1.3317216,103.9300043,public,"general services, cardiology, gastroenterology",2366
+HEALTHWAY MEDICAL CLINIC,1.28967,103.85007,"profit, public",general services,2024
+HEALTHWERKZ MEDICAL CENTRE,1.3077946,103.8847861,non-profit,"general services, radiology, neurology, cardiology, obstetrics, pathology",77
+HEALTHWERKZ MEDICAL CENTRE (CCK),1.4318961,103.8457964,"private, non-profit","general services, radiology",6784
+HEALTHWERKZ MEDICAL CENTRE @ BEDOK,1.323225,103.855695,public,"general services, urology, cardiology, pathology, gastroenterology, obstetrics",879
+HEALTHWERKZ MEDICAL CENTRE @ CENTRIUM,1.286869,103.8181291,"private, profit","general services, cardiology, radiology, gastroenterology, obstetrics",6711
+HEALTHWISE MEDICAL CLINIC & SURGERY,1.28967,103.85007,public,"general services, gastroenterology",8356
+HEARTLAND FAMILY CLINIC,1.3237214,103.9409016,"non-profit, public",general services,5708
+HEARTLANDHEALTH,1.3205587,103.9347959,"private, non-profit","general services, radiology, cardiology, gastroenterology, obstetrics",441
+HEARTLANDHEALTH,1.3566578,103.9334812,"public, non-profit","general services, obstetrics, urology, neurology",3451
+HEARTLANDHEALTH,1.2739691,103.808816,"public, profit","general services, pathology, radiology, neurology, cardiology, urology",3044
+HEARTLANDHEALTH,1.3477348,103.7429478,public,general services,824
+HEARTLANDHEALTH,1.28967,103.85007,"public, non-profit","general services, neurology, radiology, gastroenterology, pathology",4241
+HEARTLANDHEALTH,1.3505812,103.7229812,profit,"general services, obstetrics, gastroenterology, pathology, urology, neurology, radiology",4595
+HEARTLANDHEALTH,1.37278,103.83028,public,general services,8489
+HEARTLANDHEALTH,1.3440568,103.7588797,private,"general services, neurology, urology, gastroenterology",923
+HEARTLANDHEALTH,1.3536551,103.7035082,"private, public","general services, gastroenterology, urology, radiology",3386
+HEARTLANDHEALTH,1.3628913,103.8542944,"public, profit","general services, pathology, obstetrics, urology, neurology, cardiology, gastroenterology, radiology",4013
+FULLERTON HEALTH @ UBS,1.2774185,103.8194098,non-profit,"general services, cardiology, pathology, neurology, obstetrics, gastroenterology, radiology",8753
+HEARTLANDHEALTH,1.2772037,103.8196554,non-profit,"general services, urology",3219
+HILL SPRING MEDICAL,1.28032,103.8261816,non-profit,"general services, neurology",2448
+HISEMAINN MEDICAL CLINIC (BUKIT BATOK),1.3329912,103.9382518,private,"general services, neurology, obstetrics, urology, cardiology, radiology, pathology, gastroenterology",1209
+HISEMAINN MEDICAL CLINIC (JURONG WEST),1.3700803,103.8495228,profit,"general services, gastroenterology",6233
+HK FAMILY CLINIC & SURGERY PTE LTD,1.37972,103.76472,"private, public",general services,2918
+HL CLINIC PTE LTD,1.2890578,103.8275194,public,"general services, pathology, radiology, gastroenterology, cardiology, obstetrics",3340
+HL DERMAHEALTH AESTHETIC CLINIC PTE LTD,1.3394398,103.7053332,public,"general services, radiology, cardiology, neurology, obstetrics, pathology, urology",5737
+HL FAMILY CLINIC & SURGERY PTE LTD,1.3501161,103.7499592,"public, non-profit","general services, neurology, gastroenterology, obstetrics, pathology, urology",3894
+"HL FAMILY CLINIC & 
+SURGERY(BEDOK) PTE LTD",1.3476119,103.7571273,non-profit,"general services, radiology, cardiology, pathology, gastroenterology",3323
+"HMI ONECARE CLINIC 
+ALJUNIED MRT",1.28967,103.85007,public,"general services, urology, pathology",8150
+HMI ONECARE CLINIC ANG MO KIO,1.3773064,103.7671888,private,general services,8408
+HMI ONECARE CLINIC BANGKIT,1.28967,103.85007,profit,"general services, gastroenterology, cardiology, obstetrics",5996
+HMI ONECARE CLINIC BEO CRESCENT,1.4487455,103.8324847,"private, profit","general services, obstetrics",6858
+HMI ONECARE CLINIC BOON LAY,1.28967,103.85007,non-profit,"general services, obstetrics, pathology, urology, cardiology, neurology",2719
+HMI ONECARE CLINIC BUKIT BATOK,1.28967,103.85007,public,"general services, urology, obstetrics, neurology",1843
+HMI ONECARE CLINIC BUKIT BATOK EAST,1.3195395,103.7641388,profit,"general services, pathology, urology, cardiology",3480
+HMI ONECARE CLINIC BUKIT BATOK WEST,1.28967,103.85007,non-profit,"general services, pathology",5336
+HMI ONECARE CLINIC BUKIT PANJANG BUS INTERCHANGE,1.3550461,103.8900342,"non-profit, public","general services, neurology, cardiology, urology",8581
+HMI ONECARE CLINIC BUKIT PANJANG SEGAR,1.28967,103.85007,non-profit,"general services, neurology",599
+"HMI ONECARE CLINIC 
+CANBERRA",1.3394964,103.705254,"profit, private",general services,6356
+HMI ONECARE CLINIC CHOA CHU KANG,1.3492935,103.7193399,public,"general services, cardiology, radiology, urology",4085
+GREAT HEALTH MEDICAL CLINIC,1.3778545,103.7494678,"private, non-profit","general services, radiology, urology, neurology, obstetrics, pathology",8872
+"HMI ONECARE CLINIC 
+CLEMENTI",1.3670929,103.9647716,"public, private","general services, gastroenterology, cardiology, neurology, radiology, pathology",2416
+"HMI ONECARE CLINIC 
+FERNVALE",1.28967,103.85007,"private, non-profit","general services, radiology, obstetrics",6795
+"HMI ONECARE CLINIC 
+HOUGANG AVE 1",1.28967,103.85007,"public, non-profit",general services,8164
+"HMI ONECARE CLINIC 
+HOUGANG AVE 8",1.4032155,103.8952482,"non-profit, profit",general services,4218
+HMI ONECARE CLINIC JURONG POINT,1.2847415,103.8510968,"non-profit, profit","general services, radiology, obstetrics, cardiology, pathology, gastroenterology, neurology",334
+HMI ONECARE CLINIC JURONG WEST,1.28967,103.85007,non-profit,"general services, gastroenterology, neurology, pathology, cardiology, radiology",8908
+HMI ONECARE CLINIC KEAT HONG LRT,1.28967,103.85007,public,"general services, urology, neurology, cardiology",5226
+HMI ONECARE CLINIC LOYANG,1.3702553,103.8720445,"private, non-profit","general services, gastroenterology, urology, radiology, obstetrics, neurology, pathology",3634
+HMI ONECARE CLINIC NOVENA,1.28967,103.85007,"non-profit, profit","general services, neurology, radiology, gastroenterology, cardiology, obstetrics",2683
+"HMI ONECARE CLINIC 
+PUNGGOL PLAZA",1.28967,103.85007,private,"general services, gastroenterology, radiology, neurology, obstetrics",4779
+"HMI ONECARE CLINIC 
+PUNGGOL SUMANG",1.28967,103.85007,non-profit,"general services, radiology, obstetrics, pathology, gastroenterology, neurology, urology, cardiology",3741
+HMI ONECARE CLINIC RAFFLES PLACE,1.3302382,103.9013066,private,"general services, radiology, gastroenterology, cardiology, neurology",1688
+HMI ONECARE CLINIC SENJA 642,1.4336189,103.7799353,non-profit,"general services, gastroenterology, pathology, neurology, radiology, cardiology",5305
+HMI ONECARE CLINIC SENJA 643,1.43333,103.83111,non-profit,"general services, radiology, obstetrics, urology, cardiology, neurology",4246
+"HMI ONECARE CLINIC 
+SERANGOON NORTH",1.3146366,103.7715939,"profit, non-profit","general services, gastroenterology, obstetrics, neurology, cardiology, radiology, pathology",506
+"HMI ONECARE CLINIC 
+TAMPINES",1.3289583,103.8863144,profit,"general services, obstetrics, gastroenterology, urology, pathology",1207
+"HMI ONECARE CLINIC 
+TAMPINES MRT",1.28967,103.85007,"public, private","general services, radiology, neurology, cardiology, pathology, gastroenterology, urology, obstetrics",2608
+HMI ONECARE CLINIC TIONG BAHRU,1.28032,103.8261816,"non-profit, profit","general services, radiology, gastroenterology, pathology",1424
+HMI ONECARE CLINIC UBI,1.28967,103.85007,"profit, private","general services, gastroenterology, obstetrics",3858
+"HMI ONECARE CLINIC 
+WOODLANDS",1.4427399,103.7905373,public,"general services, radiology",4367
+HMI ONECARE CLINIC YISHUN,1.3711728,103.894518,private,"general services, obstetrics",2621
+HO MEDICAL CENTRE PTE LTD,1.3751487,103.8828083,"private, non-profit","general services, urology, cardiology, radiology",5028
+HEALTHCARE UNITED,1.28967,103.85007,"public, non-profit","general services, urology, obstetrics, cardiology, neurology, pathology, radiology, gastroenterology",4546
+HO TONG CLINIC,1.28967,103.85007,non-profit,"general services, gastroenterology, radiology, pathology, obstetrics, neurology, cardiology",8074
+HOLISTIC CARE FAMILY CLINIC,1.3700803,103.8495228,"public, profit",general services,6595
+HONG ASSOCIATES CLINIC,1.3608299,103.9532244,public,"general services, neurology, obstetrics",5827
+HONG'S CLINIC PEOPLE'S PARK CENTRE,1.2873594,103.8438571,"public, non-profit","general services, urology, obstetrics, gastroenterology, pathology, radiology, cardiology",2000
+HOPE FAMILY CLINIC AND SURGERY,1.3454394,103.7194569,private,"general services, pathology, cardiology, obstetrics, neurology",3569
+HOUGANG CENTRAL MEDICAL CLINIC,1.3360424,103.9124911,public,"general services, obstetrics",2875
+HOUGANG FAMILY MEDICINE CLINIC,1.28967,103.85007,"profit, non-profit","general services, gastroenterology, pathology, radiology, urology, neurology, obstetrics, cardiology",5028
+HUA MEI CLINIC,1.28967,103.85007,non-profit,"general services, obstetrics, neurology, urology, cardiology",3091
+"HUA MEI CLINIC, WHAMPOA",1.3192665,103.8640231,"profit, public","general services, obstetrics, urology, cardiology, gastroenterology, neurology, pathology",829
+HUI CLINIC + SURGERY,1.4181729,103.8428787,profit,"general services, obstetrics, radiology",224
+HWANG & LIANG FAMILY CLINIC & SURGERY,1.3695023,103.8730613,profit,"general services, neurology",1500
+ICARE MEDICAL CENTRE,1.422888,103.8523081,"private, non-profit",general services,2591
+ICON MEDICAL CLINIC,1.3603619,103.762857,non-profit,"general services, urology, cardiology, gastroenterology, neurology, radiology, pathology",5865
+ICONCARE MEDICAL CLINIC,1.28967,103.85007,"profit, public","general services, obstetrics, radiology",6484
+IDOC CLINIC,1.359357,103.8864027,private,general services,6508
+IDOC CLINIC (HONG KAH) PTE LTD,1.4324961,103.7923565,"profit, non-profit","general services, radiology, urology, pathology, neurology, cardiology, gastroenterology",3339
+I-HEALTH MEDICAL CLINIC,1.28967,103.85007,private,"general services, pathology, cardiology, radiology, urology, neurology, gastroenterology",7879
+I-HEALTH MEDICAL CLINIC (CHONG PANG),1.3527815,103.9544326,private,"general services, neurology",5011
+I-HEALTH MEDICAL CLINIC (SERANGOON NORTH),1.28967,103.85007,public,"general services, radiology, obstetrics, neurology, gastroenterology",5548
+I-HEALTH MEDICAL CLINIC (YISHUN),1.399037,103.8899278,private,"general services, cardiology, gastroenterology, neurology, radiology, pathology",6040
+"INSPIRE MEDICAL CLINIC 
+(JALAN BATU)",1.3361558,103.934964,"public, profit","general services, urology, cardiology, gastroenterology",2458
+INTEGRATED WELLNESS CLINIC,1.35274,103.7398401,public,general services,8770
+INTEMEDICAL (KOVAN),1.3977796,103.8811718,"public, non-profit","general services, obstetrics, neurology, radiology",4065
+HEALTHWAY MEDICAL,1.3742637,103.7426804,"non-profit, profit","general services, pathology",2626
+INTEMEDICAL POTONG PASIR,1.3918936,103.871457,"public, profit","general services, radiology, gastroenterology, cardiology, neurology",130
+INTEMEDICAL TAMPINES,1.3862282,103.8930781,non-profit,"general services, cardiology",8260
+INTEMEDICAL TECK GHEE,1.28967,103.85007,private,"general services, cardiology, gastroenterology, neurology",2047
+"ISLAND FAMILY CLINIC 
+(ANCHORVALE)",1.28967,103.85007,"private, public","general services, pathology, neurology, urology, obstetrics, gastroenterology, radiology",5692
+ISLAND FAMILY CLINIC (BEDOK),1.4559453,103.8151627,private,"general services, cardiology, radiology, gastroenterology, urology, neurology",2640
+ISLAND FAMILY CLINIC (BUKIT BATOK),1.3073193,103.8602118,public,"general services, gastroenterology, obstetrics, radiology, pathology, cardiology, urology",3545
+"ISLAND FAMILY CLINIC 
+(FERNVALE)",1.4427399,103.7905373,public,"general services, obstetrics, neurology, gastroenterology, radiology",8786
+ISLAND FAMILY CLINIC (KEAT HONG),1.3630401,103.8885051,"non-profit, profit","general services, obstetrics, pathology",2724
+"ISLAND FAMILY CLINIC 
+(SELETAR)",1.28967,103.85007,private,"general services, urology, cardiology, gastroenterology",2858
+"ISLAND FAMILY CLINIC 
+(SENGKANG)",1.422888,103.8523081,"non-profit, profit","general services, gastroenterology, neurology, cardiology, pathology, urology, radiology, obstetrics",334
+ISLAND MEDICAL CLINIC,1.3371143,103.9199923,"non-profit, private","general services, urology, obstetrics",6423
+JADE MEDICAL CLINIC PTE LTD,1.3375584,103.9220014,public,"general services, urology, pathology, cardiology, radiology, gastroenterology",3137
+JANE & LEE SEMBAWANG FAMILY CLINIC,1.3670929,103.9647716,profit,"general services, obstetrics, gastroenterology",5208
+JAPAN CLINIC AND SURGERY,1.28967,103.85007,non-profit,general services,3471
+JIREH FAMILY CLINIC,1.3326127,103.9143786,profit,"general services, obstetrics, urology",4958
+"JOASH FAMILY CLINIC & 
+SURGERY",1.2844628,103.851882,"profit, private","general services, radiology, urology, cardiology, gastroenterology",1199
+"JO-LIN FAMILY CLINIC & 
+SURGERY",1.3586385,103.9377437,"profit, private",general services,6390
+JOY CLINIC AND SURGERY,1.28722,103.80833,public,"general services, pathology, urology, gastroenterology, neurology, cardiology, obstetrics",5693
+JOY FAMILY CLINIC,1.28967,103.85007,profit,"general services, neurology, gastroenterology",5236
+JOYHEALTH MEDICAL CLINIC,1.28967,103.85007,"public, private","general services, obstetrics, gastroenterology, cardiology, radiology",8866
+JUBILEE FAMILY PHYSICIANS,1.28967,103.85007,"non-profit, profit","general services, urology, obstetrics, neurology, gastroenterology",6581
+JUSTCARE MEDICAL,1.3208177,103.8700151,public,"general services, cardiology, pathology, neurology, radiology, gastroenterology, obstetrics",2101
+K L TAY CLINIC & SURGERY,1.29868,103.85367,"private, profit","general services, radiology, gastroenterology, pathology, urology",7836
+K N CHIN & ASSOCIATES PTE LTD,1.2857711,103.8266235,profit,"general services, urology",3865
+HEALTHWAY MEDICAL,1.28967,103.85007,private,"general services, pathology, obstetrics, neurology, cardiology, radiology, urology",2236
+HEALTHWAY MEDICAL,1.28967,103.85007,"private, profit","general services, radiology, urology",7770
+K N CHIN & ASSOCIATES PTE LTD,1.28967,103.85007,non-profit,"general services, pathology, radiology, cardiology, urology, neurology, obstetrics, gastroenterology",7918
+K. B. TAN CLINIC & LASER SURGERY,1.400018,103.9190784,private,"general services, cardiology, gastroenterology, pathology, urology, neurology",7270
+KAI MEDICAL CLINIC,1.28967,103.85007,"public, private","general services, radiology, urology, gastroenterology, obstetrics, cardiology, neurology",3029
+KALLANG BAHRU FAMILY CLINIC PTE. LTD.,1.2774185,103.8194098,"profit, private","general services, pathology, cardiology, radiology, urology, obstetrics, gastroenterology",5814
+KANG AN CLINIC PTE LTD,1.3802356,103.8412851,public,"general services, obstetrics, neurology",8801
+KAO & TAN FAMILY MEDICAL CENTRE & SURGERY,1.3234055,103.9411683,"non-profit, private","general services, cardiology, pathology, obstetrics, radiology",5588
+KARRI FAMILY CLINIC,1.3627031,103.8947219,"public, private","general services, gastroenterology, neurology, obstetrics",5689
+KEAT HONG FAMILY MEDICINE CLINIC,1.332013,103.923692,"non-profit, private","general services, urology",8531
+KENNETH LOO FAMILY CLINIC,1.3700803,103.8495228,"profit, private","general services, gastroenterology, pathology",6624
+KENNETH TAN MEDICAL CLINIC,1.2974274,103.8381466,public,"general services, obstetrics, neurology",4992
+KENT RIDGE CLINIC,1.28967,103.85007,profit,"general services, gastroenterology, urology, neurology, cardiology, obstetrics",2090
+KEPPEL MEDICAL GROUP,1.3392686,103.9420822,private,"general services, urology, neurology, obstetrics, radiology, pathology, cardiology, gastroenterology",8539
+KEYSTONE CLINIC & SURGERY,1.4248212,103.8350704,profit,"general services, gastroenterology, pathology, neurology",3552
+KEYSTONE CLINIC & SURGERY,1.3412261,103.8462721,"public, non-profit","general services, gastroenterology, urology, obstetrics, pathology, neurology, cardiology, radiology",5070
+KEYSTONE FAMILY CLINIC,1.3918936,103.871457,non-profit,"general services, radiology, obstetrics, pathology, gastroenterology, urology",4135
+KHO CLINIC,1.314779,103.872213,private,"general services, urology, gastroenterology, obstetrics, cardiology, neurology, radiology, pathology",6447
+KI MEDICAL CLINIC,1.354146,103.8701938,public,general services,3491
+KILLINEY MEDICAL CLINIC,1.3077946,103.8847861,non-profit,"general services, gastroenterology, pathology, cardiology, radiology, neurology, urology",2028
+"KINDRED FAMILY CLINIC 
+(KALLANG BAHRU)",1.2887852,103.8144028,non-profit,general services,7578
+"KINDRED FAMILY CLINIC 
+(TAMPINES)",1.28967,103.85007,"non-profit, profit",general services,8074
+"KINDRED FAMILY CLINIC 
+(YISHUN)",1.3452586,103.7188924,"non-profit, profit","general services, pathology",8600
+KINGSWAY MEDICAL CLINIC,1.3210349,103.7669293,"non-profit, private","general services, pathology, urology, radiology, neurology, obstetrics",2176
+KINGSWAY MEDICAL CLINIC,1.3125082,103.7649253,"private, profit","general services, radiology",2946
+KO FAMILY CLINIC,1.3612763,103.7512561,"non-profit, public","general services, obstetrics",6480
+"KOH'S T & T CLINIC AND 
+SURGERY PTE. LTD.",1.3245324,103.8879688,"private, non-profit","general services, cardiology, obstetrics, radiology, urology, neurology, gastroenterology",5904
+HEALTHWISE MEDICAL CLINIC & SURGERY,1.3291889,103.9373558,"profit, public","general services, neurology, pathology, urology, radiology, cardiology, obstetrics",1454
+"L & H POLYCLINIC AND 
+SURGERY",1.28967,103.85007,"profit, public","general services, obstetrics, neurology, cardiology",2676
+L & L FAMILY MEDICINE CLINIC,1.2892428,103.8155442,profit,"general services, radiology, obstetrics, urology, pathology, cardiology",3332
+LAKESIDE FAMILY MEDICINE CLINIC,1.3510536,103.9338367,private,general services,8391
+"LAN MEDICAL CLINIC & 
+SURGERY",1.28967,103.85007,"private, profit","general services, radiology, gastroenterology, urology, obstetrics, cardiology, neurology",8572
+LC CLINIC MEDICAL SURGERY AESTHETICS,1.28967,103.85007,non-profit,"general services, urology",3231
+LEE & KOH FAMILY CLINIC,1.3537138,103.8906559,"public, non-profit","general services, urology, pathology",8265
+LEE & TAN FAMILY CLINIC AND SURGERY,1.3288868,103.8871709,"private, non-profit","general services, obstetrics, neurology, cardiology, urology, radiology",6908
+LEE CLINIC,1.348447,103.849103,profit,"general services, obstetrics",1997
+LEE FAMILY CLINIC PTE. LTD.,1.3758007,103.7648563,profit,"general services, neurology, obstetrics, pathology",3849
+LEONG CLINIC,1.28967,103.85007,private,"general services, gastroenterology, cardiology, pathology",923
+LER CLINIC & SURGERY,1.39946,103.90634,public,"general services, pathology, cardiology, urology, radiology, obstetrics",4858
+LIANG CLINIC,1.41672,103.83451,"private, profit","general services, radiology, urology, obstetrics, gastroenterology, neurology",2378
+LIFECARE FAMILY CLINIC,1.3705542,103.9573384,profit,"general services, obstetrics, gastroenterology",8991
+LIFECARE FAMILY CLINIC & SURGERY,1.3249188,103.9329989,non-profit,general services,914
+LIFECARE MEDICAL CENTRE,1.3705542,103.9573384,"profit, public","general services, cardiology, neurology, pathology, gastroenterology, urology, radiology, obstetrics",29
+LIFELINE BISHAN MEDICAL CLINIC,1.37972,103.76472,non-profit,"general services, urology, cardiology, pathology, neurology, gastroenterology, obstetrics, radiology",2695
+LIFELINE BUKIT PANJANG MEDICAL CLINIC,1.31697,103.8438,non-profit,"general services, cardiology, neurology, obstetrics, gastroenterology",118
+LIFELINE MEDICAL GROUP,1.3700803,103.8495228,"profit, non-profit","general services, cardiology, radiology, gastroenterology, neurology, obstetrics",1094
+LIFELINE PUNGGOL MEDICAL CLINIC PTE LTD,1.3188624,103.9109896,non-profit,"general services, cardiology, pathology, obstetrics, radiology",2672
+"LIFELINE YISHUN RING 
+MEDICAL CLINIC",1.3258283,103.923042,non-profit,"general services, cardiology, radiology",3062
+LIFE-LINK CLINIC & SURGERY,1.28967,103.85007,profit,"general services, gastroenterology",7538
+LIFEPLUS MEDICAL GROUP (BEDOK),1.3587805,103.8868519,public,"general services, obstetrics, pathology, cardiology, gastroenterology, radiology",3713
+LILY AW PASIR RIS FAMILY CLINIC & SURGERY,1.4266401,103.8373078,profit,"general services, radiology, urology, cardiology, neurology, obstetrics, gastroenterology",3231
+HMI ONECARE CLINIC BANGKIT,1.3463778,103.9396179,private,"general services, radiology",3849
+LILY NEO CLINIC PTE LTD,1.28967,103.85007,non-profit,"general services, neurology, cardiology, gastroenterology",42
+LIM CLINIC,1.3520481,103.8845867,"non-profit, profit","general services, pathology, cardiology, neurology, obstetrics, gastroenterology, radiology, urology",7845
+LIM CLINIC,1.3498597,103.7252886,"non-profit, profit","general services, urology, radiology",5617
+LIM CLINIC & SURGERY,1.3550461,103.8900342,profit,"general services, pathology, radiology, gastroenterology, neurology, obstetrics",3523
+LIM CLINIC & SURGERY,1.3215587,103.8692392,"public, non-profit",general services,7122
+LIM COUNTRY CLINIC,1.3336933,103.9270731,profit,"general services, obstetrics, gastroenterology, urology, radiology, pathology",6013
+"LION HEALTH CLINIC & 
+SURGERY (YISHUN)",1.3140774,103.8871011,"private, profit","general services, neurology, obstetrics",8368
+LITTLE CROSS FAMILY CLINIC PTE LTD,1.3077017,103.8503915,profit,"general services, pathology, obstetrics, neurology, urology, radiology",6673
+LIVEWELL MEDICAL FAMILY CLINIC,1.3278588,103.8852438,profit,"general services, radiology",5044
+LO & LEE CLINIC & SURGERY,1.3347198,103.8523027,"private, profit","general services, cardiology, radiology, gastroenterology, pathology",3547
+LOI+WONG CLINIC & SURGERY,1.28967,103.85007,"public, profit","general services, cardiology, neurology, pathology",8044
+"LONDON (MH) CLINIC & 
+SURGERY",1.28967,103.85007,"private, profit","general services, obstetrics, urology, gastroenterology, cardiology",1025
+LOW MEDICAL CLINIC,1.2833253,103.8310155,"profit, private","general services, gastroenterology, cardiology, pathology",2580
+LUSUMU FAMILY CLINIC,1.305812,103.9147678,"private, profit","general services, obstetrics, pathology, gastroenterology, radiology",5519
+M LAM CLINIC,1.3062798,103.9152737,private,"general services, gastroenterology, radiology, obstetrics, pathology, urology, cardiology, neurology",3573
+M MEDICAL CLINIC,1.4378404,103.7821937,non-profit,"general services, radiology, neurology, pathology, urology",94
+MACPHERSON MEDICAL CLINIC,1.3430609,103.7381428,"non-profit, private","general services, radiology, neurology",8924
+MAKE-WELL FAMILY CLINIC & SURGERY,1.28967,103.85007,"profit, private","general services, neurology, pathology, cardiology",3499
+MANADR CLINIC,1.3075848,103.793476,"private, public","general services, gastroenterology, obstetrics",5584
+MANHATTAN MEDICAL CENTRE,1.28967,103.85007,"non-profit, profit","general services, gastroenterology, neurology, radiology, urology, obstetrics, pathology, cardiology",6437
+MARINA MEDICAL CENTRE (TIONG BAHRU),1.28967,103.85007,profit,"general services, obstetrics, radiology, gastroenterology, pathology, cardiology",4686
+MARINE PARADE CLINIC,1.4381597,103.7746843,"non-profit, public","general services, pathology, gastroenterology, urology, radiology, neurology, cardiology, obstetrics",4697
+MARINE TERRACE FAMILY CLINIC,1.2885695,103.8396267,private,"general services, gastroenterology",1188
+MARTIN MEDICAL CENTRE,1.4032155,103.8952482,"private, profit","general services, gastroenterology, cardiology, obstetrics, pathology, neurology, urology, radiology",4865
+MARY MEDICAL CLINIC AND SURGERY,1.3679325,103.8970415,"private, profit","general services, cardiology, urology",5542
+MARYMOUNT FAMILY CLINIC,1.28967,103.85007,profit,general services,8629
+"MAY MEDICAL CLINIC & 
+SURGERY PTE LTD",1.3667005,103.9258495,"public, private","general services, neurology, gastroenterology, obstetrics",3462
+HMI ONECARE CLINIC TIONG BAHRU,1.3423585,103.7395536,private,"general services, urology, neurology, obstetrics",2767
+MBS-ALLIANCE IN-HOUSE CLINIC,1.3013776,103.9065973,profit,"general services, obstetrics, urology, gastroenterology, radiology, pathology",3155
+MD FAMILY CLINIC,1.3675608,103.8664928,"public, private",general services,2021
+MEDI CLINIC,1.3614764,103.9536028,private,"general services, neurology, gastroenterology",4926
+MEDI HEALTHCARE CLINIC (PUNGGOL),1.329663,103.9023403,"profit, public","general services, pathology, neurology, obstetrics, radiology, urology, gastroenterology, cardiology",6557
+MEDICA CLINIC,1.37491,103.8969113,public,"general services, cardiology, gastroenterology, urology",5596
+"MEDICAL CENTRE @ 
+COMMONWEALTH",1.28967,103.85007,"profit, public","general services, urology, radiology, cardiology",8488
+MEDICARE ASSOCIATES,1.3967926,103.8892265,"non-profit, private","general services, neurology, radiology, gastroenterology, urology, cardiology",4646
+MEDICO CLINIC & SURGERY,1.334045,103.8444235,"public, non-profit","general services, obstetrics, pathology, gastroenterology",6118
+MEDILINE WEI MIN CLINIC,1.3744808,103.8866167,"public, non-profit","general services, radiology, gastroenterology",2962
+MEDILINE WEI MIN CLINIC,1.28967,103.85007,public,"general services, urology, obstetrics, pathology, gastroenterology, neurology",1416
+MEDINA MEDICAL CENTRE,1.3679146,103.8514987,public,"general services, radiology, gastroenterology, pathology, obstetrics, cardiology, urology",6740
+MEDIPLUS CLINIC & SURGERY,1.292699,103.8028642,"profit, non-profit","general services, radiology",4690
+MEDIPOINT MEDICAL CENTRE (PONGGOL BRANCH),1.3683872,103.895939,"profit, non-profit","general services, urology, gastroenterology, radiology, neurology, obstetrics",2807
+MEDIVALE MEDICAL CLINIC,1.28967,103.85007,non-profit,"general services, neurology",8916
+MEDIVENE CLINIC & SURGERY,1.2786226,103.8444622,private,"general services, pathology, gastroenterology, cardiology, radiology, urology, neurology",1146
+"MEDIVIEW CLINIC AND 
+SURGERY",1.28967,103.85007,non-profit,"general services, radiology, neurology, cardiology, gastroenterology, obstetrics",2869
+MEDLIFE CLINIC & SURGERY,1.4333931,103.765018,private,"general services, cardiology, gastroenterology, pathology, radiology, obstetrics, neurology",3327
+MEDSTAR MEDICAL CLINIC & SURGERY,1.3394964,103.705254,non-profit,general services,7080
+MEENARA CLINIC,1.3694347,103.848334,non-profit,"general services, gastroenterology, radiology, urology, cardiology, pathology, obstetrics, neurology",8945
+MEI LING CLINIC,1.359357,103.8864027,"private, public","general services, cardiology, gastroenterology, urology",1007
+MERIDIAN MEDICAL AND DENTAL CENTRE,1.28967,103.85007,private,"general services, pathology, gastroenterology, cardiology",2504
+MERIDIAN MEDICAL CENTRE,1.3394398,103.7053332,non-profit,"general services, radiology, urology, cardiology, pathology, gastroenterology, neurology",8900
+MHC MEDICAL CENTRE,1.28967,103.85007,non-profit,"general services, obstetrics, radiology, pathology, cardiology, urology",2704
+MILLENNIUM MEDICAL GROUP,1.28967,103.85007,"public, profit","general services, pathology, neurology, urology, radiology",7093
+MILLENNIUM MEDICAL GROUP,1.28967,103.85007,"profit, private",general services,4600
+"MINMED 24-HR CLINIC 
+(JURONG WEST)",1.28967,103.85007,public,"general services, radiology, cardiology, neurology, urology",5363
+MINMED CLINIC (ANG MO KIO),1.3093892,103.8977646,"public, private","general services, neurology, gastroenterology, radiology, cardiology, pathology, obstetrics",1798
+INTEMEDICAL (KOVAN),1.31194,103.79333,"non-profit, private","general services, neurology, pathology, urology, obstetrics, gastroenterology, radiology",4042
+MINMED CLINIC (BEDOK),1.28967,103.85007,"non-profit, public","general services, obstetrics, gastroenterology, neurology, radiology, pathology, cardiology",598
+MINMED CLINIC (BOON LAY),1.28967,103.85007,private,"general services, pathology, urology, gastroenterology, cardiology",32
+MINMED CLINIC (BUANGKOK),1.3026361,103.9044719,profit,"general services, gastroenterology, neurology, radiology, pathology, obstetrics, cardiology",1196
+MINMED CLINIC (CHINATOWN),1.28967,103.85007,"public, private","general services, urology",8258
+MINMED CLINIC (CLEMENTI),1.28967,103.85007,"non-profit, private","general services, urology, radiology, gastroenterology",5328
+MINMED CLINIC (FARRER PARK),1.3724964,103.9497434,"public, private","general services, gastroenterology, pathology, radiology, obstetrics",2897
+MINMED CLINIC (HAIG ROAD),1.28967,103.85007,"profit, private","general services, urology, gastroenterology",1489
+MINMED CLINIC (HOLLAND VILLAGE),1.4064265,103.9020102,"public, private","general services, obstetrics, gastroenterology",7387
+MINMED CLINIC (JURONG EAST),1.28967,103.85007,public,"general services, obstetrics, radiology, cardiology, neurology, gastroenterology, urology",1116
+MINMED CLINIC (MARINA BAY),1.28967,103.85007,"profit, public","general services, neurology, urology, obstetrics, cardiology",6781
+MINMED CLINIC (MARINE PARADE),1.28967,103.85007,profit,"general services, cardiology, gastroenterology, pathology, radiology, urology, neurology",5732
+MINMED CLINIC (NOVENA),1.28967,103.85007,profit,general services,233
+MINMED CLINIC (ORCHARD),1.3670929,103.9647716,private,general services,6305
+MINMED CLINIC (PASIR RIS),1.28967,103.85007,non-profit,"general services, radiology, urology, cardiology, neurology",7030
+MINMED CLINIC (PAYA LEBAR),1.28967,103.85007,non-profit,"general services, radiology, urology, obstetrics",3287
+MINMED CLINIC (PUNGGOL),1.28967,103.85007,"profit, public","general services, radiology",4318
+MINMED CLINIC (REDHILL),1.3652584,103.7519707,"profit, public","general services, cardiology, obstetrics, gastroenterology, pathology, neurology",1870
+MINMED CLINIC (RIVER VALLEY),1.3520554,103.8608148,"public, private","general services, cardiology, gastroenterology, radiology, pathology",1981
+MINMED CLINIC (SENGKANG),1.3725971,103.8988127,private,"general services, radiology, gastroenterology, cardiology, urology, obstetrics, pathology, neurology",1355
+MINMED CLINIC (WOODLANDS),1.4266292,103.8428674,"private, public","general services, pathology, obstetrics, cardiology, urology, radiology, neurology",7292
+MINMED CLINIC (YISHUN RING),1.3914121,103.8905859,"public, profit","general services, obstetrics",3370
+JUBILEE FAMILY PHYSICIANS,1.3857377,103.8973015,public,"general services, cardiology, radiology",4332
+MINMED CLINIC (YISHUN),1.3967194,103.9085329,"private, public","general services, gastroenterology, obstetrics, cardiology, neurology, urology, pathology, radiology",8793
+MINMED HEALTH SCREENERS,1.28967,103.85007,public,"general services, neurology, radiology, cardiology, obstetrics, urology, pathology",2101
+MINT MEDICAL CENTRE,1.4336794,103.7652997,profit,"general services, cardiology, urology, obstetrics, gastroenterology, radiology, pathology, neurology",5002
+"MISSION (BUKIT BATOK) 
+MEDICAL CLINIC",1.28967,103.85007,"profit, non-profit",general services,775
+MISSION (CHUAN) MEDICAL CLINIC,1.3278193,103.9308553,"profit, private","general services, gastroenterology, neurology, urology, pathology, radiology, cardiology, obstetrics",1403
+MISSION (HOUGANG) MEDICAL CLINIC,1.3948882,103.8880208,"public, non-profit","general services, gastroenterology, obstetrics, pathology, neurology, radiology, cardiology",470
+MISSION CROSS FAMILY CLINIC,1.4157219,103.8398225,"public, profit","general services, pathology, obstetrics, urology, gastroenterology, radiology",1211
+"MUTUAL HEALTHCARE 
+MEDICAL CLINIC",1.377615,103.73932,private,"general services, neurology, urology, obstetrics, gastroenterology, pathology, radiology, cardiology",1280
+"MUTUAL HEALTHCARE 
+MEDICAL CLINIC",1.3152781,103.7668558,profit,"general services, radiology, urology, neurology, pathology, obstetrics",8642
+"MUTUAL HEALTHCARE 
+MEDICAL CLINIC",1.31583,103.76472,non-profit,"general services, cardiology, pathology, radiology, urology, obstetrics, neurology",7505
+MY CLINIC,1.3711728,103.894518,public,"general services, neurology, obstetrics",4530
+MY CORPORATE CLINIC @ GLOBALFOUNDRIES,1.3416979,103.6971606,non-profit,"general services, radiology, pathology, obstetrics, neurology, gastroenterology",224
+MY DOCTOR @ LAKESIDE,1.4036585,103.9061261,"private, profit","general services, urology, pathology, neurology, obstetrics, gastroenterology, radiology, cardiology",7109
+MY DOCTOR'S PLACE PTE LTD,1.2974274,103.8381466,"private, profit",general services,4825
+"MY FAMILY CLINIC 
+(ANCHORVALE)",1.28967,103.85007,"profit, non-profit","general services, urology, obstetrics, neurology, pathology, gastroenterology, radiology, cardiology",3652
+MY FAMILY CLINIC (ANGSANA BREEZE @ YISHUN),1.3887698,103.7709551,public,"general services, neurology, pathology",2928
+MY FAMILY CLINIC (CHOA CHU KANG),1.385167,103.7603062,"non-profit, private",general services,1649
+MY FAMILY CLINIC (CLEMENTI 325),1.3233238,103.8606858,"private, non-profit","general services, urology, gastroenterology, neurology, obstetrics",4513
+MY FAMILY CLINIC (CLEMENTI),1.2977707,103.8061625,"non-profit, private","general services, cardiology, pathology, radiology",8366
+MY FAMILY CLINIC (HOUGANG CENTRAL),1.3346566,103.8490092,"profit, non-profit","general services, cardiology, urology, radiology",5785
+MY FAMILY CLINIC (PIONEER),1.4311005,103.7985065,"non-profit, profit","general services, neurology",6521
+MY FAMILY CLINIC (PUNGGOL CENTRAL),1.28967,103.85007,public,"general services, obstetrics, urology, cardiology",4770
+KILLINEY MEDICAL CLINIC,1.3728723,103.8577559,private,"general services, obstetrics",8431
+MY FAMILY CLINIC (RIVERVALE),1.3750591,103.8781832,"public, non-profit","general services, urology, pathology, cardiology, radiology, gastroenterology",8616
+MY FAMILY CLINIC (SEGAR),1.4382576,103.803627,"profit, private",general services,1227
+MY FAMILY CLINIC (SENJA),1.28967,103.85007,"non-profit, private","general services, cardiology",8378
+MY FAMILY CLINIC (ST GEORGE),1.28967,103.85007,"public, non-profit","general services, cardiology, obstetrics, neurology, pathology, urology, radiology",7349
+MY FAMILY CLINIC (TANGLIN HALT),1.3118642,103.7587293,"public, non-profit","general services, obstetrics, neurology, radiology, urology, gastroenterology",7873
+MY FAMILY CLINIC (TOA PAYOH CENTRAL),1.3415355,103.6909282,profit,"general services, neurology",2745
+"MY FAMILY CLINIC 
+(WOODLANDS GLEN)",1.3146366,103.7715939,"public, profit","general services, cardiology, gastroenterology, radiology, urology, pathology, obstetrics",821
+"MY FAMILY CLINIC 
+(WOODLANDS)",1.28967,103.85007,"public, non-profit","general services, urology",8142
+MYCLNQ MEDICAL,1.28967,103.85007,"profit, public","general services, pathology, urology, gastroenterology, obstetrics, cardiology",5557
+MYCLNQ MEDICAL HOUGANG,1.3592409,103.7507379,profit,"general services, urology, neurology, cardiology, obstetrics, radiology, pathology",2258
+MYDOCTOR@ADMIRALTY PTE LTD,1.3735332,103.8863133,non-profit,"general services, radiology, urology, pathology, cardiology, obstetrics, neurology, gastroenterology",6671
+MYDOCTOR@BALESTIER,1.3202093,103.9032068,profit,"general services, obstetrics, pathology, neurology, cardiology, gastroenterology, radiology",959
+MYDOCTOR@CANBERRA,1.35333,103.9582011,non-profit,general services,8810
+MYHEALTH MEDICAL CENTRE,1.28967,103.85007,private,"general services, pathology, obstetrics, urology, gastroenterology",5286
+NANYANG CENTRE CLINIC,1.3706952,103.8282145,public,general services,463
+NATIONAL CLINIC,1.3758007,103.7648563,"public, profit","general services, pathology",2494
+NCS MEDICAL CLINIC,1.28967,103.85007,"private, profit","general services, pathology, cardiology, neurology",612
+NEE SOON CLINIC,1.28967,103.85007,"public, non-profit","general services, neurology, radiology, cardiology, pathology, urology, obstetrics, gastroenterology",508
+NEECARE MEDICAL CENTRE,1.3222065,103.7382286,private,"general services, pathology, urology",5391
+NEIGHBOURHOOD MEDICAL CLINIC,1.28967,103.85007,profit,"general services, urology, radiology, gastroenterology, neurology, obstetrics, cardiology",8489
+NEOH & ONG MEDICAL CLINIC,1.3332998,103.9259676,"public, private","general services, urology, radiology, gastroenterology, cardiology",3513
+"NEPTUNE HEALTHCARE 
+MEDICAL & SURGERY",1.28967,103.85007,"non-profit, profit","general services, neurology, pathology, cardiology, radiology, gastroenterology",3703
+NEW HEALTH FAMILY CLINIC PTE LTD,1.28967,103.85007,"profit, public",general services,2306
+"NEW PATH MEDICAL & 
+AESTHETICS",1.3912987,103.8952065,"private, non-profit",general services,8009
+LIFELINE BUKIT PANJANG MEDICAL CLINIC,1.3490572,103.7495906,"private, profit",general services,7975
+NEWCASTLE CLINIC,1.3080768,103.7858814,profit,"general services, obstetrics, radiology, gastroenterology",6206
+NEWEST MEDICAL AND LASER CLINIC PTE LTD,1.3078091,103.8850135,profit,"general services, urology, radiology, gastroenterology, pathology, neurology, obstetrics, cardiology",850
+NEWLIFE FAMILY CLINIC & SURGERY,1.422888,103.8523081,"private, profit",general services,3004
+NORTHEAST MEDICAL GROUP,1.28967,103.85007,public,general services,7526
+NORTHEAST MEDICAL GROUP,1.4192268,103.905285,public,"general services, radiology, gastroenterology, urology, cardiology, obstetrics",7818
+NORTHEAST MEDICAL GROUP,1.28967,103.85007,"public, non-profit","general services, radiology, urology, gastroenterology, pathology, obstetrics, neurology, cardiology",8493
+NORTHEAST MEDICAL GROUP,1.4465419,103.805898,non-profit,"general services, neurology, obstetrics, pathology, urology, radiology, gastroenterology, cardiology",2527
+NORTHEAST MEDICAL GROUP,1.3535142,103.8716164,public,general services,1915
+NORTHEAST MEDICAL GROUP,1.28967,103.85007,profit,"general services, obstetrics, radiology, urology",6341
+NORTHEAST MEDICAL GROUP,1.28967,103.85007,non-profit,"general services, urology, obstetrics, cardiology, pathology, radiology, neurology",8940
+NORTHEAST MEDICAL GROUP,1.28967,103.85007,non-profit,"general services, neurology, urology, cardiology, obstetrics",2755
+NORTHLAND FAMILY CLINIC & SURGERY,1.28967,103.85007,non-profit,"general services, radiology, neurology",924
+NORTHLINK (WOODLANDS) CLINIC,1.28967,103.85007,non-profit,"general services, obstetrics, radiology, pathology",4899
+NORTHSHORE FAMILY CLINIC,1.3697854,103.9480767,"private, profit","general services, cardiology, radiology, neurology, pathology, urology, gastroenterology, obstetrics",4658
+"NORWOOD MEDICAL 
+(HOUGANG)",1.3267682,103.8424618,non-profit,"general services, urology, gastroenterology, radiology",1683
+NORWOOD MEDICAL CLINIC,1.3247933,103.9407406,non-profit,"general services, urology, cardiology, neurology, gastroenterology, obstetrics, pathology, radiology",2729
+"NTUC HEALTH FAMILY 
+MEDICINE CLINIC",1.28967,103.85007,public,"general services, obstetrics",7444
+NUFFIELD MEDICAL ORCHARD,1.335739,103.8568213,profit,"general services, pathology, radiology",1173
+NUFFIELD MEDICAL SIGLAP,1.28967,103.85007,"public, non-profit","general services, pathology, gastroenterology, radiology, cardiology, urology, obstetrics",7973
+NUHEALTH MEDICAL CENTRE,1.3461364,103.6974234,non-profit,"general services, urology, pathology, cardiology, gastroenterology, radiology, neurology",7701
+NUTRAMED CLINIC,1.28967,103.85007,non-profit,general services,1474
+NYAM FAMILY CLINIC,1.3081248,103.9084881,"profit, public","general services, urology",5753
+O2 MEDICAL CLINIC,1.3571301,103.8438701,public,"general services, radiology",4557
+OAKLIFE FAMILY CLINIC,1.36417,103.75722,"public, private","general services, neurology, urology, cardiology, pathology, radiology, gastroenterology",6359
+OASIS FAMILY CLINIC,1.4329149,103.8406947,"non-profit, profit","general services, radiology, urology, obstetrics, neurology, pathology, gastroenterology, cardiology",3447
+MANADR CLINIC,1.4064265,103.9020102,"non-profit, public","general services, obstetrics, cardiology",3164
+"OEI & KHO CLINIC AND 
+SURGERY",1.3710916,103.848313,"profit, private","general services, urology, obstetrics",8357
+OEI FAMILY CLINIC,1.43333,103.83111,"public, private","general services, urology, neurology, radiology, cardiology, pathology, gastroenterology",842
+ONE MEDICAL CLINIC,1.3113838,103.7959836,"private, profit",general services,7113
+ONE WELLNESS MEDICAL,1.28967,103.85007,"private, public","general services, urology, obstetrics",3846
+ONE WELLNESS MEDICAL,1.28967,103.85007,private,general services,5486
+ONECARE CLINIC BISHAN,1.28967,103.85007,"profit, public","general services, pathology, neurology",4864
+"ONECARE CLINIC BUKIT 
+GOMBAK MRT",1.3603619,103.762857,"profit, private","general services, gastroenterology, neurology, cardiology, urology",7970
+ONECARE CLINIC JUNCTION 9,1.3705727,103.9619525,"profit, non-profit","general services, neurology, obstetrics, gastroenterology, urology",3146
+ONEDOCTORS FAMILY CLINIC,1.3493403,103.9346183,"private, public","general services, radiology, cardiology, obstetrics, gastroenterology, urology, pathology, neurology",654
+ONEDOCTORS FAMILY CLINIC,1.3611118,103.9400568,profit,"general services, radiology",5170
+ONEDOCTORS FAMILY CLINIC,1.336749,103.8741128,"public, private","general services, pathology, gastroenterology, obstetrics, urology, neurology, radiology, cardiology",1871
+ONEDOCTORS FAMILY CLINIC,1.426308,103.8523354,"public, non-profit","general services, neurology, cardiology",607
+"ONEDOCTORS MEDICAL 
+CENTRE",1.349018,103.8480269,"public, profit","general services, gastroenterology, cardiology, radiology, neurology",3699
+ONELIFE FAMILY CLINIC,1.2887659,103.8160421,"public, non-profit","general services, neurology, radiology, gastroenterology, cardiology, obstetrics, urology",280
+ONG'S CLINIC,1.3967926,103.8892265,non-profit,"general services, pathology, obstetrics, gastroenterology, neurology",854
+"OUR FAMILY CLINIC & 
+SURGERY PTE LTD",1.4263979,103.8277414,non-profit,"general services, pathology, radiology",8972
+OUR FAMILY CLINIC + SURGERY,1.2772426,103.8310287,"public, non-profit","general services, obstetrics, urology, radiology, cardiology, pathology, gastroenterology, neurology",7474
+OUR FAMILY PHYSICIAN CLINIC & SURGERY,1.28967,103.85007,"non-profit, public","general services, urology, neurology, obstetrics",2702
+OUR TAMPINES FAMILY CLINIC,1.28967,103.85007,non-profit,"general services, neurology, gastroenterology",2469
+OUR WOODLEIGH FAMILY CLINIC,1.28967,103.85007,"private, public","general services, cardiology, urology, pathology",3294
+OUR YISHUN FAMILY CLINIC,1.3506468,103.8762537,"private, public","general services, cardiology, obstetrics, pathology, gastroenterology, radiology, urology, neurology",2140
+P TAN FAMILY MEDICINE CLINIC,1.28967,103.85007,non-profit,general services,3959
+PACIFIC FAMILY CLINIC,1.3207779,103.7481721,private,"general services, radiology, neurology, gastroenterology",7408
+MEDIVENE CLINIC & SURGERY,1.4114011,103.9005244,private,general services,8864
+PACIFIC MEDICAL & DENTAL GROUP,1.375088,103.8822547,private,"general services, radiology, urology",7337
+PANCARE MEDICAL (BUKIT MERAH),1.3232395,103.8667183,non-profit,"general services, urology, cardiology, neurology, radiology, pathology",5394
+PANCARE MEDICAL (HOUGANG),1.3003505,103.8495358,"public, private","general services, radiology, obstetrics, pathology, neurology, gastroenterology, urology, cardiology",5811
+PANCARE MEDICAL (JURONG EAST),1.28967,103.85007,"profit, public",general services,5359
+"PANCARE MEDICAL 
+(SERANGOON)",1.3541277,103.8719618,"non-profit, public","general services, obstetrics, radiology, pathology",4681
+PANCARE MEDICAL CLINIC,1.3714876,103.8458658,"public, non-profit","general services, neurology, pathology, urology, radiology",1226
+PANDAN CLINIC PTE LTD,1.28967,103.85007,"public, private","general services, cardiology, gastroenterology, obstetrics, pathology",7524
+PANHEALTH FAMILY CLINIC,1.2830522,103.8509298,"public, profit",general services,3078
+PANHEALTH FAMILY CLINIC (HOUGANG),1.347181,103.9380431,private,"general services, neurology, urology, obstetrics, pathology, gastroenterology",2038
+PARIQUA CLINIC,1.28967,103.85007,"public, profit","general services, gastroenterology, urology, radiology",7329
+PARKLANE MEDICAL CENTRE,1.3724876,103.8674742,"public, non-profit","general services, radiology, gastroenterology, neurology, cardiology, urology, obstetrics, pathology",6777
+PARKWAY MEDICENTRE,1.3594916,103.8852177,"profit, non-profit","general services, neurology, gastroenterology",6699
+PARKWAY SHENTON,1.28967,103.85007,non-profit,"general services, urology, neurology, gastroenterology, radiology, obstetrics, cardiology, pathology",808
+PARKWAY SHENTON FAMILY MEDICAL CLINIC,1.28967,103.85007,"profit, non-profit",general services,8744
+PARKWAY SHENTON MEDICAL CLINIC,1.28967,103.85007,non-profit,"general services, gastroenterology, cardiology, urology, neurology",8041
+PARKWAY SHENTON MEDICAL CLINIC,1.28967,103.85007,private,"general services, obstetrics, radiology, neurology",7084
+PARKWAY SHENTON MEDICAL CLINIC,1.28967,103.85007,private,"general services, urology, obstetrics",4790
+PARKWAY SHENTON MEDICAL CLINIC,1.28967,103.85007,"non-profit, public","general services, radiology, cardiology, pathology, neurology, urology, obstetrics, gastroenterology",7726
+PARKWAY SHENTON MEDICAL CLINIC,1.28967,103.85007,public,general services,4388
+PARKWAY SHENTON MEDICAL CLINIC,1.312649,103.765599,"private, public","general services, urology, pathology, obstetrics, cardiology, neurology",7414
+PARKWAY SHENTON MEDICAL CLINIC,1.4027879,103.9132234,private,"general services, pathology",2916
+MINMED CLINIC (MARINA BAY),1.28967,103.85007,"non-profit, profit","general services, obstetrics",6065
+PARKWAY SHENTON MEDICAL CLINIC,1.3690727,103.9575926,non-profit,"general services, pathology",7440
+PARKWAY SHENTON MEDICAL CLINIC,1.28967,103.85007,profit,"general services, cardiology, obstetrics, urology, neurology, pathology, gastroenterology",2185
+PARKWAY SHENTON MEDICAL CLINIC,1.4323605,103.786894,"non-profit, profit","general services, obstetrics",3097
+PARKWAY SHENTON MEDICAL CLINIC,1.4331192,103.7793323,"public, non-profit","general services, obstetrics, gastroenterology",2359
+PARKWAY SHENTON MEDICAL CLINIC,1.3625972,103.9378943,"private, profit","general services, pathology, neurology, obstetrics, cardiology",992
+PARKWAY SHENTON MEDICAL GROUP,1.28967,103.85007,"non-profit, public","general services, gastroenterology, obstetrics, urology, pathology",3409
+PARKWAY SHENTON MEDICAL GROUP,1.3782625,103.7564525,"public, private","general services, urology, radiology, neurology",4744
+PARKWAY SHENTON MEDICAL GROUP,1.28967,103.85007,private,"general services, neurology, pathology, obstetrics, radiology, gastroenterology, cardiology",8857
+PASIR RIS CLINIC & SURGERY PTE LTD,1.28967,103.85007,"private, non-profit","general services, pathology, gastroenterology, radiology, cardiology",200
+PCS MEDICAL CENTRE,1.28967,103.85007,"non-profit, public","general services, pathology, urology, radiology",464
+PEACE FAMILY CLINIC,1.28967,103.85007,private,"general services, urology, pathology, gastroenterology, cardiology, obstetrics, radiology, neurology",7773
+PEACE FAMILY CLINIC (WL832),1.28967,103.85007,profit,"general services, radiology, neurology, cardiology, urology, gastroenterology",526
+"PEAK MEDICAL CLINIC & 
+SURGERY",1.3326127,103.9143786,private,"general services, radiology, obstetrics, urology, pathology, neurology, gastroenterology",3448
+PEAK MEDICAL WEST PLAINS,1.28967,103.85007,"non-profit, public","general services, cardiology, obstetrics",2924
+PHOENIX CLINIC & SURGERY,1.422888,103.8523081,profit,"general services, gastroenterology",6449
+PHOENIX MEDICAL GROUP,1.4336794,103.7652997,"profit, non-profit","general services, gastroenterology, radiology, cardiology",3913
+PHOENIX MEDICAL GROUP ( NOVENA ),1.3454948,103.6973409,non-profit,"general services, gastroenterology",5632
+PHOENIX MEDICAL GROUP (HILLVIEW),1.28967,103.85007,non-profit,general services,968
+PHOENIX MEDICAL GROUP (PAYA LEBAR),1.360576,103.9701203,profit,"general services, cardiology, pathology",8371
+PHOENIX MEDICAL GROUP (POTONG PASIR),1.3975758,103.8968608,"public, profit","general services, gastroenterology, neurology, pathology, urology",142
+PHOON CLINIC AND SURGERY,1.28967,103.85007,"profit, non-profit",general services,652
+PHYSICIANS PRACTICE FAMILY MEDICAL CENTER,1.3725971,103.8988127,"private, non-profit","general services, urology, cardiology, obstetrics, gastroenterology",7468
+PIDEMCO MEDICAL CENTRE PTE LTD,1.41727,103.9016903,profit,"general services, cardiology, radiology, gastroenterology",1150
+MY CORPORATE CLINIC @ GLOBALFOUNDRIES,1.3730506,103.9456718,public,general services,5231
+PIER MEDICAL CENTRE,1.2902039,103.8482584,non-profit,"general services, gastroenterology, obstetrics, cardiology, pathology, urology, radiology, neurology",3148
+PINNACLE FAMILY CLINIC (BUANGKOK SQUARE),1.28967,103.85007,"non-profit, profit","general services, neurology, obstetrics, pathology, urology, gastroenterology",6526
+PINNACLE FAMILY CLINIC (CHANGI NORTH),1.3698237,103.8730163,public,general services,6332
+PINNACLE FAMILY CLINIC (COMPASSVALE),1.4311005,103.7985065,"profit, non-profit",general services,7339
+PINNACLE FAMILY CLINIC (DAKOTA),1.3925099,103.7439131,private,"general services, urology, pathology, radiology, obstetrics, cardiology, neurology",6923
+PINNACLE FAMILY CLINIC (HOUGANG),1.28967,103.85007,"non-profit, profit","general services, cardiology, gastroenterology, urology, neurology, obstetrics, pathology, radiology",3988
+PINNACLE FAMILY CLINIC (NORTHSHORE PLAZA 1),1.3238403,103.8551531,public,"general services, gastroenterology, pathology, neurology, cardiology, obstetrics, urology, radiology",2429
+PINNACLE FAMILY CLINIC (PASIR RIS),1.3327737,103.8678801,profit,"general services, gastroenterology, urology, pathology, radiology, obstetrics",6674
+PINNACLE FAMILY CLINIC (RIVER VALLEY),1.3590118,103.9349128,public,"general services, neurology, pathology, obstetrics",8789
+PINNACLE FAMILY CLINIC (SEMBAWANG),1.28967,103.85007,private,general services,2027
+PINNACLE FAMILY CLINIC (SERANGOON NORTH),1.3700803,103.8495228,"public, private","general services, gastroenterology, pathology, radiology, urology, neurology, cardiology",762
+PINNACLE FAMILY CLINIC (WOODLANDS),1.28967,103.85007,"non-profit, profit","general services, neurology, cardiology, obstetrics, urology, gastroenterology, radiology",4650
+PINNACLE FAMILY CLINIC (YEW TEE),1.28967,103.85007,"non-profit, public","general services, obstetrics, neurology, pathology, cardiology, gastroenterology",7276
+PLATINUM MEDICAL CENTRE PTE LTD,1.4382576,103.803627,profit,"general services, gastroenterology, radiology, cardiology, pathology, neurology, urology",4047
+PLUSHEALTH MEDICAL CLINIC & SURGERY,1.3772917,103.7730485,"profit, private","general services, radiology",5472
+POTONG PASIR MEDICAL CLINIC,1.3850022,103.8958614,non-profit,general services,4489
+PRAISE FAMILY CLINIC,1.28967,103.85007,non-profit,"general services, obstetrics, pathology, neurology, urology",890
+PRECIOUS MEDICAL CENTRE,1.28967,103.85007,profit,"general services, neurology, urology, gastroenterology, pathology, radiology, obstetrics",4171
+PREMIER CLINIC & SURGERY PTE LTD,1.28967,103.85007,"private, public","general services, radiology, urology, cardiology, gastroenterology",3556
+PRESTIGE FAMILY CLINIC,1.28967,103.85007,"profit, private","general services, gastroenterology, cardiology, radiology, obstetrics",7954
+PRIME MEDICAL GROUP PTE LTD,1.4045846,103.9086457,"profit, non-profit","general services, gastroenterology, cardiology, radiology, neurology, obstetrics, urology, pathology",4298
+MYDOCTOR@ADMIRALTY PTE LTD,1.4179029,103.9012845,profit,"general services, urology, pathology",7967
+"PROHEALTH 24-HOUR 
+MEDICAL CLINIC",1.4004815,103.9103509,"public, non-profit","general services, urology, obstetrics, gastroenterology",7760
+PROHEALTH MEDICAL GROUP @BUANGKOK,1.28967,103.85007,profit,"general services, neurology, radiology, urology, pathology, obstetrics, gastroenterology, cardiology",3816
+PROHEALTH MEDICAL GROUP @BUKIT BATOK,1.28967,103.85007,private,"general services, radiology, urology, obstetrics, neurology, cardiology",536
+PROHEALTH MEDICAL GROUP @FERNVALE,1.28967,103.85007,public,"general services, radiology",4432
+PROHEALTH MEDICAL GROUP @HOUGANG,1.3779196,103.7444017,private,"general services, radiology, pathology",1306
+PROHEALTH MEDICAL GROUP @LRT FERNVALE,1.28967,103.85007,private,"general services, radiology, gastroenterology, obstetrics, neurology, cardiology",837
+PROHEALTH MEDICAL GROUP @PUNGGOL DAMAI,1.28967,103.85007,non-profit,"general services, neurology, gastroenterology, radiology, cardiology, urology",4971
+PROHEALTH MEDICAL GROUP @PUNGGOL NORTHSHORE,1.28967,103.85007,"profit, private","general services, cardiology, gastroenterology",6590
+PROHEALTH MEDICAL GROUP @PUNGGOL SPECTRA,1.28967,103.85007,profit,"general services, obstetrics, urology, pathology, radiology, neurology, gastroenterology, cardiology",3935
+PROHEALTH MEDICAL GROUP @TAMAN JURONG,1.4010206,103.8991863,"non-profit, private","general services, cardiology, neurology",281
+PROHEALTH MEDICAL GROUP @TAMPINES,1.28967,103.85007,"profit, public",general services,1385
+PROHEALTH MEDICAL GROUP @WOODLEIGH,1.28967,103.85007,public,"general services, neurology, radiology, gastroenterology, cardiology, obstetrics",7957
+PRO-LIFE MEDICAL ASSOCIATES,1.28967,103.85007,non-profit,"general services, urology, cardiology, neurology, obstetrics, radiology, pathology",5287
+PROVIDENCE CLINIC @ NOVENA,1.38251,103.89296,private,"general services, pathology, urology, gastroenterology, radiology, neurology",8892
+PROVIDENCE MEDICAL CENTRE PTE. LTD.,1.28967,103.85007,public,"general services, cardiology, radiology",4842
+PROVIDENTIA MEDICAL,1.3538627,103.8723813,"non-profit, private","general services, cardiology, radiology, pathology, obstetrics, gastroenterology, urology",5451
+PUNGGOL FAMILY CLINIC PTE. LTD.,1.301136,103.8571482,non-profit,"general services, cardiology, obstetrics, urology, gastroenterology, pathology",5924
+PUNGGOL RIPPLES FAMILY CLINIC,1.28967,103.85007,public,"general services, pathology, obstetrics, urology, cardiology",7659
+Q & M MEDICAL & AESTHETIC CLINIC (FARRER PARK),1.3456864,103.8560258,private,"general services, urology",585
+Q & M MEDICAL & AESTHETIC CLINIC (TAMPINES CENTRAL) PTE. LTD.,1.3724889,103.8474507,"profit, private","general services, radiology",243
+NORTHEAST MEDICAL GROUP,1.3663512,103.9645143,public,general services,7799
+"Q & M MEDICAL CLINIC 
+(BUANGKOK MRT) PTE. LTD.",1.3344059,103.740198,"profit, private","general services, urology, neurology, gastroenterology, pathology",2356
+Q & M MEDICAL CLINIC (BUKIT BATOK),1.28967,103.85007,profit,"general services, neurology, radiology, pathology, gastroenterology, urology, cardiology",248
+Q & M MEDICAL FAMILY CLINIC,1.3337519,103.8478348,profit,"general services, obstetrics, neurology, radiology",2993
+RAFFLES EXECUTIVE MEDICAL CENTRE,1.2844628,103.851882,profit,"general services, urology",8580
+RAFFLESMEDICAL,1.28967,103.85007,public,"general services, urology, cardiology, obstetrics, radiology",2923
+RAFFLESMEDICAL,1.28967,103.85007,non-profit,"general services, pathology, gastroenterology, obstetrics, cardiology, urology, radiology, neurology",3828
+RAFFLESMEDICAL,1.28967,103.85007,private,"general services, urology, obstetrics, neurology, gastroenterology",4671
+RAFFLESMEDICAL,1.28967,103.85007,private,"general services, pathology, obstetrics, gastroenterology, radiology, urology, neurology",295
+RAFFLESMEDICAL,1.3713266,103.8935517,public,"general services, neurology, pathology, cardiology, radiology, urology, gastroenterology",8535
+RAFFLESMEDICAL,1.28967,103.85007,"public, profit","general services, obstetrics, neurology, cardiology",1301
+RAFFLESMEDICAL,1.4495438,103.8186834,"profit, private","general services, obstetrics, gastroenterology, neurology, urology, cardiology, pathology",1019
+RAFFLESMEDICAL,1.3125082,103.7649253,"public, non-profit",general services,1267
+RAFFLESMEDICAL,1.28967,103.85007,"public, private","general services, urology, cardiology, gastroenterology, neurology, obstetrics",8039
+RAFFLESMEDICAL,1.302562,103.907375,private,"general services, radiology, obstetrics",6016
+RAFFLESMEDICAL,1.28967,103.85007,public,"general services, gastroenterology",193
+RAFFLESMEDICAL,1.3724964,103.9497434,private,general services,7161
+RAFFLESMEDICAL,1.3571301,103.8438701,profit,"general services, obstetrics, neurology, cardiology",3278
+RAFFLESMEDICAL,1.28967,103.85007,"profit, public","general services, pathology, gastroenterology, radiology, neurology, obstetrics",4277
+RAFFLESMEDICAL,1.3850567,103.7450277,private,"general services, cardiology, neurology",5922
+RAFFLESMEDICAL,1.3074198,103.9038875,private,"general services, neurology, pathology, urology, cardiology, gastroenterology, obstetrics",3593
+RAFFLESMEDICAL,1.28967,103.85007,"profit, private","general services, urology, neurology, gastroenterology, obstetrics",4560
+RAFFLESMEDICAL,1.28967,103.85007,private,general services,443
+RAFFLESMEDICAL,1.3394964,103.705254,non-profit,"general services, radiology, cardiology",2261
+RAFFLESMEDICAL,1.3257782,103.9294382,profit,"general services, gastroenterology, obstetrics",8176
+ONECARE CLINIC BISHAN,1.3968091,103.7467917,"profit, private","general services, radiology, pathology, gastroenterology, neurology, obstetrics",3214
+RAFFLESMEDICAL,1.28967,103.85007,"non-profit, private","general services, urology, cardiology, radiology, gastroenterology",764
+RAFFLESMEDICAL,1.34281,103.95297,"public, non-profit",general services,7634
+RAFFLESMEDICAL,1.28967,103.85007,non-profit,general services,3759
+RAFFLESMEDICAL,1.38639,104.0025,"public, private","general services, cardiology, radiology, obstetrics, neurology, pathology, urology",464
+RAFFLESMEDICAL,1.28967,103.85007,profit,"general services, urology, pathology, cardiology, gastroenterology, radiology",85
+RAFFLESMEDICAL,1.301136,103.8571482,"public, private","general services, obstetrics, gastroenterology, neurology",3733
+RAFFLESMEDICAL,1.28967,103.85007,private,"general services, gastroenterology, pathology",5607
+RAFFLESMEDICAL,1.28967,103.85007,"non-profit, public","general services, radiology, obstetrics",6235
+RAFFLESMEDICAL,1.3414006,103.9847624,"public, non-profit","general services, gastroenterology, urology, radiology, obstetrics",7680
+RAFFLESMEDICAL,1.4064265,103.9020102,private,general services,6167
+RAFFLESMEDICAL,1.28967,103.85007,"profit, private","general services, cardiology, radiology, obstetrics, gastroenterology",1639
+RAFFLESMEDICAL,1.28967,103.85007,non-profit,"general services, neurology, obstetrics, pathology, urology, gastroenterology, cardiology, radiology",7229
+RAFFLESMEDICAL,1.3890828,103.9097503,profit,"general services, cardiology, gastroenterology, obstetrics, radiology, neurology",2770
+RAFFLESMEDICAL,1.28967,103.85007,"profit, non-profit","general services, urology, radiology, pathology, neurology, gastroenterology, cardiology, obstetrics",5868
+RAFFLESMEDICAL,1.28967,103.85007,"profit, non-profit","general services, gastroenterology, pathology",1998
+RAFFLESMEDICAL,1.3506468,103.8762537,non-profit,general services,8344
+RAFFLESMEDICAL,1.28967,103.85007,profit,"general services, cardiology, radiology, urology, gastroenterology, neurology",3757
+RAFFLESMEDICAL,1.3541277,103.8719618,private,"general services, cardiology, urology, pathology, obstetrics, gastroenterology",736
+RAFFLESMEDICAL,1.3368673,103.9204745,public,"general services, urology, gastroenterology, pathology, neurology",8236
+RAFFLESMEDICAL,1.3776263,103.755745,non-profit,"general services, neurology, gastroenterology, cardiology",6500
+RCMC RIVERVALE CRESCENT MEDICAL CENTRE,1.28967,103.85007,"profit, non-profit","general services, cardiology, gastroenterology, pathology, urology, radiology, neurology, obstetrics",4377
+RC'S FAMILY CLINIC PTE LTD,1.3773078,103.9035432,non-profit,"general services, radiology, urology, obstetrics, pathology, neurology, cardiology",1822
+RED DOT MEDICAL,1.28967,103.85007,private,"general services, gastroenterology, radiology, neurology",1320
+"PANCARE MEDICAL 
+(SERANGOON)",1.28967,103.85007,"private, public","general services, pathology",3761
+"REDWOOD CLINIC AND 
+SURGERY PTE LTD",1.3778545,103.7494678,profit,"general services, pathology, urology, neurology, cardiology, obstetrics",246
+REDWOOD@TPY CLINIC AND SURGERY PTE LTD,1.4201172,103.8435501,public,general services,442
+RESERVOIR ROAD CLINIC & SURGERY,1.28967,103.85007,private,"general services, gastroenterology, urology, radiology",6053
+RIVER OF LIFE FAMILY CLINIC,1.370738,103.8570935,private,"general services, radiology, neurology, gastroenterology, obstetrics",4246
+RIVER VALLEY MEDICAL & SURGERY CLINIC,1.29868,103.85367,"private, public","general services, gastroenterology, obstetrics, radiology, cardiology, neurology, urology, pathology",1419
+RIVERSAGE FAMILY CLINIC,1.4260582,103.8318663,"profit, private","general services, pathology, neurology, cardiology, gastroenterology, radiology, obstetrics",5833
+RIVERVALE FAMILY CLINIC & SURGERY,1.422888,103.8523081,"profit, public","general services, pathology, cardiology, urology, obstetrics, radiology, neurology",7148
+ROCHOR CENTRE CLINIC,1.3626405,103.872859,"public, private","general services, urology, neurology, gastroenterology, cardiology",2768
+ROYAL CARE MEDICAL FAMILY CLINIC CHOA CHU KANG,1.371454,103.881279,"profit, non-profit","general services, cardiology, gastroenterology",8580
+ROYAL CARE MEDICAL YISHUN GROVE,1.422888,103.8523081,"public, private","general services, neurology, radiology, obstetrics, urology, gastroenterology, cardiology, pathology",1964
+ROYAL CARE MEDICAL YISHUN JUNCTION 9,1.3332998,103.9259676,"public, non-profit","general services, pathology, urology, obstetrics, gastroenterology, neurology, radiology",3063
+ROY'S FAMILY CLINIC,1.28967,103.85007,"public, private","general services, obstetrics, pathology, cardiology, gastroenterology, radiology, urology, neurology",3273
+RUBY MEDICAL CENTRE PTE LTD,1.28967,103.85007,"non-profit, public","general services, urology, obstetrics, neurology, radiology, cardiology",2427
+S & L FAMILY CLINIC,1.3710263,103.8459226,public,general services,8729
+S AND L FAMILY CLINIC,1.334117,103.7403709,"profit, non-profit","general services, gastroenterology, neurology, radiology, obstetrics, urology",3156
+S G CLINIC FAMILY PRACTICE,1.28967,103.85007,profit,"general services, cardiology, obstetrics, neurology, urology, pathology",2871
+S LEE CLINIC,1.28967,103.85007,non-profit,"general services, cardiology, urology, gastroenterology, pathology",3245
+S S TAN MEDICAL CLINIC,1.3277349,103.9213776,"non-profit, profit",general services,6640
+S. T. MEDICAL CLINIC,1.3290723,103.8700587,"profit, public","general services, urology, gastroenterology, radiology, pathology, obstetrics, cardiology",8741
+"SATA COMMHEALTH 
+COMMUNITY HUB",1.35514,103.99006,profit,"general services, neurology, radiology, pathology, urology, cardiology, gastroenterology",834
+SATA COMMHEALTH MEDICAL CENTRE,1.3521194,103.9365383,profit,"general services, urology, obstetrics, cardiology, neurology, gastroenterology, radiology, pathology",7520
+SATA COMMHEALTH MEDICAL CENTRE,1.28967,103.85007,private,"general services, radiology, obstetrics, urology",1610
+SATA COMMHEALTH MEDICAL CENTRE,1.28528,103.80444,"non-profit, public",general services,8771
+SATA COMMHEALTH MEDICAL CENTRE,1.28967,103.85007,"profit, public","general services, urology, pathology, radiology, cardiology, neurology",6083
+PARKWAY SHENTON MEDICAL GROUP,1.3483117,103.7242489,non-profit,"general services, pathology, obstetrics",1175
+SATA COMMHEALTH MEDICAL CENTRE,1.28967,103.85007,"profit, private","general services, cardiology, radiology, urology, pathology, gastroenterology, obstetrics",1727
+SATA COMMHEALTH MEDICAL CENTRE,1.28967,103.85007,profit,"general services, neurology, gastroenterology, obstetrics, pathology, radiology, urology, cardiology",20
+"SAUDARA CLINIC BY A+J 
+GENERAL PHYSICIANS",1.3375584,103.9220014,profit,"general services, neurology",361
+SEASONS CLINIC,1.3523302,103.9534923,"non-profit, private","general services, urology, pathology, obstetrics",5535
+SENNETT MEDICAL CLINIC,1.3399805,103.7732955,public,general services,7766
+SHALOM CLINIC & SURGERY,1.28967,103.85007,"profit, non-profit","general services, cardiology, neurology, obstetrics, urology",8194
+SHALOM MEDICAL GROUP,1.28967,103.85007,"public, non-profit","general services, urology, gastroenterology, neurology, radiology, cardiology",1649
+SHENTON CLINIC,1.422888,103.8523081,profit,"general services, urology, obstetrics",534
+SHENTON FAMILY MEDICAL CLINIC,1.28967,103.85007,private,"general services, cardiology, urology, obstetrics, gastroenterology",101
+SHENTON FAMILY MEDICAL CLINIC,1.28967,103.85007,profit,"general services, cardiology, obstetrics",4870
+SHENTON FAMILY MEDICAL CLINIC (BEDOK RESERVOIR),1.28967,103.85007,public,"general services, radiology",5516
+SHENTON FAMILY MEDICAL CLINIC (TAMPINES),1.3076611,103.8515972,non-profit,"general services, obstetrics, gastroenterology, pathology, cardiology, neurology, urology, radiology",2707
+SHENTON MEDICAL GROUP,1.3505812,103.7229812,private,"general services, obstetrics, pathology",1992
+SHENTON MEDICAL GROUP,1.3454725,103.9455726,non-profit,"general services, neurology, cardiology",7137
+SHENTON MEDICAL GROUP,1.3505812,103.7229812,"public, private","general services, obstetrics, gastroenterology, cardiology, urology, radiology, pathology, neurology",7988
+SHENTON MEDICAL GROUP,1.3756005,103.8865229,"profit, private","general services, pathology, obstetrics, neurology",1641
+SHENTON MEDICAL GROUP,1.28967,103.85007,non-profit,"general services, neurology, radiology, urology, gastroenterology",6454
+SHENTON MEDICAL GROUP,1.28967,103.85007,private,general services,4235
+SHENTON MEDICAL GROUP,1.3147211,103.8955876,"public, private","general services, obstetrics, cardiology, neurology, pathology",4647
+SHENTON MEDICAL GROUP,1.3330197,103.955751,"non-profit, profit","general services, neurology, cardiology, obstetrics",6858
+SHIFA CLINIC & SURGERY,1.28967,103.85007,"public, profit",general services,2445
+SHIFA CLINIC (JURONG),1.3267231,103.91906,"private, non-profit","general services, radiology",8566
+SHIFA CLINIC (TAMPINES),1.41672,103.83451,profit,"general services, cardiology, radiology, neurology, obstetrics, urology, gastroenterology",1313
+SHINE FAMILY CLINIC,1.3504414,103.7181864,"profit, private","general services, pathology, neurology",4951
+SIA & YEO HOUGANG CLINIC PTE LTD,1.3111476,103.7961329,"non-profit, public","general services, cardiology, radiology, neurology",6768
+PINNACLE FAMILY CLINIC (SEMBAWANG),1.343221,103.775265,"public, profit","general services, neurology, radiology, urology, cardiology, gastroenterology",595
+SIA ALH CLINIC (FOR EMPLOYEE ONLY),1.3178295,103.8801042,"private, public","general services, cardiology, urology, neurology, gastroenterology",7659
+"SIA FAMILY CLINIC AND 
+SURGERY",1.28967,103.85007,"private, non-profit","general services, radiology, obstetrics, gastroenterology, pathology",7278
+SIA TRAINING CENTRE CLINIC (FOR EMPLOYEE ONLY),1.3125082,103.7649253,"non-profit, private","general services, cardiology, urology, gastroenterology, radiology, neurology, obstetrics, pathology",6122
+SIGLAP CLINIC PTE LTD,1.2786226,103.8444622,"private, non-profit","general services, pathology, radiology, gastroenterology, neurology",6170
+SILKROUTES @ CHAI CHEE CLINIC,1.326903,103.9249099,"public, non-profit","general services, pathology, cardiology",4531
+SILVER CROSS MEDICAL,1.4518723,103.7976924,"non-profit, profit","general services, gastroenterology, neurology, cardiology, pathology, radiology, obstetrics, urology",640
+SILVER CROSS MEDICAL,1.28967,103.85007,non-profit,"general services, gastroenterology, radiology, urology, obstetrics, cardiology, neurology, pathology",4282
+SILVER CROSS MEDICAL,1.2922046,103.8028706,"public, private","general services, cardiology, gastroenterology",2198
+SILVER CROSS MEDICAL,1.3760409,103.7709449,"public, non-profit","general services, pathology, gastroenterology, neurology, radiology, obstetrics",3764
+SIMS DRIVE MEDICAL CLINIC,1.3329598,103.9047783,"profit, non-profit","general services, cardiology, gastroenterology, radiology, neurology",5057
+SINGAPURA CLINIC,1.422888,103.8523081,public,"general services, obstetrics, cardiology, gastroenterology, pathology, radiology, urology",4141
+SINGMEDICAL CLINIC CLEMENTI,1.3078091,103.8850135,private,general services,1571
+SKY MEDICAL,1.3424486,103.9556026,private,"general services, neurology, radiology, gastroenterology",61
+SM HANEEFA CLINIC,1.3915825,103.8492444,"public, private",general services,1375
+SMRT MEDICAL CLINIC @ WOODLANDS DEPOT,1.28967,103.85007,public,"general services, cardiology, radiology, urology, pathology, gastroenterology, neurology, obstetrics",8669
+SOH WELL CLINIC & SURGERY,1.3388984,103.7098334,non-profit,"general services, pathology, neurology, urology, obstetrics",3810
+SOONG CLINIC AND SURGERY,1.28967,103.85007,non-profit,"general services, obstetrics, pathology, cardiology",4073
+SP CLINIC,1.345826,103.8989134,"non-profit, public","general services, obstetrics, cardiology, pathology, radiology",7096
+SPEEDOC,1.4186581,103.8625441,"private, public","general services, pathology, radiology, cardiology, urology, obstetrics, neurology",5170
+SPEEDOC CLINIC,1.3226185,103.8611182,"profit, public","general services, obstetrics, radiology, gastroenterology, cardiology, pathology, neurology, urology",7285
+SPRING MEDICAL CLINIC (OLD AIRPORT ROAD),1.3494297,103.7422373,"non-profit, profit","general services, obstetrics, cardiology, neurology, radiology, gastroenterology",5387
+"ST ANDREW'S MISSION 
+HOSPITAL CLINIC (SIMEI)",1.28967,103.85007,"private, non-profit","general services, neurology, obstetrics, radiology, gastroenterology, urology",2985
+ST ENGINEERING IN-HOUSE CLINIC (ANG MO KIO),1.3462442,103.7494054,public,"general services, urology, cardiology, gastroenterology",6180
+ST ENGINEERING IN-HOUSE CLINIC (CHANGI),1.3122814,103.8546429,private,"general services, obstetrics, cardiology, gastroenterology",698
+ST ENGINEERING IN-HOUSE CLINIC (JALAN BOON LAY),1.3561736,103.88922,"non-profit, private",general services,2175
+PROVIDENCE CLINIC @ NOVENA,1.3076611,103.8515972,private,"general services, radiology, pathology, gastroenterology, obstetrics, urology, cardiology, neurology",5534
+ST ENGINEERING IN-HOUSE CLINIC (PAYA LEBAR),1.28967,103.85007,"public, private","general services, urology, obstetrics",3057
+ST ENGINEERING IN-HOUSE CLINIC (SELETAR),1.3317338,103.9398296,"private, public",general services,6002
+"ST GEORGES CLINIC AND 
+SURGERY PTE LTD",1.3714886,103.970238,"non-profit, profit","general services, neurology, urology, pathology, radiology, cardiology, gastroenterology, obstetrics",8400
+ST. LUKE'S COMMUNITY CLINIC,1.28967,103.85007,"private, profit","general services, pathology, urology, neurology, cardiology",2036
+STANDARD CLINIC & SURGERY,1.3461569,103.944584,"non-profit, profit",general services,6742
+"STARCARE CLINIC AND 
+SURGERY PTE. LTD.",1.3533625,103.9530867,"public, profit",general services,5729
+STARMED SPECIALIST CENTRE PTE LTD,1.3802356,103.8412851,"public, profit","general services, obstetrics, neurology, radiology",6183
+"STAT MEDICAL CLINIC @ 
+HOUGANG",1.3805147,103.7697245,"private, profit","general services, urology, radiology, neurology, pathology",7536
+STELLA MARIS FAMILY CLINIC & SURGERY,1.28967,103.85007,"private, non-profit","general services, cardiology, neurology, gastroenterology, obstetrics, radiology",5315
+STERLING CLINIC & SURGERY,1.28967,103.85007,profit,"general services, gastroenterology, pathology, urology, radiology, obstetrics",5216
+STERLING FAMILY CLINIC,1.4460686,103.8287387,public,"general services, obstetrics, pathology, radiology",3457
+STEWARD CLINIC,1.3125235,103.8721713,"public, non-profit","general services, cardiology, gastroenterology, pathology, neurology, radiology, urology, obstetrics",1337
+STRAITS CLINIC,1.28967,103.85007,private,"general services, obstetrics, urology, pathology, cardiology",6452
+STREET 11 CLINIC,1.3363873,103.8872218,private,"general services, gastroenterology",3926
+STREET 21 CLINIC TAMPINES PTE. LTD.,1.3461569,103.944584,"public, profit","general services, neurology",5948
+SUMMIT MEDICAL CLINIC,1.28967,103.85007,"public, private","general services, neurology, radiology, urology, obstetrics, gastroenterology, pathology",1929
+SUNBEAM MEDICAL CLINIC,1.347181,103.9380431,private,general services,6605
+SUNBEAM MEDICAL CLINIC,1.3312887,103.9099484,"public, private","general services, urology",5493
+SUNCARE MEDICAL CLINIC,1.4461731,103.7994564,"non-profit, public","general services, obstetrics, pathology, neurology",8353
+T MEDICAL CLINIC,1.3475386,103.8495469,"public, profit",general services,6325
+T MEDICAL CLINIC (KALLANG),1.3653809,103.8491043,"profit, private","general services, neurology, urology, radiology, cardiology, gastroenterology, pathology",6775
+T.A. MEDICAL CLINIC,1.3801854,103.8404156,public,"general services, radiology, neurology, urology, gastroenterology, cardiology, obstetrics, pathology",2097
+TAI SENG CLINIC,1.3403819,103.7728476,"public, private","general services, gastroenterology, obstetrics, pathology, neurology",813
+"TAMPINES CLINIC AND 
+SURGERY PTE LTD",1.28967,103.85007,profit,general services,2352
+RAFFLESMEDICAL,1.3190441,103.860798,"profit, private","general services, pathology, cardiology",3490
+TAMPINES FAMILY MEDICINE CLINIC,1.3190441,103.860798,"public, non-profit","general services, pathology",4131
+TAMPINES MEDILIFE CLINIC,1.3689253,103.8462801,"profit, public",general services,1902
+TAN & KOH CLINIC & SURGERY,1.3313898,103.9087591,profit,"general services, radiology, urology, gastroenterology, obstetrics, pathology, neurology",2404
+TAN & NAH FAMILY CLINIC,1.3089938,103.8552597,"profit, non-profit",general services,6256
+TAN & YIK CLINIC & SURGERY,1.3474136,103.7170843,non-profit,"general services, pathology, urology, neurology",518
+TAN MEDICAL CLINIC PTE LTD,1.3474136,103.7170843,"private, profit",general services,6521
+TAN MEDICARE CLINIC PTE LTD,1.28967,103.85007,"public, non-profit",general services,772
+TANG FAMILY CLINIC,1.3687218,103.8555019,profit,"general services, cardiology, radiology",1957
+"TAN'S T & T CLINIC AND 
+SURGERY",1.3198247,103.9439649,profit,"general services, radiology, pathology, gastroenterology, urology",7058
+TAN-TEOH CLINIC & SURGERY,1.363754,103.7467239,non-profit,"general services, gastroenterology, radiology, pathology, obstetrics, cardiology, neurology, urology",2907
+TAN-TEOH CLINIC & SURGERY,1.4530992,103.8166963,"profit, private","general services, urology, cardiology, obstetrics, gastroenterology, neurology",5639
+TAN-TEOH CLINIC & SURGERY (ANG MO KIO BRANCH),1.3979868,103.7469021,"public, profit","general services, urology, cardiology, radiology",4233
+TAY CLINIC,1.4427399,103.7905373,private,"general services, gastroenterology, urology, cardiology, pathology, neurology",1602
+TAYKA MEDICAL,1.3326345,103.9396463,"public, profit","general services, gastroenterology, cardiology",7597
+TAYKA MEDICAL FAMILY CLINIC,1.28967,103.85007,profit,"general services, gastroenterology, neurology, obstetrics, urology, radiology",1275
+TC FAMILY CLINIC PTE LTD,1.28967,103.85007,"public, private","general services, radiology, cardiology, neurology, urology, obstetrics, gastroenterology",4122
+TEBAN GARDEN CLINIC,1.336749,103.8741128,"non-profit, private","general services, radiology, urology",6254
+TECK GHEE CLINIC (DR TAN YANG KHAI) PTE LTD,1.3456864,103.8560258,"public, private",general services,2083
+TEMASEK CLINIC & SURGERY,1.3142463,103.7645522,"non-profit, private","general services, obstetrics, gastroenterology, radiology, neurology",4962
+TEMASEK MEDICAL CENTRE,1.332013,103.923692,"public, non-profit","general services, cardiology, obstetrics, pathology",1261
