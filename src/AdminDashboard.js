@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
-import { db } from './firebase';
+import { signOut } from 'firebase/auth';
+import { db, auth } from './firebase'; // Assuming auth is exported from firebase.js
 import { FaTrash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -9,6 +11,7 @@ const AdminDashboard = () => {
   const [appointments, setAppointments] = useState([]); // Appointments for the selected user
   const [selectedUser, setSelectedUser] = useState(null); // Currently selected user
   const [error, setError] = useState(""); // Error handling
+  const navigate = useNavigate(); // Initialize navigate for navigation
 
   // Fetch all users (patients) from the users collection
   useEffect(() => {
@@ -72,10 +75,24 @@ const AdminDashboard = () => {
     }
   };
 
+  // Handle logout
+  const handleLogout = async () => {
+    try {
+      await signOut(auth); // Sign out using Firebase Auth
+      navigate('/'); // Redirect to LoginPage1 (make sure the route is set up correctly)
+    } catch (error) {
+      setError("Error logging out");
+      console.error("Logout Error:", error);
+    }
+  };
+
   return (
     <div className="admin-dashboard">
       <h2>Admin Dashboard</h2>
       {error && <p className="error">{error}</p>}
+
+      {/* Logout button */}
+      <button onClick={handleLogout} className="logout-button">Logout</button>
 
       {/* Step 1: Display List of All Users */}
       {selectedUser === null ? (
