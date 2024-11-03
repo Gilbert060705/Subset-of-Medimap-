@@ -4,7 +4,7 @@ body {
   padding: 0;
   font-family: 'Arial', sans-serif;
   background-color: #f4e7e1;
-  height:100%;
+  height: 100%;
 }
 
 /* Main Page Layout */
@@ -47,17 +47,18 @@ body {
   flex: 1;
   gap: 10px;
   padding: 10px;
-  height:calc(100vh - 100px);
-  box-sizing:border-box;
+  height: calc(100vh - 100px);
+  box-sizing: border-box;
 }
 
 /* Filters Container */
 .filters-container {
   width: 25%;
-  padding: 10px;
+  padding: 20px;
   background-color: #cc8d6b;
   border-radius: 12px;
   overflow-y: auto;
+  max-height: calc(100vh - 120px);
 }
 
 .filters-container input[type="text"] {
@@ -66,6 +67,10 @@ body {
   margin-bottom: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+}
+
+.filters-container form {
+  margin-bottom: 20px;
 }
 
 /* Filter Sections */
@@ -82,14 +87,7 @@ body {
   color: #333;
 }
 
-/* Filter Grid for Type section */
-.filter-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-/* Checkbox Styles */
+/* Checkbox Styles - Updated */
 .filter-checkbox {
   display: flex;
   align-items: center;
@@ -98,6 +96,7 @@ body {
   cursor: pointer;
   color: #333;
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .filter-checkbox:hover {
@@ -108,23 +107,40 @@ body {
   width: 16px;
   height: 16px;
   cursor: pointer;
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+  margin: 0;
 }
 
-/* Filters Container Updates */
-.filters-container {
-  width: 25%;
-  padding: 20px;
-  background-color: #cc8d6b;
-  border-radius: 12px;
-  overflow-y: auto;
-  max-height: calc(100vh - 120px);
+/* New styles for checkbox input */
+.checkbox-input {
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+  -moz-appearance: auto !important;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-right: 8px;
+  border: 2px solid #333;
+  border-radius: 3px;
+  background-color: white;
 }
 
-.filters-container form {
-  margin-bottom: 20px;
+.checkbox-input:checked {
+  background-color: #d07554;
+  border-color: #d07554;
 }
 
-/* Scrollbar for Filters */
+/* Filter Grid */
+.filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Scrollbar Styles */
 .filters-container::-webkit-scrollbar {
   width: 8px;
 }
@@ -137,11 +153,12 @@ body {
 .filters-container::-webkit-scrollbar-track {
   background-color: #f4e7e1;
 }
+
 /* Hospital List */
 .hospital-list {
   width: 35%;
   padding: 10px;
-  flex:1;
+  flex: 1;
   background-color: #d8b3a5;
   border-radius: 12px;
   overflow-y: scroll;
@@ -158,6 +175,7 @@ body {
   color: white;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.3s ease;
+  position: relative;
 }
 
 .hospital-item:hover {
@@ -165,7 +183,14 @@ body {
   background-color: #cc8d6b;
 }
 
-/* Animated Buttons */
+/* Hospital Name Styles */
+.hospital-name-clickable {
+  cursor: pointer;
+  color: white;
+  text-decoration: underline;
+}
+
+/* Buttons */
 .animated-button {
   background-color: #d07554;
   color: white;
@@ -192,10 +217,10 @@ body {
   border-radius: 5px;
   text-align: center;
   font-size: 16px;
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
   display: inline-block;
   cursor: pointer;
-  margin-top: 10px;;
+  margin-top: 10px;
 }
 
 .book-appointment-button:hover {
@@ -215,21 +240,7 @@ body {
   width: 100%;
 }
 
-/* Scrollbar Styles */
-.hospital-list::-webkit-scrollbar {
-  width: 8px;
-}
-
-.hospital-list::-webkit-scrollbar-thumb {
-  background-color: #d07554;
-  border-radius: 10px;
-}
-
-.hospital-list::-webkit-scrollbar-track {
-  background-color: #f4e7e1;
-}
-
-/* Add these styles to HospitalMapPage.css */
+/* Hospital Actions */
 .hospital-actions {
   display: flex;
   gap: 10px;
@@ -267,10 +278,39 @@ body {
   border-color: #4CAF50;
 }
 
-.hospital-item {
-  position: relative;
+/* Scrollbar for Hospital List */
+.hospital-list::-webkit-scrollbar {
+  width: 8px;
 }
 
-.hospital-item:hover .hospital-actions {
-  opacity: 1;
+.hospital-list::-webkit-scrollbar-thumb {
+  background-color: #d07554;
+  border-radius: 10px;
+}
+
+.hospital-list::-webkit-scrollbar-track {
+  background-color: #f4e7e1;
+}
+
+/* No Results Message */
+.no-results {
+  padding: 20px;
+  color: #666;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .filters-container,
+  .hospital-list {
+    width: 100%;
+  }
+
+  .map-container {
+    height: 300px;
+  }
 }
