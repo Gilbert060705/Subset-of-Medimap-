@@ -125,7 +125,7 @@ const MedicalBookingForm = () => {
         <nav className="bookingPage-nav">
           <Link to="/home">Home</Link>
           <Link to="/about">About Us</Link>
-          <Link to="/bookings">My Bookings</Link>
+          <Link to="/booking">My Bookings</Link>
         </nav>
       </header>
 
