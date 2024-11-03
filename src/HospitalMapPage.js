@@ -12,7 +12,6 @@ import { auth } from './firebase.js';
 import { HospitalService } from './HospitalService.js';
 import HospitalDetailCard from './HospitalDetailCard.js';
 
-// Custom Leaflet Icon
 const customIcon = new L.Icon({
   iconUrl: ('./images/marker-icon.png'),
   iconSize: [25, 41],
@@ -20,7 +19,6 @@ const customIcon = new L.Icon({
   popupAnchor: [1, -34],
 });
 
-// Helper component to update map view
 const ChangeMapView = ({ center }) => {
   const map = useMap();
   useEffect(() => {
@@ -29,7 +27,6 @@ const ChangeMapView = ({ center }) => {
   return null;
 };
 
-// Haversine Distance Calculation
 const haversineDistance = (coords1, coords2) => {
   const toRad = (x) => (x * Math.PI) / 180;
   const [lat1, lon1] = coords1;
@@ -69,19 +66,16 @@ const HospitalMapPage = () => {
       profit: false,
     },
     services: {
-      GeneralServices: false,
-      Cardiology: false,
-      Neurology: false,
-      Gastroenterology: false,
-      Radiology: false,
-      Urology: false,
-      Pathology: false,
-      Obstetrics: false,
-      NumberOfBeds: false,
+      cardiology: false,
+      neurology: false,
+      gastroenterology: false,
+      radiology: false,
+      urology: false,
+      pathology: false,
+      obstetrics: false,
     },
   });
 
-  // Authentication Effect
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
       if (currentUser) {
@@ -96,7 +90,6 @@ const HospitalMapPage = () => {
     return () => unsubscribe();
   }, []);
 
-  // Navigation handler
   const handleNavigation = (path) => {
     const user = auth.currentUser;
     if (user) {
@@ -108,31 +101,31 @@ const HospitalMapPage = () => {
 
   const applyFilters = useCallback(() => {
     let filtered = [...hospitals];
-
+  
     if (searchQuery) {
       filtered = filtered.filter(hospital =>
         hospital.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
-
+  
     if (filters.favorites) {
       filtered = filtered.filter(hospital => favorites.includes(hospital.name));
     }
-
+  
     if (filters.visited) {
       filtered = filtered.filter(hospital =>
         JSON.parse(localStorage.getItem(`visited_${user?.uid}_${hospital.name}`))
       );
     }
-
+  
     if (filters.nearby) {
       filtered = filtered.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
     }
-
+  
     const activeTypeFilters = Object.entries(filters.type)
       .filter(([_, value]) => value)
       .map(([key]) => key.toLowerCase());
-
+  
     if (activeTypeFilters.length > 0) {
       filtered = filtered.filter(hospital =>
         activeTypeFilters.some(type =>
@@ -140,23 +133,22 @@ const HospitalMapPage = () => {
         )
       );
     }
-
+  
     const activeServiceFilters = Object.entries(filters.services)
       .filter(([_, value]) => value)
       .map(([key]) => key.toLowerCase());
-
+  
     if (activeServiceFilters.length > 0) {
       filtered = filtered.filter(hospital => {
-        const hospitalServices = hospital.services || [];
-        return activeServiceFilters.some(service =>
-          hospitalServices.some(hs => hs.toLowerCase().includes(service.toLowerCase()))
+        const hospitalServices = (hospital.services || []).map(s => s.toLowerCase());
+        return activeServiceFilters.some(service => 
+          hospitalServices.includes(service)
         );
       });
     }
-
+  
     setFilteredHospitals(filtered.slice(0, visibleHospitals));
   }, [hospitals, filters, favorites, visibleHospitals, searchQuery, user]);
-
   useEffect(() => {
     applyFilters();
   }, [filters, applyFilters]);
@@ -190,13 +182,14 @@ const HospitalMapPage = () => {
             } else if (type.includes('nonprofit')) {
               type = 'nonprofit';
             }
-
+  
+            // Simplified services parsing
             const servicesRaw = hospital['Services'] || '';
             const servicesArray = servicesRaw
               .split(/[\n,]+/)
-              .map(service => service.trim())
+              .map(service => service.trim().toLowerCase())
               .filter(service => service);
-
+  
             return {
               ...hospital,
               type: type,
@@ -208,12 +201,13 @@ const HospitalMapPage = () => {
             };
           })
           .sort((a, b) => a.distance - b.distance);
-
+  
         setHospitals(sortedHospitals);
         applyFilters();
       },
     });
   }, [currentLocation, applyFilters]);
+  
 
   const handleToggleFavorite = async (e, hospital) => {
     e.stopPropagation();
@@ -254,7 +248,6 @@ const HospitalMapPage = () => {
     }
   };
 
-  // Updated handleFilterChange function
   const handleFilterChange = (category, key = null) => {
     setFilters(prevFilters => {
       const newFilters = { ...prevFilters };
@@ -273,7 +266,7 @@ const HospitalMapPage = () => {
       else if (category === 'services') {
         newFilters.services = {
           ...newFilters.services,
-          [key]: !newFilters.services[key]
+          [key.toLowerCase()]: !newFilters.services[key.toLowerCase()]
         };
       }
       else {
@@ -307,7 +300,6 @@ const HospitalMapPage = () => {
       alert('Please select a hospital from the list first.');
     }
   };
-
   return (
     <div className="hospital-map-page">
       <header className="navbar">
@@ -407,7 +399,13 @@ const HospitalMapPage = () => {
                   onChange={() => handleFilterChange('services', key)}
                   className="checkbox-input"
                 />
-                <span>{key.replace(/([A-Z])/g, ' $1').trim()}</span>
+                <span>
+                  {key === 'generalservices' 
+                    ? 'General Services'
+                    : key === 'numberofbeds'
+                      ? 'Number of Beds'
+                      : key.charAt(0).toUpperCase() + key.slice(1)}
+                </span>
               </label>
             ))}
           </div>
@@ -437,7 +435,7 @@ const HospitalMapPage = () => {
                     title={favorites.includes(hospital.name) ? "Remove from favorites" : "Add to favorites"}
                   >
                     ♥
-                    </button>
+                  </button>
                 </div>
               </div>
             ))

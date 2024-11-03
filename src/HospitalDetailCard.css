@@ -30,18 +30,21 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
+  color: #333;
 }
 
 .hospital-name {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .tabs {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  gap: 10px;
 }
 
 .tab-button {
@@ -50,10 +53,11 @@
   text-align: center;
   background-color: #BF9D8C;
   color: #333;
-  margin: 0 5px;
   border: none;
   cursor: pointer;
   font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .tab-button.active,
@@ -64,30 +68,44 @@
 
 .tab-content {
   background-color: #FAEDCE;
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
+  color: #333;
 }
 
-.hospital-name-clickable {
-  cursor: pointer;
-  color: #b9c1c7;
-  text-decoration: underline;
+.tab-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
 }
-.hospital-item.selected {
-  background-color: #4CAF50; /* Green background */
-  color: white; /* White text */
+
+.tab-content li {
+  margin-bottom: 8px;
 }
-.hospital-name-clickable {
-  cursor: pointer;
-  color: #d5d5d8;
-  text-decoration: underline;
+
+.hospital-type-content p {
+  margin-bottom: 10px;
 }
-.hospital-item {
-  background-color: #d07554;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 1px;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+
+.hospital-type-content strong {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Scrollbar Styling */
+.hospital-detail-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.hospital-detail-card::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.hospital-detail-card::-webkit-scrollbar-thumb {
+  background: #BF9D8C;
+  border-radius: 4px;
+}
+
+.hospital-detail-card::-webkit-scrollbar-thumb:hover {
+  background: #a88c7d;
 }

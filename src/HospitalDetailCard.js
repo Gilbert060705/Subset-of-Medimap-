@@ -6,6 +6,17 @@ const HospitalDetailCard = ({ hospital, onClose }) => {
 
   const { name, type, services = [] } = hospital;
 
+  const formatServiceName = (service) => {
+    switch(service) {
+      case 'generalservices':
+        return 'General Services';
+      case 'numberofbeds':
+        return 'Number of Beds';
+      default:
+        return service.charAt(0).toUpperCase() + service.slice(1);
+    }
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case 'Hospital Type':
@@ -18,15 +29,16 @@ const HospitalDetailCard = ({ hospital, onClose }) => {
         return (
           <ul className="list-disc list-inside max-h-56 overflow-y-auto pr-2">
             {services.length > 0 ? (
-              services.map((service, index) => <li key={index}>{service}</li>)
+              services.map((service, index) => (
+                <li key={index}>
+                  {formatServiceName(service)}
+                </li>
+              ))
             ) : (
               <li>No services available for this hospital.</li>
             )}
           </ul>
         );
-
-
-
       default:
         return null;
     }
@@ -48,7 +60,7 @@ const HospitalDetailCard = ({ hospital, onClose }) => {
 
         {/* Tabs */}
         <div className="tabs">
-          {['Hospital Type','Services'].map((tab) => (
+          {['Hospital Type', 'Services'].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
