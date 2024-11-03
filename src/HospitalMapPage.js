@@ -13,7 +13,7 @@ import { HospitalService } from './HospitalService.js';
 import HospitalDetailCard from './HospitalDetailCard.js';
 
 const customIcon = new L.Icon({
-  iconUrl: ('./images/marker-icon.png'),
+  iconUrl: require('./images/marker-icon.png'),
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
@@ -472,7 +472,7 @@ const HospitalMapPage = () => {
                   parseFloat(selectedHospital.longitude),
                 ]}
                 icon={customIcon}
-              >
+                >
                 <Popup>{selectedHospital.name}</Popup>
               </Marker>
             )}
