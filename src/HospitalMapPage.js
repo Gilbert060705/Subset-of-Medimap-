@@ -8,12 +8,14 @@ import { Link } from 'react-router-dom';
 import './HospitalMapPage.css';
 import logo from './images/logo.png';
 import profileIcon from './images/personProfile.png';
-import { auth } from './firebase';
-import { HospitalService } from './HospitalService';
+import { auth } from './firebase.js';
+import { HospitalService } from './HospitalService.js';
+import HospitalDetailCard from './HospitalDetailCard.js';
+
 
 // Custom Leaflet Icon
 const customIcon = new L.Icon({
-  iconUrl: require('./images/marker-icon.png'),
+  iconUrl: ('./images/marker-icon.png'),
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
@@ -52,6 +54,7 @@ const HospitalMapPage = () => {
   const [hospitals, setHospitals] = useState([]);
   const [filteredHospitals, setFilteredHospitals] = useState([]);
   const [visibleHospitals, setVisibleHospitals] = useState(5);
+  const [showDetailCard, setShowDetailCard] = useState(false);
   const [mapCenter, setMapCenter] = useState([1.3521, 103.8198]);
   const [selectedHospital, setSelectedHospital] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -104,33 +107,34 @@ const HospitalMapPage = () => {
     }
   };
 
-  const applyFilters = useCallback((hospitalList = hospitals) => {
-    let filtered = [...hospitalList];
-  
+
+  const applyFilters = useCallback(() => {
+    let filtered = [...hospitals];
+
     if (searchQuery) {
       filtered = filtered.filter(hospital =>
         hospital.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
-  
+
     if (filters.favorites) {
       filtered = filtered.filter(hospital => favorites.includes(hospital.name));
     }
-  
+
     if (filters.visited) {
-      filtered = filtered.filter(hospital => 
+      filtered = filtered.filter(hospital =>
         JSON.parse(localStorage.getItem(`visited_${user?.uid}_${hospital.name}`))
       );
     }
-  
+
     if (filters.nearby) {
       filtered = filtered.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
     }
-  
+
     const activeTypeFilters = Object.entries(filters.type)
       .filter(([_, value]) => value)
       .map(([key]) => key.toLowerCase());
-  
+
     if (activeTypeFilters.length > 0) {
       filtered = filtered.filter(hospital =>
         activeTypeFilters.some(type =>
@@ -138,20 +142,27 @@ const HospitalMapPage = () => {
         )
       );
     }
-  
+
     const activeServiceFilters = Object.entries(filters.services)
       .filter(([_, value]) => value)
       .map(([key]) => key.toLowerCase());
-  
+
     if (activeServiceFilters.length > 0) {
       filtered = filtered.filter(hospital => {
-        const hospitalServices = hospital.services ? hospital.services.toLowerCase() : '';
-        return activeServiceFilters.some(service => hospitalServices.includes(service));
+        const hospitalServices = hospital.services || [];
+        return activeServiceFilters.some(service =>
+          hospitalServices.some(hs => hs.toLowerCase().includes(service))
+        );
       });
     }
-  
+
     setFilteredHospitals(filtered.slice(0, visibleHospitals));
   }, [hospitals, filters, favorites, visibleHospitals, searchQuery, user]);
+
+  // Use useEffect to run applyFilters whenever filters change
+  useEffect(() => {
+    applyFilters();
+  }, [filters, applyFilters]);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -171,17 +182,40 @@ const HospitalMapPage = () => {
       complete: ({ data }) => {
         const sortedHospitals = data
           .filter(hospital => hospital.latitude && hospital.longitude)
-          .map((hospital) => ({
-            ...hospital,
-            distance: haversineDistance(
-              currentLocation,
-              [parseFloat(hospital.latitude), parseFloat(hospital.longitude)]
-            ).toFixed(2),
-          }))
+          .map((hospital) => {
+            // Standardize 'type'
+            let type = hospital['Type of Hospital'] ? hospital['Type of Hospital'].toLowerCase() : '';
+            if (type.includes('private')) {
+              type = 'private';
+            } else if (type.includes('public')) {
+              type = 'public';
+            } else if (type.includes('profit')) {
+              type = 'profit';
+            } else if (type.includes('nonprofit')) {
+              type = 'nonprofit';
+            }
+
+            // Parse 'services'
+            const servicesRaw = hospital['Services'] || '';
+            const servicesArray = servicesRaw
+              .split(/[\n,]+/) // Split by newlines or commas
+              .map(service => service.trim().toLowerCase())
+              .filter(service => service);
+
+            return {
+              ...hospital,
+              type: type,
+              services: servicesArray,
+              distance: haversineDistance(
+                currentLocation,
+                [parseFloat(hospital.latitude), parseFloat(hospital.longitude)]
+              ).toFixed(2),
+            };
+          })
           .sort((a, b) => a.distance - b.distance);
 
         setHospitals(sortedHospitals);
-        applyFilters(sortedHospitals);
+        applyFilters();
       },
     });
   }, [currentLocation, applyFilters]);
@@ -228,7 +262,7 @@ const HospitalMapPage = () => {
   const handleFilterChange = (category, key = null) => {
     setFilters(prevFilters => {
       const newFilters = { ...prevFilters };
-      
+
       if (category === 'type') {
         if (key === 'public') {
           newFilters.type = { ...newFilters.type, public: !newFilters.type.public, private: false };
@@ -239,31 +273,32 @@ const HospitalMapPage = () => {
         } else if (key === 'nonprofit') {
           newFilters.type = { ...newFilters.type, nonprofit: !newFilters.type.nonprofit, profit: false };
         }
-      } else if (category === 'services') {
+      }
+      else if (category === 'services') {
         newFilters.services[key] = !newFilters.services[key];
-      } else {
+      }
+      else{
         newFilters[category] = !newFilters[category];
       }
-
       return newFilters;
     });
-    
-    applyFilters();
   };
 
   const handleViewMore = () => {
     setVisibleHospitals(prev => {
       const newValue = prev + 5;
-      applyFilters();
       return newValue;
     });
+    applyFilters();
   };
 
   const handleHospitalClick = (hospital) => {
-    const coords = [parseFloat(hospital.latitude), parseFloat(hospital.longitude)];
-    setSelectedHospital(hospital);
-    setMapCenter(coords);
-  };
+  const coords = [parseFloat(hospital.latitude), parseFloat(hospital.longitude)];
+  setSelectedHospital(hospital);
+  setMapCenter(coords);
+  setShowDetailCard(true);
+};
+
 
   const handleBookAppointment = () => {
     if (!user) {
@@ -282,9 +317,9 @@ const HospitalMapPage = () => {
     <div className="hospital-map-page">
       <header className="navbar">
         <div className="logo-container">
-          <img 
-            src={logo} 
-            alt="MediMap Logo" 
+          <img
+            src={logo}
+            alt="MediMap Logo"
             style={{ cursor: 'pointer' }}
             onClick={() => handleNavigation('/home')}
           />
@@ -387,19 +422,23 @@ const HospitalMapPage = () => {
           {filteredHospitals.length > 0 ? (
             filteredHospitals.map((hospital, index) => (
               <div
-                key={hospital.id || index}
-                className="hospital-item"
-                onClick={() => handleHospitalClick(hospital)}
-              >
-                <div className="hospital-content">
-                  <h3>{hospital.name}</h3>
-                  <p>Distance: {hospital.distance} km away</p>
-                </div>
+              key={hospital.id || index}
+              className="hospital-item"
+            >
+              <div className="hospital-content">
+                <h3
+                  onClick={() => handleHospitalClick(hospital)}
+                  className="hospital-name-clickable"
+                >
+                  {hospital.name}
+                </h3>
+                <p>Distance: {hospital.distance} km away</p>
+              </div>
                 <div className="hospital-actions">
-                  <button 
-                    className={`favorite-btn ${favorites.includes(hospital.name) ? 'active' : ''}`}
-                    onClick={(e) => handleToggleFavorite(e, hospital)}
-                    title={favorites.includes(hospital.name) ? "Remove from favorites" : "Add to favorites"}
+                  <button
+                      className={`favorite-btn ${favorites.includes(hospital.name) ? 'active' : ''}`}
+                      onClick={(e) => handleToggleFavorite(e, hospital)}
+                      title={favorites.includes(hospital.name) ? "Remove from favorites" : "Add to favorites"}
                   >
                     ♥
                   </button>
@@ -407,16 +446,16 @@ const HospitalMapPage = () => {
               </div>
             ))
           ) : (
-            <div className="no-results">
-              {filters.favorites ? (
-                <p>No favorite hospitals yet. Click the heart icon to add hospitals to your favorites.</p>
-              ) : (
-                <p>No hospitals found matching your search criteria.</p>
-              )}
-            </div>
+              <div className="no-results">
+                {filters.favorites ? (
+                    <p>No favorite hospitals yet. Click the heart icon to add hospitals to your favorites.</p>
+                ) : (
+                    <p>No hospitals found matching your search criteria.</p>
+                )}
+              </div>
           )}
           {visibleHospitals < hospitals.length && filters.nearby && (
-            <button onClick={handleViewMore} className="animated-button">
+              <button onClick={handleViewMore} className="animated-button">
               View More Hospitals
             </button>
           )}
@@ -445,6 +484,13 @@ const HospitalMapPage = () => {
             )}
           </MapContainer>
         </div>
+        {showDetailCard && selectedHospital && (
+  <HospitalDetailCard
+    hospital={selectedHospital}
+    onClose={() => setShowDetailCard(false)}
+  />
+)}
+
       </div>
     </div>
   );

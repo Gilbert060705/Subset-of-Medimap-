@@ -1,0 +1,93 @@
+.hospital-detail-card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hospital-detail-card {
+  background-color: #FAEDCE;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.hospital-name {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+  background-color: #BF9D8C;
+  color: #333;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tab-button.active,
+.tab-button:hover {
+  background-color: #EF5A6F;
+  color: #fff;
+}
+
+.tab-content {
+  background-color: #FAEDCE;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hospital-name-clickable {
+  cursor: pointer;
+  color: #b9c1c7;
+  text-decoration: underline;
+}
+.hospital-item.selected {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+}
+.hospital-name-clickable {
+  cursor: pointer;
+  color: #d5d5d8;
+  text-decoration: underline;
+}
+.hospital-item {
+  background-color: #d07554;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 1px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
