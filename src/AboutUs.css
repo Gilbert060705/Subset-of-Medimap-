@@ -8,9 +8,14 @@
 
 html, body {
   height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+body {
+  overflow-y: auto; /* Enable vertical scrolling */
   background-color: #f3e3d6;
   color: #333;
-  overflow-x: hidden;
 }
 
 /* Main Container */
@@ -20,6 +25,9 @@ html, body {
   align-items: center;
   padding: 20px;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh; /* Full height for content */
 }
 
 /* Full-width Header with Gradient Animation */
@@ -48,8 +56,8 @@ html, body {
 }
 
 .about-us-logo img {
-  width: 200px;
-  height: 50px;
+  width: 150px;
+  height: auto;
 }
 
 /* Navigation Links */
@@ -166,17 +174,36 @@ html, body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-us-header {
-      padding: 10px 20px;
+    padding: 10px 20px;
   }
   .about-us-desc {
-      width: 90%;
-      padding: 15px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 60px;
   }
   .about-us-desc h1 {
-      font-size: 1.8em;
+    font-size: 1.8em;
   }
   .about-us-nav a {
-      font-size: 14px;
-      padding: 6px 10px;
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  .about-us-container {
+    overflow-y: auto; /* Enable vertical scroll */
+    padding: 10px; /* Adjust padding for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-nav a {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  .about-us-desc h1 {
+    font-size: 1.6em;
+  }
+  .profile-icon {
+    width: 35px;
+    height: 35px;
   }
 }
