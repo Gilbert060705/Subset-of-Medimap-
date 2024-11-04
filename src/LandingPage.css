@@ -56,7 +56,7 @@ body {
 }
 
 .landing-nav a:hover {
-    background: linear-gradient(90deg, #0099f7, #f11712);
+    background: linear-gradient(90deg, #0099f7, #b58a5d);
     color: #fff;
     border-radius: 5px;
 }
