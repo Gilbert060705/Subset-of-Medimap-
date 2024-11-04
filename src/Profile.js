@@ -122,20 +122,35 @@ const Profile = () => {
               {isEditing ? 'Save' : 'Edit'}
             </button>
           </div>
-          <div className="about-details">
-            {['fullName', 'gender', 'age', 'email', 'phone', 'address'].map((field) => (
-              <div className="detail-row" key={field}>
-                <label>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
-                <input
-                  type="text"
-                  name={field}
-                  value={userData[field]}
-                  readOnly={!isEditing}
-                  onChange={handleInputChange}
-                />
-              </div>
-            ))}
-          </div>
+<div className="about-details">
+  {['fullName', 'gender', 'age', 'email', 'phone', 'address'].map((field) => (
+    <div className="detail-row" key={field}>
+      <label>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+      {field === 'gender' ? (
+        <select
+          name="gender"
+          value={userData.gender}
+          onChange={handleInputChange}
+          disabled={!isEditing}
+        >
+          <option value="">Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Rather not say">Rather not say</option>
+        </select>
+      ) : (
+        <input
+          type="text"
+          name={field}
+          value={userData[field]}
+          readOnly={!isEditing}
+          onChange={handleInputChange}
+        />
+      )}
+    </div>
+  ))}
+</div>
+
         </section>
 
         <section className="logout-section">
