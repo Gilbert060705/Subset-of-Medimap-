@@ -123,7 +123,7 @@ const Profile = () => {
             </button>
           </div>
 <div className="about-details">
-  {['fullName', 'gender', 'age', 'email', 'phone', 'address'].map((field) => (
+  {['full Name', 'gender', 'age', 'email', 'phone', 'address'].map((field) => (
     <div className="detail-row" key={field}>
       <label>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
       {field === 'gender' ? (
