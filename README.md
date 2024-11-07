@@ -49,4 +49,3 @@ The Hospital Appointment Booking feature is activated once you select a hospital
 
 ## Administration Management 
 When selecting to log-in  as an admin, the user is required to enter the details of the admin, and there is only one admin, with the username admin. On successfully logging in you will notice the list of all the users who have ever used MediMap+. On accessing one of the users, you will be able to see the list of bookings that the user has booked or the list could be empty considering that particular user made no appointment 
-
