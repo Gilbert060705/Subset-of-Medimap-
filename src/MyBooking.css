@@ -8,7 +8,7 @@
 
 html, body {
   height: 100%;
-  overflow: auto; /* Allow the entire page to scroll */
+  overflow: hidden; /* Prevent double scrollbars */
   background-color: #f3e3d6;
   color: #333;
 }
@@ -18,7 +18,7 @@ html, body {
   margin: 0 auto;
   padding: 30px;
   max-width: 800px;
-  min-height: 100vh; /* Minimum height for full viewport */
+  height: 100vh; /* Take full viewport height */
   background: linear-gradient(135deg, #e8d5d0, #f3e3d6, #e6b8b7);
   background-size: 300% 300%;
   animation: gradientShift 8s ease infinite;
@@ -26,29 +26,9 @@ html, body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   animation: fadeInSlideUp 1.5s ease-out;
-  overflow-y: auto; /* Enables vertical scrolling within the container */
-}
-
-/* Ensure the container scrolls when content exceeds */
-.my-booking-container {
   display: flex;
   flex-direction: column;
-}
-
-/* Header Styling */
-h1 {
-  text-align: center;
-  font-size: 2em;
-  color: #333;
-  margin-bottom: 30px;
-  font-weight: bold;
-  opacity: 0;
-  animation: slideIn 1s ease-out forwards;
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  overflow: hidden; /* Prevent scrolling of the container */
 }
 
 /* Booking List Styling */
@@ -56,6 +36,9 @@ h1 {
   list-style: none;
   padding: 0;
   margin-top: 20px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  flex-grow: 1; /* Allow the list to grow and take up remaining space */
+  max-height: 70vh; /* Limit the height of the list */
 }
 
 .booking-item {
@@ -100,13 +83,13 @@ h1 {
 }
 
 .back-button:hover {
-  transform: translateY(-3px); /* Smooth lift on hover */
-  background-color: #cc8d6b; /* Subtle color change */
+  transform: translateY(-3px);
+  background-color: #cc8d6b;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .back-button:active {
-  transform: translateY(1px); /* Slight press effect */
+  transform: translateY(1px);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
