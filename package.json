@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@react-leaflet/core": "^2.1.0",
     "@supabase/auth-ui-react": "^0.4.7",
     "@testing-library/jest-dom": "^5.17.0",
